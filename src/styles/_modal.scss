@@ -1,0 +1,285 @@
+@use '_animaciones';
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+
+
+    &[aria-hidden="false"] {
+        display: flex;
+    }
+}
+
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 20, 20, 0.541);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+.modal {
+    border: 2px solid;
+    /* Define el ancho y estilo del borde */
+    border-image: linear-gradient(to right, #FFF, #00C457) 1;
+    position: relative;
+    background-color: #00000098;
+    max-width: 920px;
+    width: 100%;
+    padding: map-get($map: spacing.$spacing, $key: 64px);
+    text-align: center;
+    @include utils.flex-layout(flex-center, flex-center, column);
+    gap: map-get($map: spacing.$spacing, $key: 32px);
+
+
+    .close {
+        opacity: .7;
+        position: absolute;
+        height: 34px;
+        width: 34px;
+        object-fit: contain;
+        top: 24px;
+        right: 24px;
+        cursor: pointer;
+        transition: opacity 0.2s;;
+
+        &:hover{
+            opacity: 1;
+        }
+    
+    }
+
+    
+    
+
+    &__titulos {
+        @include utils.flex-layout(flex-center, flex-center, column);
+        gap: map-get($map: spacing.$spacing, $key: 12px);
+        color: colores.$font-primary;
+
+        .modal__titulo {
+            @include fuentes.font-responsive(subtitle-merri);
+
+        }
+
+        .modal__subtitulos{
+            @include utils.flex-layout(center, center, row);
+            gap: map-get($map: spacing.$spacing, $key: 4px);
+            font-family: Lora, serif;
+
+            .modal__subtitulo {
+             
+            }
+    
+            span {
+                color: colores.$Green-Light;
+                font-weight: bold;
+            }
+
+        }
+
+    }
+
+
+    &__img {
+        max-height: 400px;
+    }
+}
+
+
+.modal-carousel {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+
+    &[aria-hidden="false"] {
+        display: flex;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(20, 20, 20, 0.541);
+        backdrop-filter: blur(8px);
+        cursor: pointer;
+    }
+
+    &__content {
+        position: relative;
+        margin: auto;
+        z-index: 1;
+        width: 90vw;
+        max-width: 1200px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background: transparent;
+    }
+
+    &__body {
+        @include utils.flex-layout(center, center, row);
+        padding: 16px;
+
+    }
+
+    &__arrow {
+        background: none;
+        border: none;
+        color: #fff;
+
+        cursor: pointer;
+        padding: 0 1rem;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        user-select: none;
+        z-index: 2;
+
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &--left {
+            // estilos específicos si querés
+        }
+
+        &--right {
+            // estilos específicos si querés
+        }
+
+        img {
+            width: 48px; // tamaño del ícono
+            height: 48px;
+            pointer-events: none; // para que el click lo reciba el botón, no la imagen
+            user-select: none;
+            display: block;
+        }
+    }
+
+    &__img-frame {
+        max-width: 1200px;
+        width: 80vw;
+        max-height: 600px;
+        overflow: hidden;
+        @include utils.flex-layout(center, center, row)
+    }
+
+    &__img {
+        display: none;
+        max-width: 100%;
+        max-height: 600px !important;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 2px;
+        user-select: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+
+/*Rango Solo mobile*/
+@media screen and (max-width: 767px) {
+
+    .modal{
+        padding: 30px ;
+    
+    
+    
+        .close {
+           display: none;
+       
+        }
+    
+        
+    }
+
+    
+
+    .modal-carousel {
+
+
+        &__content {
+            margin: auto;
+            z-index: 1;
+            width: 100vw;
+            height: auto;
+
+        }
+
+        &__arrow {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            user-select: none;
+            z-index: 2;
+            padding: 0;
+
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &--left {
+                // estilos específicos si querés
+            }
+
+            &--right {
+                // estilos específicos si querés
+            }
+
+            img {
+                width: 42px; // tamaño del ícono
+                height: 42px;
+            }
+        }
+
+    }
+
+}
+
+
+/*Rango Solo tablet*/
+@media screen and (min-width: 768px) and (max-width:1023px) {}
+
+/*Rango Tablet >*/
+
+@media screen and (min-width: 768px) {}
+
+
+
+/*Rango Desktop >*/
+@media screen and (min-width: 1024px) {}
+
+
+/*Rango Desktop gap*/
+@media screen and (min-width: 1024px) and (max-width:1247px) {}
+
+
+/*Rango desktop xl*/
+@media screen and (min-width: 1248px) {}

@@ -1,0 +1,90 @@
+
+
+$font-family-primary: 'Lora', serif;
+$font-family-secondary: 'Lato', sans-serif;
+$font-family-tertiary: 'Merriweather', serif;
+
+
+$font-weight-map: (
+    regular: 400,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    light: 300,
+    thin: 100);
+
+    $weight-bold: map-get($font-weight-map, bold);
+    $weight-semibold: map-get($font-weight-map, semibold);
+    $weight-medium: map-get($font-weight-map, medium);
+    $weight-normal: map-get($font-weight-map, normal);
+    $weight-regular: map-get($font-weight-map, regular);
+    $weight-thin: map-get($font-weight-map, thin);
+    $weight-light: map-get($font-weight-map, light);
+
+//? DESKTOP
+$font-styles-desktop: (
+  title-1: (size: 128px, line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  title-2: (size: 70px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  title-3: (size: 60px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  subtitle-lato:  (size: 32px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary),
+  subtitle-merri: (size: 28px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-tertiary),
+  text-md:        (size: 20px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary),
+  text:           (size: 16px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary)
+);
+
+//? TABLET
+$font-styles-tablet: (
+  title-1: (size: 90px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  title-2: (size: 52px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  title-3: (size: 48px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  subtitle-lato:  (size: 26px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary),
+  subtitle-merri: (size: 24px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-tertiary),
+  text-md:        (size: 18px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary),
+  text:           (size: 16px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary)
+);
+
+//? MOBILE
+$font-styles-mobile: (
+  title-1: (size: 48px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  title-2: (size: 40px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  title-3: (size: 36px,  line-height: 1.2, weight: $weight-medium, font-family: $font-family-primary),
+  subtitle-lato:  (size: 22px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary),
+  subtitle-merri: (size: 20px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-tertiary),
+  text-md:        (size: 16px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary),
+  text:    (size: 14px, line-height: 1.2, weight: $weight-normal, font-family: $font-family-secondary)
+);
+
+// Mixin para la fuente responsive con font-family
+@mixin font-responsive($font) {
+  // Desktop
+  $desktop-styles: map-get($font-styles-desktop, $font);
+  @if $desktop-styles {
+    font-size: map-get($desktop-styles, size);
+    line-height: map-get($desktop-styles, line-height);
+    font-weight: map-get($desktop-styles, weight);
+    font-family: map-get($desktop-styles, font-family);
+  }
+
+  // Tablet
+  $tablet-styles: map-get($font-styles-tablet, $font);
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @if $tablet-styles {
+      font-size: map-get($tablet-styles, size);
+      line-height: map-get($tablet-styles, line-height);
+      font-weight: map-get($tablet-styles, weight);
+      font-family: map-get($tablet-styles, font-family);
+    }
+  }
+
+  // Mobile
+  $mobile-styles: map-get($font-styles-mobile, $font);
+  @media (max-width: 767px) {
+    @if $mobile-styles {
+      font-size: map-get($mobile-styles, size);
+      line-height: map-get($mobile-styles, line-height);
+      font-weight: map-get($mobile-styles, weight);
+      font-family: map-get($mobile-styles, font-family);
+    }
+  }
+}

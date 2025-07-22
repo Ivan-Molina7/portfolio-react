@@ -1,0 +1,343 @@
+@use '_animaciones';
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+.body--proyecto{
+    background-image: url(../assets/img/Backgrounds/bgProyecto.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+}
+
+.hero-proyecto {
+    margin-top: 80px;
+    @include spacing.layout-responsive();
+    @include utils.flex-layout(flex-start, flex-start, column);
+    gap: map-get($map: spacing.$spacing, $key: 24px);
+    color: colores.$font-primary ;
+
+    &__image-container {
+        transition: all .3s ease-in-out;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+
+
+        .hero-proyecto__image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-proyecto__overlay{
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            @include fuentes.font-responsive(text-md);
+            @include utils.flex-layout(center, center, column);
+            gap: map-get($map: spacing.$spacing, $key: 24px);
+        }
+
+        
+    }
+
+    .hero-proyecto__image-container:hover  {
+        box-shadow: 0 4px 22px rgba(3, 107, 42, 0.4);
+
+      }
+
+
+    .hero-proyecto__image-container:hover .hero-proyecto__overlay {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+
+
+
+    &__container {
+        @include utils.flex-layout(flex-start, flex-start, column);
+        gap: map-get($map: spacing.$spacing, $key: 16px);
+
+        .hero-proyecto__titulo {
+            @include fuentes.font-responsive(title-3);
+
+
+        }
+
+        .hero-proyecto__content {
+            @include utils.flex-layout(flex-start, flex-start, column);
+            gap: map-get($map: spacing.$spacing, $key: 24px);
+
+            .hero-proyecto__descripcion {
+                @include fuentes.font-responsive(text);
+            }
+
+            .hero-proyecto__botones {
+                @include utils.flex-layout(flex-start, flex-start, column);
+                gap: map-get($map: spacing.$spacing, $key: 8px);
+
+                .hero-proyecto__btn {
+                    width: auto;
+                    min-width: 120px
+                }
+            }
+        }
+    }
+}
+
+.proyecto-objetivos {
+    color: colores.$font-primary ;
+    @include spacing.layout-responsive();
+    @include utils.flex-layout(flex-start, center, column);
+    gap: map-get($map: spacing.$spacing, $key: 32px);
+
+    &__titulo {
+        @include fuentes.font-responsive(subtitle-merri);
+        text-align: center
+    }
+
+    &__items {
+        @include utils.flex-layout(center, center, row);
+        gap: map-get($map: spacing.$spacing, $key: 12px);
+        flex-wrap: wrap;
+
+
+        .proyecto-objetivos__item {
+            width: calc(50% - 12px);
+            max-width: 250px;
+            min-width: 100px;
+
+            .proyecto-objetivos__item-titulo {
+                font-family: 'Merriweather', serif;
+                font-size: 48px;
+                font-weight: 400;
+
+            }
+
+            .proyecto-objetivos__item-texto {
+                @include fuentes.font-responsive(text);
+            }
+
+        }
+    }
+}
+
+.proyecto-tecnologias {
+    color: colores.$font-primary ;
+    @include spacing.layout-responsive();
+    @include utils.flex-layout(flex-start, center, column);
+    gap: map-get($map: spacing.$spacing, $key: 32px);
+
+
+    &__titulo {
+        @include fuentes.font-responsive(subtitle-merri);
+        text-align: center
+    }
+
+    &__items {
+        @include utils.flex-layout(flex-start, center, row);
+        gap: map-get($map: spacing.$spacing, $key: 12px);
+        flex-wrap: wrap;
+
+        .proyecto-tecnologias__item {
+            width: 73px;
+            height: 73px
+        }
+    }
+}
+
+.proyecto-about {
+    color: colores.$font-primary ;
+    @include spacing.layout-responsive();
+    @include utils.flex-layout(flex-start, flex-start, column);
+    gap: map-get($map: spacing.$spacing, $key: 48px);
+
+    &__titulo {
+        @include fuentes.font-responsive(title-2);
+        text-align: center
+    }
+}
+
+
+/*Rango Solo mobile*/
+@media screen and (max-width: 767px) {}
+
+
+/*Rango Solo tablet*/
+@media screen and (min-width: 768px) and (max-width:1023px) {
+    .hero-proyecto {
+   
+        &__image-container {
+            height: 392px;
+
+            .hero-proyecto{
+                height: 100%;
+            }
+
+
+        }
+
+    }
+
+    .proyecto-objetivos {
+        &__items {
+            gap: map-get($map: spacing.$spacing, $key: 48px);
+        }
+    }
+
+    .proyecto-tecnologias {
+
+        &__items {
+            gap: map-get($map: spacing.$spacing, $key: 24px);
+
+            .proyecto-tecnologias__item {
+                width: 80px;
+                height: 80px
+            }
+        }
+    }
+
+}
+
+/*Rango Tablet >*/
+
+@media screen and (min-width: 768px) {
+    .hero-proyecto {
+        .hero-proyecto__content {
+            .hero-proyecto__botones {
+                gap: map-get($map: spacing.$spacing, $key: 24px);
+                flex-direction: row;
+            }
+        }
+    }
+
+    .proyecto-tecnologias__items {
+        gap: map-get($map: spacing.$spacing, $key: 32px);
+
+    }
+}
+
+
+
+/*Rango Desktop >*/
+@media screen and (min-width: 1024px) {
+
+
+    .hero-proyecto {
+        margin-top: 120px;
+        @include utils.flex-layout(space-between, flex-end, row);
+
+
+        &__image-container {
+            height: 100%;
+            width: 570px;
+        }
+
+
+        &__container {
+            width: 570px;
+            gap: map-get($map: spacing.$spacing, $key: 24px);
+
+            .hero-proyecto__titulo {
+                @include fuentes.font-responsive(title-3);
+            }
+
+            .hero-proyecto__content {
+
+                gap: map-get($map: spacing.$spacing, $key: 24px);
+
+                .hero-proyecto__botones {
+                    gap: map-get($map: spacing.$spacing, $key: 24px);
+                }
+            }
+        }
+    }
+
+    .proyecto-objetivos {
+
+        &__items {
+            gap: 100px;
+
+
+            .proyecto-objetivos__item {
+                max-width: 300px;
+
+                .proyecto-objetivos__item-titulo {
+                    font-family: 'Merriweather', serif;
+                    font-size: 96px;
+                    font-weight: 400;
+
+                }
+
+                .proyecto-objetivos__item-texto {
+                    @include fuentes.font-responsive(text);
+                }
+
+            }
+        }
+    }
+
+    .proyecto-tecnologias {
+
+        &__items {
+
+            .proyecto-tecnologias__item {
+                width: 100px;
+                height: 100px
+            }
+        }
+    }
+
+}
+
+
+
+
+/*Rango Desktop gap*/
+@media screen and (min-width: 1024px) and (max-width:1247px) {
+
+
+    .hero-proyecto {
+
+        &__image-container {
+            width:50%;
+            height: 100%;
+        }
+
+
+        &__container {
+            width: 50%;
+            gap: map-get($map: spacing.$spacing, $key: 24px);
+
+            .hero-proyecto__titulo {
+                font-size: 48px;
+            }
+
+            .hero-proyecto__content {
+
+                gap: map-get($map: spacing.$spacing, $key: 24px);
+
+                .hero-proyecto__botones {
+                    gap: map-get($map: spacing.$spacing, $key: 24px);
+                }
+            }
+        }
+    }
+
+}
+
+
+/*Rango desktop xl*/
+@media screen and (min-width: 1248px) {}

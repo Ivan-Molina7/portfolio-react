@@ -1,0 +1,182 @@
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+
+
+.header {
+  @include spacing.layout-responsive;
+  position: sticky;
+  top: 0px;
+  height: 70px;
+  width: 100%;
+  z-index: 600;
+  backdrop-filter: blur(22px);
+
+  @include utils.flex-layout(space-between, center, row);
+
+  &__logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+  }
+
+
+
+  .ham-menu {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1100; /* para que esté arriba del menú */
+
+    span {
+      display: block;
+      height: 3px;
+      background-color: #fff; /* color de las líneas */
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+  }
+
+
+
+
+
+
+  .ham-menu.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .ham-menu.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .ham-menu.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  nav {
+    position: fixed;
+    top: 70px;
+    left: -800px; 
+    width: 60vw;
+    height: 100vh;
+    background-color: rgba(0, 51, 39); /* opacidad reducida */
+
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    transition: left 0.3s ease-in-out;
+    padding-top: 70px;
+    z-index: 1000;
+
+    .nav__list {
+
+      @include utils.flex-layout(center, center, column);
+      gap: map-get($map: spacing.$spacing, $key: 48px);
+    }
+  
+    .nav__item {
+      color: colores.$font-primary;
+      font-family: lora, serif;
+      font-size: 20px;
+    }
+  
+    .nav__link {
+      color: colores.$font-primary;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .nav__link:hover {
+      color: colores.$Green-Light;
+
+    }
+    
+    
+  }
+
+  nav.open {
+    left: 0;               /* Se desliza a la posición visible */
+  }
+
+
+  &__btn {
+    display: none;
+  }
+}
+
+
+
+/*Rango Solo mobile*/
+@media screen and (max-width: 767px) {}
+
+
+/*Rango Solo tablet*/
+@media screen and (min-width: 768px) and (max-width:1023px) {}
+
+/*Rango Desktop*/
+@media screen and (min-width: 1024px) {
+
+  .header {
+
+    &__thumbnail {
+      width: 150px;
+    }
+
+    nav {
+      position: static;
+      width: auto;
+      height: auto;
+      background: transparent;
+      padding: 0;
+      display: block;
+      transition: none;
+
+
+     .nav__list{
+        @include utils.flex-layout(center, center, row);
+        gap: map-get($map: spacing.$spacing, $key: 32px);
+      }
+    }
+
+    .ham-menu {
+      display: none;
+    }
+
+    &__btn {
+      display: flex;
+    }
+  }
+
+}
+
+
+/*Rango Desktop gap*/
+@media screen and (min-width: 1024px) and (max-width:1247px) {}
+
+
+/*Rango desktop xl*/
+@media screen and (min-width: 1248px) {
+  .header {
+    padding: 0 20px !important;
+  }
+}
+
+
+
+
+
+
+/*Rango 992 para abajo*/
+@media screen and (max-width: 992px) {}
+
+/*Rango abiertos*/
+
+@media screen and (min-width: 768px) {}

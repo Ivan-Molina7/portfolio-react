@@ -1,0 +1,552 @@
+@use '_animaciones';
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+
+
+.hero {
+
+    @include spacing.layout-responsive;
+    @include utils.flex-layout(center, center, column);
+    gap: map-get($map: spacing.$spacing, $key: 48px);
+    padding-top: map-get($map: spacing.$spacing, $key: 48px);
+    padding-bottom: map-get($map: spacing.$spacing, $key: 48px);
+    text-align: center;
+
+
+    &__titles {
+        @include utils.flex-layout(center, center, column);
+        position: relative;
+
+        .estado {
+            @include utils.flex-layout(center, center, row);
+            gap: map-get($map: spacing.$spacing, $key: 4px);
+            padding: 4px 8px;
+            color: colores.$font-primary;
+            background-color: colores.$Green-Dark;
+            font-size: 12px;
+            font-family: lato, sans-serif;
+            position: absolute;
+            right: 0;
+            top: -48px;
+
+            img {
+                animation: respirar 2s ease-in-out infinite;
+            }
+        }
+
+
+
+
+        .hero__title {
+            font-size: 68px;
+            color: colores.$font-primary;
+            font-family: Lora, serif;
+            font-weight: map-get(fuentes.$font-weight-map, medium);
+        }
+
+
+        .hero__subtitles {
+            @include utils.flex-layout(center, center, column);
+            gap: map-get($map: spacing.$spacing, $key: 12px);
+
+            .hero__subtitle {
+                @include fuentes.font-responsive(subtitle-lato);
+                font-weight: bold;
+                color: colores.$font-primary;
+
+                span {
+                    color: colores.$Green-Light;
+                }
+            }
+
+
+            .hero__pais {
+                @include fuentes.font-responsive(text-md);
+                color: colores.$font-secondary;
+            }
+        }
+    }
+
+    &__buttons {
+        @include utils.flex-layout(center, center, row);
+        @include spacing.gutter-responsive;
+        flex-wrap: wrap
+    }
+
+}
+
+
+
+
+.hud-secciones {
+    z-index: 500;
+    position: fixed;
+    right: 20px;
+    top: calc(50vh - 90px);
+    gap: 20px;
+    display: none;
+
+
+    .circle {
+        cursor: pointer;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: 1px solid #fff !important;
+        background-color: transparent;
+        transition: background 0.3s ease, border 0.3s ease-in-out;
+    }
+
+    .circle:nth-child(1) {
+        background-color: transparent;
+    }
+
+
+    .circle--active {
+        background-color: #ffffff;
+    }
+
+    .circle--inactive {
+            background-color: transparent;
+    }
+
+}
+
+
+
+.hud {
+    position: fixed;
+    bottom: 25px;
+    @include utils.flex-layout(space-between, center, row);
+    padding: 0 20px;
+    width: 100%;
+    z-index: 250;
+
+    &__redes {
+        @include utils.flex-layout(flex-start, flex-start, row);
+        gap: map-get($map: spacing.$spacing, $key: 12px);
+
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 2px;
+        padding: 8px 8px;
+
+        a {
+            width: 28px;
+            height: 28px;
+        }
+
+        .hud__image {
+            cursor: pointer;
+            transition: all .1s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hud__image:hover {
+            opacity: .8;
+        }
+    }
+
+    &__idiomas {
+        @include utils.flex-layout(flex-start, flex-start, row);
+        gap: map-get($map: spacing.$spacing, $key: 12px);
+        color: colores.$font-primary;
+        font-family: lora, serif;
+        width: 115px;
+        font-size: 20px;
+
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 2px;
+        padding: 6px 12px;
+
+        .hud__idioma {
+            cursor: pointer;
+            transition: all .1s ease-in-out
+        }
+
+
+    }
+
+}
+
+
+.proyectos {
+    @include spacing.layout-responsive;
+    @include utils.flex-layout(flex-start, flex-start, column);
+    gap: map-get($map: spacing.$spacing, $key: 48px);
+    width: 100%;
+
+    &__container {
+        @include utils.flex-layout(flex-start, flex-start, column);
+        gap: map-get($map: spacing.$spacing, $key: 24px);
+
+
+        .proyectos__line {
+            height: 300px;
+            width: 3px;
+            background-color: colores.$Green-Light;
+            display: none
+        }
+    }
+
+    .temas-section {
+
+        .proyectos__subtitle {}
+
+        .proyectos__cards {
+            @include utils.flex-layout(flex-start, flex-start, row);
+            @include spacing.gutter-responsive;
+            flex-wrap: wrap;
+        }
+
+
+    }
+}
+
+.habilidades {
+    width: 100%;
+    @include spacing.layout-responsive;
+    @include utils.flex-layout(flex-start, flex-start, column);
+    gap: map-get($map: spacing.$spacing, $key: 48px);
+
+    &__container {
+        @include utils.flex-layout(flex-start, flex-start, column);
+        gap: map-get($map: spacing.$spacing, $key: 48px);
+
+        .habilidades__section {
+            @include utils.flex-layout(flex-start, flex-start, column);
+            gap: map-get($map: spacing.$spacing, $key: 16px);
+
+            .habilidades__subtitle {}
+
+            .habilidades__subtitle--aprendiendo {
+                animation: aprendiendo 3s ease infinite;
+            }
+
+            .habilidades__cards {
+                @include utils.flex-layout(flex-start, flex-start, row);
+                @include spacing.gutter-responsive;
+                flex-wrap: wrap;
+            }
+
+
+
+
+        }
+    }
+
+}
+
+.about {
+    width: 100%;
+    @include spacing.layout-responsive;
+    @include utils.flex-layout(flex-start, flex-start, column);
+    gap: map-get($map: spacing.$spacing, $key: 70px);
+    color: colores.$font-primary;
+
+
+    &__content {
+
+        @include utils.flex-layout(flex-start, flex-start, column);
+        gap: map-get($map: spacing.$spacing, $key: 48px);
+
+        .about__texts {
+            @include utils.flex-layout(flex-start, flex-start, column);
+            gap: map-get($map: spacing.$spacing, $key: 32px);
+        }
+
+        .about__texts-groups {
+            @include utils.flex-layout(flex-start, flex-start, column);
+            gap: map-get($map: spacing.$spacing, $key: 8px);
+        }
+
+        .about__text {
+            @include fuentes.font-responsive(text);
+        }
+    }
+
+    .timeline {
+        width: 100%;
+        position: relative;
+        @include utils.flex-layout(space-around, flex-start, row);
+
+        width: 100%;
+
+        &__line {
+            position: absolute;
+            bottom: 25%;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            background-color: #d9d9d9;
+        }
+
+        &__item {
+            @include utils.flex-layout(center, center, column);
+            gap: map-get($map: spacing.$spacing, $key: 8px);
+
+            .timeline__thubmnail {
+                padding: map-get($map: spacing.$spacing, $key: 16px);
+                border: 1px solid white;
+                height: 70px;
+                width: 70px;
+                cursor: pointer;
+                animation: backgroundAboutImages 2s ease-in-out infinite;
+
+                .timeline__image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+
+                }
+            }
+
+            .timeline__info {
+                @include utils.flex-layout(flex-start, center, column);
+                gap: map-get($map: spacing.$spacing, $key: 8px);
+
+                .anio {
+                    @include fuentes.font-responsive(subtitle-merri);
+
+                }
+
+                .btn {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+
+
+.contacto {
+    //margin-bottom: map-get($map: spacing.$spacing, $key: 70px);
+    @include spacing.layout-responsive;
+    @include utils.flex-layout(flex-start, center, column);
+    gap: map-get($map: spacing.$spacing, $key: 48px);
+    text-align: center;
+    width: 100%;
+
+    &__content {
+        width: 100%;
+        @include utils.flex-layout(flex-start, center, column);
+        gap: map-get($map: spacing.$spacing, $key: 48px);
+
+        .contacto__title {
+            text-align: center;
+        }
+
+        .contacto__info {
+            width: 100%;
+            @include utils.flex-layout(flex-start, center, column);
+            gap: map-get($map: spacing.$spacing, $key: 24px);
+
+            .contacto__email {
+                color: colores.$Green-Light;
+                @include fuentes.font-responsive(text-md);
+                font-weight: bold !important;
+            }
+
+            .contacto__line {
+                width: 100px;
+                height: 1px;
+                background-color: #ffffff;
+            }
+
+            .contacto__redes {
+                @include utils.flex-layout(flex-start, flex-start, row);
+                gap: map-get($map: spacing.$spacing, $key: 16px);
+
+                img {
+                    transition: all .1s ease-in-out;
+                    cursor: pointer;
+                    height: 24px;
+                    width: 24px;
+                }
+
+
+                img:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*Rango Solo mobile*/
+@media screen and (max-width: 767px) {}
+
+
+/*Rango Solo tablet*/
+@media screen and (min-width: 768px) and (max-width:1023px) {}
+
+/*Rango Desktop*/
+@media screen and (min-width: 1024px) {
+    .hero {
+        margin-top: 0;
+        height: calc(100vh - 70px);
+        padding: 0;
+        position: relative;
+    }
+
+    .hud-secciones {
+        @include utils.flex-layout(center, center, column);
+    }
+
+    .contacto {
+
+
+        .contacto__redes {
+
+            img {
+                width: 34px;
+                height: 34px;
+            }
+
+
+        }
+
+    }
+
+}
+
+
+/*Rango Desktop gap*/
+@media screen and (min-width: 1024px) and (max-width:1199px) {}
+
+
+/*Rango desktop xl*/
+@media screen and (min-width: 1200px) {
+
+    .proyectos {
+
+        @include utils.flex-layout(flex-start, flex-start, column);
+        gap: map-get($map: spacing.$spacing, $key: 48px);
+
+        &__container {
+            width: 100%;
+            @include utils.flex-layout(space-between, flex-start, row);
+
+
+
+            .proyectos__line {
+                display: block
+            }
+        }
+
+
+    }
+
+    .about {
+        @include spacing.layout-responsive;
+        @include utils.flex-layout(flex-start, flex-start, column);
+        gap: 120px;
+        color: colores.$font-primary;
+
+
+        .timeline {
+            padding: 0 200px
+        }
+    }
+
+
+    .contacto {
+        @include utils.flex-layout(space-between, flex-start, row);
+        gap: auto;
+
+        text-align: center;
+
+        &__content {
+            width: auto;
+            @include utils.flex-layout(flex-start, flex-start, column);
+            gap: map-get($map: spacing.$spacing, $key: 48px);
+
+            .contacto__title {
+                text-align: center;
+            }
+
+            .contacto__info {
+                width: 100%;
+                @include utils.flex-layout(flex-start, flex-start, column);
+                gap: map-get($map: spacing.$spacing, $key: 32px);
+
+
+                .contacto__redes {
+
+                    img {
+                        width: 34px;
+                        height: 34px;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
+
+
+}
+
+
+
+
+/*Rango abiertos*/
+
+@media screen and (min-width: 768px) {
+    .hero {
+
+        &__titles {
+
+            .hero__title {
+                @include fuentes.font-responsive(title-1);
+            }
+        }
+    }
+
+    .about {
+
+        &__content {
+            .about__text {
+                @include fuentes.font-responsive(text);
+            }
+        }
+
+        .timeline {
+
+
+            .timeline__line {
+                bottom: 45%;
+            }
+
+            .timeline__thubmnail {
+                height: 100px;
+                width: 100px;
+                background-color: #092D24;
+                animation: none;
+                cursor: auto;
+            }
+
+            &__item {
+
+
+                .timeline__info {
+                    .anio {
+                        font-size: 38px;
+                    }
+
+                    .btn {
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+}

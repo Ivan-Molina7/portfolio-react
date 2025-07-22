@@ -1,0 +1,137 @@
+{
+  "header": {
+    "proyectos": "Proyectos",
+    "habilidades": "Habilidades",
+    "sobreMi": "Sobre mi",
+    "contacto": "Contacto",
+    "btnContacto": "  Contacto"
+  },
+
+  "hero": {
+    "ofertas": "Abierto a ofertas",
+    "nombre": "IVAN MOLINA",
+    "descripcion": "<span>Desarrollador Front-end Junior</span>, aspirando a ser<br>Full-stack designer.",
+    "ubicacion": "Montevideo, Uruguay",
+    "leerMas": "Leer más",
+    "sobreMi": "Sobre mi"
+  },
+  "proyectos": {
+    "titulo": "PROYECTOS",
+    "trabajosTitulo": "TRABAJOS",
+    "proyectosPersonalesTitulo": "PROYECTOS PERSONALES",
+    "expandirBtn": "Expandir"
+  },
+  "habilidades": {
+    "titulo": "HABILIDADES",
+    "programacionTitulo": "Programación",
+    "disenoTitulo": "Diseño",
+    "aprendiendoTitulo": "Aprendiendo..."
+  },
+  "about": {
+    "titulo": "SOBRE MI",
+    "parrafo1": "Hola, soy Iván Molina, diseñador UX/UI y programador front-end con base en Montevideo, Uruguay. Me interesa el diseño que se ve bien, funciona bien y, sobre todo, mejora la experiencia de quienes lo usan. Me gusta entender cada proyecto como un proceso de aprendizaje, donde puedo crecer, afinar mi mirada y acercarme, paso a paso, al nivel profesional que admiro.",
+    "extraTitulo": "Extra",
+    "parrafo2": "      Además del diseño y la programación, me interesa la forma en que nos relacionamos como equipo. Valoro la comunicación clara, el respeto por las ideas del otro y la creación de entornos donde cada persona pueda aportar lo mejor de sí. Me importa trabajar con compromiso, mantener la calma en los momentos clave y empujar hacia adelante con actitud, pero siempre construyendo desde el entendimiento y la colaboración.",
+    "anio0": "2019",
+    "expandir0": "Expandir",
+    "anio1": "2022",
+    "expandir1": "Expandir",
+    "anio2": "2025",
+    "expandir2": "Expandir"
+  },
+  "contacto": {
+    "titulo": "CONTACTO",
+    "email": "contacto.ivanmolina@gmail.com",
+    "labelNombre": "Nombre",
+    "placeholderNombre": "Nombre",
+    "labelCorreo": "Correo",
+    "placeholderCorreo": "Email",
+    "labelMensaje": "Mensaje",
+    "placeholderMensaje": "Mensaje...",
+    "btnEnviar": "Enviar"
+  },
+
+  "proyecto": {
+    "overlayTexto": "<img src='../assets/img/Icons/White/touch.png' alt='tocar pantalla icono'>  Haz click para ver más pantallas",
+    "btnVisitar": "Visitar sitio",
+    "btnMasInfo": "Más información en mi Behance",
+
+    "cap_descripcion": "Una plataforma web renovada que conecta a los hinchas con su club, ofreciendo noticias, estadísticas y contenidos actualizados en un entorno accesible y fácil de usar. Este proyecto busca modernizar la presencia digital del club y fortalecer el vínculo con su comunidad.",
+    "nbc_descripcion": "NBC Cargo es una empresa dedicada a importaciones por avión y barco cuyo sitio web estaba muy anticuado. Desarrollé una nueva página desde cero con un diseño moderno y funcional. La renovación mejoró la experiencia del usuario y la presencia digital de la empresa. Así, se facilitó el acceso a sus servicios y se fortaleció su imagen en línea.",
+    "havanna_descripcion": "Havanna es una propuesta de e-commerce elegante y atemporal para la venta de relojes de lujo. El rediseño se enfocó en crear una experiencia visual cuidada, con navegación intuitiva y una presentación clara de productos y detalles. El objetivo fue modernizar la presencia digital de la marca, facilitando la exploración y selección de productos para los usuarios.",
+    "culPadel_descripcion": "CulPadel fue un ejercicio final de la facultad donde creamos una imagen corporativa y un sitio web para reservar canchas y salones, elegir fecha, turno y método de pago, representando toda la información proporcionada.",
+    "worldGym_descripcion": "WorldGym es un proyecto que utiliza APIs públicas para ofrecer una experiencia dinámica donde puedes crear y gestionar rutinas personalizadas para principiantes e intermedios, guardar ejercicios favoritos y adaptarlos según tus necesidades."
+  },
+
+  "objetivos": {
+    "titulo": "Objetivos del proyecto",
+
+    "cap_item1Texto": "Modernizar la plataforma digital del club, mejorando la usabilidad, accesibilidad y experiencia del usuario.",
+    "cap_item2Texto": "Ofrecer un espacio dinámico y actualizado para que los hinchas accedan fácilmente a noticias, estadísticas y contenidos relevantes.",
+    "cap_item3Texto": "Fortalecer el vínculo entre el club y la comunidad, potenciando la identidad y la interacción a través de la web.",
+
+    "nbc_item1Texto": "Modernizar el sitio web de NBC Cargo, mejorando la usabilidad y funcionalidad para optimizar la experiencia del usuario.",
+    "nbc_item2Texto": "Diseñar una plataforma moderna y atractiva que facilite el acceso a los servicios de importación por aire y mar.",
+    "nbc_item3Texto": "Fortalecer la presencia digital de NBC Cargo, mejorando su imagen online y facilitando la conexión con sus clientes.",
+
+    "havanna_item1Texto": "Crear una experiencia de compra online elegante y fluida que refleje la calidad y exclusividad de los relojes Havanna.",
+    "havanna_item2Texto": "Diseñar una interfaz intuitiva que facilite la exploración y selección de productos, mejorando la usabilidad en todos los dispositivos.",
+    "havanna_item3Texto": "Potenciar la presencia digital de Havanna, fortaleciendo su imagen de marca y aumentando la confianza de los usuarios.",
+
+    "culPadel_item1Texto": "Crear una plataforma intuitiva para reservar canchas y salones, facilitando la selección de fecha, turno y método de pago.",
+    "culPadel_item2Texto": "Diseñar una experiencia de usuario clara y funcional que represente la imagen corporativa creada en el proyecto.",
+    "culPadel_item3Texto": "Facilitar la gestión de reservas y pagos, mejorando la interacción entre usuarios y la plataforma.",
+
+    "worldGym_item1Texto": "Crear una plataforma interactiva que permita a los usuarios crear y gestionar rutinas personalizadas para diferentes niveles de entrenamiento.",
+    "worldGym_item2Texto": "Integrar APIs públicas para ofrecer información actualizada y variada sobre ejercicios y rutinas de gimnasio.",
+    "worldGym_item3Texto": "Facilitar la gestión de ejercicios favoritos y rutinas guardadas, mejorando la experiencia y motivación del usuario."
+  },
+
+  "tecnologias": {
+    "tecnologiasTitulo": "Tecnologías utilizadas"
+  },
+
+  "proyecto_about": {
+    "sobrePaginaTitulo": "Sobre la página",
+
+    "cap_pregunta1": "¿Cuál fue el proceso de elaboración y desarrollo del proyecto?",
+    "cap_respuesta1": "Se inició con un análisis de la plataforma actual y las necesidades del club, seguido por el diseño de prototipos y el desarrollo frontend y backend para crear una web moderna, accesible y funcional.",
+    "cap_pregunta2": "¿Cómo se diseñó la experiencia de usuario y la interfaz?",
+    "cap_respuesta2": "El diseño se centró en la usabilidad y accesibilidad, con una navegación clara y visual alineado a la identidad del club, asegurando una experiencia intuitiva y atractiva en todos los dispositivos.",
+    "cap_pregunta3": "¿Qué impacto o beneficios se esperan para los usuarios o la comunidad?",
+    "cap_respuesta3": "Se busca facilitar el acceso a información actualizada, fortalecer el vínculo con los hinchas y potenciar la presencia digital del club, generando mayor interacción y sentido de pertenencia .",
+
+    "nbc_pregunta1": "¿Cuál fue el proceso de elaboración y desarrollo del proyecto?",
+    "nbc_respuesta1": "Se inició con un análisis del sitio web antiguo y las necesidades de NBC Cargo, seguido del diseño de prototipos y el desarrollo frontend y backend para crear una web moderna y funcional.",
+    "nbc_pregunta2": "¿Cómo se diseñó la experiencia de usuario y la interfaz?",
+    "nbc_respuesta2": "El diseño priorizó la usabilidad y accesibilidad, con una navegación clara y un estilo visual moderno que refleja la identidad corporativa de NBC Cargo, garantizando una experiencia atractiva en todos los dispositivos.",
+    "nbc_pregunta3": "¿Qué impacto o beneficios se esperan para los usuarios o la comunidad?",
+    "nbc_respuesta3": "Se espera facilitar el acceso a los servicios de importación, mejorar la imagen digital de NBC Cargo y fortalecer la conexión con sus clientes a través de una plataforma eficiente y moderna.",
+
+    "havanna_pregunta1": "¿Cuál fue el proceso de elaboración y desarrollo del proyecto?",
+    "havanna_respuesta1": "El proyecto comenzó con un análisis detallado de la marca Havanna y sus necesidades, seguido por el diseño de prototipos y el desarrollo frontend para crear una tienda online elegante, intuitiva y funcional.",
+    "havanna_pregunta2": "¿Cómo se diseñó la experiencia de usuario y la interfaz?",
+    "havanna_respuesta2": "El diseño se enfocó en una navegación clara y visual elegante, alineada con la identidad de Havanna, asegurando una experiencia atractiva y fácil de usar en todos los dispositivos.",
+    "havanna_pregunta3": "¿Qué impacto o beneficios se esperan para los usuarios o la comunidad?",
+    "havanna_respuesta3": "Se espera que la nueva plataforma potencie la presencia digital de Havanna, facilite la compra online y fortalezca la relación con sus clientes a través de una experiencia de usuario superior.",
+
+    "culPadel_pregunta1": "¿Cuál fue el proceso de elaboración y desarrollo del proyecto?",
+    "culPadel_respuesta1": "El proyecto fue un ejercicio final de la facultad que consistió en crear una imagen corporativa y un sitio web para reservar canchas y salones, con selección de fecha, turno y método de pago.",
+
+    "culPadel_pregunta2": "¿Cómo se diseñó la experiencia de usuario y la interfaz?",
+    "culPadel_respuesta2": "Se diseñó una interfaz clara, intuitiva y funcional, alineada con la imagen corporativa creada, para facilitar la reserva y el pago en todos los dispositivos.",
+
+    "culPadel_pregunta3": "¿Qué impacto o beneficios se esperan para los usuarios o la comunidad?",
+    "culPadel_respuesta3": "Se espera que la plataforma facilite la gestión de reservas y pagos, mejorando la experiencia del usuario y fortaleciendo la imagen corporativa del proyecto.",
+
+
+    "worldGym_pregunta1": "¿Cuál fue el proceso de elaboración y desarrollo del proyecto?",
+    "worldGym_respuesta1": "El proyecto consistió en utilizar APIs públicas para crear una plataforma dinámica que permite a los usuarios crear y gestionar rutinas personalizadas según su nivel de entrenamiento.",
+  
+    "worldGym_pregunta2": "¿Cómo se diseñó la experiencia de usuario y la interfaz?",
+    "worldGym_respuesta2": "Se diseñó una interfaz intuitiva y funcional, que facilita la navegación y gestión de rutinas, adaptada para ofrecer una experiencia atractiva en todos los dispositivos.",
+  
+    "worldGym_pregunta3": "¿Qué impacto o beneficios se esperan para los usuarios o la comunidad?",
+    "worldGym_respuesta3": "Se espera que la plataforma motive a los usuarios a mantenerse activos, facilitando la creación y seguimiento de rutinas personalizadas y mejorando su experiencia de entrenamiento."
+  }
+}

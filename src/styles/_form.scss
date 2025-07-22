@@ -1,0 +1,109 @@
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+
+.form {
+    background-color: #000;
+    background-image: url("../assets/img/Backgrounds/bgContact2.webp");
+    background-size: cover;
+    @include utils.flex-layout(center, center, column);
+    gap: map-get($map: spacing.$spacing, $key: 32px);
+    width: 100%;
+    max-width: 350px;
+    padding: map-get($map: spacing.$spacing, $key: 32px);
+
+    &__group {
+        width: 100%;
+        @include utils.flex-layout(flex-start, flex-start, column);
+        gap: map-get($map: spacing.$spacing, $key: 8px);
+
+        label {
+            @include fuentes.font-responsive(text);
+            color: colores.$font-primary;
+        }
+
+        .form__input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid colores.$font-primary;
+            color: colores.$Bg-Green-2;
+            border-radius: 1px;
+        }
+
+        textarea {
+            @include fuentes.font-responsive(text);
+            resize: none;
+        }
+
+    }
+
+    button {
+        align-self: flex-end;
+    }
+}
+
+
+
+/*Rango Solo mobile*/
+@media screen and (max-width: 767px) {}
+
+
+/*Rango Solo tablet*/
+@media screen and (min-width: 768px) and (max-width:1023px) {
+    .form {
+        max-width: 524px;
+        padding: map-get($map: spacing.$spacing, $key: 48px);
+
+        button {
+            align-self: center;
+        }
+    }
+
+}
+
+/*Rango Desktop*/
+@media screen and (min-width: 1024px) {
+    .form {
+        max-width: 431px;
+        padding: map-get($map: spacing.$spacing, $key: 48px);
+
+        button {
+            align-self: center;
+        }
+    }
+}
+
+
+/*Rango Desktop gap*/
+@media screen and (min-width: 1024px) and (max-width:1247px) {
+    .form {
+        max-width: 524px;
+        padding: map-get($map: spacing.$spacing, $key: 48px);
+
+        button {
+            align-self: center;
+        }
+    }
+
+
+
+}
+
+
+/*Rango desktop xl*/
+@media screen and (min-width: 1248px) {
+  
+}
+
+
+
+
+
+/*Rango 992 para abajo*/
+@media screen and (max-width: 992px) {}
+
+/*Rango abiertos*/
+
+@media screen and (min-width: 768px) {}

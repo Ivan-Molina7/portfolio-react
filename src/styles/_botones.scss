@@ -1,0 +1,60 @@
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+
+.btn{
+    cursor: pointer;
+    padding: 16px 12px;
+    width: 150px;
+    border-radius: 2px;
+    border: none;
+    background-color: colores.$Green-Dark;
+    color: colores.$font-primary;
+   // gap: map-get(spacing.$spacing, 16px);
+    @include utils.flex-layout(center, center, row);
+    @include fuentes.font-responsive(text);
+    font-weight: map-get(fuentes.$font-weight-map, semibold);
+
+    transition: all 0.2s ease-in-out;
+
+    span{
+        padding: 0 16px;
+    }
+}
+
+
+
+.btn:hover{
+    background-color: colores.$Green-Hover;
+}
+
+
+
+.btn--secondary{
+    background-color: unset;
+    box-shadow: inset 0 0 0 2px white;
+}
+
+.btn--secondary:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+ 
+}
+
+.btn--proyectos{
+    min-height: 32px !important;
+    width: 120px;
+    padding: 0  12px;
+    font-weight: bold;
+}
+
+.btn--timeline{
+    width: 138px;
+}
+
+.btn--submit{
+    background-color: unset;
+    border: 2px solid white;
+
+}

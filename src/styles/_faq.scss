@@ -1,0 +1,88 @@
+@use '_animaciones';
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+
+.faq{
+    @include utils.no-decoration;
+    @include utils.flex-layout(flex-start, flex-start, column);
+    gap: map-get($map: spacing.$spacing, $key: 32px);
+    width: 100%;
+
+    &__item{
+        width: 100%;
+        border: 1px solid #d9d9d9;
+
+        
+
+        .faq__pregunta {
+            @include fuentes.font-responsive(text-md);
+            @include utils.flex-layout(space-between, flex-start, row);
+            padding: map-get($map: spacing.$spacing, $key: 16px);
+            transition: all .3s ease;
+            cursor: pointer;
+
+            .faq__icon {
+                order: 2;
+                width: 20px;
+                height: 20px;
+                position: relative;
+                transition: transform 0.3s ease;
+
+                div {
+                    height: 2px;
+                    border-radius: 2px;
+                    width: 100%;
+                    background-color: #fff;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transition: all 0.3s ease; 
+                }
+            }
+
+            .faq__icon div:nth-child(1){
+                transform: rotate(90deg);
+            }
+
+            .faq__icon div:nth-child(2){
+                opacity: 1; 
+            }
+
+
+            
+            .faq__icon.active div:nth-child(1){
+                transform: rotate(0deg) translateY(-50%); 
+                background-color: colores.$Green-Light;
+            }
+
+            .faq__icon.active div:nth-child(2){
+                opacity: 0;
+            }
+
+        }
+
+        .faq__pregunta:not(.active):hover {
+            background-image: linear-gradient(to left, #036b2b27, #07282228);
+          }
+
+
+
+        .faq__respuesta{
+            padding:  0px 16px;
+            overflow: hidden;
+            max-height: 0; /* en lugar de height: 0 */
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+            @include fuentes.font-responsive(text);
+        }
+
+        .faq__respuesta--abierta{
+            padding: map-get($map: spacing.$spacing, $key: 16px);
+            max-height: 200px; /* en lugar de height: 0 */
+            opacity: 1;
+        }
+    }
+} 

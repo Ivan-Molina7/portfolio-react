@@ -1,0 +1,206 @@
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+
+
+
+/* PROYECTOS */
+.proyectos__card {
+    @include utils.flex-layout(center, center, column);
+    width: 158px;
+    height: 170px;
+    padding: map-get($map: spacing.$spacing, $key: 16px) 0;
+    gap: map-get($map: spacing.$spacing, $key: 16px);
+    background-color: #092D24;
+    box-shadow: inset 0 0 0 1px white;
+    transition: all .3s ease-in-out;
+
+    img {
+        width: 100px;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.proyectos__card:hover {
+    background-color: colores.$Green-Hover-Card;
+}
+
+/* HABILIDADES */
+.habilidades__card {
+    position: relative;
+    @include utils.flex-layout(center, center, row);
+    transition: all .3s ease-in-out;
+    background-color: #092D24;
+    border: 1px solid white;
+    height: 73px;
+    width: 73px;
+    padding: map-get($map: spacing.$spacing, $key: 16px);
+
+
+    img {
+        width: 41px;
+        height: 41px;
+        object-fit: contain;
+            position: absolute;
+   
+            transition: opacity 0.4s ease;
+     
+    }
+
+    .img-color {
+        opacity: 0;
+      }
+      
+   
+}
+
+.habilidades__card:hover .img-color {
+    opacity: 1;
+  }
+  
+  .habilidades__card:hover .img-gris {
+    opacity: 0;
+  }
+
+.habilidades__card:hover {
+    background-color: colores.$Green-Hover-Card;
+}
+
+
+.habilidades__card--ai:hover {
+    box-shadow: 0 4px 18px 0 rgba(255, 102, 0, 0.7);   /* Naranja Illustrator */
+  }
+  
+  .habilidades__card--bootstrap:hover {
+    box-shadow: 0 4px 18px 0 rgba(158, 93, 255, 0.7);  /* Violeta Bootstrap */
+  }
+  
+  .habilidades__card--css:hover {
+    box-shadow: 0 4px 28px 0 rgba(38, 77, 228, 0.7);   /* Azul CSS */
+  }
+  
+  .habilidades__card--figma:hover {
+    box-shadow: 0 4px 28px 0 rgba(177, 27, 52, 0.7); /* Rojo Figma */
+  }
+  
+  .habilidades__card--html:hover {
+    box-shadow: 0 4px 28px 0 rgba(227, 79, 38, 0.7);   /* Naranja HTML */
+  }
+  
+  .habilidades__card--js:hover {
+    box-shadow: 0 4px 28px 0 rgba(251, 223, 30, 0.6);  /* Amarillo JS */
+  }
+  
+  .habilidades__card--mongo:hover {
+    box-shadow: 0 4px 28px 0 rgba(76, 175, 80, 0.7);   /* Verde MongoDB */
+  }
+  
+  .habilidades__card--node:hover {
+    box-shadow: 0 4px 28px 0 rgba(107, 193, 63, 0.7);  /* Verde Node.js */
+  }
+  
+  .habilidades__card--ps:hover {
+    box-shadow: 0 4px 28px 0 rgba(0, 168, 255, 0.7);   /* Azul Photoshop */
+  }
+  
+  .habilidades__card--react:hover {
+    box-shadow: 0 4px 28px 0 rgba(97, 228, 251, 0.7);  /* Celeste React */
+  }
+  
+  .habilidades__card--sass:hover {
+    box-shadow: 0 4px 28px 0 rgba(205, 103, 153, 0.7); /* Rosa Sass */
+  }
+  
+  .habilidades__card--wordpress:hover {
+    box-shadow: 0 4px 28px 0 rgba(33, 117, 155, 0.7);  /* Azul WordPress */
+  }
+
+  .habilidades__card--github:hover {
+    box-shadow: 0 4px 28px 0 rgba(153, 153, 153, 0.7);  /* Azul WordPress */
+  }
+
+
+
+
+
+/*Rango Solo mobile*/
+@media screen and (max-width: 767px) {}
+
+
+/*Rango Solo tablet*/
+@media screen and (min-width: 768px) and (max-width:1023px) {
+
+
+
+    /* PROYECTOS */
+    .proyectos__card {
+        @include utils.flex-layout(center, center, column);
+        width: 164px;
+        height: 166px;
+    }
+
+
+}
+
+/*Rango Desktop*/
+@media screen and (min-width: 1024px) {}
+
+
+/*Rango Desktop gap*/
+@media screen and (min-width: 1024px) and (max-width:1247px) {}
+
+
+/*Rango desktop xl*/
+@media screen and (min-width: 1248px) {
+
+    /* PROYECTOS */
+    .proyectos__card {
+        @include utils.flex-layout(center, center, column);
+        width: 200px;
+        height: 200px;
+
+
+
+
+        img {
+            width: 120px;
+            height: 100%;
+            object-fit: contain;
+        }
+
+
+    }
+}
+
+
+
+
+
+
+/*Rango 992 para abajo*/
+@media screen and (max-width: 992px) {}
+
+/*Rango abiertos*/
+
+@media screen and (min-width: 768px) {
+
+
+    .habilidades__card {
+
+        height: 100px;
+        width: 100px;
+        padding: map-get($map: spacing.$spacing, $key: 24px);
+
+
+        img {
+            width: 52px;
+            height: 52px;
+    
+        }
+    }
+}
+
+
