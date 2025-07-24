@@ -1,8 +1,8 @@
-import TranslationContext from "./TranslationContexto";
+import TranslationContext from "./TranslationContext";
 
 import en from "../locales/en.json";
 import es from "../locales/es.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const translations = { es, en };
 
@@ -14,11 +14,11 @@ const TranslationProvider = ({ children }) => {
 
   useEffect(
     () => {
-      setTexts(translations[language] || translations.es);
+      setTexts(translations[language]);
+
       localStorage.setItem("language", [language]);
-    },
-    { language }
-  );
+      
+    }, [language] );
 
   const changeLanguage = (lang) => {
     if (translations[lang]) {
@@ -34,3 +34,5 @@ const TranslationProvider = ({ children }) => {
     </TranslationContext.Provider>
   );
 };
+
+export default TranslationProvider;

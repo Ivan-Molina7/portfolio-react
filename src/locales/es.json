@@ -10,7 +10,8 @@
   "hero": {
     "ofertas": "Abierto a ofertas",
     "nombre": "IVAN MOLINA",
-    "descripcion": "<span>Desarrollador Front-end Junior</span>, aspirando a ser<br>Full-stack designer.",
+    "descripcion": "aspirando a ser Full-stack designer.",
+    "descripcionSpan": "Desarrollador Front-end,",
     "ubicacion": "Montevideo, Uruguay",
     "leerMas": "Leer más",
     "sobreMi": "Sobre mi"
@@ -31,17 +32,23 @@
     "titulo": "SOBRE MI",
     "parrafo1": "Hola, soy Iván Molina, diseñador UX/UI y programador front-end con base en Montevideo, Uruguay. Me interesa el diseño que se ve bien, funciona bien y, sobre todo, mejora la experiencia de quienes lo usan. Me gusta entender cada proyecto como un proceso de aprendizaje, donde puedo crecer, afinar mi mirada y acercarme, paso a paso, al nivel profesional que admiro.",
     "extraTitulo": "Extra",
-    "parrafo2": "      Además del diseño y la programación, me interesa la forma en que nos relacionamos como equipo. Valoro la comunicación clara, el respeto por las ideas del otro y la creación de entornos donde cada persona pueda aportar lo mejor de sí. Me importa trabajar con compromiso, mantener la calma en los momentos clave y empujar hacia adelante con actitud, pero siempre construyendo desde el entendimiento y la colaboración.",
-    "anio0": "2019",
-    "expandir0": "Expandir",
-    "anio1": "2022",
-    "expandir1": "Expandir",
-    "anio2": "2025",
-    "expandir2": "Expandir"
+    "parrafo2": "Además del diseño y la programación, me interesa la forma en que nos relacionamos como equipo. Valoro la comunicación clara, el respeto por las ideas del otro y la creación de entornos donde cada persona pueda aportar lo mejor de sí. Me importa trabajar con compromiso, mantener la calma en los momentos clave y empujar hacia adelante con actitud, pero siempre construyendo desde el entendimiento y la colaboración.",
+    "expandir": "Expandir"
   },
+
+  "modalTimeline": {
+    "aprobacionTexto": "Nota de aprobación:",
+    "titulo1": "I.T.I (Instituto Tecnológico de Informática)",
+    "alt1": "Diploma de I.T.I otorgado por el Instituto Tecnológico de Informática, que certifica la finalización del curso.",
+    "titulo2": "Desarrollador Front-end (BIOS)",
+    "alt2": "Diploma de Desarrollador Front-end otorgado por BIOS, certificando habilidades avanzadas en tecnologías front-end.",
+    "titulo3": "Diseñador Digital orientación web (ORT)",
+    "alt3": "Diploma de Diseñador Digital con especialización en web otorgado por ORT, validando conocimientos en diseño digital."
+  },
+
   "contacto": {
     "titulo": "CONTACTO",
-    "email": "contacto.ivanmolina@gmail.com",
+ 
     "labelNombre": "Nombre",
     "placeholderNombre": "Nombre",
     "labelCorreo": "Correo",

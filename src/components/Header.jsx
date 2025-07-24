@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import logoWhite from '../assets/img/Logos/Logo_white.png';
 import { Link } from 'react-router-dom';
 import { HashLink as LinkSmooth } from 'react-router-hash-link';
+import useTranslation from '../hooks/useTranslation';
 
 function Header() {
+  const { texts } = useTranslation();
+
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
   const hamMenuRef = useRef(null);
@@ -43,22 +46,22 @@ function Header() {
         <ul className="nav__list">
           <li className="nav__item">
             <LinkSmooth smooth to="/proyecto#hero" className="nav__link" data-section="header" data-value="proyectos">
-              Proyectos
+             {texts.header.proyectos}
             </LinkSmooth>
           </li>
           <li className="nav__item">
             <LinkSmooth  smooth to="/#habilidades" className="nav__link" data-section="header" data-value="habilidades">
-              Habilidades
+             {texts.header.habilidades}
             </LinkSmooth>
           </li>
           <li className="nav__item">
             <LinkSmooth smooth  to="/#about" className="nav__link" data-section="header" data-value="sobreMi">
-              Sobre mi
+                         {texts.header.sobreMi}
             </LinkSmooth>
           </li>
           <li className="nav__item">
             <LinkSmooth  smooth to="/#contacto" className="nav__link" data-section="header" data-value="contacto">
-              Contacto
+                          {texts.header.contacto}
             </LinkSmooth>
           </li>
         </ul>
@@ -81,7 +84,7 @@ function Header() {
       </div>
 
       <a href="#contacto" className="header__btn btn" data-section="header" data-value="btnContacto">
-        Contacto
+        {texts.header.btnContacto}
       </a>
     </header>
   );

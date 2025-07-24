@@ -9,7 +9,9 @@
   "hero": {
     "ofertas": "Open to offers",
     "nombre": "IVAN MOLINA",
-    "descripcion": "<span>Junior Front-end Developer</span>, aspiring to be<br>Full-stack designer.",
+      "descripcion": "aspirando a ser Full-stack designer.",
+    "descripcionSpan": "Front-end Developer,",
+    "descripcion": "aspiring to be Full-stack designer.",
     "ubicacion": "Montevideo, Uruguay",
     "leerMas": "Read more",
     "sobreMi": "About me"
@@ -31,13 +33,22 @@
     "parrafo1": "Hello, I am Iván Molina, a UX/UI designer and front-end developer based in Montevideo, Uruguay. I am interested in design that not only looks good but also works well and, above all, improves the experience of those who use it. I like to understand each project as a learning process, where I can grow, refine my perspective, and gradually approach the professional level I admire.",
     "extraTitulo": "Extra",
     "parrafo2": "Besides design and programming, I am interested in how we relate as a team. I value clear communication, respect for others' ideas, and creating environments where everyone can contribute their best. I care about working with commitment, staying calm in key moments, and pushing forward with attitude, always building from understanding and collaboration.",
-    "anio0": "2019",
-    "expandir0": "Expand",
-    "anio1": "2022",
-    "expandir1": "Expand",
-    "anio2": "2025",
-    "expandir2": "Expand"
+    "expandir": "Expand"
   },
+
+  
+  "modalTimeline": {
+    "aprobacionTexto": "Passing Grade:",
+    "titulo1": "I.T.I (Technological Institute of Informatics)",
+    "alt1": "I.T.I Diploma awarded by the Technological Institute of Informatics, certifying course completion.",
+    "titulo2": "Front-end Developer (BIOS)",
+    "alt2": "Front-end Developer Diploma awarded by BIOS, certifying advanced skills in front-end technologies.",
+    "titulo3": "Digital Designer with Web Orientation (ORT)",
+    "alt3": "Digital Designer Diploma specialized in web, awarded by ORT, validating knowledge in digital design."
+  }
+
+,
+  
   "contacto": {
     "titulo": "CONTACT",
     "email": "contacto.ivanmolina@gmail.com",

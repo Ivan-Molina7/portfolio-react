@@ -3,8 +3,12 @@ import githubIcon from '../../assets/img/Icons/White/github.png';
 import behanceIcon from '../../assets/img/Icons/White/behance.png';
 
 import Background from '../../assets/img/Backgrounds/bg1.webp';
+import useTranslation from '../../hooks/useTranslation';
 
 function Hero() {
+
+    const { texts } = useTranslation();
+
   return (
     <div className="overflow-section-100vh overflow-section-100vh--hero" id="hero">
       <section
@@ -14,22 +18,20 @@ function Hero() {
         <div className="hero__titles">
           <div className="estado">
             <img src={iconEstado} alt="Efecto camara grabando"/>
-            <span data-section="hero" data-value="ofertas">
-              Abierto a ofertas
+            <span>
+               {texts.hero.ofertas}
             </span>
           </div>
 
-          <h1 className="hero__title" data-section="hero" data-value="nombre">
-            IVAN MOLINA
+          <h1 className="hero__title">
+            {texts.hero.nombre}
           </h1>
 
           <div className="hero__subtitles">
-            <p
-              className="hero__subtitle"
-              data-section="hero"
-              data-value="descripcion"
-            ></p>
-            <p className="hero__pais" data-section="hero" data-value="ubicacion">
+            <p className="hero__subtitle">
+               <span> {texts.hero.descripcionSpan}</span> <br /> {texts.hero.descripcion}
+            </p>
+            <p className="hero__pais">
               Montevideo, Uruguay
             </p>
           </div>
@@ -37,14 +39,14 @@ function Hero() {
 
         <div className="hero__buttons">
           <a className="btn btn--secondary" href="#proyectos">
-            <span data-section="hero" data-value="leerMas">
-              Leer más
+            <span>
+              {texts.hero.leerMas}
             </span>
           </a>
 
           <a className="btn" href="#about">
             <span data-section="hero" data-value="sobreMi">
-              Sobre mi
+              {texts.hero.sobreMi}
             </span>
           </a>
         </div>

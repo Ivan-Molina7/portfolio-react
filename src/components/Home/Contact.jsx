@@ -3,8 +3,12 @@ import behanceIcon from '../../assets/img/Icons/White/behance.png';
 import linkedinIcon from '../../assets/img/Icons/White/linkedin.png';
 
 import Background from '../../assets/img/Backgrounds/bg8.webp';
+import useTranslation from '../../hooks/useTranslation';
 
 function Contact() {
+  const { texts } = useTranslation();
+
+
   return (
     <div className="overflow-section-100vh" id="contacto">
       <section
@@ -18,10 +22,8 @@ function Contact() {
         >
           <h2
             className="contacto__title title-section"
-            data-section="contacto"
-            data-value="titulo"
           >
-            CONTACTO
+                {texts.contacto.titulo}
           </h2>
           <div
             className="contacto__info"
@@ -30,8 +32,6 @@ function Contact() {
           >
             <p
               className="contacto__email"
-              data-section="contacto"
-              data-value="email"
             >
               contacto.ivanmolina@gmail.com
             </p>
@@ -89,59 +89,51 @@ function Contact() {
           />
 
           <div className="form__group" data-aos="fade-up" data-aos-delay="500">
-            <label htmlFor="name" data-section="contacto" data-value="labelNombre">
-              Nombre
+            <label htmlFor="name" >
+              {texts.contacto.labelNombre}
             </label>
             <input
               type="text"
               name="name"
               id="name"
-              placeholder="Nombre"
+              placeholder={texts.contacto.placeholderNombre}
               className="form__input"
               required
               minLength="2"
-              maxLength="50"
-              data-input="contacto"
-              data-value="placeholderNombre"
+              maxLength="50" 
             />
           </div>
 
           <div className="form__group" data-aos="fade-up" data-aos-delay="600">
-            <label htmlFor="email" data-section="contacto" data-value="labelCorreo">
-              Correo
+            <label htmlFor="email" >
+              {texts.contacto.labelCorreo}
             </label>
             <input
               type="email"
               name="email"
               id="email"
-              placeholder="Email"
+              placeholder={texts.contacto.placeholderCorreo}
               className="form__input"
               required
-              data-input="contacto"
-              data-value="placeholderCorreo"
             />
           </div>
 
           <div className="form__group" data-aos="fade-up" data-aos-delay="700">
             <label
               htmlFor="message"
-              data-section="contacto"
-              data-value="labelMensaje"
             >
-              Mensaje
+              {texts.contacto.labelMensaje}
             </label>
             <textarea
               name="message"
               id="message"
               cols="30"
               rows="10"
-              placeholder="Mensaje..."
+              placeholder={texts.contacto.placeholderMensaje}
               className="form__input"
               required
               minLength="10"
               maxLength="500"
-              data-input="contacto"
-              data-value="placeholderMensaje"
             ></textarea>
           </div>
 
@@ -156,12 +148,10 @@ function Contact() {
           <button
             type="submit"
             className="btn btn--submit"
-            data-section="contacto"
-            data-value="btnEnviar"
             data-aos="fade-up"
             data-aos-delay="800"
           >
-            Enviar
+            {texts.contacto.btnEnviar}
           </button>
         </form>
       </section>

@@ -39,8 +39,12 @@ import reactGris from '../../assets/img/habilidades/react.webp';
 import reactColor from '../../assets/img/habilidades/LogoColores/react.webp';
 
 import Background from '../../assets/img/Backgrounds/bg4.webp';
+import useTranslation from '../../hooks/useTranslation';
 
 function Skills() {
+ const { texts } = useTranslation();
+
+
   return (
     <div className="overflow-section-100vh" id="habilidades">
       <section
@@ -54,7 +58,7 @@ function Skills() {
           data-aos="fade-right"
           data-aos-delay="100"
         >
-          HABILIDADES
+           {texts.habilidades.titulo}
         </h2>
         <div className="habilidades__container">
           {/* === Programación === */}
@@ -70,7 +74,7 @@ function Skills() {
               data-aos="fade-right"
               data-aos-delay="300"
             >
-              Programación
+                  {texts.habilidades.programacionTitulo}
             </h3>
             <div className="habilidades__cards">
               <div
@@ -161,7 +165,7 @@ function Skills() {
               data-aos="fade-right"
               data-aos-delay="1400"
             >
-              Diseño
+                  {texts.habilidades.disenoTitulo}
             </h3>
             <div className="habilidades__cards">
               <div
@@ -204,7 +208,7 @@ function Skills() {
               data-aos="fade-right"
               data-aos-delay="1900"
             >
-              Aprendiendo...
+                  {texts.habilidades.aprendiendoTitulo}
             </h3>
             <div className="habilidades__cards">
               <div

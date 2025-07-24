@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
 import closeWhite from '../../assets/img/Icons/White/close.png';
+import useTranslation from '../../hooks/useTranslation';
 
 export default function Modal({ isOpen, closeModal, content }) {
+ const { texts } = useTranslation();
+
   const lastFocusedBtn = useRef(null);
   const modalRef = useRef(null);
 
@@ -46,7 +49,7 @@ export default function Modal({ isOpen, closeModal, content }) {
         <div className="modal__titulos">
                 <p className="modal__titulo">{content.titulo}</p>
                 <div className="modal__subtitulos">
-                    <p className="modal__subtitulo">Nota de aprobación: </p> <span className="modal__nota">{content.nota}</span>
+                    <p className="modal__subtitulo">{texts.modalTimeline.aprobacionTexto} </p> <span className="modal__nota">{content.nota}</span>
                 </div>
             </div>
 

@@ -5,6 +5,8 @@ import Home from "./components/Home/Home";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Proyecto from "./components/ProjectsExpand/Proyecto";
+import TranslationProvider from "./contexts/TranslationProvider";
+import HudLenguaje from "./components/hudLenguaje";
 
 function App() {
   useEffect(() => {
@@ -14,13 +16,13 @@ function App() {
   }, []);
 
   return (
-    <>
-    
+    <TranslationProvider>
+      <HudLenguaje />
       <Routes>
-        <Route path="/proyecto" element={<Proyecto />} />
+       <Route path="/proyecto/:id" element={<Proyecto />} />
         <Route path="/" element={<Home />} />
       </Routes>
-    </>
+    </TranslationProvider>
   );
 }
 

@@ -1,10 +1,8 @@
-function Objetivos() {
+function Objetivos({objetivo1, objetivo2, objetivo3}) {
   return (
     <section className="proyecto-objetivos mb-section max-width-section">
       <h2
         className="proyecto-objetivos__titulo"
-        data-section="objetivos"
-        data-value="titulo"
         data-aos="fade-right"
         data-aos-delay="100"
       >
@@ -19,11 +17,8 @@ function Objetivos() {
           <h3 className="proyecto-objetivos__item-titulo">1.</h3>
           <p
             className="proyecto-objetivos__item-texto"
-            data-section="objetivos"
-            data-value="nbc_item1Texto"
           >
-            Modernizar el sitio web de NBC Cargo, mejorando la usabilidad y
-            funcionalidad para optimizar la experiencia del usuario.
+           {objetivo1}
           </p>
         </div>
         <div
@@ -34,11 +29,8 @@ function Objetivos() {
           <h3 className="proyecto-objetivos__item-titulo">2.</h3>
           <p
             className="proyecto-objetivos__item-texto"
-            data-section="objetivos"
-            data-value="nbc_item2Texto"
           >
-            Diseñar una plataforma moderna y atractiva que facilite el acceso a
-            los servicios de importación por aire y mar.
+            {objetivo2}
           </p>
         </div>
         <div
@@ -49,11 +41,8 @@ function Objetivos() {
           <h3 className="proyecto-objetivos__item-titulo">3.</h3>
           <p
             className="proyecto-objetivos__item-texto"
-            data-section="objetivos"
-            data-value="nbc_item3Texto"
           >
-            Fortalecer la presencia digital de NBC Cargo, mejorando su imagen
-            online y facilitando la conexión con sus clientes.
+            {objetivo3}
           </p>
         </div>
       </div>

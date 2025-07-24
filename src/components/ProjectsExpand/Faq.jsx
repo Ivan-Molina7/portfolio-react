@@ -1,22 +1,12 @@
 import React, { useState } from 'react';
 
-function Faq() {
-  // Guarda el índice del item abierto, o null si ninguno
+function Faq({ pregunta1, respuesta1, pregunta2, respuesta2, pregunta3, respuesta3 }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
-    {
-      pregunta: "¿Cuál fue el proceso de elaboración y desarrollo del proyecto?",
-      respuesta: "Se inició con un análisis del sitio web antiguo y las necesidades de NBC Cargo, seguido del diseño de prototipos y el desarrollo frontend y backend para crear una web moderna y funcional."
-    },
-    {
-      pregunta: "¿Cómo se diseñó la experiencia de usuario y la interfaz?",
-      respuesta: "El diseño priorizó la usabilidad y accesibilidad, con una navegación clara y un estilo visual moderno que refleja la identidad corporativa de NBC Cargo, garantizando una experiencia atractiva en todos los dispositivos."
-    },
-    {
-      pregunta: "¿Qué impacto o beneficios se esperan para los usuarios o la comunidad?",
-      respuesta: "El diseño priorizó la usabilidad y accesibilidad, con una navegación clara y un estilo visual moderno que refleja la identidad corporativa de NBC Cargo, garantizando una experiencia atractiva en todos los dispositivos."
-    }
+    { pregunta: pregunta1, respuesta: respuesta1 },
+    { pregunta: pregunta2, respuesta: respuesta2 },
+    { pregunta: pregunta3, respuesta: respuesta3 },
   ];
 
   const toggleFaq = (index) => {
@@ -47,7 +37,7 @@ function Faq() {
               className="faq__pregunta"
               style={{
                 backgroundImage: openIndex === i ? 'linear-gradient(to left, #036B2B80, #07282270)' : 'unset',
-                cursor: 'pointer'
+                cursor: 'pointer',
               }}
               onClick={() => toggleFaq(i)}
             >

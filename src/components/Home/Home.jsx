@@ -8,7 +8,7 @@ import Contact from "./Contact";
 import HudNav from './HudNav';
 import Modal from "./Modal";
 import Header from "../Header";
-import HudLenguaje from "../hudLenguaje";
+
 
 const fondos = [
   "../../assets/img/Backgrounds/bg1.webp",
@@ -104,7 +104,7 @@ function Home() {
         <div ref={bgLayer2Ref} className="bg-layer bg-layer2"></div>
       </div>
 
-      <HudLenguaje />
+
       <Header />
       <Hero />
       <Projects />
