@@ -6,7 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Proyecto from "./components/ProjectsExpand/Proyecto";
 import TranslationProvider from "./contexts/TranslationProvider";
-import HudLenguaje from "./components/hudLenguaje";
+import HudLenguaje from "./components/HudLenguaje";
 
 function App() {
   useEffect(() => {
