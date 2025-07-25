@@ -149,7 +149,7 @@ function Contact() {
             type="submit"
             className="btn btn--submit"
             data-aos="fade-up"
-            data-aos-delay="800"
+            data-aos-delay="800 "
           >
             {texts.contacto.btnEnviar}
           </button>
