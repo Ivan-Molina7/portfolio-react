@@ -45,7 +45,7 @@ function Header() {
       <nav className={`nav${isOpen ? ' open' : ''}`} ref={navRef}>
         <ul className="nav__list">
           <li className="nav__item">
-            <LinkSmooth smooth to="/proyecto#hero" className="nav__link" data-section="header" data-value="proyectos">
+            <LinkSmooth smooth to="/#proyectos" className="nav__link" data-section="header" data-value="proyectos">
              {texts.header.proyectos}
             </LinkSmooth>
           </li>
@@ -83,9 +83,9 @@ function Header() {
         <span></span>
       </div>
 
-      <a href="#contacto" className="header__btn btn" data-section="header" data-value="btnContacto">
+      <LinkSmooth smooth to="/#contacto" className="header__btn btn" data-section="header" data-value="btnContacto">
         {texts.header.btnContacto}
-      </a>
+      </LinkSmooth>
     </header>
   );
 }

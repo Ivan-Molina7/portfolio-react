@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Faq({ pregunta1, respuesta1, pregunta2, respuesta2, pregunta3, respuesta3 }) {
+function Faq({  pregunta1, respuesta1, pregunta2, respuesta2, pregunta3, respuesta3 }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [

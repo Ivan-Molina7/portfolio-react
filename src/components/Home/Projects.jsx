@@ -1,14 +1,10 @@
-import NBC from "../../assets/img/LogosProyectos/NBC2.png";
-import CAP from "../../assets/img/LogosProyectos/CAP.png";
-import Havanna from "../../assets/img/LogosProyectos/Havanna.png";
-import CulPadel from "../../assets/img/LogosProyectos/CulPadel.png";
-import WorldGym from "../../assets/img/LogosProyectos/WorldGym.png";
-
 import Background from "../../assets/img/Backgrounds/bg2.webp";
 import useTranslation from "../../hooks/useTranslation";
 import { projectsData } from "../../utils/projectsData";
 import { getTextFromKey } from "../../utils/getTextFromKey";
 import { Routes, Route, Link } from "react-router-dom";
+
+
 
 function Projects() {
   const { texts } = useTranslation();
@@ -61,9 +57,9 @@ function Projects() {
                   data-aos="fade-right"
                   data-aos-delay={400 + i * 100}
                 >
-                  <img src={proyecto.imagen} alt={getTextFromKey(texts, proyecto.tituloKey)} />
+                  <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.tituloKey)} />
                   {/* Si queres navegación SPA (React Router): */}
-                  <Link to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
+                  <Link smooth to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
                     {texts.proyectos.expandirBtn}
                   </Link>
                   {/* Si necesitas href tradicional (menos recomendable): */}
@@ -102,7 +98,7 @@ function Projects() {
                   data-aos="fade-right"
                   data-aos-delay={800 + i * 100}
                 >
-                  <img src={proyecto.imagen} alt={getTextFromKey(texts, proyecto.tituloKey)} />
+                  <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.tituloKey)} />
                   <Link to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
                     {texts.proyectos.expandirBtn}
                   </Link>

@@ -237,7 +237,7 @@
 
     .hero-proyecto {
         margin-top: 120px;
-        @include utils.flex-layout(space-between, flex-end, row);
+        @include utils.flex-layout(space-between, flex-start, row);
 
 
         &__image-container {

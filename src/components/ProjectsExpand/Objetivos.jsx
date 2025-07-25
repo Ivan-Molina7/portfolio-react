@@ -1,4 +1,9 @@
+import useTranslation from "../../hooks/useTranslation";
+
+
 function Objetivos({objetivo1, objetivo2, objetivo3}) {
+  const { texts } = useTranslation();
+
   return (
     <section className="proyecto-objetivos mb-section max-width-section">
       <h2
@@ -6,7 +11,7 @@ function Objetivos({objetivo1, objetivo2, objetivo3}) {
         data-aos="fade-right"
         data-aos-delay="100"
       >
-        Objetivos del proyecto
+        {texts.objetivos.titulo}
       </h2>
       <div className="proyecto-objetivos__items">
         <div
@@ -24,7 +29,7 @@ function Objetivos({objetivo1, objetivo2, objetivo3}) {
         <div
           className="proyecto-objetivos__item"
           data-aos="fade-right"
-          data-aos-delay="200"
+          data-aos-delay="300"
         >
           <h3 className="proyecto-objetivos__item-titulo">2.</h3>
           <p
@@ -36,7 +41,7 @@ function Objetivos({objetivo1, objetivo2, objetivo3}) {
         <div
           className="proyecto-objetivos__item"
           data-aos="fade-right"
-          data-aos-delay="200"
+          data-aos-delay="400"
         >
           <h3 className="proyecto-objetivos__item-titulo">3.</h3>
           <p
