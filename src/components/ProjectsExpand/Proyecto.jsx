@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import { projectsData } from '../../utils/projectsData';
 import useTranslation from '../../hooks/useTranslation';
 import { getTextFromKey } from '../../utils/getTextFromKey';
+import { useEffect } from "react";
 
 
 
@@ -16,6 +17,11 @@ function Proyecto() {
   const { texts } = useTranslation();
 
   const proyecto = projectsData.find(p => p.id.toString() === id);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
 
 
   if (!proyecto) {

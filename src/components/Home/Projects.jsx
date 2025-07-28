@@ -57,7 +57,7 @@ function Projects() {
                   data-aos="fade-right"
                   data-aos-delay={400 + i * 100}
                 >
-                  <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.tituloKey)} />
+                  <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
                   {/* Si queres navegación SPA (React Router): */}
                   <Link smooth to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
                     {texts.proyectos.expandirBtn}
