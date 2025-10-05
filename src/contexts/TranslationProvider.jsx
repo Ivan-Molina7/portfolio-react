@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const translations = { es, en };
 
 const TranslationProvider = ({ children }) => {
+  
   const [language, setLanguage] = useState(
     () => localStorage.getItem("language") || "es"
   );

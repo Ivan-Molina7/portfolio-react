@@ -75,9 +75,10 @@
   "objetivos": {
     "titulo": "Project Objetives",
 
-    "cap_item1Texto": "Modernizar la plataforma digital del club, mejorando la usabilidad, accesibilidad y experiencia del usuario.",
-    "cap_item2Texto": "Ofrecer un espacio dinámico y actualizado para que los hinchas accedan fácilmente a noticias, estadísticas y contenidos relevantes.",
-    "cap_item3Texto": "Fortalecer el vínculo entre el club y la comunidad, potenciando la identidad y la interacción a través de la web.",
+"cap_item1Texto": "Modernize the club's digital platform by improving usability, accessibility, and user experience.",
+"cap_item2Texto": "Provide a dynamic and up-to-date space where fans can easily access news, statistics, and relevant content.",
+"cap_item3Texto": "Strengthen the bond between the club and the community by enhancing identity and interaction through the website.",
+
 
 "nbc_item1Texto": "Modernize the NBC Cargo website, improving usability and functionality to optimize the user experience.",
   "nbc_item2Texto": "Design a modern and attractive platform that facilitates access to import services by air and sea.",

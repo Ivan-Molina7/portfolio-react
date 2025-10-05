@@ -36,6 +36,9 @@
     margin: 0 auto;
 }
 
+.min-vh-section {
+    min-height: 100vh;
+}
 
 .mb-section {
     margin-bottom: 120px !important;
@@ -59,7 +62,6 @@
 
     justify-content: flex-start;
 }
-
 
 
 /*Rango Solo mobile*/

@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import Proyecto from "./components/ProjectsExpand/Proyecto";
 import TranslationProvider from "./contexts/TranslationProvider";
 import HudLenguaje from "./components/HudLenguaje";
+import { ProjectsGallery } from "./components/ProjectsGallery";
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
       <Routes>
        <Route path="/proyecto/:id" element={<Proyecto />} />
         <Route path="/" element={<Home />} />
+         <Route path="/galeriaProyectos" element={<ProjectsGallery />} />
       </Routes>
     </TranslationProvider>
   );

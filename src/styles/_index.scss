@@ -176,7 +176,7 @@
 
 .proyectos {
     @include spacing.layout-responsive;
-    @include utils.flex-layout(flex-start, flex-start, column);
+    @include utils.flex-layout(space-between, flex-start, column);
     gap: map-get($map: spacing.$spacing, $key: 48px);
     width: 100%;
 
@@ -197,15 +197,18 @@
 
         .proyectos__subtitle {}
 
-        .proyectos__cards {
+  
+
+    }
+}
+
+      .proyectos__cards {
             @include utils.flex-layout(flex-start, flex-start, row);
             @include spacing.gutter-responsive;
             flex-wrap: wrap;
         }
 
-
-    }
-}
+    
 
 .habilidades {
     width: 100%;

@@ -75,6 +75,7 @@ function Projects() {
             data-aos="fade-right"
             data-aos-delay="500"
           ></div>
+
           {/* Sección Proyectos Personales */}
           <div
             className="proyectos--personal temas-section"
@@ -106,7 +107,16 @@ function Projects() {
               ))}
             </div>
           </div>
+
+
         </div>
+
+         <Link smooth to={`/galeriaProyectos`} 
+         className="btn btn--proyectos-expand"   
+         data-aos="fade-right"
+            data-aos-delay={1100}>
+                   Ver mas
+          </Link>
       </section>
     </div>
   );

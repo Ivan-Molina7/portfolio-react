@@ -50,7 +50,7 @@ import WorldGym2 from '../assets/img/proyectos/worldGym/2.png';
 export const projectsData = [
   {
     id: 1,
-    tipo: "trabajo",
+    tipo: "proyecto",
     behance: true,
     behanceLink: "https://www.behance.net/gallery/225457609/Transformacion-Digital-Club-Atltico-Progreso-Uruguay",
     sitio: true,
@@ -89,7 +89,7 @@ export const projectsData = [
   },
   {
     id: 2,
-    tipo: "proyecto",
+    tipo: "trabajo",
     behance: false,
     sitio: true,
     sitioLink: "https://nbccargo.netlify.app/",

@@ -12,6 +12,7 @@
 @use "_proyecto.scss";
 @use "_spacing.scss";
 @use "_utils.scss";
+@use "_galeria.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500;600;700;900&family=Lora:wght@400;500;600;700&family=Merriweather:wght@300;400;500;700;900&display=swap');
 
@@ -58,49 +59,3 @@ html{
   .bg-layer.visible {
     opacity: 1;
   }
-
-/*Rango Solo mobile*/
-@media screen and (max-width: 767px) {}
-
-
-/*Rango Solo tablet*/
-@media screen and (min-width: 768px) and (max-width:1023px) {
-
-
-}
-
-/*Rango Tablet >*/
-
-@media screen and (min-width: 768px) {}
-
-
-/*Rango Desktop <*/
-@media screen and (max-width: 1023px) {
-
-    *{
-        scroll-padding-top: 70px;
-    }
-
-}
-
-/*Rango Desktop >*/
-@media screen and (min-width: 1024px) {
-
-    
-}
-
-
-
-
-/*Rango Desktop gap*/
-@media screen and (min-width: 1024px) and (max-width:1247px) {
-
-
-}
-
-
-/*Rango desktop xl*/
-@media screen and (min-width: 1248px) {
-
-}
-

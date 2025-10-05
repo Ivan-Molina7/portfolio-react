@@ -12,8 +12,10 @@ $font-weight-map: (
     semibold: 600,
     bold: 700,
     light: 300,
-    thin: 100);
+    thin: 100
+);
 
+    
     $weight-bold: map-get($font-weight-map, bold);
     $weight-semibold: map-get($font-weight-map, semibold);
     $weight-medium: map-get($font-weight-map, medium);

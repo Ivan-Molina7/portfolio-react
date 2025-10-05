@@ -1,0 +1,132 @@
+@use '_animaciones';
+@use '_colores';
+@use '_fuentes';
+@use '_spacing';
+@use '_utils';
+
+.galeria-proyectos {
+        @include spacing.layout-responsive;
+    margin-top: map-get($map: spacing.$spacing, $key: 70px) ;
+    @include utils.flex-layout(center, center, column);
+    gap: map-get($map: spacing.$spacing, $key: 48px);
+
+    .wrapper {
+        @include utils.flex-layout(center, center, column);
+        gap: map-get($map: spacing.$spacing, $key: 24px);
+    }
+
+    &__filtros {
+
+        @include utils.flex-layout(center, center, row);
+        gap: map-get($map: spacing.$spacing, $key: 48px);
+
+        p {
+            width: 120px;
+            @include fuentes.font-responsive(subtitle-merri);
+            color: colores.$font-primary;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+    &__line {
+
+        width: 300px;
+        height: 2px;
+        background-color: colores.$Green-Light;
+    }
+}
+
+    .proyectos__cards--center{
+            justify-content: center;
+     
+            flex: 1;
+           
+        }
+
+
+/*Rango Solo tablet*/
+@media screen and (min-width: 768px) and (max-width:1023px) {}
+
+/*Rango Tablet >*/
+
+@media screen and (min-width: 768px) {
+    .galeria-proyectos {
+        gap: 32px;
+        @include utils.flex-layout(space-between, center, row);
+      
+
+        .wrapper {
+            @include utils.flex-layout(flex-start, center, row);
+            gap: map-get($map: spacing.$spacing, $key: 24px);
+            width: 164px;
+            margin-top: 50px
+        }
+
+        &__filtros {
+            
+            @include utils.flex-layout(center, center, column);
+            gap: map-get($map: spacing.$spacing, $key: 48px);
+
+            p {
+                width: 120px;
+                @include fuentes.font-responsive(subtitle-merri);
+                color: colores.$font-primary;
+                text-align: center;
+            }
+        }
+
+        &__line {
+
+           height: 300px;
+            width: 2px;
+            background-color: colores.$Green-Light;
+        }
+    }
+
+        .proyectos__cards--center{
+            justify-content: flex-start;
+     
+      
+           
+        }
+
+
+}
+
+
+
+/*Rango Desktop >*/
+@media screen and (min-width: 1024px) {
+        .galeria-proyectos {
+            gap: 80px;
+        @include utils.flex-layout(space-between, center, row);
+      
+
+        .wrapper {
+            @include utils.flex-layout(space-between, center, row);
+              gap: 0;
+      
+            margin-top: 50px;
+                  width: 200px;
+        }
+
+        &__filtros {
+            
+            @include utils.flex-layout(center, center, column);
+            gap: map-get($map: spacing.$spacing, $key: 64px);
+
+       
+        }
+
+ 
+    }
+}
+
+
+/*Rango Desktop gap*/
+@media screen and (min-width: 1024px) and (max-width:1247px) {}
+
+
+/*Rango desktop xl*/
+@media screen and (min-width: 1248px) {}
