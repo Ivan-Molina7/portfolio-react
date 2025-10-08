@@ -4,10 +4,22 @@
 @use '_spacing';
 @use '_utils';
 
+
+.body--galeria-proyectos{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+}
+
 .galeria-proyectos {
+    flex: 1;
+    width: 100%;
+    padding-bottom: 120px;
+    position: relative;
         @include spacing.layout-responsive;
     margin-top: map-get($map: spacing.$spacing, $key: 70px) ;
-    @include utils.flex-layout(center, center, column);
+    @include utils.flex-layout(flex-start, center, column);
     gap: map-get($map: spacing.$spacing, $key: 48px);
 
     .wrapper {
@@ -16,33 +28,58 @@
     }
 
     &__filtros {
-
+        flex-wrap: wrap;
         @include utils.flex-layout(center, center, row);
         gap: map-get($map: spacing.$spacing, $key: 48px);
 
-        p {
+       .galeria-proyectos__filtro {
             width: 120px;
             @include fuentes.font-responsive(subtitle-merri);
             color: colores.$font-primary;
             text-align: center;
             cursor: pointer;
+            transition: all .2s ease-in-out;
+            user-select: none;
+        opacity: 0.4;
+        transition: opacity 0.3s;
         }
+
+        .galeria-proyectos__filtro.active {
+            opacity: 1;
+            }
     }
 
     &__line {
-
-        width: 300px;
+        width: 100%;
+        max-width: 300px;
+        min-width: 200px;
         height: 2px;
         background-color: colores.$Green-Light;
     }
 }
 
+.proyectos__cards--display{
+    // opacity: 0;
+    // height: 0;
+    // width: 0;
+    // position: fixed;
+    // transform: translate(-300px);
+    // transition: all .3s ease-in;
+    display: none;
+}
+
+.proyectos__cards--display.active{
+    // opacity: 1;
+    // height: auto;
+    // position: relative;
+    //     transform: translate(0);
+    display: flex;
+}
+
     .proyectos__cards--center{
             justify-content: center;
-     
-            flex: 1;
-           
-        }
+          
+    }
 
 
 /*Rango Solo tablet*/
@@ -52,9 +89,9 @@
 
 @media screen and (min-width: 768px) {
     .galeria-proyectos {
-        gap: 32px;
-        @include utils.flex-layout(space-between, center, row);
-      
+        gap: 12px;
+        @include utils.flex-layout(space-between, flex-start, row);
+      margin-top: 120px;
 
         .wrapper {
             @include utils.flex-layout(flex-start, center, row);
@@ -80,13 +117,15 @@
 
            height: 300px;
             width: 2px;
+            min-width: auto;
+            
             background-color: colores.$Green-Light;
         }
     }
 
         .proyectos__cards--center{
             justify-content: flex-start;
-     
+       flex: 1;
       
            
         }
@@ -100,8 +139,7 @@
 @media screen and (min-width: 1024px) {
         .galeria-proyectos {
             gap: 80px;
-        @include utils.flex-layout(space-between, center, row);
-      
+
 
         .wrapper {
             @include utils.flex-layout(space-between, center, row);
@@ -129,4 +167,10 @@
 
 
 /*Rango desktop xl*/
-@media screen and (min-width: 1248px) {}
+@media screen and (min-width: 1248px) {
+
+    .galeria-proyectos{
+        margin-top: 200px;
+    }
+}
+

@@ -9,8 +9,8 @@ import { Routes, Route, Link } from "react-router-dom";
 function Projects() {
   const { texts } = useTranslation();
 
-  const trabajos = projectsData.filter((p) => p.tipo === "trabajo");
-  const proyectos = projectsData.filter((p) => p.tipo === "proyecto");
+  const trabajos = projectsData.filter((p) => p.tipo === "trabajo" && p.destacado === true);
+  const proyectos = projectsData.filter((p) => p.tipo === "proyecto"  && p.destacado === true);
 
   
 

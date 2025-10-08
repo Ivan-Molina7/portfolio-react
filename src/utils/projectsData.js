@@ -46,13 +46,14 @@ import WorldGymMain from '../assets/img/proyectos/worldGym/Home.png';
 import WorldGym2 from '../assets/img/proyectos/worldGym/2.png';
 
 
-
-export const projectsData = [
-  {
+export const projectsData = [{
     id: 1,
     tipo: "proyecto",
+    destacado: true,
     behance: true,
     behanceLink: "https://www.behance.net/gallery/225457609/Transformacion-Digital-Club-Atltico-Progreso-Uruguay",
+    figma: false,
+    figmaLink: "",
     sitio: true,
     sitioLink: "https://caprogreso.netlify.app/",
     titulo: "Club Atlético Progreso",
@@ -70,27 +71,58 @@ export const projectsData = [
     pregunta3Key: "proyecto_about.cap_pregunta3",
     respuesta3Key: "proyecto_about.cap_respuesta3",
 
-    tecnologias: [
-      { icono: htmlGris, alt: 'HTML' },
-      { icono: cssGris, alt: 'CSS' },
-      { icono: jsGris, alt: 'JavaScript' },
-      { icono: sassGris, alt: 'Sass' },
-      { icono: mongoGris, alt: 'MongoDB' },
-      { icono: nodeGris, alt: 'Node.js' },
-      { icono: figmaGris, alt: 'Figma' },
+    tecnologias: [{
+        icono: htmlGris,
+        alt: 'HTML'
+      },
+      {
+        icono: cssGris,
+        alt: 'CSS'
+      },
+      {
+        icono: jsGris,
+        alt: 'JavaScript'
+      },
+      {
+        icono: sassGris,
+        alt: 'Sass'
+      },
+      {
+        icono: mongoGris,
+        alt: 'MongoDB'
+      },
+      {
+        icono: nodeGris,
+        alt: 'Node.js'
+      },
+      {
+        icono: figmaGris,
+        alt: 'Figma'
+      },
     ],
 
-    imagenesModal: [
-      { src: CAPMain, alt: 'Pantalla 1 del proyecto' },
-      { src: CAP2, alt: 'Pantalla 2 del proyecto' },
-      { src: CAP3, alt: 'Pantalla 3 del proyecto' },
+    imagenesModal: [{
+        src: CAPMain,
+        alt: 'Pantalla 1 del proyecto'
+      },
+      {
+        src: CAP2,
+        alt: 'Pantalla 2 del proyecto'
+      },
+      {
+        src: CAP3,
+        alt: 'Pantalla 3 del proyecto'
+      },
     ]
 
   },
   {
     id: 2,
     tipo: "trabajo",
+    destacado: true,
     behance: false,
+    figma: false,
+    figmaLink: "",
     sitio: true,
     sitioLink: "https://nbccargo.netlify.app/",
     titulo: "NBC Cargo",
@@ -106,24 +138,49 @@ export const projectsData = [
     respuesta2Key: "proyecto_about.nbc_respuesta2",
     pregunta3Key: "proyecto_about.nbc_pregunta3",
     respuesta3Key: "proyecto_about.nbc_respuesta3",
-    tecnologias: [
-      { icono: htmlGris, alt: 'HTML' },
-      { icono: cssGris, alt: 'CSS' },
-      { icono: jsGris, alt: 'JavaScript' },
-      { icono: sassGris, alt: 'Sass' },
-      { icono: bootstrapGris, alt: 'bootstrap' },
+    tecnologias: [{
+        icono: htmlGris,
+        alt: 'HTML'
+      },
+      {
+        icono: cssGris,
+        alt: 'CSS'
+      },
+      {
+        icono: jsGris,
+        alt: 'JavaScript'
+      },
+      {
+        icono: sassGris,
+        alt: 'Sass'
+      },
+      {
+        icono: bootstrapGris,
+        alt: 'bootstrap'
+      },
     ],
-    imagenesModal: [
-      { src: NBCMain, alt: 'Pantalla 1 del proyecto NBC Cargo' },
-      { src: NBC2, alt: 'Pantalla 2 del proyecto NBC Cargo' },
-      { src: NBC3, alt: 'Pantalla 3 del proyecto NBC Cargo' },
+    imagenesModal: [{
+        src: NBCMain,
+        alt: 'Pantalla 1 del proyecto NBC Cargo'
+      },
+      {
+        src: NBC2,
+        alt: 'Pantalla 2 del proyecto NBC Cargo'
+      },
+      {
+        src: NBC3,
+        alt: 'Pantalla 3 del proyecto NBC Cargo'
+      },
     ]
   },
   {
     id: 3,
     tipo: "proyecto",
+    destacado: true,
     behance: true,
     behanceLink: "https://www.behance.net/gallery/225725831/HAVANNA-Diseno-UXUI-para-relojes-de-lujo",
+    figma: false,
+    figmaLink: "",
     sitio: false,
     sitioLink: "",
     titulo: "Havanna",
@@ -139,22 +196,41 @@ export const projectsData = [
     respuesta2Key: "proyecto_about.havanna_respuesta2",
     pregunta3Key: "proyecto_about.havanna_pregunta3",
     respuesta3Key: "proyecto_about.havanna_respuesta3",
-    tecnologias: [
-      { icono: figmaGris, alt: 'Figma' },
-      { icono: psGris, alt: 'Photoshop' },
-      { icono: aiGris, alt: 'Illustrator' },
+    tecnologias: [{
+        icono: figmaGris,
+        alt: 'Figma'
+      },
+      {
+        icono: psGris,
+        alt: 'Photoshop'
+      },
+      {
+        icono: aiGris,
+        alt: 'Illustrator'
+      },
     ],
-    imagenesModal: [
-      { src: HavannaMain, alt: 'Pantalla 1 del proyecto Havanna' },
-      { src: Havanna2, alt: 'Pantalla 2 del proyecto Havanna' },
-      { src: Havanna3, alt: 'Pantalla 3 del proyecto Havanna' },
+    imagenesModal: [{
+        src: HavannaMain,
+        alt: 'Pantalla 1 del proyecto Havanna'
+      },
+      {
+        src: Havanna2,
+        alt: 'Pantalla 2 del proyecto Havanna'
+      },
+      {
+        src: Havanna3,
+        alt: 'Pantalla 3 del proyecto Havanna'
+      },
     ]
   },
   {
     id: 4,
     tipo: "proyecto",
+    destacado: true,
     behance: true,
     behanceLink: "https://www.behance.net/gallery/225458053/CulPadel-Diseno-UXUI-para-App-Movil-Deportiva",
+    figma: false,
+    figmaLink: "",
     sitio: false,
     sitioLink: "",
     titulo: "CulPadel",
@@ -170,22 +246,41 @@ export const projectsData = [
     respuesta2Key: "proyecto_about.culPadel_respuesta2",
     pregunta3Key: "proyecto_about.culPadel_pregunta3",
     respuesta3Key: "proyecto_about.culPadel_respuesta3",
-    tecnologias: [
-      { icono: figmaGris, alt: 'Figma' },
-      { icono: psGris, alt: 'Photoshop' },
-      { icono: aiGris, alt: 'Illustrator' },
+    tecnologias: [{
+        icono: figmaGris,
+        alt: 'Figma'
+      },
+      {
+        icono: psGris,
+        alt: 'Photoshop'
+      },
+      {
+        icono: aiGris,
+        alt: 'Illustrator'
+      },
     ],
-    imagenesModal: [
-      { src: CulPadelMain, alt: 'Pantalla 1 del proyecto CulPadel' },
-      { src: CulPadel2, alt: 'Pantalla 2 del proyecto CulPadel' },
-      { src: CulPadel3, alt: 'Pantalla 3 del proyecto CulPadel' },
+    imagenesModal: [{
+        src: CulPadelMain,
+        alt: 'Pantalla 1 del proyecto CulPadel'
+      },
+      {
+        src: CulPadel2,
+        alt: 'Pantalla 2 del proyecto CulPadel'
+      },
+      {
+        src: CulPadel3,
+        alt: 'Pantalla 3 del proyecto CulPadel'
+      },
     ]
   },
-    {
+  {
     id: 5,
     tipo: "proyecto",
+    destacado: true,
     behance: false,
     behanceLink: "",
+    figma: false,
+    figmaLink: "",
     sitio: true,
     sitioLink: "https://worldgym.netlify.app/",
     titulo: "WorldGym",
@@ -201,16 +296,88 @@ export const projectsData = [
     respuesta2Key: "proyecto_about.worldGym_respuesta2",
     pregunta3Key: "proyecto_about.worldGym_pregunta3",
     respuesta3Key: "proyecto_about.worldGym_respuesta3",
-    tecnologias: [
-      { icono: htmlGris, alt: 'HTML' },
-      { icono: cssGris, alt: 'CSS' },
-      { icono: jsGris, alt: 'JavaScript' },
+    tecnologias: [{
+        icono: htmlGris,
+        alt: 'HTML'
+      },
+      {
+        icono: cssGris,
+        alt: 'CSS'
+      },
+      {
+        icono: jsGris,
+        alt: 'JavaScript'
+      },
     ],
-    imagenesModal: [
-      { src: WorldGymMain, alt: 'Pantalla 1 del proyecto World GYm' },
-      { src: WorldGym2, alt: 'Pantalla 2 del proyecto World GYm' },
+    imagenesModal: [{
+        src: WorldGymMain,
+        alt: 'Pantalla 1 del proyecto World GYm'
+      },
+      {
+        src: WorldGym2,
+        alt: 'Pantalla 2 del proyecto World GYm'
+      },
 
     ]
   },
+  // {
+  //   id: 6,
+  //   tipo: "proyecto",
+  //   destacado: true,
+  //   behance: false,
+  //   behanceLink: "",
+  //   figma: true,
+  //   figmaLink: "",
+  //   sitio: true,
+  //   sitioLink: "https://sandboxuy.netlify.app/",
+  //   titulo: "Sandbox",
+  //   descripcionKey: "",
+  //   Logo: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759901707/l2ogoSandbox_drtwjh.png",
+  //   imagenAlt: "Mockup de Sandbox",
+  //   objetivo1Key: "objetivos.worldGym_item1Texto",
+  //   objetivo2Key: "objetivos.worldGym_item2Texto",
+  //   objetivo3Key: "objetivos.worldGym_item3Texto",
+  //   pregunta1Key: "proyecto_about.worldGym_pregunta1",
+  //   respuesta1Key: "proyecto_about.worldGym_respuesta1",
+  //   pregunta2Key: "proyecto_about.worldGym_pregunta2",
+  //   respuesta2Key: "proyecto_about.worldGym_respuesta2",
+  //   pregunta3Key: "proyecto_about.worldGym_pregunta3",
+  //   respuesta3Key: "proyecto_about.worldGym_respuesta3",
+  //   tecnologias: [{
+  //       icono: htmlGris,
+  //       alt: 'HTML'
+  //     },
+  //     {
+  //       icono: cssGris,
+  //       alt: 'CSS'
+  //     },
+  //     {
+  //       icono: sassGris,
+  //       alt: 'SCSS'
+  //     },
+  //     {
+  //       icono: jsGris,
+  //       alt: 'JavaScript'
+  //     },
+  //     {
+  //       icono: reactGris,
+  //       alt: 'React'
+  //     },
+  //   ],
+  //   imagenesModal: [{
+  //       src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902200/Home_kibms1.png",
+  //       alt: 'Pantalla 1 del Sandbox'
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/2_jt4gkm.png",
+  //       alt: 'Pantalla 2 del Sandbox'
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/e_kiviil.png",
+  //       alt: 'Pantalla 2 del Sandbox'
+  //     },
+  //   ]
+  // },
+
 
 ];

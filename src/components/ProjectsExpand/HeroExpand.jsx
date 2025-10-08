@@ -11,6 +11,8 @@ function HeroExpand({
   imagenAlt,
   behance,
   behanceLink,
+  figma,
+  figmaLink,
   sitioLink,
   sitio,
   imagenesModal = [], // array de imágenes para el modal
@@ -91,6 +93,12 @@ function HeroExpand({
             {sitio && (
               <a href={sitioLink} target="_blank" rel="noopener noreferrer" className="hero-proyecto__btn btn btn--secondary">
                 {texts.proyecto.btnVisitar}
+              </a>
+            )}
+
+                {figma && (
+              <a href={behanceLink} target="_blank" rel="noopener noreferrer" className="hero-proyecto__btn btn" >
+                Figma 
               </a>
             )}
           </div>

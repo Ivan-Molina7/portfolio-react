@@ -44,6 +44,9 @@ function Proyecto() {
   const behance = proyecto.behance;
   const behanceLink = proyecto.behanceLink;
 
+  const figma = proyecto.figma;
+  const figmaLink = proyecto.figmaLink;
+
   const sitio = proyecto.sitio
   const sitioLink = proyecto.sitioLink;
 
@@ -77,6 +80,8 @@ function Proyecto() {
         sitio={sitio} 
         behanceLink={behanceLink}
         behance={behance}
+        figmaLink={figmaLink}
+        figma={figma}
         />
 
         <Objetivos objetivo1={objetivo1} objetivo2={objetivo2} objetivo3={objetivo3} />
