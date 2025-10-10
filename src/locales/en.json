@@ -9,7 +9,7 @@
   "hero": {
     "ofertas": "Open to offers",
     "nombre": "IVAN MOLINA",
-      "descripcion": "aspirando a ser Full-stack designer.",
+    "descripcion": "aspirando a ser Full-stack designer.",
     "descripcionSpan": "Front-end Developer,",
     "descripcion": "aspiring to be Full-stack designer.",
     "ubicacion": "Montevideo, Uruguay",
@@ -36,7 +36,7 @@
     "expandir": "Expand"
   },
 
-  
+
   "modalTimeline": {
     "aprobacionTexto": "Passing Grade:",
     "titulo1": "I.T.I (Technological Institute of Informatics)",
@@ -47,8 +47,8 @@
     "alt3": "Digital Designer Diploma specialized in web, awarded by ORT, validating knowledge in digital design."
   }
 
-,
-  
+  ,
+
   "contacto": {
     "titulo": "CONTACT",
     "email": "contacto.ivanmolina@gmail.com",
@@ -70,19 +70,21 @@
     "nbc_descripcion": "NBC Cargo is a company dedicated to imports by air and sea whose website was very outdated. I developed a new page from scratch with a modern and functional design. The renovation improved the user experience and the company’s digital presence. This made access to their services easier and strengthened their online image.",
     "havanna_descripcion": "Havanna es una propuesta de e-commerce elegante y atemporal para la venta de relojes de lujo. El rediseño se enfocó en crear una experiencia visual cuidada, con navegación intuitiva y una presentación clara de productos y detalles. El objetivo fue modernizar la presencia digital de la marca, facilitando la exploración y selección de productos para los usuarios.",
     "culPadel_descripcion": "CulPadel was a final university project where we created a corporate image and a website to book courts and rooms, choose date, shift, and payment method, representing all the provided information.",
-    "worldGym_descripcion": "WorldGym is a project that uses public APIs to provide a dynamic experience where you can create and manage personalized workout routines for beginners and intermediates, save favorite exercises, and customize them according to your needs."
+    "worldGym_descripcion": "WorldGym is a project that uses public APIs to provide a dynamic experience where you can create and manage personalized workout routines for beginners and intermediates, save favorite exercises, and customize them according to your needs.",
+    "sandbox_descripcion": "Sandbox is a personal project created as a practice space to develop and test front-end concepts. It serves as a collection of landing pages and experiments where I apply React, hooks, and common patterns used in everyday development."
+
   },
   "objetivos": {
     "titulo": "Project Objetives",
 
-"cap_item1Texto": "Modernize the club's digital platform by improving usability, accessibility, and user experience.",
-"cap_item2Texto": "Provide a dynamic and up-to-date space where fans can easily access news, statistics, and relevant content.",
-"cap_item3Texto": "Strengthen the bond between the club and the community by enhancing identity and interaction through the website.",
+    "cap_item1Texto": "Modernize the club's digital platform by improving usability, accessibility, and user experience.",
+    "cap_item2Texto": "Provide a dynamic and up-to-date space where fans can easily access news, statistics, and relevant content.",
+    "cap_item3Texto": "Strengthen the bond between the club and the community by enhancing identity and interaction through the website.",
 
 
-"nbc_item1Texto": "Modernize the NBC Cargo website, improving usability and functionality to optimize the user experience.",
-  "nbc_item2Texto": "Design a modern and attractive platform that facilitates access to import services by air and sea.",
-  "nbc_item3Texto": "Strengthen NBC Cargo's digital presence, enhancing its online image and facilitating connection with its clients.",
+    "nbc_item1Texto": "Modernize the NBC Cargo website, improving usability and functionality to optimize the user experience.",
+    "nbc_item2Texto": "Design a modern and attractive platform that facilitates access to import services by air and sea.",
+    "nbc_item3Texto": "Strengthen NBC Cargo's digital presence, enhancing its online image and facilitating connection with its clients.",
 
     "havanna_item1Texto": "Create an elegant and smooth online shopping experience that reflects the quality and exclusivity of Havanna watches.",
     "havanna_item2Texto": "Design an intuitive interface that facilitates product browsing and selection, improving usability across all devices.",
@@ -94,7 +96,12 @@
 
     "worldGym_item1Texto": "Create an interactive platform that allows users to create and manage personalized workout routines for different training levels.",
     "worldGym_item2Texto": "Integrate public APIs to provide updated and varied information about gym exercises and routines.",
-    "worldGym_item3Texto": "Facilitate the management of favorite exercises and saved routines, enhancing user experience and motivation."
+    "worldGym_item3Texto": "Facilitate the management of favorite exercises and saved routines, enhancing user experience and motivation.",
+
+    "sandbox_item1Texto": "Apply real-world React and front-end concepts in small, functional projects.",
+    "sandbox_item2Texto": "Improve code organization and component reusability.",
+    "sandbox_item3Texto": "Practice the full development flow: design, structure, logic, and deployment."
+
   },
   "tecnologias": {
     "tecnologiasTitulo": "Technologies Used"
@@ -144,22 +151,32 @@
 
 
     "culPadel_pregunta1": "What was the process of elaboration and development of the project?",
-  "culPadel_respuesta1": "The project was a final university exercise that involved creating a corporate image and a website to book courts and rooms, with date, shift, and payment method selection.",
+    "culPadel_respuesta1": "The project was a final university exercise that involved creating a corporate image and a website to book courts and rooms, with date, shift, and payment method selection.",
 
-  "culPadel_pregunta2": "How was the user experience and interface designed?",
-  "culPadel_respuesta2": "A clear, intuitive, and functional interface was designed, aligned with the created corporate image, to facilitate booking and payment on all devices.",
+    "culPadel_pregunta2": "How was the user experience and interface designed?",
+    "culPadel_respuesta2": "A clear, intuitive, and functional interface was designed, aligned with the created corporate image, to facilitate booking and payment on all devices.",
 
-  "culPadel_pregunta3": "What impact or benefits are expected for users or the community?",
-  "culPadel_respuesta3": "The platform is expected to facilitate reservation and payment management, improving user experience and strengthening the project's corporate image.",
+    "culPadel_pregunta3": "What impact or benefits are expected for users or the community?",
+    "culPadel_respuesta3": "The platform is expected to facilitate reservation and payment management, improving user experience and strengthening the project's corporate image.",
 
-  "worldGym_pregunta1": "What was the process of elaboration and development of the project?",
-  "worldGym_respuesta1": "The project involved using public APIs to create a dynamic platform that allows users to create and manage personalized workout routines based on their training level.",
+    "worldGym_pregunta1": "What was the process of elaboration and development of the project?",
+    "worldGym_respuesta1": "The project involved using public APIs to create a dynamic platform that allows users to create and manage personalized workout routines based on their training level.",
 
-  "worldGym_pregunta2": "How was the user experience and interface designed?",
-  "worldGym_respuesta2": "An intuitive and functional interface was designed to facilitate navigation and routine management, adapted to provide an engaging experience on all devices.",
+    "worldGym_pregunta2": "How was the user experience and interface designed?",
+    "worldGym_respuesta2": "An intuitive and functional interface was designed to facilitate navigation and routine management, adapted to provide an engaging experience on all devices.",
 
-  "worldGym_pregunta3": "What impact or benefits are expected for users or the community?",
-  "worldGym_respuesta3": "The platform is expected to motivate users to stay active by facilitating the creation and tracking of personalized routines and improving their training experience."
+    "worldGym_pregunta3": "What impact or benefits are expected for users or the community?",
+    "worldGym_respuesta3": "The platform is expected to motivate users to stay active by facilitating the creation and tracking of personalized routines and improving their training experience.",
+
+    "sandbox_pregunta1": "What motivated you to create Sandbox?",
+    "sandbox_respuesta1": "I wanted an environment where I could apply what I learn without the pressure of a formal project. Sandbox was born as a free space to practice React and build landing pages based on existing ideas.",
+
+    "sandbox_pregunta2": "What are you looking to improve with this project?",
+    "sandbox_respuesta2": "Mainly my fluency using hooks like useState and useEffect, structuring components more cleanly, and becoming more confident working with props, states, and conditional rendering.",
+
+    "sandbox_pregunta3": "What does Sandbox represent in your growth as a developer?",
+    "sandbox_respuesta3": "It’s an intermediate step between theory and professional work. It allows me to make mistakes, experiment, and refine my front-end style, preparing me for larger and more realistic projects."
+
 
   }
 }

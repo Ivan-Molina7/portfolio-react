@@ -97,7 +97,7 @@ function HeroExpand({
             )}
 
                 {figma && (
-              <a href={behanceLink} target="_blank" rel="noopener noreferrer" className="hero-proyecto__btn btn" >
+              <a href={figmaLink} target="_blank" rel="noopener noreferrer" className="hero-proyecto__btn btn" >
                 Figma 
               </a>
             )}

@@ -3,7 +3,7 @@ import CAPLogo from '../assets/img/LogosProyectos/CAP.png';
 import CulPadelLogo from '../assets/img/LogosProyectos/CulPadel.png';
 import HavannaLogo from '../assets/img/LogosProyectos/Havanna.png';
 import WorldGymLogo from '../assets/img/LogosProyectos/WorldGym.png';
-
+import SandboxLogo from '../assets/img/LogosProyectos/Sandbox.png';
 
 
 //*ICONOS TECNOLOGIAS
@@ -226,7 +226,7 @@ export const projectsData = [{
   {
     id: 4,
     tipo: "proyecto",
-    destacado: true,
+    destacado: false,
     behance: true,
     behanceLink: "https://www.behance.net/gallery/225458053/CulPadel-Diseno-UXUI-para-App-Movil-Deportiva",
     figma: false,
@@ -320,64 +320,66 @@ export const projectsData = [{
 
     ]
   },
-  // {
-  //   id: 6,
-  //   tipo: "proyecto",
-  //   destacado: true,
-  //   behance: false,
-  //   behanceLink: "",
-  //   figma: true,
-  //   figmaLink: "",
-  //   sitio: true,
-  //   sitioLink: "https://sandboxuy.netlify.app/",
-  //   titulo: "Sandbox",
-  //   descripcionKey: "",
-  //   Logo: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759901707/l2ogoSandbox_drtwjh.png",
-  //   imagenAlt: "Mockup de Sandbox",
-  //   objetivo1Key: "objetivos.worldGym_item1Texto",
-  //   objetivo2Key: "objetivos.worldGym_item2Texto",
-  //   objetivo3Key: "objetivos.worldGym_item3Texto",
-  //   pregunta1Key: "proyecto_about.worldGym_pregunta1",
-  //   respuesta1Key: "proyecto_about.worldGym_respuesta1",
-  //   pregunta2Key: "proyecto_about.worldGym_pregunta2",
-  //   respuesta2Key: "proyecto_about.worldGym_respuesta2",
-  //   pregunta3Key: "proyecto_about.worldGym_pregunta3",
-  //   respuesta3Key: "proyecto_about.worldGym_respuesta3",
-  //   tecnologias: [{
-  //       icono: htmlGris,
-  //       alt: 'HTML'
-  //     },
-  //     {
-  //       icono: cssGris,
-  //       alt: 'CSS'
-  //     },
-  //     {
-  //       icono: sassGris,
-  //       alt: 'SCSS'
-  //     },
-  //     {
-  //       icono: jsGris,
-  //       alt: 'JavaScript'
-  //     },
-  //     {
-  //       icono: reactGris,
-  //       alt: 'React'
-  //     },
-  //   ],
-  //   imagenesModal: [{
-  //       src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902200/Home_kibms1.png",
-  //       alt: 'Pantalla 1 del Sandbox'
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/2_jt4gkm.png",
-  //       alt: 'Pantalla 2 del Sandbox'
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/e_kiviil.png",
-  //       alt: 'Pantalla 2 del Sandbox'
-  //     },
-  //   ]
-  // },
+{
+  id: 6,
+  tipo: "proyecto",
+  destacado: true,
+  behance: false,
+  behanceLink: "",
+  figma: true,
+  figmaLink: "https://www.figma.com/design/sg7cPC9Bitogw61boIFSFf/Sandbox?node-id=0-1&t=IeKJL7IBgj7wkpHy-1",
+  sitio: true,
+  sitioLink: "https://sandboxuy.netlify.app/",
+  titulo: "Sandbox",
+  descripcionKey: "proyecto.sandbox_descripcion",
+  Logo: SandboxLogo,
+  imagenAlt: "Mockup de Sandbox",
+  objetivo1Key: "objetivos.sandbox_item1Texto",
+  objetivo2Key: "objetivos.sandbox_item2Texto",
+  objetivo3Key: "objetivos.sandbox_item3Texto",
+  pregunta1Key: "proyecto_about.sandbox_pregunta1",
+  respuesta1Key: "proyecto_about.sandbox_respuesta1",
+  pregunta2Key: "proyecto_about.sandbox_pregunta2",
+  respuesta2Key: "proyecto_about.sandbox_respuesta2",
+  pregunta3Key: "proyecto_about.sandbox_pregunta3",
+  respuesta3Key: "proyecto_about.sandbox_respuesta3",
+  tecnologias: [
+    {
+      icono: htmlGris,
+      alt: 'HTML'
+    },
+    {
+      icono: cssGris,
+      alt: 'CSS'
+    },
+    {
+      icono: sassGris,
+      alt: 'SCSS'
+    },
+    {
+      icono: jsGris,
+      alt: 'JavaScript'
+    },
+    {
+      icono: reactGris,
+      alt: 'React'
+    },
+  ],
+  imagenesModal: [
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902200/home_kibms1.png",
+      alt: 'Pantalla 1 del Sandbox'
+    },
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/2_jt4gkm.png",
+      alt: 'Pantalla 2 del Sandbox'
+    },
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/e_kiviil.png",
+      alt: 'Pantalla 3 del Sandbox'
+    },
+  ]
+},
 
 
 ];

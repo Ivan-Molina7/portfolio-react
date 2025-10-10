@@ -2,7 +2,7 @@ import Background from "../../assets/img/Backgrounds/bg2.webp";
 import useTranslation from "../../hooks/useTranslation";
 import { projectsData } from "../../utils/projectsData";
 import { getTextFromKey } from "../../utils/getTextFromKey";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 
 

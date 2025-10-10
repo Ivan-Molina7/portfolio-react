@@ -67,7 +67,8 @@
     "nbc_descripcion": "NBC Cargo es una empresa dedicada a importaciones por avión y barco cuyo sitio web estaba muy anticuado. Desarrollé una nueva página desde cero con un diseño moderno y funcional. La renovación mejoró la experiencia del usuario y la presencia digital de la empresa. Así, se facilitó el acceso a sus servicios y se fortaleció su imagen en línea.",
     "havanna_descripcion": "Havanna es una propuesta de e-commerce elegante y atemporal para la venta de relojes de lujo. El rediseño se enfocó en crear una experiencia visual cuidada, con navegación intuitiva y una presentación clara de productos y detalles. El objetivo fue modernizar la presencia digital de la marca, facilitando la exploración y selección de productos para los usuarios.",
     "culPadel_descripcion": "CulPadel fue un ejercicio final de la facultad donde creamos una imagen corporativa y un sitio web para reservar canchas y salones, elegir fecha, turno y método de pago, representando toda la información proporcionada.",
-    "worldGym_descripcion": "WorldGym es un proyecto que utiliza APIs públicas para ofrecer una experiencia dinámica donde puedes crear y gestionar rutinas personalizadas para principiantes e intermedios, guardar ejercicios favoritos y adaptarlos según tus necesidades."
+    "worldGym_descripcion": "WorldGym es un proyecto que utiliza APIs públicas para ofrecer una experiencia dinámica donde puedes crear y gestionar rutinas personalizadas para principiantes e intermedios, guardar ejercicios favoritos y adaptarlos según tus necesidades.",
+       "sandbox_descripcion": "Sandbox es un proyecto personal creado como espacio de práctica para desarrollar y probar conceptos de front-end. Sirve como una colección de landings y experimentos donde aplico React, hooks, y patrones comunes en el desarrollo del día a día."
   },
 
   "objetivos": {
@@ -91,7 +92,12 @@
 
     "worldGym_item1Texto": "Crear una plataforma interactiva que permita a los usuarios crear y gestionar rutinas personalizadas para diferentes niveles de entrenamiento.",
     "worldGym_item2Texto": "Integrar APIs públicas para ofrecer información actualizada y variada sobre ejercicios y rutinas de gimnasio.",
-    "worldGym_item3Texto": "Facilitar la gestión de ejercicios favoritos y rutinas guardadas, mejorando la experiencia y motivación del usuario."
+    "worldGym_item3Texto": "Facilitar la gestión de ejercicios favoritos y rutinas guardadas, mejorando la experiencia y motivación del usuario.",
+
+
+    "sandbox_item1Texto": "Aplicar conceptos reales de React y front-end en proyectos pequeños y funcionales.",
+    "sandbox_item2Texto": "Mejorar la organización del código y la reutilización de componentes.",
+    "sandbox_item3Texto": "Practicar el flujo completo de desarrollo: diseño, estructura, lógica y despliegue."
   },
 
   "tecnologias": {
@@ -139,6 +145,16 @@
     "worldGym_respuesta2": "Se diseñó una interfaz intuitiva y funcional, que facilita la navegación y gestión de rutinas, adaptada para ofrecer una experiencia atractiva en todos los dispositivos.",
   
     "worldGym_pregunta3": "¿Qué impacto o beneficios se esperan para los usuarios o la comunidad?",
-    "worldGym_respuesta3": "Se espera que la plataforma motive a los usuarios a mantenerse activos, facilitando la creación y seguimiento de rutinas personalizadas y mejorando su experiencia de entrenamiento."
+    "worldGym_respuesta3": "Se espera que la plataforma motive a los usuarios a mantenerse activos, facilitando la creación y seguimiento de rutinas personalizadas y mejorando su experiencia de entrenamiento.",
+
+
+        "sandbox_pregunta1": "¿Cuál fue la motivación para crear Sandbox?",
+    "sandbox_respuesta1": "Quería tener un entorno donde pudiera aplicar lo que aprendo sin la presión de un proyecto formal. Sandbox nació como un espacio libre para practicar React y crear landings con ideas ya definidas.",
+  
+    "sandbox_pregunta2": "¿Qué buscás mejorar con este proyecto?",
+    "sandbox_respuesta2": "Principalmente mi fluidez al usar hooks como useState y useEffect, estructurar componentes de forma más limpia, y ganar soltura trabajando con props, estados y renderizados condicionales.",
+  
+    "sandbox_pregunta3": "¿Qué representa Sandbox en tu crecimiento como desarrollador?",
+    "sandbox_respuesta3": "Es un paso intermedio entre la teoría y el trabajo profesional. Me permite equivocarme, experimentar y pulir mi estilo como front-end, preparándome para proyectos más grandes y reales."
   }
 }

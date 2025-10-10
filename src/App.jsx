@@ -8,6 +8,7 @@ import Proyecto from "./components/ProjectsExpand/Proyecto";
 import TranslationProvider from "./contexts/TranslationProvider";
 import HudLenguaje from "./components/HudLenguaje";
 import { ProjectsGallery } from "./components/ProjectsGallery";
+import PreloadBackgrounds from "./utils/PreLoadImages";
 
 function App() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <TranslationProvider>
+      <PreloadBackgrounds/>
       <HudLenguaje />
       <Routes>
        <Route path="/proyecto/:id" element={<Proyecto />} />

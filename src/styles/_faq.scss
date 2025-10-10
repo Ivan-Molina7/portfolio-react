@@ -20,6 +20,7 @@
             @include fuentes.font-responsive(text-md);
             @include utils.flex-layout(space-between, flex-start, row);
             padding: map-get($map: spacing.$spacing, $key: 16px);
+            gap: map-get($map: spacing.$spacing, $key: 16px);
             transition: all .3s ease;
             cursor: pointer;
 
