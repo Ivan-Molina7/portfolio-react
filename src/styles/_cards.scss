@@ -46,7 +46,7 @@
         object-fit: contain;
             position: absolute;
    
-            transition: opacity 0.4s ease;
+            transition: opacity 0.2s ;
      
     }
 
@@ -122,7 +122,13 @@
     box-shadow: 0 4px 28px 0 rgba(153, 153, 153, 0.7);  /* Azul WordPress */
   }
 
+ .habilidades__card--woo:hover {
+    box-shadow: 0 4px 28px 0 rgba(155, 28, 219, 0.7);  /* Azul WordPress */
+  }
 
+ .habilidades__card--supabase:hover {
+    box-shadow: 0 4px 28px 0 rgba(10, 240, 118, 0.7);  /* Azul WordPress */
+  }
 
 
 

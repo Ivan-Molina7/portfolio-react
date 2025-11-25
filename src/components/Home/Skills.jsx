@@ -38,6 +38,12 @@ import figmaColor from '../../assets/img/habilidades/LogoColores/figma.png';
 import reactGris from '../../assets/img/habilidades/react.webp';
 import reactColor from '../../assets/img/habilidades/LogoColores/react.webp';
 
+import wooGris from '../../assets/img/habilidades/woo.png';
+import wooColor from '../../assets/img/habilidades/LogoColores/woo.png';
+
+import supabaseGris from '../../assets/img/habilidades/supabase.png';
+import supabaseColor from '../../assets/img/habilidades/LogoColores/supabase.png';
+
 import Background from '../../assets/img/Backgrounds/bg4.webp';
 import useTranslation from '../../hooks/useTranslation';
 
@@ -218,6 +224,24 @@ function Skills() {
               >
                 <img className="img-gris" src={reactGris} alt="React en escala de grises" />
                 <img className="img-color" src={reactColor} alt="Logo de React a color" />
+              </div>
+
+                     <div
+                className="habilidades__card habilidades__card--woo"
+                data-aos="fade-right"
+                data-aos-delay="2050"
+              >
+                <img className="img-gris" src={wooGris} alt="WooCommerce en escala de grises" />
+                <img className="img-color" src={wooColor} alt="Logo de WooCommerce a color" />
+              </div>
+
+                         <div
+                className="habilidades__card habilidades__card--supabase"
+                data-aos="fade-right"
+                data-aos-delay="2100"
+              >
+                <img className="img-gris" src={supabaseGris} alt="Supabase en escala de grises" />
+                <img className="img-color" src={supabaseColor} alt="Logo de Supabase a color" />
               </div>
             </div>
           </div>
