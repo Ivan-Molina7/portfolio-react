@@ -8,6 +8,8 @@ import Modal from "./Modal";
 import { useState } from "react";
 
 import BiosDiploma from "../../assets/img/about/biosDiploma.png";
+import OrtDiploma from "../../assets/img/about/ORT-ESCOLARIDAD.png";
+import Udemy from "../../assets/img/about/Udemy.webp";
 import useTranslation from "../../hooks/useTranslation";
 
 
@@ -19,7 +21,7 @@ const modalContent = [
   {
     titulo: texts.modalTimeline.titulo1,
     nota: "11",
-    imagen: BiosDiploma,
+    imagen: "",
     alt: texts.modalTimeline.alt1,
   },
   {
@@ -31,9 +33,16 @@ const modalContent = [
   {
     titulo: texts.modalTimeline.titulo3,
     nota: "91%",
-    imagen: BiosDiploma,
+    imagen: OrtDiploma,
     alt: texts.modalTimeline.alt3,
   },
+  {
+    titulo: texts.modalTimeline.titulo4,
+    nota: "95%",
+    imagen: Udemy,
+    alt: texts.modalTimeline.alt4,
+  },
+ 
 ];
 
 
@@ -182,6 +191,40 @@ const modalContent = [
               data-aos-delay="1600"
             >
               <p className="anio">2025</p>
+              <button
+                className="btn btn--timeline timeline-activate"
+                onClick={() => openModal(2)}
+              >
+                 {texts.about.expandir}
+              </button>
+            </div>
+          </div>
+
+                {/* Elemento 3 de la línea de tiempo */}
+          <div
+            className="timeline__item"
+            data-aos="fade-up"
+            data-aos-delay="1300"
+          >
+            <figure
+              className="timeline__thubmnail timeline-activate"
+              data-aos="fade-up"
+              data-aos-delay="1400"
+            >
+              <img src={Udemy} alt="" className="timeline__image" />
+            </figure>
+            <img
+              src={lineMobile}
+              alt=""
+              data-aos="fade-up"
+              data-aos-delay="1500"
+            />
+            <div
+              className="timeline__info"
+              data-aos="fade-up"
+              data-aos-delay="1600"
+            >
+              <p className="anio">2026</p>
               <button
                 className="btn btn--timeline timeline-activate"
                 onClick={() => openModal(2)}

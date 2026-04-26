@@ -44,8 +44,22 @@ import wooColor from '../../assets/img/habilidades/LogoColores/woo.png';
 import supabaseGris from '../../assets/img/habilidades/supabase.png';
 import supabaseColor from '../../assets/img/habilidades/LogoColores/supabase.png';
 
+import tailwindGris from '../../assets/img/habilidades/Tailwind-G.png';
+import tailwindColor from '../../assets/img/habilidades/LogoColores/Tailwind.png';
+
+import claudeGris from '../../assets/img/habilidades/Claude-G.png';
+import claudeColor from '../../assets/img/habilidades/LogoColores/Claude.png';
+
+import tanStack from '../../assets/img/habilidades/tanstack-G.png';
+import tanStackColor from '../../assets/img/habilidades/LogoColores/tanstack.png';
+
+import zustand from '../../assets/img/habilidades/Zustand-G.png';
+import zustandColor from '../../assets/img/habilidades/LogoColores/Zustand.png';
+
 import Background from '../../assets/img/Backgrounds/bg4.webp';
 import useTranslation from '../../hooks/useTranslation';
+
+
 
 function Skills() {
  const { texts } = useTranslation();
@@ -155,6 +169,32 @@ function Skills() {
                 <img className="img-gris" src={githubGris} alt="GitHub en escala de grises" />
                 <img className="img-color" src={githubColor} alt="Logo de GitHub a color" />
               </div>
+                    <div
+                className="habilidades__card habilidades__card--github"
+                data-aos="fade-right"
+                data-aos-delay="1200"
+              >
+                <img className="img-gris" src={tanStack} alt="GitHub en escala de grises" />
+                <img className="img-color" src={tanStackColor} alt="Logo de GitHub a color" />
+              </div>
+
+                     <div
+                className="habilidades__card habilidades__card--github"
+                data-aos="fade-right"
+                data-aos-delay="1200"
+              >
+                <img className="img-gris" src={zustand} alt="GitHub en escala de grises" />
+                <img className="img-color" src={zustandColor} alt="Logo de GitHub a color" />
+              </div>
+
+                     <div
+                className="habilidades__card habilidades__card--woo"
+                data-aos="fade-right"
+                data-aos-delay="2050"
+              >
+                <img className="img-gris" src={wooGris} alt="WooCommerce en escala de grises" />
+                <img className="img-color" src={wooColor} alt="Logo de WooCommerce a color" />
+              </div>
             </div>
           </div>
 
@@ -226,15 +266,6 @@ function Skills() {
                 <img className="img-color" src={reactColor} alt="Logo de React a color" />
               </div>
 
-                     <div
-                className="habilidades__card habilidades__card--woo"
-                data-aos="fade-right"
-                data-aos-delay="2050"
-              >
-                <img className="img-gris" src={wooGris} alt="WooCommerce en escala de grises" />
-                <img className="img-color" src={wooColor} alt="Logo de WooCommerce a color" />
-              </div>
-
                          <div
                 className="habilidades__card habilidades__card--supabase"
                 data-aos="fade-right"
@@ -242,6 +273,15 @@ function Skills() {
               >
                 <img className="img-gris" src={supabaseGris} alt="Supabase en escala de grises" />
                 <img className="img-color" src={supabaseColor} alt="Logo de Supabase a color" />
+              </div>
+
+                            <div
+                className="habilidades__card habilidades__card--supabase"
+                data-aos="fade-right"
+                data-aos-delay="2100"
+              >
+                <img className="img-gris" src={claudeGris} alt="Supabase en escala de grises" />
+                <img className="img-color" src={claudeColor} alt="Logo de Supabase a color" />
               </div>
             </div>
           </div>

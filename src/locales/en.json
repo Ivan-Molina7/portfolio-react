@@ -26,7 +26,7 @@
     "titulo": "SKILLS",
     "programacionTitulo": "Programming",
     "disenoTitulo": "Design",
-    "aprendiendoTitulo": "Improving..."
+    "aprendiendoTitulo": "Focused on..."
   },
   "about": {
     "titulo": "ABOUT ME",
@@ -40,7 +40,7 @@
   "modalTimeline": {
     "aprobacionTexto": "Passing Grade:",
     "titulo1": "I.T.I (Technological Institute of Informatics)",
-    "alt1": "I.T.I Diploma awarded by the Technological Institute of Informatics, certifying course completion.",
+    "alt1": "I.T.I Diploma awarded by the Technological Institute of Informatics, certifying the completion of the high school in Informatics.",
     "titulo2": "Front-end Developer (BIOS)",
     "alt2": "Front-end Developer Diploma awarded by BIOS, certifying advanced skills in front-end technologies.",
     "titulo3": "Digital Designer with Web Orientation (ORT)",
@@ -71,7 +71,8 @@
     "havanna_descripcion": "Havanna es una propuesta de e-commerce elegante y atemporal para la venta de relojes de lujo. El rediseño se enfocó en crear una experiencia visual cuidada, con navegación intuitiva y una presentación clara de productos y detalles. El objetivo fue modernizar la presencia digital de la marca, facilitando la exploración y selección de productos para los usuarios.",
     "culPadel_descripcion": "CulPadel was a final university project where we created a corporate image and a website to book courts and rooms, choose date, shift, and payment method, representing all the provided information.",
     "worldGym_descripcion": "WorldGym is a project that uses public APIs to provide a dynamic experience where you can create and manage personalized workout routines for beginners and intermediates, save favorite exercises, and customize them according to your needs.",
-    "sandbox_descripcion": "Sandbox is a personal project created as a practice space to develop and test front-end concepts. It serves as a collection of landing pages and experiments where I apply React, hooks, and common patterns used in everyday development."
+    "sandbox_descripcion": "Sandbox is a personal project created as a practice space to develop and test front-end concepts. It serves as a collection of landing pages and experiments where I apply React, hooks, and common patterns used in everyday development.",
+        "transportes_descripcion": "Sandbox es un proyecto personal creado como espacio de práctica para desarrollar y probar conceptos de front-end. Sirve como una colección de landings y experimentos donde aplico React, hooks, y patrones comunes en el desarrollo del día a día."
 
   },
   "objetivos": {
@@ -100,7 +101,12 @@
 
     "sandbox_item1Texto": "Apply real-world React and front-end concepts in small, functional projects.",
     "sandbox_item2Texto": "Improve code organization and component reusability.",
-    "sandbox_item3Texto": "Practice the full development flow: design, structure, logic, and deployment."
+    "sandbox_item3Texto": "Practice the full development flow: design, structure, logic, and deployment.",
+
+
+    "transportes_item1Texto": "Apply real-world React and front-end concepts in small, functional projects.",
+    "transportes_item2Texto": "Improve code organization and component reusability.",
+    "transportes_item3Texto": "Practice the full development flow: design, structure, logic, and deployment."
 
   },
   "tecnologias": {
@@ -175,7 +181,16 @@
     "sandbox_respuesta2": "Mainly my fluency using hooks like useState and useEffect, structuring components more cleanly, and becoming more confident working with props, states, and conditional rendering.",
 
     "sandbox_pregunta3": "What does Sandbox represent in your growth as a developer?",
-    "sandbox_respuesta3": "It’s an intermediate step between theory and professional work. It allows me to make mistakes, experiment, and refine my front-end style, preparing me for larger and more realistic projects."
+    "sandbox_respuesta3": "It’s an intermediate step between theory and professional work. It allows me to make mistakes, experiment, and refine my front-end style, preparing me for larger and more realistic projects.",
+
+      
+    "transportes_pregunta1": "¿Cuála fue la motivación para crear transportes?",
+    "transportes_respuesta1": "Quería tener un entorno donde pudiera aplicar lo que aprendo sin la presión de un proyecto formal. transportes nació como un espacio libre para practicar React y crear landings con ideas ya definidas.",
+  
+    "transportes_pregunta2": "¿Qué buscás mejorar con este proyecto?",
+    "transportes_respuesta2": "Principalmente mi fluidez al usar hooks como useState y useEffect, estructurar componentes de forma más limpia, y ganar soltura trabajando con props, estados y renderizados condicionales.",
+    "transportes_pregunta3": "¿Qué representa transportes en tu crecimiento como desarrollador?",
+    "transportes_respuesta3": "Es un paso intermedio entre la teoría y el trabajo profesional. Me permite equivocarme, experimentar y pulir mi estilo como front-end, preparándome para proyectos más grandes y reales."
 
 
   }

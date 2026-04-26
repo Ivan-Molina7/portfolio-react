@@ -37,14 +37,14 @@
     /* Define el ancho y estilo del borde */
     border-image: linear-gradient(to right, #FFF, #00C457) 1;
     position: relative;
-    background-color: #00000098;
+    background-color: #000000bb;
     max-width: 920px;
     width: 100%;
     padding: map-get($map: spacing.$spacing, $key: 64px);
     text-align: center;
     @include utils.flex-layout(flex-center, flex-center, column);
     gap: map-get($map: spacing.$spacing, $key: 32px);
-
+    backdrop-filter: blur(2px);
 
     .close {
         opacity: .7;

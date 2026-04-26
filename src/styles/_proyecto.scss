@@ -154,7 +154,8 @@
 
         .proyecto-tecnologias__item {
             width: 73px;
-            height: 73px
+            height: 73px;
+            object-fit: contain;
         }
     }
 }

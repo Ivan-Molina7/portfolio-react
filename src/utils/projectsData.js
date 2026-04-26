@@ -4,6 +4,8 @@ import CulPadelLogo from '../assets/img/LogosProyectos/CulPadel.png';
 import HavannaLogo from '../assets/img/LogosProyectos/Havanna.png';
 import WorldGymLogo from '../assets/img/LogosProyectos/WorldGym.png';
 import SandboxLogo from '../assets/img/LogosProyectos/Sandbox.png';
+import transportesLogo from '../assets/img/LogosProyectos/transportes-G.png';
+import WakeUpLogo from '../assets/img/LogosProyectos/WakeUp-G.png';
 
 
 //*ICONOS TECNOLOGIAS
@@ -20,6 +22,14 @@ import aiGris from '../assets/img/habilidades/ai.png';
 import psGris from '../assets/img/habilidades/ps.png';
 import figmaGris from '../assets/img/habilidades/figma.png';
 import reactGris from '../assets/img/habilidades/react.webp';
+import tailwindGris from '../assets/img/habilidades/Tailwind-G.png';
+import zustand from '../assets/img/habilidades/Zustand-G.png';
+import tanStack from '../assets/img/habilidades/tanstack-G.png';
+import supabaseGris from '../assets/img/habilidades/supabase.png';
+import wooGris from '../assets/img/habilidades/woo.png';
+import claudeGris from '../assets/img/habilidades/Claude-G.png';
+
+
 
 //*Modal
 import CAPMain from '../assets/img/proyectos/Progreso/Home.webp';
@@ -176,7 +186,7 @@ export const projectsData = [{
   {
     id: 3,
     tipo: "proyecto",
-    destacado: true,
+    destacado: false,
     behance: true,
     behanceLink: "https://www.behance.net/gallery/225725831/HAVANNA-Diseno-UXUI-para-relojes-de-lujo",
     figma: false,
@@ -276,7 +286,7 @@ export const projectsData = [{
   {
     id: 5,
     tipo: "proyecto",
-    destacado: true,
+    destacado: false,
     behance: false,
     behanceLink: "",
     figma: false,
@@ -380,6 +390,158 @@ export const projectsData = [{
     },
   ]
 },
+{
+  id: 7,
+  tipo: "trabajo",
+  destacado: true,
+  behance: false,
+  behanceLink: "",
+  figma: false,
+  figmaLink: "",
+  sitio: true,
+  sitioLink: "https://transportesuy.com.uy/",
+  titulo: "Transportes UY",
+  descripcionKey: "proyecto.transportes_descripcion",
+  Logo: transportesLogo,
+  imagenAlt: "Mockup de Transportes UY",
 
+  objetivo1Key: "objetivos.transportes_item1Texto",
+  objetivo2Key: "objetivos.transportes_item2Texto",
+  objetivo3Key: "objetivos.transportes_item3Texto",
 
+  pregunta1Key: "proyecto_about.transportes_pregunta1",
+  respuesta1Key: "proyecto_about.transportes_respuesta1",
+  pregunta2Key: "proyecto_about.transportes_pregunta2",
+  respuesta2Key: "proyecto_about.transportes_respuesta2",
+  pregunta3Key: "proyecto_about.transportes_pregunta3",
+  respuesta3Key: "proyecto_about.transportes_respuesta3",
+  tecnologias: [
+    {
+      icono: htmlGris,
+      alt: 'HTML'
+    },
+    {
+      icono: cssGris,
+      alt: 'CSS'
+    },
+    {
+      icono: tailwindGris,
+      alt: 'Tailwind'
+    },
+    {
+      icono: reactGris,
+      alt: 'React'
+    },
+    {
+      icono: figmaGris,
+      alt: 'Figma'
+    },
+    {
+      icono: psGris,
+      alt: 'Photoshop'
+    },
+    {
+      icono: githubGris,
+      alt: 'GitHub'
+    },
+  ],
+  imagenesModal: [
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/transportes_screen1.png",
+      alt: 'Pantalla 1 de Transportes UY'
+    },
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/transportes_screen2.png",
+      alt: 'Pantalla 2 de Transportes UY'
+    },
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/transportes_screen3.png",
+      alt: 'Pantalla 3 de Transportes UY'
+    },
+  ]
+},
+{
+  id: 8,
+  tipo: "trabajo",
+  destacado: true,
+  behance: true,
+  behanceLink: "https://www.behance.net/gallery/245173805/Wake-Up-Habit-Tracker-Design-Development",
+  figma: false,
+  figmaLink: "",
+  sitio: true,
+  sitioLink: "https://wakeuptracker.com/",
+  titulo: "Wake Up Tracker",
+  descripcionKey: "proyecto.wakeup_descripcion",
+  Logo: WakeUpLogo,
+  imagenAlt: "Mockup de Wake Up Tracker",
+  objetivo1Key: "objetivos.wakeup_item1Texto",
+  objetivo2Key: "objetivos.wakeup_item2Texto",
+  objetivo3Key: "objetivos.wakeup_item3Texto",
+  pregunta1Key: "proyecto_about.wakeup_pregunta1",
+  respuesta1Key: "proyecto_about.wakeup_respuesta1",
+  pregunta2Key: "proyecto_about.wakeup_pregunta2",
+  respuesta2Key: "proyecto_about.wakeup_respuesta2",
+  pregunta3Key: "proyecto_about.wakeup_pregunta3",
+  respuesta3Key: "proyecto_about.wakeup_respuesta3",
+  tecnologias: [
+    {
+      icono: htmlGris,
+      alt: 'HTML'
+    },
+    {
+      icono: cssGris,
+      alt: 'CSS'
+    },
+    {
+      icono: tailwindGris,
+      alt: 'Tailwind'
+    },
+    {
+      icono: reactGris,
+      alt: 'React'
+    },
+    {
+      icono: figmaGris,
+      alt: 'Figma'
+    },
+    {
+      icono: psGris,
+      alt: 'Photoshop'
+    },
+    {
+      icono: githubGris,
+      alt: 'GitHub'
+    },
+    {
+      icono: supabaseGris,
+      alt: 'Supabase'
+    },
+    {
+      icono: zustand,
+      alt: 'Zustand'
+    },
+    {
+      icono: tanStack,
+      alt: 'TanStack Query'
+    },
+    {
+      icono: claudeGris,
+      alt: 'Claude AI'
+    },
+  ],
+  imagenesModal: [
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/wakeup_screen1.png",
+      alt: 'Pantalla 1 de Wake Up Tracker'
+    },
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/wakeup_screen2.png",
+      alt: 'Pantalla 2 de Wake Up Tracker'
+    },
+    {
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/wakeup_screen3.png",
+      alt: 'Pantalla 3 de Wake Up Tracker'
+    },
+  ]
+},
 ];
