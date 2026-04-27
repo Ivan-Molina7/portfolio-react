@@ -12,8 +12,7 @@ function Projects() {
   const trabajos = projectsData.filter((p) => p.tipo === "trabajo" && p.destacado === true);
   const proyectos = projectsData.filter((p) => p.tipo === "proyecto"  && p.destacado === true);
 
-  
-
+  const trabajosOrdenados = [...trabajos].sort((a, b) => b.id - a.id);
   return (
     <div
       className="overflow-section-100vh overflow-section-100vh--proyectos"
@@ -50,10 +49,10 @@ function Projects() {
 
 
             <div className="proyectos__cards">
-              {trabajos.map((proyecto, i) => (
+              {trabajosOrdenados.map((proyecto, i) => (
                 <div
                   key={proyecto.id}
-                  className="proyectos__card"
+                 className={`proyectos__card ${proyecto.featured ? 'proyectos__card--featured' : ''}`}
                   data-aos="fade-right"
                   data-aos-delay={400 + i * 100}
                 >

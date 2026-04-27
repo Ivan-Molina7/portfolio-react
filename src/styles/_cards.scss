@@ -9,7 +9,7 @@
 /* PROYECTOS */
 .proyectos__card {
     @include utils.flex-layout(center, center, column);
-    width: 158px;
+    width: 128px ;
     height: 170px;
     padding: map-get($map: spacing.$spacing, $key: 16px) 0;
     gap: map-get($map: spacing.$spacing, $key: 16px);
@@ -22,7 +22,31 @@
         height: 100%;
         object-fit: contain;
     }
+
 }
+
+.proyectos__card--featured {
+    grid-column: span 2; // Ocupa 2 columnas
+    
+    img {
+        max-width: 280px; // Más grande
+    }
+    
+    &::after {
+        content: '★ DESTACADO';
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: rgb(0, 128, 68);
+        padding: 0.25rem 0.75rem;
+        border-radius: 100px;
+        font-size: 0.65rem;
+        color: #ffffff;
+        border: 1px solid rgba(0, 255, 136, 0.3);
+    }
+}
+
+
 
 .proyectos__card:hover {
     background-color: colores.$Green-Hover-Card;
@@ -32,31 +56,55 @@
 .habilidades__card {
     position: relative;
     @include utils.flex-layout(center, center, row);
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background-color: #092D24;
     border: 1px solid white;
     height: 73px;
     width: 73px;
     padding: map-get($map: spacing.$spacing, $key: 16px);
+    cursor: pointer;
 
+    @media screen and (min-width: 768px) {
+        height: 90px;
+        width: 90px;
+        padding: map-get($map: spacing.$spacing, $key: 24px);
+    }
 
     img {
         width: 41px;
         height: 41px;
         object-fit: contain;
-            position: absolute;
-   
-            transition: opacity 0.2s ;
-     
+        position: absolute;
+        transition: opacity 0.2s;
+
+        @media screen and (min-width: 768px) {
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    .img-gris {
+        opacity: 1;
     }
 
     .img-color {
         opacity: 0;
-      }
-      
-   
-}
+    }
 
+    &:hover {
+        border-color: colores.$Green-Light;
+        box-shadow: 0 0 0 4px rgba(colores.$Green-Light, 0.15);
+        transform: translateY(-4px);
+
+        .img-gris {
+            opacity: 0;
+        }
+
+        .img-color {
+            opacity: 1;
+        }
+    }
+}
 .habilidades__card:hover .img-color {
     opacity: 1;
   }
@@ -172,8 +220,8 @@
 
 
         img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
         }
 
@@ -196,8 +244,8 @@
 
     .habilidades__card {
 
-        height: 100px;
-        width: 100px;
+        height: 90px;
+        width: 90px;
         padding: map-get($map: spacing.$spacing, $key: 24px);
 
 

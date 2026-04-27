@@ -6,28 +6,27 @@
     "contacto": "Contact",
     "btnContacto": "Contact"
   },
-  "hero": {
-    "ofertas": "Open to offers",
-    "nombre": "IVAN MOLINA",
-    "descripcion": "aspirando a ser Full-stack designer.",
-    "descripcionSpan": "Front-end Developer,",
-    "descripcion": "aspiring to be Full-stack designer.",
-    "ubicacion": "Montevideo, Uruguay",
-    "leerMas": "Read more",
-    "sobreMi": "About me"
-  },
+"hero": {
+  "ofertas": "Open to offers",
+  "nombre": "IVAN MOLINA",
+  "descripcionSpan": "Product Engineer",
+  "descripcion": "building digital products from zero to one.",
+  "ubicacion": "Montevideo, Uruguay",
+  "leerMas": "Read more",
+  "sobreMi": "About me"
+},
   "proyectos": {
     "titulo": "PROJECTS",
     "trabajosTitulo": "WORKS",
     "proyectosPersonalesTitulo": "PERSONAL PROJECTS",
     "expandirBtn": "Expand"
   },
-  "habilidades": {
-    "titulo": "SKILLS",
-    "programacionTitulo": "Programming",
-    "disenoTitulo": "Design",
-    "aprendiendoTitulo": "Focused on..."
-  },
+"habilidades": {
+  "titulo": "Skills",
+  "frontendTitulo": "Frontend",
+  "backendTitulo": "Backend & Tools",
+  "disenoTitulo": "Design"
+},
   "about": {
     "titulo": "ABOUT ME",
     "parrafo1": "Hello, I am Iván Molina, a UX/UI designer and front-end developer based in Montevideo, Uruguay. I am interested in design that not only looks good but also works well and, above all, improves the experience of those who use it. I like to understand each project as a learning process, where I can grow, refine my perspective, and gradually approach the professional level I admire.",
@@ -44,7 +43,10 @@
     "titulo2": "Front-end Developer (BIOS)",
     "alt2": "Front-end Developer Diploma awarded by BIOS, certifying advanced skills in front-end technologies.",
     "titulo3": "Digital Designer with Web Orientation (ORT)",
-    "alt3": "Digital Designer Diploma specialized in web, awarded by ORT, validating knowledge in digital design."
+    "alt3": "Digital Designer Diploma specialized in web, awarded by ORT, validating knowledge in digital design.",
+    "titulo4": "Ongoing Web Development Training (Udemy)",
+"nota": "Ongoing",
+"alt4": "Ongoing training through specialized Udemy courses in React 19, Supabase, Node.js, OAuth authentication, payment integration, full-stack architecture, and modern web application development. Knowledge applied directly to real projects like Wake Up Tracker."
   }
 
   ,
@@ -67,12 +69,21 @@
     "btnMasInfo": "More information on my Behance",
 
     "cap_descripcion": "A renewed web platform that connects fans with their club, offering news, statistics, and updated content in an accessible and easy-to-use environment. This project aims to modernize the club's digital presence and strengthen its community bond.",
+
     "nbc_descripcion": "NBC Cargo is a company dedicated to imports by air and sea whose website was very outdated. I developed a new page from scratch with a modern and functional design. The renovation improved the user experience and the company’s digital presence. This made access to their services easier and strengthened their online image.",
+
     "havanna_descripcion": "Havanna es una propuesta de e-commerce elegante y atemporal para la venta de relojes de lujo. El rediseño se enfocó en crear una experiencia visual cuidada, con navegación intuitiva y una presentación clara de productos y detalles. El objetivo fue modernizar la presencia digital de la marca, facilitando la exploración y selección de productos para los usuarios.",
+
     "culPadel_descripcion": "CulPadel was a final university project where we created a corporate image and a website to book courts and rooms, choose date, shift, and payment method, representing all the provided information.",
+
     "worldGym_descripcion": "WorldGym is a project that uses public APIs to provide a dynamic experience where you can create and manage personalized workout routines for beginners and intermediates, save favorite exercises, and customize them according to your needs.",
+
     "sandbox_descripcion": "Sandbox is a personal project created as a practice space to develop and test front-end concepts. It serves as a collection of landing pages and experiments where I apply React, hooks, and common patterns used in everyday development.",
-        "transportes_descripcion": "Sandbox es un proyecto personal creado como espacio de práctica para desarrollar y probar conceptos de front-end. Sirve como una colección de landings y experimentos donde aplico React, hooks, y patrones comunes en el desarrollo del día a día."
+
+    "transportes_descripcion": "Institutional website developed for Transportes UY, the largest dump truck company in Uruguay. The project covered everything from UX/UI design to full development, focused on building trust, attracting clients, and positioning the brand digitally.",
+
+    "wakeup_descripcion": "Wake Up is a personal tracking web app developed independently, from design to deployment. It allows users to log habits, emotions, and daily scores to discover real patterns about their own lives. The project started as a technical practice and ended up becoming a real tool with active users."
+
 
   },
   "objetivos": {
@@ -104,10 +115,13 @@
     "sandbox_item3Texto": "Practice the full development flow: design, structure, logic, and deployment.",
 
 
-    "transportes_item1Texto": "Apply real-world React and front-end concepts in small, functional projects.",
-    "transportes_item2Texto": "Improve code organization and component reusability.",
-    "transportes_item3Texto": "Practice the full development flow: design, structure, logic, and deployment."
+    "transportes_item1Texto": "Build a professional digital presence that reflects the company's scale and track record in the heavy transport industry.",
+    "transportes_item2Texto": "Design a clear and direct experience that makes it easy for businesses and individuals to contact the company and request quotes.",
+    "transportes_item3Texto": "Position the site in local search results through basic SEO, highlighting key services such as dump truck rental, cranes, and containers.",
 
+    "wakeup_item1Texto": "Build a complete personal tracker that cross-references habit, emotion, and score data to generate real insights about user behavior.",
+"wakeup_item2Texto": "Design a simple and fast experience — under one minute per day — that encourages consistent logging without friction.",
+"wakeup_item3Texto": "Implement a real business model with a free plan, Premium subscription, and recurring payments through Mercado Pago."
   },
   "tecnologias": {
     "tecnologiasTitulo": "Technologies Used"
@@ -121,77 +135,61 @@
 
     "cap_pregunta1": "What was the process of elaboration and development of the project?",
     "cap_respuesta1": "It began with an analysis of the current platform and the club's needs, followed by prototyping and frontend and backend development to create a modern, accessible, and functional website.",
-
     "cap_pregunta2": "How was the user experience and interface designed?",
     "cap_respuesta2": "The design focused on usability and accessibility, with clear and visual navigation aligned with the club's identity, ensuring an intuitive and attractive experience across all devices.",
-
     "cap_pregunta3": "What impact or benefits are expected for users or the community?",
     "cap_respuesta3": "It aims to facilitate access to updated information, strengthen the bond with fans, and enhance the club's digital presence, generating greater interaction and sense of belonging.",
 
-
-
-
-
     "nbc_pregunta1": "What was the process of elaboration and development of the project?",
     "nbc_respuesta1": "It began with an analysis of the outdated website and NBC Cargo’s needs, followed by prototyping and frontend and backend development to create a modern and functional website.",
-
     "nbc_pregunta2": "How was the user experience and interface designed?",
     "nbc_respuesta2": "The design prioritized usability and accessibility, with clear navigation and a modern visual style reflecting NBC Cargo’s corporate identity, ensuring an attractive experience across all devices.",
-
     "nbc_pregunta3": "What impact or benefits are expected for users or the community?",
     "nbc_respuesta3": "It aims to facilitate access to import services, improve NBC Cargo’s digital image, and strengthen connection with clients through an efficient and modern platform.",
 
-
-
-
     "havanna_pregunta1": "What was the process of elaboration and development of the project?",
     "havanna_respuesta1": "The project began with a detailed analysis of the Havanna brand and its needs, followed by prototyping and frontend development to create an elegant, intuitive, and functional online store.",
-
     "havanna_pregunta2": "How was the user experience and interface designed?",
     "havanna_respuesta2": "The design focused on clear navigation and elegant visuals, aligned with Havanna's identity, ensuring an attractive and easy-to-use experience across all devices.",
-
     "havanna_pregunta3": "What impact or benefits are expected for users or the community?",
     "havanna_respuesta3": "The new platform is expected to enhance Havanna's digital presence, facilitate online shopping, and strengthen the relationship with its customers through a superior user experience.",
 
-
-
-
     "culPadel_pregunta1": "What was the process of elaboration and development of the project?",
     "culPadel_respuesta1": "The project was a final university exercise that involved creating a corporate image and a website to book courts and rooms, with date, shift, and payment method selection.",
-
     "culPadel_pregunta2": "How was the user experience and interface designed?",
     "culPadel_respuesta2": "A clear, intuitive, and functional interface was designed, aligned with the created corporate image, to facilitate booking and payment on all devices.",
-
     "culPadel_pregunta3": "What impact or benefits are expected for users or the community?",
     "culPadel_respuesta3": "The platform is expected to facilitate reservation and payment management, improving user experience and strengthening the project's corporate image.",
 
     "worldGym_pregunta1": "What was the process of elaboration and development of the project?",
     "worldGym_respuesta1": "The project involved using public APIs to create a dynamic platform that allows users to create and manage personalized workout routines based on their training level.",
-
     "worldGym_pregunta2": "How was the user experience and interface designed?",
     "worldGym_respuesta2": "An intuitive and functional interface was designed to facilitate navigation and routine management, adapted to provide an engaging experience on all devices.",
-
     "worldGym_pregunta3": "What impact or benefits are expected for users or the community?",
     "worldGym_respuesta3": "The platform is expected to motivate users to stay active by facilitating the creation and tracking of personalized routines and improving their training experience.",
 
     "sandbox_pregunta1": "What motivated you to create Sandbox?",
     "sandbox_respuesta1": "I wanted an environment where I could apply what I learn without the pressure of a formal project. Sandbox was born as a free space to practice React and build landing pages based on existing ideas.",
-
     "sandbox_pregunta2": "What are you looking to improve with this project?",
     "sandbox_respuesta2": "Mainly my fluency using hooks like useState and useEffect, structuring components more cleanly, and becoming more confident working with props, states, and conditional rendering.",
-
     "sandbox_pregunta3": "What does Sandbox represent in your growth as a developer?",
     "sandbox_respuesta3": "It’s an intermediate step between theory and professional work. It allows me to make mistakes, experiment, and refine my front-end style, preparing me for larger and more realistic projects.",
 
-      
-    "transportes_pregunta1": "¿Cuála fue la motivación para crear transportes?",
-    "transportes_respuesta1": "Quería tener un entorno donde pudiera aplicar lo que aprendo sin la presión de un proyecto formal. transportes nació como un espacio libre para practicar React y crear landings con ideas ya definidas.",
-  
-    "transportes_pregunta2": "¿Qué buscás mejorar con este proyecto?",
-    "transportes_respuesta2": "Principalmente mi fluidez al usar hooks como useState y useEffect, estructurar componentes de forma más limpia, y ganar soltura trabajando con props, estados y renderizados condicionales.",
-    "transportes_pregunta3": "¿Qué representa transportes en tu crecimiento como desarrollador?",
-    "transportes_respuesta3": "Es un paso intermedio entre la teoría y el trabajo profesional. Me permite equivocarme, experimentar y pulir mi estilo como front-end, preparándome para proyectos más grandes y reales."
 
+    "transportes_pregunta1": "What was the design and development process like?",
+    "transportes_respuesta1": "The project started with design rounds in Figma, presented and validated with the client before moving into development. React and Tailwind were used to build a responsive, fast, and maintainable site.",
+    "transportes_pregunta2": "What challenges did the project present?",
+    "transportes_respuesta2": "One of the main challenges was organizing content for a company with multiple services, ensuring the site communicates everything without overwhelming the user. SEO work was also done to compete with other companies in the industry.",
+    "transportes_pregunta3": "What did you learn from working with a real client?",
+    "transportes_respuesta3": "It was the first project where I experienced the full cycle of real work: client communication, design decisions backed by reasoning, and the entire publishing process — domain, hosting, and deployment. I also dove deeper into SEO, Google Search Console, and Analytics, understanding that a good website doesn't end at the code — it ends at how people find it.",
+
+
+"wakeup_pregunta1": "What was the design and development process like?",
+"wakeup_respuesta1": "The project was developed entirely independently, from Figma wireframes to deployment on Netlify. It was built using React, Tailwind, Supabase, and TanStack Query, developed iteratively with a strong focus on user experience.",
+"wakeup_pregunta2": "What technical challenges did the project present?",
+"wakeup_respuesta2": "The main challenges were implementing Google OAuth authentication, integrating recurring payments with Mercado Pago, building a plan-based restriction system, and developing an AI assistant that analyzes real user data using Groq and Claude.",
+"wakeup_pregunta3": "What does Wake Up represent in your growth as a developer?",
+"wakeup_respuesta3": "It's the most complete project I've built — not just in code but in product vision. I learned to make architecture decisions, design real user flows, integrate external services, and ship something that real people use. I went from doing exercises to building a product."
 
   }
 }

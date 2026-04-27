@@ -55,6 +55,11 @@ import CulPadel3 from '../assets/img/proyectos/culPadel/3.webp';
 import WorldGymMain from '../assets/img/proyectos/worldGym/Home.png';
 import WorldGym2 from '../assets/img/proyectos/worldGym/2.png';
 
+//*Modal
+// import TransportesMain from '../assets/img/proyectos/transportes/home.webp';
+// import Transportes2 from '../assets/img/proyectos/transportes/servicios.webp';
+// import Transportes3 from '../assets/img/proyectos/transportes/contacto.webp';
+
 
 export const projectsData = [{
     id: 1,
@@ -447,15 +452,15 @@ export const projectsData = [{
   ],
   imagenesModal: [
     {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/transportes_screen1.png",
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777255229/home_qek9vv.webp",
       alt: 'Pantalla 1 de Transportes UY'
     },
     {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/transportes_screen2.png",
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777255229/servicios_bak0dh.webp",
       alt: 'Pantalla 2 de Transportes UY'
     },
     {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/transportes_screen3.png",
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777255229/contacto_pawlnb.webp",
       alt: 'Pantalla 3 de Transportes UY'
     },
   ]
@@ -464,6 +469,7 @@ export const projectsData = [{
   id: 8,
   tipo: "trabajo",
   destacado: true,
+  featured: true,
   behance: true,
   behanceLink: "https://www.behance.net/gallery/245173805/Wake-Up-Habit-Tracker-Design-Development",
   figma: false,
@@ -531,15 +537,15 @@ export const projectsData = [{
   ],
   imagenesModal: [
     {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/wakeup_screen1.png",
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777256814/Screenshot_559_mkcgth.png",
       alt: 'Pantalla 1 de Wake Up Tracker'
     },
     {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/wakeup_screen2.png",
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777256810/Screenshot_505_rmhpji.png",
       alt: 'Pantalla 2 de Wake Up Tracker'
     },
     {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1/wakeup_screen3.png",
+      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777256810/Screenshot_512_oddjcr.png",
       alt: 'Pantalla 3 de Wake Up Tracker'
     },
   ]

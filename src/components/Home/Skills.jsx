@@ -65,230 +65,150 @@ function Skills() {
  const { texts } = useTranslation();
 
 
-  return (
-    <div className="overflow-section-100vh" id="habilidades">
-      <section
-        className="habilidades max-width-section section-bg"
-        data-bg={Background}
+return (
+  <div className="overflow-section-100vh" id="habilidades">
+    <section
+      className="habilidades max-width-section section-bg"
+      data-bg={Background}
+    >
+      <h2
+        className="habilidades__title title-section"
+        data-aos="fade-right"
+        data-aos-delay="100"
       >
-        <h2
-          className="habilidades__title title-section"
-          data-section="habilidades"
-          data-value="titulo"
+        {texts.habilidades.titulo}
+      </h2>
+      <div className="habilidades__container">
+        {/* === FRONTEND === */}
+        <div
+          className="habilidades__section"
           data-aos="fade-right"
-          data-aos-delay="100"
+          data-aos-delay="150"
         >
-           {texts.habilidades.titulo}
-        </h2>
-        <div className="habilidades__container">
-          {/* === Programación === */}
-          <div
-            className="habilidades__section"
+          <h3
+            className="habilidades__subtitle subtitle-section"
             data-aos="fade-right"
             data-aos-delay="200"
           >
-            <h3
-              className="habilidades__subtitle subtitle-section"
-              data-section="habilidades"
-              data-value="programacionTitulo"
-              data-aos="fade-right"
-              data-aos-delay="300"
-            >
-                  {texts.habilidades.programacionTitulo}
-            </h3>
-            <div className="habilidades__cards">
-              <div
-                className="habilidades__card habilidades__card--html"
-                data-aos="fade-right"
-                data-aos-delay="400"
-              >
-                <img className="img-gris" src={htmlGris} alt="HTML en escala de grises" />
-                <img className="img-color" src={htmlColor} alt="Logo de HTML a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--css"
-                data-aos="fade-right"
-                data-aos-delay="500"
-              >
-                <img className="img-gris" src={cssGris} alt="CSS en escala de grises" />
-                <img className="img-color" src={cssColor} alt="Logo de CSS a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--js"
-                data-aos="fade-right"
-                data-aos-delay="600"
-              >
-                <img className="img-gris" src={jsGris} alt="JavaScript en escala de grises" />
-                <img className="img-color" src={jsColor} alt="Logo de JavaScript a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--sass"
-                data-aos="fade-right"
-                data-aos-delay="700"
-              >
-                <img className="img-gris" src={sassGris} alt="Sass en escala de grises" />
-                <img className="img-color" src={sassColor} alt="Logo de Sass a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--bootstrap"
-                data-aos="fade-right"
-                data-aos-delay="800"
-              >
-                <img className="img-gris" src={bootstrapGris} alt="Bootstrap en escala de grises" />
-                <img className="img-color" src={bootstrapColor} alt="Logo de Bootstrap a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--node"
-                data-aos="fade-right"
-                data-aos-delay="900"
-              >
-                <img className="img-gris" src={nodeGris} alt="Node.js en escala de grises" />
-                <img className="img-color" src={nodeColor} alt="Logo de Node.js a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--mongo"
-                data-aos="fade-right"
-                data-aos-delay="1000"
-              >
-                <img className="img-gris" src={mongoGris} alt="MongoDB en escala de grises" />
-                <img className="img-color" src={mongoColor} alt="Logo de MongoDB a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--wordpress"
-                data-aos="fade-right"
-                data-aos-delay="1100"
-              >
-                <img className="img-gris" src={wordpressGris} alt="WordPress en escala de grises" />
-                 <img className="img-color" src={wordpressColor} alt="Logo de WordPress a color" /> 
-              </div>
-              <div
-                className="habilidades__card habilidades__card--github"
-                data-aos="fade-right"
-                data-aos-delay="1200"
-              >
-                <img className="img-gris" src={githubGris} alt="GitHub en escala de grises" />
-                <img className="img-color" src={githubColor} alt="Logo de GitHub a color" />
-              </div>
-                    <div
-                className="habilidades__card habilidades__card--github"
-                data-aos="fade-right"
-                data-aos-delay="1200"
-              >
-                <img className="img-gris" src={tanStack} alt="GitHub en escala de grises" />
-                <img className="img-color" src={tanStackColor} alt="Logo de GitHub a color" />
-              </div>
-
-                     <div
-                className="habilidades__card habilidades__card--github"
-                data-aos="fade-right"
-                data-aos-delay="1200"
-              >
-                <img className="img-gris" src={zustand} alt="GitHub en escala de grises" />
-                <img className="img-color" src={zustandColor} alt="Logo de GitHub a color" />
-              </div>
-
-                     <div
-                className="habilidades__card habilidades__card--woo"
-                data-aos="fade-right"
-                data-aos-delay="2050"
-              >
-                <img className="img-gris" src={wooGris} alt="WooCommerce en escala de grises" />
-                <img className="img-color" src={wooColor} alt="Logo de WooCommerce a color" />
-              </div>
+            {texts.habilidades.frontendTitulo}
+          </h3>
+          <div className="habilidades__cards">
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="250">
+              <img className="img-gris" src={htmlGris} alt="HTML" />
+              <img className="img-color" src={htmlColor} alt="HTML" />
             </div>
-          </div>
-
-          {/* === Diseño === */}
-          <div
-            className="habilidades__section"
-            data-aos="fade-right"
-            data-aos-delay="1300"
-          >
-            <h3
-              className="habilidades__subtitle subtitle-section"
-              data-section="habilidades"
-              data-value="disenoTitulo"
-              data-aos="fade-right"
-              data-aos-delay="1400"
-            >
-                  {texts.habilidades.disenoTitulo}
-            </h3>
-            <div className="habilidades__cards">
-              <div
-                className="habilidades__card habilidades__card--ai"
-                data-aos="fade-right"
-                data-aos-delay="1500"
-              >
-                <img className="img-gris" src={aiGris} alt="Adobe Illustrator en escala de grises" />
-                <img className="img-color" src={aiColor} alt="Logo de Adobe Illustrator a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--ps"
-                data-aos="fade-right"
-                data-aos-delay="1600"
-              >
-                <img className="img-gris" src={psGris} alt="Adobe Photoshop en escala de grises" />
-                <img className="img-color" src={psColor} alt="Logo de Adobe Photoshop a color" />
-              </div>
-              <div
-                className="habilidades__card habilidades__card--figma"
-                data-aos="fade-right"
-                data-aos-delay="1700"
-              >
-                <img className="img-gris" src={figmaGris} alt="Figma en escala de grises" />
-                <img className="img-color" src={figmaColor} alt="Logo de Figma a color" />
-              </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="300">
+              <img className="img-gris" src={cssGris} alt="CSS" />
+              <img className="img-color" src={cssColor} alt="CSS" />
             </div>
-          </div>
-
-          {/* === Aprendiendo... === */}
-          <div
-            className="habilidades__section"
-            data-aos="fade-right"
-            data-aos-delay="1800"
-          >
-            <h3
-              className="habilidades__subtitle habilidades__subtitle--aprendiendo subtitle-section"
-              data-section="habilidades"
-              data-value="aprendiendoTitulo"
-              data-aos="fade-right"
-              data-aos-delay="1900"
-            >
-                  {texts.habilidades.aprendiendoTitulo}
-            </h3>
-            <div className="habilidades__cards">
-              <div
-                className="habilidades__card habilidades__card--react"
-                data-aos="fade-right"
-                data-aos-delay="2000"
-              >
-                <img className="img-gris" src={reactGris} alt="React en escala de grises" />
-                <img className="img-color" src={reactColor} alt="Logo de React a color" />
-              </div>
-
-                         <div
-                className="habilidades__card habilidades__card--supabase"
-                data-aos="fade-right"
-                data-aos-delay="2100"
-              >
-                <img className="img-gris" src={supabaseGris} alt="Supabase en escala de grises" />
-                <img className="img-color" src={supabaseColor} alt="Logo de Supabase a color" />
-              </div>
-
-                            <div
-                className="habilidades__card habilidades__card--supabase"
-                data-aos="fade-right"
-                data-aos-delay="2100"
-              >
-                <img className="img-gris" src={claudeGris} alt="Supabase en escala de grises" />
-                <img className="img-color" src={claudeColor} alt="Logo de Supabase a color" />
-              </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="350">
+              <img className="img-gris" src={jsGris} alt="JavaScript" />
+              <img className="img-color" src={jsColor} alt="JavaScript" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="400">
+              <img className="img-gris" src={reactGris} alt="React" />
+              <img className="img-color" src={reactColor} alt="React" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="450">
+              <img className="img-gris" src={sassGris} alt="Sass" />
+              <img className="img-color" src={sassColor} alt="Sass" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="500">
+              <img className="img-gris" src={tailwindGris} alt="Tailwind" />
+              <img className="img-color" src={tailwindColor} alt="Tailwind" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="550">
+              <img className="img-gris" src={bootstrapGris} alt="Bootstrap" />
+              <img className="img-color" src={bootstrapColor} alt="Bootstrap" />
             </div>
           </div>
         </div>
-      </section>
-    </div>
-  );
+
+        {/* === BACKEND & TOOLS === */}
+        <div
+          className="habilidades__section"
+          data-aos="fade-right"
+          data-aos-delay="600"
+        >
+          <h3
+            className="habilidades__subtitle subtitle-section"
+            data-aos="fade-right"
+            data-aos-delay="650"
+          >
+            {texts.habilidades.backendTitulo}
+          </h3>
+          <div className="habilidades__cards">
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="700">
+              <img className="img-gris" src={nodeGris} alt="Node.js" />
+              <img className="img-color" src={nodeColor} alt="Node.js" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="750">
+              <img className="img-gris" src={mongoGris} alt="MongoDB" />
+              <img className="img-color" src={mongoColor} alt="MongoDB" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="800">
+              <img className="img-gris" src={supabaseGris} alt="Supabase" />
+              <img className="img-color" src={supabaseColor} alt="Supabase" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="850">
+              <img className="img-gris" src={tanStack} alt="TanStack Query" />
+              <img className="img-color" src={tanStackColor} alt="TanStack Query" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="900">
+              <img className="img-gris" src={zustand} alt="Zustand" />
+              <img className="img-color" src={zustandColor} alt="Zustand" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="950">
+              <img className="img-gris" src={claudeGris} alt="Claude AI" />
+              <img className="img-color" src={claudeColor} alt="Claude AI" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="1000">
+              <img className="img-gris" src={githubGris} alt="GitHub" />
+              <img className="img-color" src={githubColor} alt="GitHub" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="1050">
+              <img className="img-gris" src={wordpressGris} alt="WordPress" />
+              <img className="img-color" src={wordpressColor} alt="WordPress" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="1100">
+              <img className="img-gris" src={wooGris} alt="WooCommerce" />
+              <img className="img-color" src={wooColor} alt="WooCommerce" />
+            </div>
+          </div>
+        </div>
+
+        {/* === DISEÑO === */}
+        <div
+          className="habilidades__section"
+          data-aos="fade-right"
+          data-aos-delay="1150"
+        >
+          <h3
+            className="habilidades__subtitle subtitle-section"
+            data-aos="fade-right"
+            data-aos-delay="1200"
+          >
+            {texts.habilidades.disenoTitulo}
+          </h3>
+          <div className="habilidades__cards">
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="1250">
+              <img className="img-gris" src={figmaGris} alt="Figma" />
+              <img className="img-color" src={figmaColor} alt="Figma" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="1300">
+              <img className="img-gris" src={psGris} alt="Photoshop" />
+              <img className="img-color" src={psColor} alt="Photoshop" />
+            </div>
+            <div className="habilidades__card" data-aos="fade-right" data-aos-delay="1350">
+              <img className="img-gris" src={aiGris} alt="Illustrator" />
+              <img className="img-color" src={aiColor} alt="Illustrator" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+);
 }
 
 export default Skills;

@@ -1,53 +1,51 @@
 import ITI from "../../assets/img/about/iti.png";
 import Bios from "../../assets/img/about/bios.png";
 import Ort from "../../assets/img/about/ort.png";
-import lineMobile from "../../assets/img/about/lineMobile.png";
-
+import Udemy from "../../assets/img/about/Udemy.webp";
 import Background from "../../assets/img/Backgrounds/bg7.webp";
 import Modal from "./Modal";
 import { useState } from "react";
 
 import BiosDiploma from "../../assets/img/about/biosDiploma.png";
 import OrtDiploma from "../../assets/img/about/ORT-ESCOLARIDAD.png";
-import Udemy from "../../assets/img/about/Udemy.webp";
 import useTranslation from "../../hooks/useTranslation";
 
-
 function About() {
+  const { texts } = useTranslation();
 
-    const { texts } = useTranslation();
+  const timelineData = [
+    { year: "2019", image: ITI, index: 0 },
+    { year: "2022", image: Bios, index: 1 },
+    { year: "2025", image: Ort, index: 2 },
+    { year: "2026", image: Udemy, index: 3 },
+  ];
 
-const modalContent = [
-  {
-    titulo: texts.modalTimeline.titulo1,
-    nota: "11",
-    imagen: "",
-    alt: texts.modalTimeline.alt1,
-  },
-  {
-    titulo: texts.modalTimeline.titulo2,
-    nota: "95%",
-    imagen: BiosDiploma,
-    alt: texts.modalTimeline.alt2,
-  },
-  {
-    titulo: texts.modalTimeline.titulo3,
-    nota: "91%",
-    imagen: OrtDiploma,
-    alt: texts.modalTimeline.alt3,
-  },
-  {
-    titulo: texts.modalTimeline.titulo4,
-    nota: "95%",
-    imagen: Udemy,
-    alt: texts.modalTimeline.alt4,
-  },
- 
-];
-
-
-
-
+  const modalContent = [
+    {
+      titulo: texts.modalTimeline.titulo1,
+      nota: "11",
+      imagen: "",
+      alt: texts.modalTimeline.alt1,
+    },
+    {
+      titulo: texts.modalTimeline.titulo2,
+      nota: "95%",
+      imagen: BiosDiploma,
+      alt: texts.modalTimeline.alt2,
+    },
+    {
+      titulo: texts.modalTimeline.titulo3,
+      nota: "91%",
+      imagen: OrtDiploma,
+      alt: texts.modalTimeline.alt3,
+    },
+    {
+      titulo: texts.modalTimeline.titulo4,
+      nota:  texts.modalTimeline.nota,
+      imagen: "",
+      alt: texts.modalTimeline.alt4,
+    },
+  ];
 
   const [modalIndex, setModalIndex] = useState(null);
 
@@ -89,150 +87,46 @@ const modalContent = [
         </div>
 
         <div className="timeline">
-          {/* Línea de tiempo */}
+          {/* Línea horizontal de tiempo */}
           <div
             className="timeline__line"
             data-aos="fade-up"
             data-aos-delay="400"
           ></div>
 
-          {/* Elemento 1 de la línea de tiempo */}
-          <div
-            className="timeline__item"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <figure
-              className="timeline__thubmnail timeline-activate"
-              data-item="0"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              <img src={ITI} alt="" className="timeline__image" />
-            </figure>
-            <img
-              src={lineMobile}
-              alt=""
-              data-aos="fade-up"
-              data-aos-delay="700"
-            />
+          {/* Items del timeline */}
+          {timelineData.map((item, i) => (
             <div
-              className="timeline__info"
+              key={item.year}
+              className="timeline__item"
               data-aos="fade-up"
-              data-aos-delay="800"
+              data-aos-delay={500 + i * 100}
             >
-              <p className="anio" >
-                2019
-              </p>
-              <button
-                className="btn btn--timeline timeline-activate"
-                onClick={() => openModal(0)}
+              <figure
+                className="timeline__thumbnail timeline-activate"
+                onClick={() => openModal(item.index)}
               >
-                 {texts.about.expandir}
-              </button>
-            </div>
-          </div>
-          {/* Elemento 2 de la línea de tiempo */}
-          <div
-            className="timeline__item"
-            data-aos="fade-up"
-            data-aos-delay="900"
-          >
-            <figure
-              className="timeline__thubmnail timeline-activate"
-              data-aos="fade-up"
-              data-aos-delay="1000"
-            >
-              <img src={Bios} alt="" className="timeline__image" />
-            </figure>
-            <img
-              src={lineMobile}
-              alt=""
-              data-aos="fade-up"
-              data-aos-delay="1100"
-            />
-            <div
-              className="timeline__info"
-              data-aos="fade-up"
-              data-aos-delay="1200"
-            >
-              <p className="anio">2022</p>
-              <button
-                className="btn btn--timeline timeline-activate"
-                onClick={() => openModal(1)}
-              >
-                 {texts.about.expandir}
-              </button>
-            </div>
-          </div>
+                <img
+                  src={item.image}
+                  alt={`Timeline ${item.year}`}
+                  className="timeline__image"
+                />
+              </figure>
 
-          {/* Elemento 3 de la línea de tiempo */}
-          <div
-            className="timeline__item"
-            data-aos="fade-up"
-            data-aos-delay="1300"
-          >
-            <figure
-              className="timeline__thubmnail timeline-activate"
-              data-aos="fade-up"
-              data-aos-delay="1400"
-            >
-              <img src={Ort} alt="" className="timeline__image" />
-            </figure>
-            <img
-              src={lineMobile}
-              alt=""
-              data-aos="fade-up"
-              data-aos-delay="1500"
-            />
-            <div
-              className="timeline__info"
-              data-aos="fade-up"
-              data-aos-delay="1600"
-            >
-              <p className="anio">2025</p>
-              <button
-                className="btn btn--timeline timeline-activate"
-                onClick={() => openModal(2)}
-              >
-                 {texts.about.expandir}
-              </button>
-            </div>
-          </div>
+              {/* Línea vertical conectora (CSS) */}
+              <div className="timeline__connector"></div>
 
-                {/* Elemento 3 de la línea de tiempo */}
-          <div
-            className="timeline__item"
-            data-aos="fade-up"
-            data-aos-delay="1300"
-          >
-            <figure
-              className="timeline__thubmnail timeline-activate"
-              data-aos="fade-up"
-              data-aos-delay="1400"
-            >
-              <img src={Udemy} alt="" className="timeline__image" />
-            </figure>
-            <img
-              src={lineMobile}
-              alt=""
-              data-aos="fade-up"
-              data-aos-delay="1500"
-            />
-            <div
-              className="timeline__info"
-              data-aos="fade-up"
-              data-aos-delay="1600"
-            >
-              <p className="anio">2026</p>
-              <button
-                className="btn btn--timeline timeline-activate"
-                onClick={() => openModal(2)}
-              >
-                 {texts.about.expandir}
-              </button>
+              <div className="timeline__info">
+                <p className="timeline__year">{item.year}</p>
+                <button
+                  className="btn btn--timeline timeline-activate"
+                  onClick={() => openModal(item.index)}
+                >
+                  {texts.about.expandir}
+                </button>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
         <Modal

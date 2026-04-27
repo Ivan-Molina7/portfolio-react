@@ -148,9 +148,10 @@
     }
 
     &__items {
-        @include utils.flex-layout(flex-start, center, row);
+        @include utils.flex-layout(center, center, row);
         gap: map-get($map: spacing.$spacing, $key: 12px);
         flex-wrap: wrap;
+        max-width: 1000px;
 
         .proyecto-tecnologias__item {
             width: 73px;
@@ -200,10 +201,10 @@
     }
 
     .proyecto-tecnologias {
-
+ 
         &__items {
             gap: map-get($map: spacing.$spacing, $key: 24px);
-
+     
             .proyecto-tecnologias__item {
                 width: 80px;
                 height: 80px

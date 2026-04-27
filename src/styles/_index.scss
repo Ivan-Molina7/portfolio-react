@@ -219,29 +219,34 @@
     &__container {
         @include utils.flex-layout(flex-start, flex-start, column);
         gap: map-get($map: spacing.$spacing, $key: 48px);
+        width: 100%;
 
         .habilidades__section {
             @include utils.flex-layout(flex-start, flex-start, column);
             gap: map-get($map: spacing.$spacing, $key: 16px);
+            width: 100%;
 
-            .habilidades__subtitle {}
+            .habilidades__subtitle {
+                // Estilos del subtítulo
+            }
 
             .habilidades__subtitle--aprendiendo {
                 animation: aprendiendo 3s ease infinite;
             }
 
             .habilidades__cards {
-                @include utils.flex-layout(flex-start, flex-start, row);
-                @include spacing.gutter-responsive;
-                flex-wrap: wrap;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(73px, 90px));
+                gap: clamp(1rem, 2vw, 1.5rem);
+                width: 100%;
+                justify-content: start;
+
+                @media screen and (min-width: 768px) {
+                    grid-template-columns: repeat(auto-fill, minmax(90px, 90px));
+                }
             }
-
-
-
-
         }
     }
-
 }
 
 .about {
@@ -251,9 +256,7 @@
     gap: map-get($map: spacing.$spacing, $key: 70px);
     color: colores.$font-primary;
 
-
     &__content {
-
         @include utils.flex-layout(flex-start, flex-start, column);
         gap: map-get($map: spacing.$spacing, $key: 48px);
 
@@ -269,6 +272,7 @@
 
         .about__text {
             @include fuentes.font-responsive(text);
+            line-height: 1.75;
         }
     }
 
@@ -277,55 +281,188 @@
         position: relative;
         @include utils.flex-layout(space-around, flex-start, row);
 
-        width: 100%;
+        @media (max-width: 768px) {
+            @include utils.flex-layout(flex-start, flex-start, column);
+            gap: map-get($map: spacing.$spacing, $key: 48px);
+            padding-left: 40px; // Espacio para la línea vertical
+        }
 
+     
+
+        // Línea horizontal (desktop)
         &__line {
             position: absolute;
             bottom: 25%;
             left: 0;
-            height: 5px;
+            height: 3px;
             width: 100%;
-            background-color: #d9d9d9;
+            background-color: colores.$font-secondary;
+
+            @media (max-width: 768px) {
+                // Cambia a línea vertical
+                left: 40px;
+                top: 0;
+                width: 3px;
+                height: 100%;
+                bottom: auto;
+            }
+
+               @media (max-width: 400px) {
+                // Cambia a línea vertical
+                left: 8px;
+                top: 0;
+                width: 3px;
+                height: 100%;
+                bottom: auto;
+            }
         }
 
         &__item {
             @include utils.flex-layout(center, center, column);
             gap: map-get($map: spacing.$spacing, $key: 8px);
+            position: relative;
 
-            .timeline__thubmnail {
-                padding: map-get($map: spacing.$spacing, $key: 16px);
-                border: 1px solid white;
-                height: 70px;
-                width: 70px;
-                cursor: pointer;
-                animation: backgroundAboutImages 2s ease-in-out infinite;
+            @media (max-width: 768px) {
+                width: 100%;
+                align-items: flex-start;
+                flex-direction: row;
+                gap: map-get($map: spacing.$spacing, $key: 16px);
+            }
+        }
 
-                .timeline__image {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+        // Thumbnail (imagen con borde)
+        &__thumbnail {
+            padding: map-get($map: spacing.$spacing, $key: 16px);
+            border: 1px solid white;
+            height: 80px;
+            width: 80px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
 
-                }
+            @media (max-width: 768px) {
+                margin-left: -40px; // Centra la imagen sobre la línea
             }
 
-            .timeline__info {
-                @include utils.flex-layout(flex-start, center, column);
-                gap: map-get($map: spacing.$spacing, $key: 8px);
+            &:hover {
+                border-color: colores.$Green-Light;
+                box-shadow: 0 0 0 4px rgba(colores.$Green-Light, 0.15);
+                transform: translateY(-4px);
 
-                .anio {
-                    @include fuentes.font-responsive(subtitle-merri);
-
-                }
-
-                .btn {
-                    display: none;
+                @media (max-width: 768px) {
+                    transform: scale(1.05);
                 }
             }
+        }
 
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        // Línea vertical conectora (desktop)
+        &__connector {
+            width: 3px;
+            height: 60px;
+            background: linear-gradient(
+                to bottom,
+                colores.$font-secondary,
+                transparent
+            );
+            position: relative;
+
+            // Punto circular
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 12px;
+                height: 12px;
+                background: colores.$font-primary;
+                border: 2px solid colores.$Bg-Green-2;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        &__item:hover &__connector::before {
+            background: colores.$Green-Light;
+            box-shadow: 0 0 0 6px rgba(colores.$Green-Light, 0.2);
+        }
+
+        // Info (año + botón)
+        &__info {
+            @include utils.flex-layout(flex-start, center, column);
+            gap: map-get($map: spacing.$spacing, $key: 8px);
+
+            @media (max-width: 768px) {
+                align-items: flex-start;
+            }
+        }
+
+        &__year {
+            @include fuentes.font-responsive(subtitle-merri);
+            font-weight: 500;
+        }
+
+        // Estilos del botón
+        .btn--timeline {
+            display: none;
+
+            @media (max-width: 768px) {
+                display: block;
+            }
+        }
+
+        &__item:hover .btn--timeline {
+            @media (min-width: 769px) {
+                display: block;
+                animation: fadeInBtn 0.3s ease forwards;
+            }
         }
     }
 }
 
+@keyframes fadeInBtn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInBtn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInBtn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .contacto {
     //margin-bottom: map-get($map: spacing.$spacing, $key: 70px);

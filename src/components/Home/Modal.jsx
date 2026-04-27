@@ -53,7 +53,12 @@ export default function Modal({ isOpen, closeModal, content }) {
                 </div>
             </div>
 
-        <img src={content.imagen} alt={content.alt} className="modal__image" />
+          {content.imagen == "" ? (
+            <p className="modal__texto">{content.alt}</p>
+          ): (
+                <img src={content.imagen} alt={content.alt} className="modal__image" />
+          )}
+ 
       </div>
     </div>
   );2

@@ -7,27 +7,27 @@
     "btnContacto": "  Contacto"
   },
 
-  "hero": {
-    "ofertas": "Abierto a ofertas",
-    "nombre": "IVAN MOLINA",
-    "descripcion": "aspirando a ser Full-stack designer.",
-    "descripcionSpan": "Desarrollador Front-end,",
-    "ubicacion": "Montevideo, Uruguay",
-    "leerMas": "Leer más",
-    "sobreMi": "Sobre mi"
-  },
+"hero": {
+  "ofertas": "Abierto a ofertas",
+  "nombre": "IVAN MOLINA",
+  "descripcionSpan": "Product Engineer",
+  "descripcion": "construyendo productos digitales de principio a fin.",
+  "ubicacion": "Montevideo, Uruguay",
+  "leerMas": "Leer más",
+  "sobreMi": "Sobre mi"
+},
   "proyectos": {
     "titulo": "PROYECTOS",
     "trabajosTitulo": "TRABAJOS",
     "proyectosPersonalesTitulo": "PROYECTOS PERSONALES",
     "expandirBtn": "Expandir"
   },
-  "habilidades": {
-    "titulo": "HABILIDADES",
-    "programacionTitulo": "Programación",
-    "disenoTitulo": "Diseño",
-    "aprendiendoTitulo": "Enfocado en..."
-  },
+"habilidades": {
+  "titulo": "Habilidades",
+  "frontendTitulo": "Frontend",
+  "backendTitulo": "Backend & Tools",
+  "disenoTitulo": "Diseño"
+},
   "about": {
     "titulo": "SOBRE MI",
     "parrafo1": "Hola, soy Iván Molina, diseñador UX/UI y programador front-end con base en Montevideo, Uruguay. Me interesa el diseño que se ve bien, funciona bien y, sobre todo, mejora la experiencia de quienes lo usan. Me gusta entender cada proyecto como un proceso de aprendizaje, donde puedo crecer, afinar mi mirada y acercarme, paso a paso, al nivel profesional que admiro.",
@@ -43,7 +43,10 @@
     "titulo2": "Desarrollador Front-end (BIOS)",
     "alt2": "Diploma de Desarrollador Front-end otorgado por BIOS, certificando habilidades avanzadas en tecnologías front-end.",
     "titulo3": "Diseñador Digital orientación web (ORT)",
-    "alt3": "Diploma de Diseñador Digital con especialización en web otorgado por ORT, validando conocimientos en diseño digital."
+    "alt3": "Diploma de Diseñador Digital con especialización en web otorgado por ORT, validando conocimientos en diseño digital.",
+    "titulo4": "Formación Continua en Desarrollo Web (Udemy)",
+"nota": "En curso",
+"alt4": "Formación continua mediante cursos especializados de Udemy en React 19, Supabase, Node.js, autenticación con OAuth, integración de pagos, arquitectura full-stack y desarrollo de aplicaciones web modernas. Conocimientos aplicados directamente en proyectos reales como Wake Up Tracker."
   },
 
   "contacto": {
@@ -69,7 +72,10 @@
     "culPadel_descripcion": "CulPadel fue un ejercicio final de la facultad donde creamos una imagen corporativa y un sitio web para reservar canchas y salones, elegir fecha, turno y método de pago, representando toda la información proporcionada.",
     "worldGym_descripcion": "WorldGym es un proyecto que utiliza APIs públicas para ofrecer una experiencia dinámica donde puedes crear y gestionar rutinas personalizadas para principiantes e intermedios, guardar ejercicios favoritos y adaptarlos según tus necesidades.",
        "sandbox_descripcion": "Sandbox es un proyecto personal creado como espacio de práctica para desarrollar y probar conceptos de front-end. Sirve como una colección de landings y experimentos donde aplico React, hooks, y patrones comunes en el desarrollo del día a día.",
-           "transportes_descripcion": "Sandbox es un proyecto personal creado como espacio de práctica para desarrollar y probar conceptos de front-end. Sirve como una colección de landings y experimentos donde aplico React, hooks, y patrones comunes en el desarrollo del día a día."
+          "transportes_descripcion": "Sitio web institucional desarrollado para Transportes UY, la empresa de volquetas más grande del Uruguay. El proyecto abarcó desde el diseño UX/UI hasta la programación completa, con foco en generar confianza, captar clientes y posicionar la marca digitalmente.",
+          "wakeup_descripcion": "Wake Up es una aplicación web de seguimiento personal desarrollada de forma independiente, desde el diseño hasta el deploy. Permite registrar hábitos, emociones y calificaciones diarias para descubrir patrones reales sobre la propia vida. El proyecto nació como práctica técnica y terminó siendo una herramienta real con usuarios activos."
+
+          
   },
 
   "objetivos": {
@@ -101,11 +107,14 @@
     "sandbox_item3Texto": "Practicar el flujo completo de desarrollo: diseño, estructura, lógica y despliegue.",
 
 
-    
+    "transportes_item1Texto": "Crear una presencia digital profesional que refleje la escala y trayectoria de la empresa en el rubro del transporte pesado.",
+  "transportes_item2Texto": "Diseñar una experiencia clara y directa que facilite el contacto y la cotización de servicios por parte de empresas y particulares.",
+  "transportes_item3Texto": "Posicionar el sitio en búsquedas locales mediante SEO básico, destacando los servicios principales como alquiler de volquetas, hidrogrúas y contenedores.",
 
-    "transportes_item1Texto": "Apply real-world React and front-end concepts in small, functional projects.",
-    "transportes_item2Texto": "Improve code organization and component reusability.",
-    "transportes_item3Texto": "Practice the full development flow: design, structure, logic, and deployment."
+  "wakeup_item1Texto": "Construir un tracker personal completo que cruce datos de hábitos, emociones y puntajes para generar insights reales sobre el comportamiento del usuario.",
+"wakeup_item2Texto": "Diseñar una experiencia simple y rápida — menos de un minuto al día — que fomente el registro constante sin fricción.",
+"wakeup_item3Texto": "Implementar un modelo de negocio real con plan gratuito, suscripción Premium y pagos recurrentes a través de Mercado Pago."
+
   },
 
   "tecnologias": {
@@ -165,13 +174,20 @@
     "sandbox_pregunta3": "¿Qué representa Sandbox en tu crecimiento como desarrollador?",
     "sandbox_respuesta3": "Es un paso intermedio entre la teoría y el trabajo profesional. Me permite equivocarme, experimentar y pulir mi estilo como front-end, preparándome para proyectos más grandes y reales.",
     
-    "transportes_pregunta1": "¿Cuál fue la motivación para crear transportes?",
-    "transportes_respuesta1": "Quería tener un entorno donde pudiera aplicar lo que aprendo sin la presión de un proyecto formal. transportes nació como un espacio libre para practicar React y crear landings con ideas ya definidas.",
-  
-    "transportes_pregunta2": "¿Qué buscás mejorar con este proyecto?",
-    "transportes_respuesta2": "Principalmente mi fluidez al usar hooks como useState y useEffect, estructurar componentes de forma más limpia, y ganar soltura trabajando con props, estados y renderizados condicionales.",
-  
-    "transportes_pregunta3": "¿Qué representa transportes en tu crecimiento como desarrollador?",
-    "transportes_respuesta3": "Es un paso intermedio entre la teoría y el trabajo profesional. Me permite equivocarme, experimentar y pulir mi estilo como front-end, preparándome para proyectos más grandes y reales."
+    "transportes_pregunta1": "¿Cómo fue el proceso de diseño y desarrollo?",
+  "transportes_respuesta1": "El proyecto comenzó con rondas de diseño en Figma, presentadas y validadas con el cliente antes de pasar al desarrollo. Se trabajó con React y Tailwind para lograr un sitio responsive, rápido y fácil de mantener.",
+  "transportes_pregunta2": "¿Qué desafíos tuvo el proyecto?",
+  "transportes_respuesta2": "Uno de los principales desafíos fue adaptar el contenido a una empresa con múltiples servicios, logrando que el sitio comunique todo sin saturar al usuario. También se trabajó en el posicionamiento SEO para competir con otras empresas del rubro.",
+"transportes_pregunta3": "¿Qué aprendiste trabajando con un cliente real?",
+"transportes_respuesta3": "Fue el primer proyecto donde me enfrenté de forma completa al ciclo real de un trabajo: comunicación con el cliente, decisiones de diseño con fundamento, y todo el proceso de publicación — dominio, hosting y deploy. También profundicé en SEO, Google Search Console y Analytics, entendiendo que un buen sitio no termina en el código sino en cómo lo encuentra la gente.",
+
+
+"wakeup_pregunta1": "¿Cómo fue el proceso de diseño y desarrollo?",
+"wakeup_respuesta1": "El proyecto se desarrolló íntegramente de forma independiente, desde los wireframes en Figma hasta el deploy en Netlify. Se trabajó con React, Tailwind, Supabase y TanStack Query, construyendo el producto de forma iterativa con foco en la experiencia de usuario.",
+"wakeup_pregunta2": "¿Qué desafíos técnicos tuvo el proyecto?",
+"wakeup_respuesta2": "Los principales desafíos fueron implementar autenticación con Google OAuth, integrar pagos recurrentes con Mercado Pago, desarrollar un sistema de restricciones por plan, y construir un asistente IA que analiza los datos reales del usuario con Groq y Claude.",
+"wakeup_pregunta3": "¿Qué representa Wake Up en tu crecimiento como desarrollador?",
+"wakeup_respuesta3": "Es el proyecto más completo que desarrollé — no solo en código sino en visión de producto. Aprendí a tomar decisiones de arquitectura, diseñar flujos de usuario reales, integrar servicios externos y lanzar algo que usa gente real. Pasé de hacer ejercicios a construir un producto."
+
   }
 }

@@ -64,7 +64,10 @@
     }
 
     
-    
+       .modal__texto{
+            @include fuentes.font-responsive(text);
+        }
+
 
     &__titulos {
         @include utils.flex-layout(flex-center, flex-center, column);
@@ -92,6 +95,7 @@
 
         }
 
+     
     }
 
 
@@ -202,6 +206,11 @@
 
 /*Rango Solo mobile*/
 @media screen and (max-width: 767px) {
+
+
+        .modal-background {
+        padding: 0 16px;
+    }
 
     .modal{
         padding: 30px ;
