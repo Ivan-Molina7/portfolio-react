@@ -77,7 +77,14 @@ export const ProjectsGallery = () => {
                             data-aos="fade-right"
                             data-aos-delay={400 + i * 100}
                         >
-                            <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
+                            {proyecto.Logo ? (
+                                <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
+                            ) : (
+                                <span className="proyectos__card-titulo">{proyecto.titulo}</span>
+                            )}
+                            {proyecto.enDesarrollo && (
+                                <span className="proyectos__card-estado">{texts.proyecto.enDesarrollo}</span>
+                            )}
                             {/* Si queres navegación SPA (React Router): */}
                             <Link to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
                                 {texts.proyectos.expandirBtn}
@@ -97,7 +104,14 @@ export const ProjectsGallery = () => {
                             data-aos="fade-right"
                             data-aos-delay={400 + i * 100}
                         >
-                            <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
+                            {proyecto.Logo ? (
+                                <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
+                            ) : (
+                                <span className="proyectos__card-titulo">{proyecto.titulo}</span>
+                            )}
+                            {proyecto.enDesarrollo && (
+                                <span className="proyectos__card-estado">{texts.proyecto.enDesarrollo}</span>
+                            )}
                             {/* Si queres navegación SPA (React Router): */}
                             <Link to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
                                 {texts.proyectos.expandirBtn}

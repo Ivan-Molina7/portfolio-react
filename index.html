@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,9 +7,21 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500;600;700;900&family=Lora:wght@400;500;600;700&family=Merriweather:wght@300;400;500;700;900&display=swap"
     rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio de Iván Molina: desarrollo front-end moderno, diseño UX/UI y experiencias digitales limpias, rápidas y centradas en el usuario.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ivan Molina" />
+  <meta property="og:description" content="Portfolio de Iván Molina: desarrollo front-end moderno, diseño UX/UI y experiencias digitales limpias, rápidas y centradas en el usuario." />
+  <meta property="og:url" content="https://ivanmolina.netlify.app" />
+  <!-- TODO: og:image (imagen de vista previa, idealmente 1200x630 en .webp o .jpg) -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ivan Molina" />
+  <meta name="twitter:description" content="Portfolio de Iván Molina: desarrollo front-end moderno, diseño UX/UI y experiencias digitales limpias, rápidas y centradas en el usuario." />
+  <!-- TODO: twitter:image (misma imagen que og:image) -->
 
   <title>Ivan Molina</title>
 </head>
@@ -17,11 +29,7 @@
 <body>
   <div id="root"></div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-    <script type="module" src="/src/main.jsx"></script>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>

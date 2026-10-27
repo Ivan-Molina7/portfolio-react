@@ -14,7 +14,11 @@ function Tecnologias({tecnologias}) {
     </h2>
     <div className="proyecto-tecnologias__items">
        {tecnologias.map((tecnologia,i) => (
-            <img key={tecnologia.alt} src={tecnologia.icono} alt={tecnologia.alt} className="proyecto-tecnologias__item" data-aos="fade-up" data-aos-delay={200 + i*100}/>
+            tecnologia.icono ? (
+                <img key={tecnologia.alt} src={tecnologia.icono} alt={tecnologia.alt} className="proyecto-tecnologias__item" data-aos="fade-up" data-aos-delay={200 + i*100}/>
+            ) : (
+                <span key={tecnologia.alt} className="proyecto-tecnologias__item proyecto-tecnologias__item--texto" data-aos="fade-up" data-aos-delay={200 + i*100}>{tecnologia.alt}</span>
+            )
         )) }
 
     </div>

@@ -467,7 +467,7 @@ export const projectsData = [{
 },
 {
   id: 8,
-  tipo: "trabajo",
+  tipo: "proyecto",
   destacado: true,
   featured: true,
   behance: true,
@@ -491,28 +491,12 @@ export const projectsData = [{
   respuesta3Key: "proyecto_about.wakeup_respuesta3",
   tecnologias: [
     {
-      icono: htmlGris,
-      alt: 'HTML'
-    },
-    {
-      icono: cssGris,
-      alt: 'CSS'
-    },
-    {
       icono: tailwindGris,
       alt: 'Tailwind'
     },
     {
       icono: reactGris,
       alt: 'React'
-    },
-    {
-      icono: figmaGris,
-      alt: 'Figma'
-    },
-    {
-      icono: psGris,
-      alt: 'Photoshop'
     },
     {
       icono: githubGris,
@@ -534,6 +518,15 @@ export const projectsData = [{
       icono: claudeGris,
       alt: 'Claude AI'
     },
+    // TODO: sin íconos para Mercado Pago y Groq, se listan como texto
+    {
+      icono: null,
+      alt: 'Mercado Pago'
+    },
+    {
+      icono: null,
+      alt: 'Groq'
+    },
   ],
   imagenesModal: [
     {
@@ -549,5 +542,107 @@ export const projectsData = [{
       alt: 'Pantalla 3 de Wake Up Tracker'
     },
   ]
+},
+{
+  id: 9,
+  tipo: "trabajo",
+  destacado: true,
+  featured: true,
+  behance: false,
+  behanceLink: "",
+  figma: false,
+  figmaLink: "",
+  sitio: true,
+  sitioLink: "https://facutrainer.com",
+  titulo: "Facu Trainer",
+  descripcionKey: "proyecto.facutrainer_descripcion",
+  // TODO: falta el logo de Facu Trainer (la card muestra el título hasta que exista)
+  Logo: null,
+  imagenAlt: "Mockup de Facu Trainer",
+  objetivo1Key: "objetivos.facutrainer_item1Texto",
+  objetivo2Key: "objetivos.facutrainer_item2Texto",
+  objetivo3Key: "objetivos.facutrainer_item3Texto",
+  pregunta1Key: "proyecto_about.facutrainer_pregunta1",
+  respuesta1Key: "proyecto_about.facutrainer_respuesta1",
+  pregunta2Key: "proyecto_about.facutrainer_pregunta2",
+  respuesta2Key: "proyecto_about.facutrainer_respuesta2",
+  pregunta3Key: "proyecto_about.facutrainer_pregunta3",
+  respuesta3Key: "proyecto_about.facutrainer_respuesta3",
+  tecnologias: [
+    {
+      icono: reactGris,
+      alt: 'React'
+    },
+    {
+      icono: supabaseGris,
+      alt: 'Supabase'
+    },
+    {
+      icono: zustand,
+      alt: 'Zustand'
+    },
+    {
+      icono: tanStack,
+      alt: 'TanStack Query'
+    },
+    {
+      icono: tailwindGris,
+      alt: 'Tailwind'
+    },
+    // TODO: sin íconos para Vite y Netlify, se listan como texto
+    {
+      icono: null,
+      alt: 'Vite'
+    },
+    {
+      icono: null,
+      alt: 'Netlify'
+    },
+  ],
+  // TODO: agregar capturas de Facu Trainer (sin datos reales de clientes)
+  imagenesModal: []
+},
+{
+  id: 10,
+  tipo: "proyecto",
+  destacado: false,
+  enDesarrollo: true,
+  behance: false,
+  behanceLink: "",
+  figma: false,
+  figmaLink: "",
+  sitio: false,
+  sitioLink: "",
+  titulo: "MegaStrong",
+  descripcionKey: "proyecto.megastrong_descripcion",
+  // TODO: falta el logo de MegaStrong (la card muestra el título hasta que exista)
+  Logo: null,
+  imagenAlt: "Mockup de MegaStrong",
+  objetivo1Key: "objetivos.megastrong_item1Texto",
+  objetivo2Key: "objetivos.megastrong_item2Texto",
+  objetivo3Key: "objetivos.megastrong_item3Texto",
+  pregunta1Key: "proyecto_about.megastrong_pregunta1",
+  respuesta1Key: "proyecto_about.megastrong_respuesta1",
+  pregunta2Key: "proyecto_about.megastrong_pregunta2",
+  respuesta2Key: "proyecto_about.megastrong_respuesta2",
+  pregunta3Key: "proyecto_about.megastrong_pregunta3",
+  respuesta3Key: "proyecto_about.megastrong_respuesta3",
+  tecnologias: [
+    {
+      icono: supabaseGris,
+      alt: 'Supabase'
+    },
+    // TODO: sin íconos para Next.js y TypeScript, se listan como texto
+    {
+      icono: null,
+      alt: 'Next.js'
+    },
+    {
+      icono: null,
+      alt: 'TypeScript'
+    },
+  ],
+  // TODO: agregar capturas de MegaStrong (solo con datos ficticios)
+  imagenesModal: []
 },
 ];

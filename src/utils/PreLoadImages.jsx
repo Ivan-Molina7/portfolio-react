@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import BackgroundGaleria from '../assets/img/Backgrounds/bgGaleriaProyecto.png';
+import BackgroundGaleria from '../assets/img/Backgrounds/bgGaleriaProyecto.webp';
 import BackgroundProyectos from '../assets/img/Backgrounds/bgProyecto.webp';
 
 function PreloadBackgrounds() {

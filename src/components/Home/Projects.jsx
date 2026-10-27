@@ -56,7 +56,11 @@ function Projects() {
                   data-aos="fade-right"
                   data-aos-delay={400 + i * 100}
                 >
-                  <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
+                  {proyecto.Logo ? (
+                    <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
+                  ) : (
+                    <span className="proyectos__card-titulo">{proyecto.titulo}</span>
+                  )}
                   {/* Si queres navegación SPA (React Router): */}
                   <Link smooth to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
                     {texts.proyectos.expandirBtn}
@@ -94,11 +98,15 @@ function Projects() {
               {proyectos.map((proyecto, i) => (
                 <div
                   key={proyecto.id}
-                  className="proyectos__card"
+                  className={`proyectos__card ${proyecto.featured ? 'proyectos__card--featured' : ''}`}
                   data-aos="fade-right"
                   data-aos-delay={800 + i * 100}
                 >
-                  <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.tituloKey)} />
+                  {proyecto.Logo ? (
+                    <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
+                  ) : (
+                    <span className="proyectos__card-titulo">{proyecto.titulo}</span>
+                  )}
                   <Link to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
                     {texts.proyectos.expandirBtn}
                   </Link>

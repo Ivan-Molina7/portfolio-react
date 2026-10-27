@@ -16,7 +16,9 @@ function HeroExpand({
   sitioLink,
   sitio,
   imagenesModal = [], // array de imágenes para el modal
+  enDesarrollo = false,
 }) {
+  const hayImagenes = imagenesModal.length > 0;
   const { texts } = useTranslation();
 
   const [isModalOpen, setModalOpen] = useState(false);
@@ -59,25 +61,38 @@ function HeroExpand({
 
   return (
     <section className="hero-proyecto mb-section max-width-section">
-      <div
-        className="hero-proyecto__image-container"
-        data-aos="fade-right"
-        data-aos-delay="100"
-        onClick={() => openModal(0)}
-        style={{ cursor: 'pointer' }}
-        aria-label="Abrir galería de imágenes del proyecto"
-        role="button"
-        tabIndex={0}
-        onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') openModal(0); }}
-      >
-  <img src={imagenesModal[0].src} alt={imagenAlt} className="hero-proyecto__image" />
-        <div className="hero-proyecto__overlay" >
-          <img src={iconTouch} alt="tocar pantalla icono" />
-          Haz click para ver más pantallas
+      {hayImagenes ? (
+        <div
+          className="hero-proyecto__image-container"
+          data-aos="fade-right"
+          data-aos-delay="100"
+          onClick={() => openModal(0)}
+          style={{ cursor: 'pointer' }}
+          aria-label="Abrir galería de imágenes del proyecto"
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') openModal(0); }}
+        >
+          <img src={imagenesModal[0].src} alt={imagenAlt} className="hero-proyecto__image" />
+          <div className="hero-proyecto__overlay" >
+            <img src={iconTouch} alt="tocar pantalla icono" />
+            Haz click para ver más pantallas
+          </div>
         </div>
-      </div>
+      ) : (
+        <div
+          className="hero-proyecto__image-container hero-proyecto__image-container--vacio"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
+          <span className="hero-proyecto__placeholder">{titulo}</span>
+        </div>
+      )}
 
       <div className="hero-proyecto__container" data-aos="fade-left" data-aos-delay="300">
+        {enDesarrollo && (
+          <span className="hero-proyecto__estado">{texts.proyecto.enDesarrollo}</span>
+        )}
         <h1 className="hero-proyecto__titulo" data-aos="fade-left" data-aos-delay="400">{titulo}</h1>
         <div className="hero-proyecto__content" data-aos="fade-left" data-aos-delay="500">
           <p className="hero-proyecto__descripcion" >
@@ -106,7 +121,7 @@ function HeroExpand({
       </div>
 
       {/* Modal Carousel */}
-      {isModalOpen && (
+      {isModalOpen && hayImagenes && (
         <div
           className="modal-carousel"
           aria-hidden={!isModalOpen}

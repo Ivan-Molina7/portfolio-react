@@ -82,6 +82,7 @@ function Proyecto() {
         behance={behance}
         figmaLink={figmaLink}
         figma={figma}
+        enDesarrollo={proyecto.enDesarrollo}
         />
 
         <Objetivos objetivo1={objetivo1} objetivo2={objetivo2} objetivo3={objetivo3} />

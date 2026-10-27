@@ -58,6 +58,28 @@
 
       }
 
+    // Sin capturas todavía: bloque neutro con el título, sin interacción
+    .hero-proyecto__image-container--vacio {
+        cursor: default;
+        min-height: 240px;
+        @include utils.flex-layout(center, center, column);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        .hero-proyecto__placeholder {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            padding: map-get($map: spacing.$spacing, $key: 24px);
+            opacity: 0.8;
+        }
+    }
+
 
     .hero-proyecto__image-container:hover .hero-proyecto__overlay {
         opacity: 1;
@@ -70,6 +92,14 @@
     &__container {
         @include utils.flex-layout(flex-start, flex-start, column);
         gap: map-get($map: spacing.$spacing, $key: 16px);
+
+        .hero-proyecto__estado {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
 
         .hero-proyecto__titulo {
             @include fuentes.font-responsive(title-3);
@@ -157,6 +187,18 @@
             width: 73px;
             height: 73px;
             object-fit: contain;
+        }
+
+        // Tecnología sin ícono: se lista como texto
+        .proyecto-tecnologias__item--texto {
+            @include utils.flex-layout(center, center, row);
+            width: auto;
+            min-width: 73px;
+            padding: 0 map-get($map: spacing.$spacing, $key: 16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
     }
 }

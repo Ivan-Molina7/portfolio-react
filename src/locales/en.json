@@ -80,9 +80,12 @@
 
     "sandbox_descripcion": "Sandbox is a personal project created as a practice space to develop and test front-end concepts. It serves as a collection of landing pages and experiments where I apply React, hooks, and common patterns used in everyday development.",
 
-    "transportes_descripcion": "Institutional website developed for Transportes UY, the largest dump truck company in Uruguay. The project covered everything from UX/UI design to full development, focused on building trust, attracting clients, and positioning the brand digitally.",
+    "transportes_descripcion": "Institutional website developed for Transportes UY, a dump truck, crane and container rental company in Uruguay. The project covered everything from UX/UI design to full development, focused on building trust, attracting clients, and positioning the brand digitally.",
 
-    "wakeup_descripcion": "Wake Up is a personal tracking web app developed independently, from design to deployment. It allows users to log habits, emotions, and daily scores to discover real patterns about their own lives. The project started as a technical practice and ended up becoming a real tool with active users."
+    "wakeup_descripcion": "Wake Up is a personal tracking web app developed independently, from design to deployment. It allows users to log habits, emotions, and daily scores to discover real patterns about their own lives. The project started as a technical practice and ended up becoming a real tool with registered users.",
+    "facutrainer_descripcion": "Facu Trainer is a full-stack web app for a personal trainer. The admin manages clients, routines and metrics, and each client sees their own routine with sets, reps, weight, rest and a video for every exercise.",
+    "megastrong_descripcion": "MegaStrong is a multi-location management system for a gym with 4 locations, with admin, instructor and client roles. It is in development and is my first TypeScript project. I'm building it with Next.js and Supabase.",
+    "enDesarrollo": "In development"
 
 
   },
@@ -121,7 +124,15 @@
 
     "wakeup_item1Texto": "Build a complete personal tracker that cross-references habit, emotion, and score data to generate real insights about user behavior.",
 "wakeup_item2Texto": "Design a simple and fast experience — under one minute per day — that encourages consistent logging without friction.",
-"wakeup_item3Texto": "Implement a real business model with a free plan, Premium subscription, and recurring payments through Mercado Pago."
+"wakeup_item3Texto": "Implement a real business model with a free plan, Premium subscription, and recurring payments through Mercado Pago.",
+
+    "facutrainer_item1Texto": "Let the admin manage clients, routines and metrics from the same app, with drag & drop to order days and exercises.",
+    "facutrainer_item2Texto": "Show each client their routine with the sets, reps, weight, rest and video of every exercise.",
+    "facutrainer_item3Texto": "Control who can access each piece of data through Google OAuth login, admin and client roles, and RLS policies.",
+
+    "megastrong_item1Texto": "Manage the gym's 4 locations from a single system, with admin, instructor and client roles.",
+    "megastrong_item2Texto": "Keep one global base exercise and link it to each location with its own machine number, so exercises are not duplicated.",
+    "megastrong_item3Texto": "Build routines from exercises in routine and control data access with RLS in Supabase."
   },
   "tecnologias": {
     "tecnologiasTitulo": "Technologies Used"
@@ -189,7 +200,21 @@
 "wakeup_pregunta2": "What technical challenges did the project present?",
 "wakeup_respuesta2": "The main challenges were implementing Google OAuth authentication, integrating recurring payments with Mercado Pago, building a plan-based restriction system, and developing an AI assistant that analyzes real user data using Groq and Claude.",
 "wakeup_pregunta3": "What does Wake Up represent in your growth as a developer?",
-"wakeup_respuesta3": "It's the most complete project I've built — not just in code but in product vision. I learned to make architecture decisions, design real user flows, integrate external services, and ship something that real people use. I went from doing exercises to building a product."
+"wakeup_respuesta3": "It's the most complete project I've built — not just in code but in product vision. I learned to make architecture decisions, design real user flows, integrate external services, and ship something that real people use. I went from doing exercises to building a product.",
+
+"facutrainer_pregunta1": "What was the design and development process like?",
+"facutrainer_respuesta1": "One of the key decisions was the data model: I separated EjercicioBase, the exercise library, from EjercicioEnDia, a bridge table that links each exercise to a day of the routine. On top of that I built the app with React, Vite, Supabase, Zustand, TanStack Query and Tailwind, and deployed it on Netlify.",
+"facutrainer_pregunta2": "What technical challenges did the project present?",
+"facutrainer_respuesta2": "Separating EjercicioBase from EjercicioEnDia allows independent metrics per day for the same exercise. Security came on top of that: admin and client roles resolved with the SQL function es_admin(), RLS on 6 tables, and delete cascades with restrict on base exercises, which prevent deleting one while other records depend on it.",
+"facutrainer_pregunta3": "What does Facu Trainer represent in your growth as a developer?",
+"facutrainer_respuesta3": "It is work for a real client and it required me to think of the app as a system: a coherent data model, role-based permissions and a different experience for the admin and for the client.",
+
+"megastrong_pregunta1": "What is the design and development process like?",
+"megastrong_respuesta1": "The project is in development. I'm building it with Next.js, TypeScript and Supabase, and the data model and role-based permissions are the core of the work.",
+"megastrong_pregunta2": "What technical challenges does the project present?",
+"megastrong_respuesta2": "One challenge is avoiding duplicated exercises across locations: I separated ejercicio_base, which is global, from maquina_sede, which stores the machine number at each location. On top of that come the three roles (admin, instructor and client), routines with their ejercicios_en_rutina, and RLS policies in Supabase.",
+"megastrong_pregunta3": "What does MegaStrong represent in your growth as a developer?",
+"megastrong_respuesta3": "It is my first TypeScript project, so I approach it as a learning process: I'm bringing typing into a system with several roles and relations between tables. It is still in development."
 
   }
 }

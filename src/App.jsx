@@ -14,8 +14,6 @@ import GoogleAnalytics from "./components/GoogleAnalytics";
 function App() {
   useEffect(() => {
     AOS.init({});
-    // Si tus componentes cambian mediante rutas o estado:
-    AOS.refresh(); // o AOS.refreshHard();
   }, []);
 
   return (
