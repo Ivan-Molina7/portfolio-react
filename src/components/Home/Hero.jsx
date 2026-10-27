@@ -2,7 +2,6 @@ import iconEstado from '../../assets/img/Icons/estado.svg';
 import githubIcon from '../../assets/img/Icons/White/github.png';
 import behanceIcon from '../../assets/img/Icons/White/behance.png';
 
-import Background from '../../assets/img/Backgrounds/bg1.webp';
 import useTranslation from '../../hooks/useTranslation';
 
 function Hero() {
@@ -13,7 +12,6 @@ function Hero() {
     <div className="overflow-section-100vh overflow-section-100vh--hero" id="hero">
       <section
         className="hero max-width-section section-bg"
-        data-bg={Background}
       >
         <div className="hero__titles">
           <div className="estado">

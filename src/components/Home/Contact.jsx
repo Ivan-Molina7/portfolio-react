@@ -2,7 +2,6 @@ import githubIcon from '../../assets/img/Icons/White/github.png';
 import behanceIcon from '../../assets/img/Icons/White/behance.png';
 import linkedinIcon from '../../assets/img/Icons/White/linkedin.png';
 
-import Background from '../../assets/img/Backgrounds/bg8.webp';
 import useTranslation from '../../hooks/useTranslation';
 
 function Contact() {
@@ -13,7 +12,6 @@ function Contact() {
     <div className="overflow-section-100vh" id="contacto">
       <section
         className="contacto max-width-section section-bg"
-        data-bg={Background}
       >
         <div
           className="contacto__content"

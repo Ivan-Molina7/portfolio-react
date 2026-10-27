@@ -1,4 +1,3 @@
-import Background from "../../assets/img/Backgrounds/bg2.webp";
 import useTranslation from "../../hooks/useTranslation";
 import { projectsData } from "../../utils/projectsData";
 import { getTextFromKey } from "../../utils/getTextFromKey";
@@ -20,7 +19,6 @@ function Projects() {
     >
       <section
         className="proyectos max-width-section section-bg"
-        data-bg={Background}
       >
         <h2
           className="proyectos__title title-section"

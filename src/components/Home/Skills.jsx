@@ -56,7 +56,6 @@ import tanStackColor from '../../assets/img/habilidades/LogoColores/tanstack.png
 import zustand from '../../assets/img/habilidades/Zustand-G.png';
 import zustandColor from '../../assets/img/habilidades/LogoColores/Zustand.png';
 
-import Background from '../../assets/img/Backgrounds/bg4.webp';
 import useTranslation from '../../hooks/useTranslation';
 
 
@@ -69,7 +68,6 @@ return (
   <div className="overflow-section-100vh" id="habilidades">
     <section
       className="habilidades max-width-section section-bg"
-      data-bg={Background}
     >
       <h2
         className="habilidades__title title-section"

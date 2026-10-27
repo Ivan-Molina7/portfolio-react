@@ -2,7 +2,6 @@ import ITI from "../../assets/img/about/iti.png";
 import Bios from "../../assets/img/about/bios.png";
 import Ort from "../../assets/img/about/ort.png";
 import Udemy from "../../assets/img/about/Udemy.webp";
-import Background from "../../assets/img/Backgrounds/bg7.webp";
 import Modal from "./Modal";
 import { useState } from "react";
 
@@ -56,7 +55,6 @@ function About() {
     <div className="overflow-section-100vh" id="about">
       <section
         className="about max-width-section section-bg"
-        data-bg={Background}
       >
         <div className="about__content">
           <h2
