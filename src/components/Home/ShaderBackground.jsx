@@ -7,15 +7,15 @@ import {
 } from "../../utils/bgPalettes";
 
 // ---- Constantes de ajuste (valores bajos a propósito: movimiento lento y pesado) ----
-const RENDER_SCALE = 0.5; // escala del canvas respecto del viewport
-const MAX_DPR = 1; // devicePixelRatio máximo
+const RENDER_SCALE = 1; // escala del canvas respecto del viewport (líneas nítidas: resolución completa)
+const MAX_DPR = 1.5; // devicePixelRatio máximo
 const LOW_CORES = 2; // con <= N núcleos se usa el fondo estático
 const SPEED_BASE = 1; // velocidad base del tiempo del ruido
 const SCROLL_SPEED_GAIN = 1.5; // cuánto acelera el tiempo al scrollear
 const SCROLL_REF_SPEED = 2500; // px/s que cuentan como scroll "a fondo"
 const SCROLL_DECAY = 0.6; // qué tan rápido decae la energía del scroll (1/s)
 const SCROLL_BLEND = 0.35; // cuánto se mezcla hacia la sección siguiente (0–1)
-const MOUSE_STRENGTH = 0.04; // desplazamiento máximo de las luces hacia el cursor (uv)
+const MOUSE_STRENGTH = 0.02; // desplazamiento máximo de las curvas con el cursor (unidades de alto)
 const INERTIA = 0.8; // suavizado del mouse y del progreso de scroll (1/s)
 const SHOWN_SMOOTH = 2; // suavizado final de los parámetros mostrados (1/s)
 const TRANSITION_MS = 1200; // duración del cambio de sección
@@ -34,76 +34,94 @@ void main() {
 }
 `;
 
+// Curvas de nivel de un campo escalar suave. Sin derivadas del hardware: el ancho de píxel
+// en espacio de f se estima con diferencias finitas.
 const FRAGMENT_SRC = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
 precision mediump float;
+#endif
 
 uniform vec2 u_res;
 uniform float u_time;
 uniform vec3 u_cBase;
-uniform vec3 u_cMid;
+uniform vec3 u_cLine;
 uniform vec3 u_cLight;
-uniform float u_scale;
-uniform float u_warp;
-uniform vec2 u_lightPos;
-uniform vec2 u_flow;
+uniform vec4 u_g0;
+uniform vec4 u_g1;
+uniform vec4 u_g2;
+uniform float u_rot;
+uniform float u_lines;
+uniform float u_curve;
+uniform vec3 u_mask;
+uniform vec2 u_band;
 uniform vec2 u_mouse;
 
-float hash(vec2 p) {
-  p = fract(p * vec2(123.34, 456.21));
-  p += dot(p, p + 45.32);
-  return fract(p.x * p.y);
+const float GRAD_MIN = 0.12;   // piso del gradiente: evita manchas en picos y zonas planas
+const float LINE_HALF_PX = 0.7; // semiancho de la línea en píxeles
+const float GLOW_PX = 5.0;     // alcance del halo
+const float GLOW_GAIN = 0.12;  // intensidad del halo (tenue)
+const float ELONG = 0.62;      // achatamiento de las gaussianas (elipses orientadas por rot)
+
+float asp;
+
+float blob(vec2 q, vec4 g, vec2 phase, vec2 freq, mat2 R) {
+  vec2 c = vec2(g.x * asp, g.y) + 0.05 * vec2(sin(u_time * freq.x + phase.x), cos(u_time * freq.y + phase.y));
+  vec2 d = R * (q - c);
+  d.x *= ELONG;
+  return g.w * exp(-dot(d, d) / (g.z * g.z));
 }
 
-float noise(vec2 p) {
-  vec2 i = floor(p);
-  vec2 f = fract(p);
-  f = f * f * (3.0 - 2.0 * f);
-  return mix(
-    mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x),
-    mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x),
-    f.y
+float field(vec2 p) {
+  float cr = cos(u_rot);
+  float sr = sin(u_rot);
+  mat2 R = mat2(cr, -sr, sr, cr);
+  // Dos deformaciones de senos de muy baja frecuencia
+  vec2 q = p + u_curve * vec2(
+    sin(p.y * 2.3 + u_time * 0.07),
+    sin(p.x * 1.9 - u_time * 0.05 + 1.7)
   );
-}
-
-float fbm(vec2 p) {
-  float v = 0.0;
-  float a = 0.5;
-  for (int i = 0; i < 4; i++) {
-    v += a * noise(p);
-    p = p * 2.02 + vec2(17.1, 9.7);
-    a *= 0.5;
-  }
-  return v;
+  return blob(q, u_g0, vec2(0.0, 1.3), vec2(0.11, 0.09), R)
+       + blob(q, u_g1, vec2(2.1, 0.4), vec2(0.08, 0.12), R)
+       + blob(q, u_g2, vec2(4.2, 3.0), vec2(0.1, 0.07), R);
 }
 
 void main() {
   vec2 uv = gl_FragCoord.xy / u_res;
-  float asp = u_res.x / u_res.y;
-  vec2 p = vec2(uv.x * asp, uv.y);
+  asp = u_res.x / u_res.y;
+  vec2 p = vec2(uv.x * asp, uv.y) + u_mouse;
+  float px = 1.0 / u_res.y;
 
-  // Ruido con domain warp, desplazado muy despacio según el flujo
-  vec2 q = p * u_scale + u_flow * u_time;
-  vec2 w = vec2(
-    fbm(q + vec2(0.0, u_time * 0.05)),
-    fbm(q + vec2(5.2, 1.3) - u_time * 0.04)
-  );
-  float n = fbm(q + u_warp * (w - 0.5) * 2.0);
+  float f = field(p);
+  float fx = field(p + vec2(px, 0.0));
+  float fy = field(p + vec2(0.0, px));
+  float grad = max(length(vec2(fx - f, fy - f)) / px, GRAD_MIN); // |∇f| con piso
+  float fpx = grad * px; // ancho de un píxel en espacio de f
 
-  // Luz principal (sigue levemente al mouse) y una secundaria tenue en el lado opuesto
-  vec2 lp = clamp(u_lightPos + u_mouse, 0.0, 1.0);
-  vec2 lp2 = vec2(1.0 - lp.x, 1.0 - lp.y);
-  float d1 = distance(p, vec2(lp.x * asp, lp.y));
-  float d2 = distance(p, vec2(lp2.x * asp, lp2.y));
-  float glow = exp(-d1 * d1 * 2.2) + 0.35 * exp(-d2 * d2 * 3.0);
-  glow *= 1.0 + 0.12 * sin(u_time * 0.35); // respiración lenta
+  // Distancia en píxeles a la curva de nivel más cercana
+  float s = f * u_lines;
+  float dpx = abs(fract(s) - 0.5) / (u_lines * fpx);
+  float line = 1.0 - smoothstep(LINE_HALF_PX - 0.5, LINE_HALF_PX + 0.5, dpx);
+  float halo = GLOW_GAIN * (1.0 - smoothstep(LINE_HALF_PX, GLOW_PX, dpx));
 
-  float f = n * 0.55 + glow * 0.75;
-  vec3 col = mix(u_cBase, u_cMid, smoothstep(0.25, 0.75, f));
-  col = mix(col, u_cLight, smoothstep(0.6, 1.05, f) * 0.85);
+  // Banda fina de borde definido
+  float db = abs(abs(f - u_band.x) - u_band.y) / fpx;
+  float band = (1.0 - smoothstep(LINE_HALF_PX - 0.5, LINE_HALF_PX + 0.5, db)) * 0.8
+             + 0.06 * (1.0 - smoothstep(-0.5, 0.5, (abs(f - u_band.x) - u_band.y) / fpx));
+
+  // Máscara: solo algunas curvas se ven, el resto se apaga en el negro
+  vec2 dm = p - vec2(u_mask.x * asp, u_mask.y);
+  float m = exp(-dot(dm, dm) / (u_mask.z * u_mask.z));
+  float vis = smoothstep(0.08, 0.85, m);
+
+  float I = clamp(line + halo + band, 0.0, 1.0) * vis;
+  vec3 col = mix(u_cBase, u_cLine, I);
+  col = mix(col, u_cLight, smoothstep(0.55, 1.0, m) * I * 0.9); // luz solo en la zona de mayor brillo
 
   // Viñeta suave hacia los bordes
   float vig = smoothstep(1.25, 0.35, length((uv - 0.5) * vec2(asp * 0.9, 1.0)));
-  col *= mix(0.6, 1.0, vig);
+  col *= mix(0.7, 1.0, vig);
 
   gl_FragColor = vec4(col, 1.0);
 }
@@ -245,8 +263,8 @@ function ShaderBackground({ section }) {
 
     const u = {};
     [
-      "u_res", "u_time", "u_cBase", "u_cMid", "u_cLight", "u_scale",
-      "u_warp", "u_lightPos", "u_flow", "u_mouse",
+      "u_res", "u_time", "u_cBase", "u_cLine", "u_cLight", "u_g0", "u_g1", "u_g2",
+      "u_rot", "u_lines", "u_curve", "u_mask", "u_band", "u_mouse",
     ].forEach((name) => {
       u[name] = gl.getUniformLocation(program, name);
     });
@@ -349,12 +367,16 @@ function ShaderBackground({ section }) {
       gl.uniform2f(u.u_res, canvas.width, canvas.height);
       gl.uniform1f(u.u_time, time);
       gl.uniform3f(u.u_cBase, shown[0], shown[1], shown[2]);
-      gl.uniform3f(u.u_cMid, shown[3], shown[4], shown[5]);
+      gl.uniform3f(u.u_cLine, shown[3], shown[4], shown[5]);
       gl.uniform3f(u.u_cLight, shown[6], shown[7], shown[8]);
-      gl.uniform1f(u.u_scale, shown[9]);
-      gl.uniform1f(u.u_warp, shown[10]);
-      gl.uniform2f(u.u_lightPos, shown[11], shown[12]);
-      gl.uniform2f(u.u_flow, shown[13], shown[14]);
+      gl.uniform4f(u.u_g0, shown[9], shown[10], shown[11], shown[12]);
+      gl.uniform4f(u.u_g1, shown[13], shown[14], shown[15], shown[16]);
+      gl.uniform4f(u.u_g2, shown[17], shown[18], shown[19], shown[20]);
+      gl.uniform1f(u.u_rot, shown[21]);
+      gl.uniform1f(u.u_lines, shown[22]);
+      gl.uniform1f(u.u_curve, shown[23]);
+      gl.uniform3f(u.u_mask, shown[24], shown[25], shown[26]);
+      gl.uniform2f(u.u_band, shown[27], shown[28]);
       gl.uniform2f(u.u_mouse, mouse[0], mouse[1]);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
@@ -405,13 +427,16 @@ function ShaderBackground({ section }) {
           aria-hidden="true"
           style={{
             "--bg-base": palette.base,
-            "--bg-mid": palette.mid,
+            "--bg-line": palette.line,
             "--bg-light": palette.light,
+            "--bg-mx": `${palette.mask[0] * 100}%`,
+            "--bg-my": `${(1 - palette.mask[1]) * 100}%`,
           }}
         />
       )}
-      {/* Única capa de grano, por encima del fondo y por debajo del contenido */}
+      {/* Dos capas de grano hermanas (overlay + mezcla normal), por encima del fondo y por debajo del contenido */}
       <div className="bg-grain" aria-hidden="true" />
+      <div className="bg-grain-soft" aria-hidden="true" />
     </>
   );
 }
