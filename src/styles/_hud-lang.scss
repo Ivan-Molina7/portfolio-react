@@ -1,0 +1,63 @@
+// Abajo a la derecha: ESP | ENG
+.hud-lang {
+  position: absolute;
+  right: var(--hud-x);
+  bottom: var(--hud-y);
+  z-index: 2;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-serif);
+  font-size: .88rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+
+  button {
+    position: relative;
+    padding: 6px 0;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: rgba(242, 245, 243, .5);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    transition: color .5s var(--hud-ease);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .6s var(--hud-ease);
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+    }
+
+    &:hover::after,
+    &:focus-visible::after,
+    &[aria-pressed="true"]::after {
+      transform: scaleX(1);
+    }
+
+    &[aria-pressed="true"] {
+      color: #fff;
+    }
+  }
+
+  i {
+    display: block;
+    width: 1px;
+    height: 12px;
+    background: rgba(255, 255, 255, .3);
+  }
+}

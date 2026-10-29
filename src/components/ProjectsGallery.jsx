@@ -2,7 +2,6 @@ import useTranslation from "../hooks/useTranslation";
 import { getTextFromKey } from "../utils/getTextFromKey";
 import { projectsData } from "../utils/projectsData";
 import { Routes, Route, Link } from "react-router-dom";
-import Header from "./Header";
 import { useEffect, useState } from "react";
 
 export const ProjectsGallery = () => {
@@ -32,7 +31,6 @@ export const ProjectsGallery = () => {
      
        
         <div className=" min-vh-section body--galeria-proyectos">
-                            <Header />
 
             
             <div className="galeria-proyectos max-width-section">

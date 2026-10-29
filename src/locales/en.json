@@ -1,10 +1,21 @@
 {
   "header": {
+    "inicio": "Home",
     "proyectos": "Projects",
     "habilidades": "Skills",
     "sobreMi": "About me",
     "contacto": "Contact",
     "btnContacto": "Contact"
+  },
+  "hud": {
+    "navegacion": "Main navigation",
+    "secciones": "Sections",
+    "irA": "Go to",
+    "irInicio": "Go to home",
+    "menuAbrir": "Open menu",
+    "menuCerrar": "Close menu",
+    "redes": "Social links",
+    "idioma": "Language"
   },
 "hero": {
   "ofertas": "Open to offers",

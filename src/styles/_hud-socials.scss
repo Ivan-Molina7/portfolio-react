@@ -1,0 +1,38 @@
+// Abajo a la izquierda: LinkedIn, GitHub y Behance (cuadrados de 34px, íconos de 19px)
+.hud-socials {
+  position: absolute;
+  left: var(--hud-x);
+  bottom: var(--hud-y);
+  z-index: 2; // por encima del menú mobile
+  display: flex;
+  gap: 10px;
+
+  a {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, .32);
+    transition: border-color .6s var(--hud-ease), background-color .6s var(--hud-ease);
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--gold);
+      background: rgba(10, 107, 54, .35);
+    }
+  }
+
+  img {
+    display: block;
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+    opacity: .8;
+    transition: opacity .5s var(--hud-ease);
+  }
+
+  a:hover img,
+  a:focus-visible img {
+    opacity: 1;
+  }
+}

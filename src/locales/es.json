@@ -1,10 +1,21 @@
 {
   "header": {
+    "inicio": "Inicio",
     "proyectos": "Proyectos",
     "habilidades": "Habilidades",
-    "sobreMi": "Sobre mi",
+    "sobreMi": "Sobre mí",
     "contacto": "Contacto",
-    "btnContacto": "  Contacto"
+    "btnContacto": "Contacto"
+  },
+  "hud": {
+    "navegacion": "Navegación principal",
+    "secciones": "Secciones",
+    "irA": "Ir a",
+    "irInicio": "Ir al inicio",
+    "menuAbrir": "Abrir menú",
+    "menuCerrar": "Cerrar menú",
+    "redes": "Redes sociales",
+    "idioma": "Idioma"
   },
 
 "hero": {

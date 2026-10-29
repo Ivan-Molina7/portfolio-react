@@ -1,4 +1,3 @@
-import Header from "../Header";
 import Faq from "./Faq";
 import HeroExpand from "./HeroExpand";
 import Objetivos from "./Objetivos";
@@ -27,7 +26,6 @@ function Proyecto() {
   if (!proyecto) {
     return (
       <>
-        <Header />
         <div style={{ padding: '2rem' }}>
           <h2>{texts.error.proyectoNoEncontrado || "Proyecto no encontrado"}</h2>
         </div>
@@ -69,7 +67,6 @@ function Proyecto() {
       <div className="body--proyecto">
 
 
-        <Header />
 
         <HeroExpand 
         titulo={titulo} 
