@@ -65,7 +65,11 @@ LOGOS = {  # clave -> (archivo, caja max w, caja max h)
     'culpadel': ('CulPadel.png', 300, 150), 'worldgym': ('WorldGym.png', 300, 150),
 }
 ABOUT = {'iti': 'iti.png', 'bios': 'bios.png', 'ort': 'ort.png', 'udemy': 'Udemy.webp'}
-SHOTS = {'nbc': ('Nbc', ['Home', '2', '3']), 'gap': ('Progreso', ['Home', 'directiva', 'noticias'])}
+SHOTS = {  # clave -> (carpeta en proyectos/, nombres sin extension en orden; Home primero)
+    'nbc': ('Nbc', ['Home', '2', '3']), 'gap': ('Progreso', ['Home', 'directiva', 'noticias']),
+    'havanna': ('Havanna', ['Home', '2', '3']), 'culpadel': ('culPadel', ['Home', '2', '3']),
+    'sandbox': ('Sandbox', ['Home', '2', 'e']), 'worldgym': ('worldGym', ['Home', '2']),
+}  # sin carpeta de capturas: tuy, wu, ft (Facu Trainer), ms (MegaStrong)
 SOCIAL = ['github', 'behance', 'linkedin']
 
 def remove_white_bg(im, thresh=38):
