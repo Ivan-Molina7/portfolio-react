@@ -68,15 +68,26 @@
   },
 
   "contacto": {
-    "titulo": "CONTACTO",
- 
+    "titulo": "Contacto",
+    "intro": "Si tenés un proyecto, una oferta o una pregunta, escribime.",
+    "email": "contacto.ivanmolina@gmail.com",
+    "formTitulo": "Escribime",
     "labelNombre": "Nombre",
     "placeholderNombre": "Nombre",
     "labelCorreo": "Correo",
     "placeholderCorreo": "Email",
     "labelMensaje": "Mensaje",
     "placeholderMensaje": "Mensaje...",
-    "btnEnviar": "Enviar"
+    "btnEnviar": "Enviar",
+    "btnEnviando": "Enviando…",
+    "cvBoton": "Descargar CV",
+    "cvTipo": "PDF",
+    "reloj": "Montevideo",
+    "errorNombre": "Escribí tu nombre (mínimo 2 caracteres).",
+    "errorCorreo": "Escribí un correo válido.",
+    "errorMensaje": "El mensaje debe tener entre 10 y 500 caracteres.",
+    "exito": "Mensaje enviado. ¡Gracias!",
+    "error": "No se pudo enviar el mensaje. Probá de nuevo o escribime por email."
   },
 
   "proyecto": {

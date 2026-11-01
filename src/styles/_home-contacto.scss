@@ -1,0 +1,243 @@
+// Contacto (portado de reference/fondo-prototipo-dorado.html, #m4).
+// Usa .home-screen / .home-wrap / .home-btn y las claves revealX, riseIn, lineIn y fadeIn
+// de _home-inicio-proyectos.scss. <html data-shown="4"> lo publica Background.jsx.
+
+$fg: #f2f5f3;
+$gold: #d6a73c;
+$green: #0a6b36;
+$ok: #17c46a;
+$bad: #e8a08a; // error: coral suave, para no usar oro (reservado a interacción) ni rojo saturado
+$ease: cubic-bezier(.4, 0, .2, 1);
+$ease2: cubic-bezier(.45, 0, .25, 1);
+$ease3: cubic-bezier(.22, 1, .36, 1);
+
+@property --gs {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: -2deg;
+}
+@keyframes formTrace {
+  0% { --gs: -2deg; opacity: 0; }
+  5% { opacity: 1; }
+  30% { --gs: 128deg; opacity: 1; }
+  38% { --gs: 140deg; opacity: 0; }
+  100% { --gs: 140deg; opacity: 0; }
+}
+@keyframes formIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes clockBlink {
+  0%, 100% { opacity: .5; transform: rotate(45deg) scale(.82); }
+  50% { opacity: 1; transform: rotate(45deg) scale(1); }
+}
+
+html[data-shown="4"] #contacto .home-wrap {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn .8s $ease backwards;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 430px;
+  gap: 60px;
+  align-items: center;
+}
+
+.contact-title {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 1;
+  margin: 0 0 24px;
+}
+.contact-intro {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba($fg, .78);
+}
+.contact-mail {
+  display: block;
+  width: fit-content;
+  margin-top: 30px;
+  color: $ok;
+  font-weight: 700;
+  font-size: 1.25rem;
+
+  &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+}
+.contact-rule {
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: rgba($fg, .6);
+  margin: 32px 0 26px;
+  transform-origin: left;
+}
+
+.contact-soc {
+  display: flex;
+  gap: 14px;
+
+  a {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .32);
+    transition: border-color .6s $ease3, background-color .6s $ease3;
+
+    img {
+      display: block;
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      opacity: .8;
+      transition: opacity .5s $ease3;
+    }
+    &:hover, &:focus-visible { border-color: $gold; background: rgba($green, .35); }
+    &:hover img, &:focus-visible img { opacity: 1; }
+    &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+  }
+}
+
+.contact-cvrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 30px;
+  margin-top: 30px;
+
+  .home-btn small { font-weight: 400; letter-spacing: .1em; opacity: .6; margin-left: 8px; }
+}
+.contact-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba($fg, .62);
+
+  b { font-weight: 700; color: $fg; letter-spacing: .08em; }
+  i {
+    width: 7px;
+    height: 7px;
+    border: 1px solid $gold;
+    transform: rotate(45deg);
+    animation: clockBlink 5s ease-in-out infinite;
+  }
+}
+
+// ---------- formulario ----------
+.cform {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 42px 36px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba($green, .10), rgba(3, 9, 7, 0) 38%), rgba(3, 8, 6, .94);
+
+  // luz dorada que recorre el borde (14s, empieza a los 2.8s)
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: 4px;
+    pointer-events: none;
+    background: conic-gradient(from var(--gs), rgba($gold, 0) 0deg, rgba($gold, .95) 38deg, rgba($gold, 0) 42deg, rgba($gold, 0) 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+  }
+
+  &__title { margin: 0 0 2px; font-family: 'Lora', serif; font-weight: 500; font-size: 1.5rem; }
+
+  &__field {
+    display: block;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba($fg, .62);
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px 0;
+      border: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 0;
+      background: transparent;
+      color: $fg;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      outline: none;
+      transition: border-color .6s $ease3, box-shadow .6s $ease3;
+
+      &::placeholder { color: rgba($fg, .4); }
+      &:focus { border-bottom-color: $gold; box-shadow: 0 1px 0 0 $gold; }
+      &[aria-invalid="true"] { border-bottom-color: $bad; }
+    }
+    textarea { height: 110px; resize: none; }
+  }
+  &__err {
+    display: block;
+    margin-top: 6px;
+    font-size: .8rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: $bad;
+  }
+
+  // honeypot: fuera de pantalla (no display:none, para que los bots lo vean)
+  &__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  &__row { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 20px; margin-top: 4px; }
+  .home-btn[disabled] { opacity: .6; cursor: progress; }
+
+  &__status {
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.4;
+    &--success { color: $ok; }
+    &--error { color: $bad; }
+  }
+}
+
+// ---------- entrada (valores finales del prototipo) ----------
+html[data-shown="4"] #contacto {
+  .contact-title { animation: revealX 1.68s $ease2 both; }
+  .contact-intro { animation: riseIn .72s $ease .28s both; }
+  .contact-mail { animation: riseIn .72s $ease .4s both; }
+  .contact-rule { animation: lineIn .72s $ease2 .48s both; }
+  .contact-soc a { animation: riseIn .72s $ease calc(.56s + var(--i, 0) * .05s) both; }
+  .contact-cvrow { animation: riseIn .72s $ease .68s both; }
+  .cform { animation: formIn .88s $ease .44s both; }
+  .cform::before { animation: formTrace 14s cubic-bezier(.45, .05, .35, 1) 2.8s infinite; }
+}
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+  .cform { padding: 32px 28px 30px; }
+}
+@media (max-width: 560px) {
+  #contacto .home-wrap { padding-top: 88px; padding-bottom: 120px; }
+  .cform { padding: 28px 22px 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-soc a, .contact-soc a img, .cform__field input, .cform__field textarea { transition: none !important; }
+}

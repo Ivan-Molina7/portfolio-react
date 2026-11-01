@@ -1,11 +1,6 @@
 import { SOCIAL } from "../../utils/assets";
 import useTranslation from "../../hooks/useTranslation";
-
-const LINKS = [
-  { key: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/ivan-molina-3b0592362/" },
-  { key: "github", label: "GitHub", href: "https://github.com/Ivan-Molina7" },
-  { key: "behance", label: "Behance", href: "https://www.behance.net/molinaivan" },
-];
+import { SOCIAL_LINKS as LINKS } from "../../utils/socialLinks";
 
 export default function SocialsHud() {
   const { texts } = useTranslation();

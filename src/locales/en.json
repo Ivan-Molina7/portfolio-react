@@ -70,15 +70,26 @@
   ,
 
   "contacto": {
-    "titulo": "CONTACT",
+    "titulo": "Contact",
+    "intro": "If you have a project, an offer or a question, write to me.",
     "email": "contacto.ivanmolina@gmail.com",
+    "formTitulo": "Write to me",
     "labelNombre": "Name",
     "placeholderNombre": "Name",
     "labelCorreo": "Email",
     "placeholderCorreo": "Email",
     "labelMensaje": "Message",
     "placeholderMensaje": "Message...",
-    "btnEnviar": "Send"
+    "btnEnviar": "Send",
+    "btnEnviando": "Sending…",
+    "cvBoton": "Download CV",
+    "cvTipo": "PDF",
+    "reloj": "Montevideo",
+    "errorNombre": "Enter your name (at least 2 characters).",
+    "errorCorreo": "Enter a valid email address.",
+    "errorMensaje": "The message must be between 10 and 500 characters.",
+    "exito": "Message sent. Thank you!",
+    "error": "The message could not be sent. Please try again or email me."
   },
 
   "proyecto": {
