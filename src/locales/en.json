@@ -37,9 +37,13 @@
   },
 "habilidades": {
   "titulo": "Skills",
+  "lead": "The workshop: the tools I use to design, build and deploy.",
   "frontendTitulo": "Frontend",
+  "frontendSub": "The facade · what you see",
   "backendTitulo": "Backend & Tools",
-  "disenoTitulo": "Design"
+  "backendSub": "The structure · what holds it up",
+  "disenoTitulo": "Design",
+  "disenoSub": "The blueprint · what is imagined first"
 },
   "about": {
     "titulo": "ABOUT ME",

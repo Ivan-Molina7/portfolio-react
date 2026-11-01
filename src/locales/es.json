@@ -38,9 +38,13 @@
   },
 "habilidades": {
   "titulo": "Habilidades",
+  "lead": "El taller: las herramientas con las que diseño, construyo y despliego.",
   "frontendTitulo": "Frontend",
+  "frontendSub": "La fachada · lo que se ve",
   "backendTitulo": "Backend & Tools",
-  "disenoTitulo": "Diseño"
+  "backendSub": "La estructura · lo que sostiene",
+  "disenoTitulo": "Diseño",
+  "disenoSub": "El plano · lo que se imagina primero"
 },
   "about": {
     "titulo": "SOBRE MI",

@@ -1,0 +1,144 @@
+// Habilidades (portado de reference/fondo-prototipo-dorado.html, #m2).
+// Usa .home-screen / .home-wrap y las claves revealX / riseIn de _home-inicio-proyectos.scss.
+// Visibilidad: <html data-shown="2"> lo publica Background.jsx; el fallback sin WebGL
+// (data-bg-fallback) y la salida (.bg-leaving) ya están cubiertos por reglas generales de .home-wrap.
+
+$fg: #f2f5f3;
+$gold: #d6a73c;
+$ease: cubic-bezier(.4, 0, .2, 1);
+$ease2: cubic-bezier(.45, 0, .25, 1);
+$ease3: cubic-bezier(.22, 1, .36, 1);
+
+html[data-shown="2"] #habilidades .home-wrap {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn .8s $ease backwards;
+}
+
+.skill-title {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 1;
+  margin: 0 0 24px;
+}
+
+.skill-lead {
+  margin: -8px 0 8px;
+  max-width: 52ch;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba($fg, .78);
+}
+
+.skill-label {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 22px 0 14px;
+
+  em {
+    font-style: normal;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: .74rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba($fg, .55);
+  }
+}
+
+.skill-tiles { display: flex; flex-wrap: wrap; gap: 16px; }
+
+.tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  width: 106px;
+  height: 106px;
+  padding: 6px 4px;
+  text-align: center;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .05);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  transition: background-color .8s $ease3;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: $gold;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .9s $ease3;
+  }
+  &:hover { background: rgba(255, 255, 255, .09); }
+  &:hover::after { transform: scaleX(1); }
+
+  &__ic {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: .72;
+      transition: opacity .7s $ease3;
+    }
+  }
+  &:hover &__ic img { opacity: 1; }
+
+  small {
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere; // "WooCommerce" y "TanStack Query" se parten en dos líneas
+    font-size: .56rem;
+    letter-spacing: .06em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: rgba($fg, .6);
+  }
+}
+
+// ---------- entrada (valores finales del prototipo) ----------
+html[data-shown="2"] #habilidades {
+  .skill-title { animation: revealX 1.68s $ease2 both; }
+  .skill-lead { animation: riseIn .8s $ease .44s both; }
+  .skill-label { animation: riseIn .8s $ease var(--dl, 0s) both; }
+  .skill-group--frontend .skill-label { --dl: .68s; }
+  .skill-group--backend .skill-label { --dl: 1.04s; }
+  .skill-group--diseno .skill-label { --dl: 1.4s; }
+  .tile { animation: riseIn .8s $ease calc(var(--d, 0s) + var(--i, 0) * .06s) both; }
+  .skill-group--frontend .tile { --d: .8s; }
+  .skill-group--backend .tile { --d: 1.16s; }
+  .skill-group--diseno .tile { --d: 1.52s; }
+}
+
+// Mobile: los mosaicos envuelven solos; aire inferior para no quedar bajo el HUD fijo.
+@media (max-width: 560px) {
+  #habilidades .home-wrap { padding-top: 88px; padding-bottom: 120px; }
+  .skill-tiles { gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile, .tile::after, .tile__ic img { transition: none !important; }
+}
