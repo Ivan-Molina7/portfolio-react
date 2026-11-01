@@ -168,7 +168,9 @@ vec3 scene(float mode, vec2 uv, vec4 P0, vec4 P1) {
     float hk = clamp(u_hit.x, 0.0, 1.0);
     float hitK = min(u_hit.x, 1.3);
     float r9 = u_cap.y;
-    float xOff = -0.5 * u_res.x / u_res.y - 0.12;
+    // Reposo de la capsula: 0.8 (en unidades de alto) a la izquierda del borde. La PUNTA del vacio llega a
+    // xn9 + r9*(1/capAn - 1) (~0.7*r9), por eso con 0.12 asomaban ~100px mientras hit > 0.001.
+    float xOff = -0.5 * u_res.x / u_res.y - 0.8;
     float xn9 = mix(xOff, u_cap.z, u_hit.x);
     vec2 pq = vec2(max(uv.x - (xn9 - r9), 0.0) * u_cap.w, uv.y - u_cap.x);
     float lq = max(length(pq), 0.0001);
