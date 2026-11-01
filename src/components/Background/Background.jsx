@@ -11,6 +11,8 @@ import {
   GALLERY_SCENE,
   HIT_OMEGA_IN,
   HIT_OMEGA_OUT,
+  HIT_STEP,
+  HIT_MAX_CATCHUP,
   HOME_MOUSE_RATE,
   PAL,
   SECTIONS,
@@ -63,6 +65,7 @@ function createEngine(canvas, bg) {
   let starLevel = 0;
   let hitV = 0;
   let hitVel = 0;
+  let hitAcc = 0; // tiempo real pendiente de integrar en el resorte
   let flashV = 0;
   let calmV = 1;
   let floorV = s.variant === "galeria" ? 0 : 1;
@@ -184,7 +187,8 @@ function createEngine(canvas, bg) {
     pending = null;
   }
 
-  function step(dt, instant) {
+  // dt: tiempo acotado a 0.05 (suavizados y transiciones); realDt: tiempo real del cuadro (solo el resorte)
+  function step(dt, instant, realDt = dt) {
     if (s.snap) { s.snap = false; instant = true; }
     const rm = reduce.matches;
     const want = s.variant === "galeria" ? GALLERY_SCENE : s.scene;
@@ -240,11 +244,15 @@ function createEngine(canvas, bg) {
     if (rm || instant) {
       hitV = hitTarget;
       hitVel = 0;
+      hitAcc = 0;
     } else {
-      const hdt = Math.min(dt, 0.05);
       const hw = hitTarget === 0 ? HIT_OMEGA_OUT : HIT_OMEGA_IN;
-      hitVel += (hw * hw * (hitTarget - hitV) - 2 * hw * hitVel) * hdt;
-      hitV += hitVel * hdt;
+      hitAcc += Math.min(realDt, HIT_MAX_CATCHUP);
+      while (hitAcc >= HIT_STEP) {
+        hitVel += (hw * hw * (hitTarget - hitV) - 2 * hw * hitVel) * HIT_STEP;
+        hitV += hitVel * HIT_STEP;
+        hitAcc -= HIT_STEP;
+      }
     }
     flashV = Math.max(0, hitVel) * 0.45;
 
@@ -323,9 +331,13 @@ function createEngine(canvas, bg) {
       return;
     }
     lastDraw = now;
-    const dt = Math.min((now - last) / 1000, 0.05);
+    const realDt = (now - last) / 1000;
+    // TODO(Ronda H): este tope hace que calm, la cápsula (capV), la paleta, el mouse y la duración de la
+    // transición entre secciones (prog_) sigan dependiendo de los fps: a ~10 fps la transición de 2.2s tarda
+    // ~4s. Hoy solo el resorte del golpe usa tiempo real (realDt).
+    const dt = Math.min(realDt, 0.05);
     last = now;
-    draw(step(dt, false));
+    draw(step(dt, false, realDt));
     raf = requestAnimationFrame(frame);
   }
 
