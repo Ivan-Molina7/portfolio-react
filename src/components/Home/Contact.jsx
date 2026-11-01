@@ -55,17 +55,19 @@ function Contact() {
     e.preventDefault();
     if (status === 'sending') return;
 
-    // honeypot: un humano no ve este campo; si viene lleno se descarta sin enviar ni avisar
-    if (e.currentTarget.elements.website.value) {
-      setStatus('success');
-      return;
-    }
-
+    // 1) validar primero: un falso positivo del honeypot nunca debe tapar errores reales
     const found = validate(values, t);
     setErrors(found);
     if (Object.keys(found).length) {
       setStatus('idle');
       e.currentTarget.elements[Object.keys(found)[0]].focus();
+      return;
+    }
+
+    // 2) honeypot: un humano no ve este campo; si viene lleno (bot) se descarta sin enviar ni avisar
+    if (e.currentTarget.elements.ref_code.value) {
+      setValues({ name: '', email: '', message: '' });
+      setStatus('success');
       return;
     }
 
@@ -129,11 +131,23 @@ function Contact() {
             {field('email', t.labelCorreo, t.placeholderCorreo, 'input', { type: 'email', autoComplete: 'email' })}
             {field('message', t.labelMensaje, t.placeholderMensaje, 'textarea', { maxLength: 500 })}
 
-            {/* honeypot anti-spam: fuera de pantalla, sin foco y oculto a lectores de pantalla */}
+            {/* honeypot anti-spam: fuera de pantalla, sin foco y oculto a lectores de pantalla.
+                Nombre sin significado ("ref_code") y atributos que los gestores de contraseñas
+                respetan (LastPass, 1Password, Bitwarden, Dashlane) para que no lo autocompleten. */}
             <div className="cform__hp" aria-hidden="true">
               <label>
-                Website
-                <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                Ref
+                <input
+                  type="text"
+                  name="ref_code"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  defaultValue=""
+                  data-lpignore="true"
+                  data-1p-ignore="true"
+                  data-bwignore="true"
+                  data-form-type="other"
+                />
               </label>
             </div>
 
