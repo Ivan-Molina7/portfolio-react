@@ -57,7 +57,7 @@ export const GALLERY_PALETTE = "mixto";
 export const GALLERY_SCENE = 1;
 
 export const HIT_OMEGA_IN = 3.2;
-export const HIT_OMEGA_OUT = 7;
+export const HIT_OMEGA_OUT = 5;
 // Resorte del golpe con paso fijo: avanza el tiempo REAL transcurrido en subpasos de HIT_STEP, así la
 // duración no depende de los fps. HIT_MAX_CATCHUP acota lo que se recupera en un solo cuadro (pestaña oculta).
 export const HIT_STEP = 1 / 120;
