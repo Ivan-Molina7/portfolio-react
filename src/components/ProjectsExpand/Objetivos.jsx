@@ -1,55 +1,19 @@
-import useTranslation from "../../hooks/useTranslation";
+import useTranslation from '../../hooks/useTranslation';
 
-
-function Objetivos({objetivo1, objetivo2, objetivo3}) {
+// Tres objetivos en tres columnas, con numeral sobre línea fina con tramo dorado.
+function Objetivos({ items }) {
   const { texts } = useTranslation();
 
   return (
-    <section className="proyecto-objetivos mb-section max-width-section">
-      <h2
-        className="proyecto-objetivos__titulo"
-        data-aos="fade-right"
-        data-aos-delay="100"
-      >
-        {texts.objetivos.titulo}
-      </h2>
-      <div className="proyecto-objetivos__items">
-        <div
-          className="proyecto-objetivos__item"
-          data-aos="fade-right"
-          data-aos-delay="200"
-        >
-          <h3 className="proyecto-objetivos__item-titulo">1.</h3>
-          <p
-            className="proyecto-objetivos__item-texto"
-          >
-           {objetivo1}
-          </p>
-        </div>
-        <div
-          className="proyecto-objetivos__item"
-          data-aos="fade-right"
-          data-aos-delay="300"
-        >
-          <h3 className="proyecto-objetivos__item-titulo">2.</h3>
-          <p
-            className="proyecto-objetivos__item-texto"
-          >
-            {objetivo2}
-          </p>
-        </div>
-        <div
-          className="proyecto-objetivos__item"
-          data-aos="fade-right"
-          data-aos-delay="400"
-        >
-          <h3 className="proyecto-objetivos__item-titulo">3.</h3>
-          <p
-            className="proyecto-objetivos__item-texto"
-          >
-            {objetivo3}
-          </p>
-        </div>
+    <section className="det-sec det-rv">
+      <h3 className="proj-label">{texts.objetivos.titulo}</h3>
+      <div className="det-obj">
+        {items.map((text, i) => (
+          <div className="det-obj__item det-rv" key={i} style={{ '--i': i }}>
+            <b>{String(i + 1).padStart(2, '0')}</b>
+            <p>{text}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

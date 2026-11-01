@@ -1,29 +1,31 @@
-import html from '../../assets/img/habilidades/html.png';
-import css from '../../assets/img/habilidades/css.png';
-import js from '../../assets/img/habilidades/js.png';
-import sass from '../../assets/img/habilidades/sass.png';
-import mongo from '../../assets/img/habilidades/mongo.png';
-import node from '../../assets/img/habilidades/node.png';
-import figma from '../../assets/img/habilidades/figma.png';
+import useTranslation from '../../hooks/useTranslation';
+import { techIcon } from '../../utils/projectAssets';
 
-function Tecnologias({tecnologias}) {
-    return ( 
-          <section className="proyecto-tecnologias mb-section">
-    <h2 className="proyecto-tecnologias__titulo" data-section="tecnologias" data-value="tecnologiasTitulo" data-aos="fade-up" data-aos-delay="100">
-      Tecnologías utilizadas
-    </h2>
-    <div className="proyecto-tecnologias__items">
-       {tecnologias.map((tecnologia,i) => (
-            tecnologia.icono ? (
-                <img key={tecnologia.alt} src={tecnologia.icono} alt={tecnologia.alt} className="proyecto-tecnologias__item" data-aos="fade-up" data-aos-delay={200 + i*100}/>
-            ) : (
-                <span key={tecnologia.alt} className="proyecto-tecnologias__item proyecto-tecnologias__item--texto" data-aos="fade-up" data-aos-delay={200 + i*100}>{tecnologia.alt}</span>
-            )
-        )) }
+// Mismos mosaicos que Habilidades (.tile en _home-habilidades.scss), con ICONS en gris.
+// Las tecnologías sin ícono en ICONS (Vite, Netlify, Mercado Pago, Groq, Next.js, TypeScript) van solo con el nombre.
+function Tecnologias({ tecnologias }) {
+  const { texts } = useTranslation();
 
-    </div>
-  </section>
-     );
+  return (
+    <section className="det-sec det-rv">
+      <h3 className="proj-label">{texts.tecnologias.tecnologiasTitulo}</h3>
+      <div className="skill-tiles">
+        {tecnologias.map(({ alt }) => {
+          const icon = techIcon(alt);
+          return (
+            <div className={`tile${icon ? '' : ' tile--text'}`} key={alt}>
+              {icon && (
+                <span className="tile__ic">
+                  <img src={icon} alt="" />
+                </span>
+              )}
+              <small>{alt}</small>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
 
 export default Tecnologias;

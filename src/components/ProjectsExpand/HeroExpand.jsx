@@ -1,176 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import iconTouch from '../../assets/img/Icons/White/touch.png';
-import iconLeft from '../../assets/img/Icons/White/nav-left.png';
-import iconRight from '../../assets/img/Icons/White/nav-right.png';
-import useTranslation from "../../hooks/useTranslation";
+import { useEffect, useRef, useState } from 'react';
+import useTranslation from '../../hooks/useTranslation';
+import { prefersReducedMotion } from '../../utils/motion';
 
-function HeroExpand({
-  titulo,
-  descripcion,
-  imagenMain,
-  imagenAlt,
-  behance,
-  behanceLink,
-  figma,
-  figmaLink,
-  sitioLink,
-  sitio,
-  imagenesModal = [], // array de imágenes para el modal
-  enDesarrollo = false,
-}) {
-  const hayImagenes = imagenesModal.length > 0;
+const pad = (n) => String(n).padStart(2, '0');
+
+// Hero del detalle: bloque de texto (.det-txt, el que sigue la cápsula del fondo) y marco de la obra.
+function HeroExpand({ titulo, descripcion, sitio, sitioLink, behance, behanceLink, shots, logo, initials, txtRef }) {
   const { texts } = useTranslation();
+  const t = texts.proyecto;
+  const [shot, setShot] = useState(0);
+  const [fading, setFading] = useState(false);
+  const timer = useRef(0);
+  const total = shots.length;
 
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  useEffect(() => () => clearTimeout(timer.current), []);
 
-  // Abrir modal y poner primer slide
-  const openModal = (index = 0) => {
-    setCurrentSlide(index);
-    setModalOpen(true);
-
+  // fundido de la imagen principal: sale, cambia a los 220ms y vuelve
+  const pick = (n) => {
+    if (n === shot || fading) return;
+    if (prefersReducedMotion()) { setShot(n); return; }
+    setFading(true);
+    timer.current = setTimeout(() => { setShot(n); setFading(false); }, 220);
   };
-
-  // Cerrar modal y restaurar scroll
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  // Mostrar slide según índice
-  const showSlide = (index) => {
-    const total = imagenesModal.length;
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
-    setCurrentSlide(index);
-  };
-
-  const prevSlide = () => showSlide(currentSlide - 1);
-  const nextSlide = () => showSlide(currentSlide + 1);
-
-  // Manejar teclas para modal (Escape, flechas)
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!isModalOpen) return;
-      if (e.key === 'Escape') closeModal();
-      if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'ArrowRight') nextSlide();
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isModalOpen, currentSlide]);
 
   return (
-    <section className="hero-proyecto mb-section max-width-section">
-      {hayImagenes ? (
-        <div
-          className="hero-proyecto__image-container"
-          data-aos="fade-right"
-          data-aos-delay="100"
-          onClick={() => openModal(0)}
-          style={{ cursor: 'pointer' }}
-          aria-label="Abrir galería de imágenes del proyecto"
-          role="button"
-          tabIndex={0}
-          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') openModal(0); }}
-        >
-          <img src={imagenesModal[0].src} alt={imagenAlt} className="hero-proyecto__image" />
-          <div className="hero-proyecto__overlay" >
-            <img src={iconTouch} alt="tocar pantalla icono" />
-            Haz click para ver más pantallas
-          </div>
-        </div>
-      ) : (
-        <div
-          className="hero-proyecto__image-container hero-proyecto__image-container--vacio"
-          data-aos="fade-right"
-          data-aos-delay="100"
-        >
-          <span className="hero-proyecto__placeholder">{titulo}</span>
-        </div>
-      )}
-
-      <div className="hero-proyecto__container" data-aos="fade-left" data-aos-delay="300">
-        {enDesarrollo && (
-          <span className="hero-proyecto__estado">{texts.proyecto.enDesarrollo}</span>
-        )}
-        <h1 className="hero-proyecto__titulo" data-aos="fade-left" data-aos-delay="400">{titulo}</h1>
-        <div className="hero-proyecto__content" data-aos="fade-left" data-aos-delay="500">
-          <p className="hero-proyecto__descripcion" >
-            {descripcion}
-          </p>
-          <div className="hero-proyecto__botones" data-aos="fade-left" data-aos-delay="600">
-            {behance && (
-              <a href={behanceLink} target="_blank" rel="noopener noreferrer" className="hero-proyecto__btn btn" >
-                {texts.proyecto.btnMasInfo}
-              </a>
-            )}
-
-            {sitio && (
-              <a href={sitioLink} target="_blank" rel="noopener noreferrer" className="hero-proyecto__btn btn btn--secondary">
-                {texts.proyecto.btnVisitar}
-              </a>
-            )}
-
-                {figma && (
-              <a href={figmaLink} target="_blank" rel="noopener noreferrer" className="hero-proyecto__btn btn" >
-                Figma 
-              </a>
-            )}
-          </div>
+    <section className="det-hero">
+      <div className="det-txt" ref={txtRef}>
+        <h1 className="det-name">{titulo}</h1>
+        <p className="det-desc">{descripcion}</p>
+        <div className="det-cta">
+          {sitio && (
+            <a className="home-btn home-btn--solid" href={sitioLink} target="_blank" rel="noopener noreferrer">
+              {t.btnVisitar}
+            </a>
+          )}
+          {behance && (
+            <a className="home-btn" href={behanceLink} target="_blank" rel="noopener noreferrer">
+              {t.btnBehance}
+            </a>
+          )}
         </div>
       </div>
 
-      {/* Modal Carousel */}
-      {isModalOpen && hayImagenes && (
-        <div
-          className="modal-carousel"
-          aria-hidden={!isModalOpen}
-          role="dialog"
-          aria-modal="true"
-          onClick={closeModal}
-          tabIndex={-1}
-        >
-          <div
-            className="modal-carousel__overlay"
-            onClick={closeModal}
-            aria-label="Cerrar modal"
-          ></div>
-
-          <div className="modal-carousel__content" role="document" onClick={e => e.stopPropagation()}>
-            <div className="modal-carousel__body">
-
-              <button
-                className="modal-carousel__arrow modal-carousel__arrow--left"
-                aria-label="Anterior"
-                onClick={prevSlide}
-              >
-                <img src={iconLeft} alt="Anterior" />
-              </button>
-
-              <div className="modal-carousel__img-frame">
-                {imagenesModal.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img.src}
-                    alt={img.alt}
-                    className={`modal-carousel__img ${i === currentSlide ? 'active' : ''}`}
-                    style={{ display: i === currentSlide ? 'block' : 'none' }}
-                  />
-                ))}
-              </div>
-
-              <button
-                className="modal-carousel__arrow modal-carousel__arrow--right"
-                aria-label="Siguiente"
-                onClick={nextSlide}
-              >
-                <img src={iconRight} alt="Siguiente" />
-              </button>
-
+      <figure className="det-frame">
+        <div className="det-main">
+          {total > 0 ? (
+            <img
+              className={fading ? 'is-fading' : undefined}
+              src={shots[shot]}
+              alt={`${titulo} · ${shot + 1}/${total}`}
+            />
+          ) : (
+            <div className="det-ph" role="img" aria-label={titulo}>
+              {logo ? <img className="det-ph__logo" src={logo} alt="" /> : <span className="det-ph__ini">{initials || titulo}</span>}
+              <small>{t.capturaPendiente}</small>
             </div>
-          </div>
+          )}
         </div>
-      )}
+        {total > 1 && (
+          <figcaption className="det-thumbs">
+            <span className="det-count">{pad(shot + 1)} / {pad(total)}</span>
+            {shots.map((src, n) => (
+              <button
+                key={src}
+                type="button"
+                className={`det-th${n === shot ? ' is-on' : ''}`}
+                aria-label={`${t.verCaptura} ${n + 1}`}
+                aria-pressed={n === shot}
+                onClick={() => pick(n)}
+              >
+                <img src={src} alt="" />
+              </button>
+            ))}
+          </figcaption>
+        )}
+      </figure>
     </section>
   );
 }

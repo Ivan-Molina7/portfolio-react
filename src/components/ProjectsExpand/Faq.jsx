@@ -1,62 +1,49 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import useTranslation from '../../hooks/useTranslation';
 
-function Faq({  pregunta1, respuesta1, pregunta2, respuesta2, pregunta3, respuesta3 }) {
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const faqs = [
-    { pregunta: pregunta1, respuesta: respuesta1 },
-    { pregunta: pregunta2, respuesta: respuesta2 },
-    { pregunta: pregunta3, respuesta: respuesta3 },
-  ];
-
-  const toggleFaq = (index) => {
-    setOpenIndex(prevIndex => (prevIndex === index ? null : index));
-  };
+// "Sobre el proyecto": dos columnas. Las preguntas a la izquierda (la activa en blanco, con numeral y línea
+// dorada) y la respuesta a la derecha con fundido. NO es un acordeón: todas las respuestas ocupan la misma
+// celda, así la altura queda fija a la más larga.
+function Faq({ items }) {
+  const { texts } = useTranslation();
+  const [active, setActive] = useState(0);
 
   return (
-    <section className="proyecto-about pb-section max-width-section">
-      <h2
-        className="proyecto-about__titulo"
-        data-section="proyecto_about"
-        data-value="sobrePaginaTitulo"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        Sobre la página
-      </h2>
-
-      <ul className="faq">
-        {faqs.map((item, i) => (
-          <li
-            key={i}
-            className="faq__item"
-            data-aos="fade-up"
-            data-aos-delay={200 + i * 100}
-          >
-            <div
-              className="faq__pregunta"
-              style={{
-                backgroundImage: openIndex === i ? 'linear-gradient(to left, #036B2B80, #07282270)' : 'unset',
-                cursor: 'pointer',
-              }}
-              onClick={() => toggleFaq(i)}
+    <section className="det-sec det-rv">
+      <h3 className="proj-label">{texts.proyecto.sobreTitulo}</h3>
+      <div className="det-qa">
+        <div className="det-ql" role="tablist" aria-orientation="vertical">
+          {items.map((item, i) => (
+            <button
+              key={i}
+              type="button"
+              role="tab"
+              id={`det-q${i}`}
+              aria-selected={i === active}
+              aria-controls={`det-a${i}`}
+              className={`det-qi${i === active ? ' is-on' : ''}`}
+              onClick={() => setActive(i)}
             >
-              <div className={`faq__icon ${openIndex === i ? 'active' : ''}`}>
-                <div></div>
-                <div></div>
-              </div>
-              <span data-section="proyecto_about" data-value={`nbc_pregunta${i + 1}`}>
-                {item.pregunta}
-              </span>
-            </div>
-            <div className={`faq__respuesta ${openIndex === i ? 'faq__respuesta--abierta' : ''}`}>
-              <p data-section="proyecto_about" data-value={`nbc_respuesta${i + 1}`}>
-                {item.respuesta}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+              <i>{String(i + 1).padStart(2, '0')}</i>
+              <b>{item.q}</b>
+            </button>
+          ))}
+        </div>
+        <div className="det-qr">
+          {items.map((item, i) => (
+            <p
+              key={i}
+              role="tabpanel"
+              id={`det-a${i}`}
+              aria-labelledby={`det-q${i}`}
+              aria-hidden={i !== active}
+              className={`det-qp${i === active ? ' is-on' : ''}`}
+            >
+              {item.a}
+            </p>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

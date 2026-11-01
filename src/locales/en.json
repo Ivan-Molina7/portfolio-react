@@ -92,9 +92,24 @@
     "error": "The message could not be sent. Please try again or email me."
   },
 
+  "error": {
+    "proyectoNoEncontrado": "I couldn't find that project.",
+    "volver": "Back to projects"
+  },
+
   "proyecto": {
     "overlayTexto": "<img src='../assets/img/Icons/White/touch.png' alt='tocar pantalla icono'> Click to see more screens",
     "btnVisitar": "Visit site",
+    "btnBehance": "View on Behance",
+    "tipoTrabajo": "Client work",
+    "tipoPersonal": "Personal project",
+    "destacado": "Featured",
+    "capturaPendiente": "Screenshot pending",
+    "verCaptura": "View screenshot",
+    "sobreTitulo": "About the project",
+    "siguiente": "Next project",
+    "anterior": "Previous",
+    "verTodos": "See all projects",
     "btnMasInfo": "More information on my Behance",
 
     "cap_descripcion": "A renewed web platform that connects fans with their club, offering news, statistics, and updated content in an accessible and easy-to-use environment. This project aims to modernize the club's digital presence and strengthen its community bond.",
@@ -119,7 +134,7 @@
 
   },
   "objetivos": {
-    "titulo": "Project Objetives",
+    "titulo": "Objectives",
 
     "cap_item1Texto": "Modernize the club's digital platform by improving usability, accessibility, and user experience.",
     "cap_item2Texto": "Provide a dynamic and up-to-date space where fans can easily access news, statistics, and relevant content.",
@@ -164,7 +179,7 @@
     "megastrong_item3Texto": "Build routines from exercises in routine and control data access with RLS in Supabase."
   },
   "tecnologias": {
-    "tecnologiasTitulo": "Technologies Used"
+    "tecnologiasTitulo": "Technologies"
   },
 
 
