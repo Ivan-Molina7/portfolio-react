@@ -18,7 +18,8 @@ export default function Hud() {
       <div className="hud__fade hud__fade--top" aria-hidden="true" />
       <div className="hud__fade hud__fade--bottom" aria-hidden="true" />
       <Header active={active} />
-      <SideDots active={active} />
+      {/* en el detalle no hay secciones de Home para navegar: sin rombos laterales */}
+      {!pathname.startsWith("/proyecto/") && <SideDots active={active} />}
       <SocialsHud />
       <LangSwitch />
     </div>
