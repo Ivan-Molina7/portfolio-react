@@ -1,0 +1,206 @@
+// Sobre mí (portado de reference/fondo-prototipo-dorado.html, #m3).
+// Usa .home-screen / .home-wrap / .home-btn y las claves revealX, riseIn, lineIn y fadeIn
+// de _home-inicio-proyectos.scss. <html data-shown="3"> lo publica Background.jsx.
+
+$fg: #f2f5f3;
+$gold: #d6a73c;
+$ease: cubic-bezier(.4, 0, .2, 1);
+$ease2: cubic-bezier(.45, 0, .25, 1);
+$ease3: cubic-bezier(.22, 1, .36, 1);
+
+@keyframes tlTrace {
+  0% { background-position: -28% 0; opacity: 0; }
+  10% { opacity: 1; }
+  55% { opacity: 1; }
+  85% { opacity: 0; }
+  100% { background-position: 128% 0; opacity: 0; }
+}
+@keyframes tlTraceV {
+  0% { background-position: 0 -28%; opacity: 0; }
+  10% { opacity: 1; }
+  55% { opacity: 1; }
+  85% { opacity: 0; }
+  100% { background-position: 0 128%; opacity: 0; }
+}
+@keyframes lineInY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+html[data-shown="3"] #about .home-wrap {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn .8s $ease backwards;
+}
+
+.about-title {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 1;
+  margin: 0 0 26px;
+}
+.about-txt {
+  font-size: .95rem; // valor del prototipo (CLAUDE.md pide ≥16px de cuerpo: ver nota de cierre)
+  line-height: 1.5;
+  margin: 0 0 18px;
+  max-width: 1180px;
+}
+.about-sub {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin: 6px 0 8px;
+}
+
+// ---------- línea de tiempo ----------
+.tl {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 62px;
+  margin-top: 44px;
+  padding-top: 4px;
+
+  // pista
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 128px;
+    height: 3px;
+    background: rgba($fg, .45);
+    transform-origin: left;
+  }
+  // luz dorada que la recorre (5.5s)
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 128px;
+    height: 3px;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba($gold, 0), rgba($gold, .95) 90%, rgba($gold, 0)) no-repeat;
+    background-size: 22% 100%;
+    background-position: -28% 0;
+    opacity: 0;
+  }
+}
+
+.ti {
+  position: relative;
+  z-index: 1;
+  width: 138px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo {
+    width: 78px;
+    height: 78px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .4);
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) brightness(.82);
+      opacity: .9;
+      transition: filter .7s $ease3, opacity .7s $ease3;
+
+      &.is-pad { box-sizing: border-box; object-fit: contain; padding: 15px; }
+    }
+  }
+  &:hover &__logo img { filter: grayscale(1) brightness(1); opacity: 1; }
+
+  &__node {
+    width: 10px;
+    height: 10px;
+    margin: 14px 0 22px;
+    border: 2px solid $fg;
+    background: #010403;
+    transform: rotate(45deg);
+  }
+  &__year {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin: 20px 0 14px;
+  }
+}
+
+// ---------- entrada (valores finales del prototipo) ----------
+html[data-shown="3"] #about {
+  .about-title { animation: revealX 1.68s $ease2 both; }
+  .about-txt:nth-of-type(1) { animation: riseIn .88s $ease .44s both; }
+  .about-sub { animation: riseIn .8s $ease .72s both; }
+  .about-txt:nth-of-type(2) { animation: riseIn .88s $ease .84s both; }
+  .tl::after { animation: lineIn 1.28s $ease2 1.04s both; }
+  .tl::before { animation: tlTrace 5.5s cubic-bezier(.4, 0, .35, 1) 2.88s infinite; }
+  .ti { animation: riseIn .8s $ease both; }
+  .ti:nth-child(1) { animation-delay: 1.2s; }
+  .ti:nth-child(2) { animation-delay: 1.36s; }
+  .ti:nth-child(3) { animation-delay: 1.52s; }
+  .ti:nth-child(4) { animation-delay: 1.68s; }
+}
+
+// ---------- mobile: línea de tiempo vertical (propuesta, a revisar) ----------
+// Línea y luz dorada corren en vertical por la izquierda; logo, año y botón a la derecha de cada rombo.
+@media (max-width: 700px) {
+  #about .home-wrap { padding-top: 88px; padding-bottom: 120px; }
+
+  .tl {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+    margin-top: 32px;
+    padding: 0 0 0 36px;
+
+    &::after, &::before {
+      left: 11px;
+      right: auto;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      height: auto;
+    }
+    &::after { transform-origin: top; }
+    &::before {
+      background: linear-gradient(180deg, rgba($gold, 0), rgba($gold, .95) 90%, rgba($gold, 0)) no-repeat;
+      background-size: 100% 22%;
+      background-position: 0 -28%;
+    }
+  }
+
+  .ti {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    grid-template-areas: "logo year" "logo btn";
+    column-gap: 20px;
+    row-gap: 10px;
+    align-items: center;
+    justify-items: start;
+
+    &__logo { grid-area: logo; }
+    &__year { grid-area: year; margin: 0; align-self: end; }
+    .home-btn { grid-area: btn; align-self: start; }
+    &__node { position: absolute; left: -31px; top: calc(50% - 7px); margin: 0; }
+  }
+
+  html[data-shown="3"] #about {
+    .tl::after { animation: lineInY 1.28s $ease2 1.04s both; }
+    .tl::before { animation: tlTraceV 5.5s cubic-bezier(.4, 0, .35, 1) 2.88s infinite; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ti__logo img { transition: none !important; }
+}
