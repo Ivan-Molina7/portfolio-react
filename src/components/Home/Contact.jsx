@@ -21,12 +21,14 @@ async function sendMessage(/* { name, email, message } */) {
   throw new Error('sendMessage: servicio de envío no configurado');
 }
 
-function validate({ name, email, message }, t) {
+// Devuelve la CLAVE del locale de cada error (no el texto): el texto se resuelve al renderizar,
+// así los errores visibles cambian de idioma junto con el resto de la página.
+function validate({ name, email, message }) {
   const errors = {};
-  if (name.trim().length < 2) errors.name = t.errorNombre;
-  if (!EMAIL_RE.test(email.trim())) errors.email = t.errorCorreo;
+  if (name.trim().length < 2) errors.name = 'errorNombre';
+  if (!EMAIL_RE.test(email.trim())) errors.email = 'errorCorreo';
   const len = message.trim().length;
-  if (len < 10 || len > 500) errors.message = t.errorMensaje;
+  if (len < 10 || len > 500) errors.message = 'errorMensaje';
   return errors;
 }
 
@@ -56,7 +58,7 @@ function Contact() {
     if (status === 'sending') return;
 
     // 1) validar primero: un falso positivo del honeypot nunca debe tapar errores reales
-    const found = validate(values, t);
+    const found = validate(values);
     setErrors(found);
     if (Object.keys(found).length) {
       setStatus('idle');
@@ -94,7 +96,7 @@ function Contact() {
         aria-describedby={errors[name] ? `c-${name}-err` : undefined}
         {...extra}
       />
-      {errors[name] && <span className="cform__err" id={`c-${name}-err`}>{errors[name]}</span>}
+      {errors[name] && <span className="cform__err" id={`c-${name}-err`}>{t[errors[name]]}</span>}
     </label>
   );
 
