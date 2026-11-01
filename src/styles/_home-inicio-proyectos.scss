@@ -1,0 +1,329 @@
+// Inicio + Proyectos (portado de reference/fondo-prototipo-dorado.html).
+// La visibilidad y la entrada dependen de <html data-shown="N"> y .bg-leaving,
+// publicados por Background.jsx (sección mostrada y salida hasta el 42%).
+
+$fg: #f2f5f3;
+$green: #0a6b36;
+$gold: #d6a73c;
+$ease: cubic-bezier(.4, 0, .2, 1);
+$ease2: cubic-bezier(.45, 0, .25, 1);
+$ease3: cubic-bezier(.22, 1, .36, 1);
+
+@keyframes revealX {
+  from { clip-path: inset(-12% 100% -12% -2%); transform: translateX(-14px); }
+  to { clip-path: inset(-12% -2% -12% -2%); transform: none; }
+}
+@keyframes riseIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lineIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes cardIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes breathe { 0%, 100% { opacity: .5; transform: scale(.82); } 50% { opacity: 1; transform: scale(1); } }
+
+.home-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; // el ancho lo fija .home-wrap; flex:1 solo reparte el alto
+  font-family: 'Lato', sans-serif;
+  color: $fg;
+}
+
+.home-wrap {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 0 50px; // el prototipo centra bajo la cabecera del HUD (~86px) con 40px abajo
+  // oculto salvo que su sección sea la mostrada por el fondo
+  opacity: 0;
+  visibility: hidden;
+}
+
+html[data-shown="0"] #hero .home-wrap,
+html[data-shown="1"] #proyectos .home-wrap {
+  opacity: 1;
+  visibility: visible;
+  animation: fadeIn .8s $ease backwards;
+}
+
+// sin motor del fondo (ver enableFallback en Background.jsx): todo visible, sin animación
+html[data-bg-fallback]:not([data-shown]) .home-wrap {
+  opacity: 1;
+  visibility: visible;
+}
+
+// salida: el contenido anterior se retira hasta el 42% de la transición
+html.bg-leaving .home-wrap {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .4s cubic-bezier(.4, 0, .6, 1), transform .4s cubic-bezier(.4, 0, .6, 1);
+}
+
+// ---------- botones ----------
+.home-btn {
+  display: inline-block;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: $fg;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 0;
+  cursor: pointer;
+  background: linear-gradient(90deg, $green 0 50%, transparent 50% 100%) right / 200% 100% no-repeat;
+  transition: background-position .6s $ease3, border-color .6s $ease3;
+
+  &:hover, &:focus-visible { background-position: left; border-color: $gold; }
+  &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+
+  &--solid {
+    background: linear-gradient(90deg, transparent 0 50%, $green 50% 100%) right / 200% 100% no-repeat;
+    border-color: $green;
+  }
+}
+
+// ---------- Inicio ----------
+.home-wrap--hero { align-items: flex-start; text-align: left; }
+
+.hero-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba($fg, .78);
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #17c46a;
+    box-shadow: 0 0 10px #17c46a;
+    animation: breathe 5s ease-in-out infinite;
+  }
+  &__loc {
+    font-style: normal;
+    color: rgba($fg, .5);
+    &::before { content: "·"; margin-right: 10px; }
+  }
+}
+
+.hero-name {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(2.8rem, 7.4vw, 6.4rem);
+  line-height: 1;
+}
+.hero-role {
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-weight: 700;
+  color: #e0b44a;
+  margin: 18px 0 0;
+  letter-spacing: .02em;
+}
+.hero-phrase {
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  line-height: 1.55;
+  max-width: 40ch;
+  margin: 12px 0 0;
+  color: rgba($fg, .92);
+}
+.hero-stack {
+  margin: 24px 0 0;
+  font-size: .74rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba($fg, .55);
+}
+.hero-ctas { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+
+html[data-shown="0"] #hero {
+  .hero-open { animation: riseIn .8s $ease .16s both; }
+  .hero-name { animation: revealX 1.68s $ease2 .28s both; }
+  .hero-role { animation: riseIn .8s $ease .8s both; }
+  .hero-phrase { animation: riseIn .8s $ease .96s both; }
+  .hero-stack { animation: riseIn .8s $ease 1.12s both; }
+  .hero-ctas { animation: riseIn .8s $ease 1.28s both; }
+}
+
+// ---------- Proyectos ----------
+.proj-title {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 1;
+  margin: 0 0 24px;
+}
+.proj-groups {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  column-gap: 48px;
+}
+.proj-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: .95rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #e8c66b, #9a6f1f 60%, transparent);
+    transform-origin: left;
+  }
+}
+.proj-row { display: grid; gap: 18px; }
+.proj-row--3 { grid-template-columns: repeat(3, 1fr); }
+.proj-row--2 { grid-template-columns: repeat(2, 1fr); }
+
+.pcard {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .045);
+  backdrop-filter: blur(6px);
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: background-color .8s $ease3;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: $gold;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .9s $ease3;
+  }
+  &:hover, &:focus-within { background: rgba(255, 255, 255, .08); }
+  &:hover::after, &:focus-within::after { transform: scaleX(1); }
+
+  &__tag {
+    font-size: .62rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba($fg, .55);
+
+    // "Destacado": mismo tratamiento que la galería (reference/galeria-proyectos.html, .card.dest .tag)
+    &--dest {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: $gold;
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: $gold;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  &__logo {
+    flex: 1;
+    align-self: stretch;
+    display: grid;
+    place-items: center;
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    letter-spacing: .08em;
+
+    img {
+      display: block;
+      max-width: 150px;
+      max-height: 78px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      opacity: .88;
+      transition: opacity .6s $ease3;
+
+      &.is-dim { filter: brightness(1.5); } // Wake Up: logo oscuro, ver TODO en Projects.jsx
+    }
+  }
+  &:hover &__logo img, &:focus-within &__logo img { opacity: 1; }
+
+  &__btn {
+    align-self: center;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: $fg;
+    padding: 8px 20px;
+    border: 1px solid rgba(255, 255, 255, .32);
+    background: linear-gradient(90deg, $green 0 50%, transparent 50% 100%) right / 200% 100% no-repeat;
+    transition: background-position .7s $ease3, border-color .7s $ease3;
+
+    &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+  }
+  &:hover &__btn, &:focus-within &__btn { background-position: left; border-color: $gold; }
+  // toda la card es clicable a través del enlace "Expandir"
+  &__stretch { position: absolute; inset: 0; }
+}
+
+.proj-more {
+  align-self: flex-end;
+  margin-top: 20px;
+  font-size: .74rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: $fg;
+
+  &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+}
+
+html[data-shown="1"] #proyectos {
+  .proj-title { animation: revealX 1.68s $ease2 both; }
+  .proj-label { animation: fadeIn .72s ease .24s both; }
+  .proj-label::after { animation: lineIn 1.04s $ease2 .32s both; }
+  .pcard { animation: cardIn .92s $ease both; }
+  .proj-row--3 .pcard:nth-child(1) { animation-delay: .32s; }
+  .proj-row--3 .pcard:nth-child(2) { animation-delay: .4s; }
+  .proj-row--3 .pcard:nth-child(3) { animation-delay: .48s; }
+  .proj-row--2 .pcard:nth-child(1) { animation-delay: .56s; }
+  .proj-row--2 .pcard:nth-child(2) { animation-delay: .64s; }
+}
+
+@media (max-width: 900px) {
+  .proj-groups { grid-template-columns: 1fr; row-gap: 24px; }
+}
+// Mobile: una columna, cards más grandes (casi 1:1). La sección crece más que la pantalla y se
+// scrollea; el padding inferior deja el final libre del HUD fijo (íconos y idioma, ~56px).
+@media (max-width: 560px) {
+  #proyectos .home-wrap { padding-top: 88px; padding-bottom: 120px; }
+  .proj-groups { row-gap: 40px; }
+  .proj-row--3, .proj-row--2 { grid-template-columns: 1fr; }
+  .pcard { aspect-ratio: 1 / 1; }
+  .proj-more { margin-top: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-wrap, .home-wrap * , .home-wrap *::before, .home-wrap *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,63 +1,24 @@
-import iconEstado from '../../assets/img/Icons/estado.svg';
-import githubIcon from '../../assets/img/Icons/White/github.png';
-import behanceIcon from '../../assets/img/Icons/White/behance.png';
-
 import useTranslation from '../../hooks/useTranslation';
 
 function Hero() {
-
-    const { texts } = useTranslation();
+  const { texts } = useTranslation();
 
   return (
-    <div className="overflow-section-100vh overflow-section-100vh--hero" id="hero">
-      <section
-        className="hero max-width-section section-bg"
-      >
-        <div className="hero__titles">
-          <div className="estado">
-            <img src={iconEstado} alt="Efecto camara grabando"/>
-            <span>
-               {texts.hero.ofertas}
-            </span>
-          </div>
-
-          <h1 className="hero__title">
-            {texts.hero.nombre}
-          </h1>
-
-          <div className="hero__subtitles">
-            <p className="hero__subtitle">
-               <span> {texts.hero.descripcionSpan}</span> <br /> {texts.hero.descripcion}
-            </p>
-            <p className="hero__pais">
-              Montevideo, Uruguay
-            </p>
-          </div>
+    <div className="home-screen" id="hero" data-s="0">
+      <main className="home-wrap home-wrap--hero">
+        <span className="hero-open">
+          {texts.hero.ofertas}
+          <em className="hero-open__loc">{texts.hero.ubicacion}</em>
+        </span>
+        <h1 className="hero-name">{texts.hero.nombre}</h1>
+        <p className="hero-role">{texts.hero.descripcionSpan}</p>
+        <p className="hero-phrase">{texts.hero.descripcion}</p>
+        <p className="hero-stack">{texts.hero.stack}</p>
+        <div className="hero-ctas">
+          <a className="home-btn" href="#proyectos">{texts.hero.leerMas}</a>
+          <a className="home-btn home-btn--solid" href="#about">{texts.hero.sobreMi}</a>
         </div>
-
-        <div className="hero__buttons">
-          <a className="btn btn--secondary" href="#proyectos">
-            <span>
-              {texts.hero.leerMas}
-            </span>
-          </a>
-
-          <a className="btn" href="#about">
-            <span data-section="hero" data-value="sobreMi">
-              {texts.hero.sobreMi}
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <div className="hud-secciones">
-        <a href="#hero" className="circle circle--active"></a>
-        <a href="#proyectos" className="circle "></a>
-        <a href="#habilidades" className="circle"></a>
-        <a href="#about" className="circle"></a>
-        <a href="#contacto" className="circle"></a>
-      </div>
-
+      </main>
     </div>
   );
 }

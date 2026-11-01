@@ -149,6 +149,33 @@ function createEngine(canvas, bg) {
     return [(0.5 * H - cy * dpr) / H, (rr * dpr) / H, (nx * dpr - 0.5 * W) / H, DEFAULTS.capAn];
   }
 
+  // data-shown / bg-leaving en <html>; solo se escribe cuando cambian
+  let pubShown = -1;
+  let pubLeaving = false;
+  function publishShown(shown, leaving) {
+    const root = document.documentElement;
+    if (shown !== pubShown) {
+      pubShown = shown;
+      root.dataset.shown = String(shown);
+      root.removeAttribute("data-bg-fallback");
+    }
+    if (leaving !== pubLeaving) {
+      pubLeaving = leaving;
+      root.classList.toggle("bg-leaving", leaving);
+    }
+  }
+
+  // Sin motor (sin WebGL, contexto perdido, o que no publicó a tiempo) el contenido del Home
+  // no puede quedar oculto: data-bg-fallback lo muestra todo, sin animación de entrada.
+  function enableFallback() {
+    const root = document.documentElement;
+    pubShown = -1;
+    pubLeaving = false;
+    delete root.dataset.shown;
+    root.classList.remove("bg-leaving");
+    root.setAttribute("data-bg-fallback", "");
+  }
+
   function startTransition(to) {
     if (import.meta.env.DEV) console.debug(`[bg] ${A}→${to}`);
     B = to;
@@ -191,6 +218,9 @@ function createEngine(canvas, bg) {
     }
     const shownS = animating ? (prog_ >= 0.42 ? B : A) : A;
     const palScene = animating ? B : A;
+
+    // señal para el contenido del Home: sección mostrada y salida (< 42%)
+    publishShown(shownS, animating && prog_ < 0.42);
 
     time += dt * (rm ? 0 : DEFAULTS.speed * 0.4 + boost);
     const br = rm ? 0 : DEFAULTS.breath;
@@ -333,11 +363,12 @@ function createEngine(canvas, bg) {
     lost = true;
     cancelAnimationFrame(raf);
     raf = 0;
+    enableFallback();
   }
   function onRestored() {
     lost = false;
     if (init()) start();
-    else canvas.dataset.nogl = "1";
+    else { canvas.dataset.nogl = "1"; enableFallback(); }
   }
   function onChange() {
     if (reduce.matches) drawStatic();
@@ -346,6 +377,7 @@ function createEngine(canvas, bg) {
   const ok = init();
   if (!ok) {
     canvas.dataset.nogl = "1"; // el fondo CSS #010403 del canvas queda como fallback
+    enableFallback();
     return () => {};
   }
   delete canvas.dataset.nogl;
@@ -357,8 +389,13 @@ function createEngine(canvas, bg) {
   reduce.addEventListener("change", start);
   const unsub = bg.subscribe(onChange);
   start();
+  // red de seguridad: si el motor no publicó data-shown en 500ms, se muestra el contenido igual
+  const safety = window.setTimeout(() => {
+    if (!document.documentElement.dataset.shown) enableFallback();
+  }, 500);
 
   return () => {
+    window.clearTimeout(safety);
     disposed = true;
     cancelAnimationFrame(raf);
     canvas.removeEventListener("webglcontextlost", onLost);

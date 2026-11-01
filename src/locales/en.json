@@ -20,17 +20,20 @@
 "hero": {
   "ofertas": "Open to offers",
   "nombre": "IVAN MOLINA",
-  "descripcionSpan": "Product Engineer",
-  "descripcion": "building digital products from zero to one.",
+  "descripcionSpan": "Full Stack Developer",
+  "descripcion": "I turn ideas into websites and web apps: I design them, build them and publish them.",
+  "stack": "React · Next.js · Supabase",
   "ubicacion": "Montevideo, Uruguay",
   "leerMas": "Read more",
   "sobreMi": "About me"
 },
   "proyectos": {
-    "titulo": "PROJECTS",
-    "trabajosTitulo": "WORKS",
-    "proyectosPersonalesTitulo": "PERSONAL PROJECTS",
-    "expandirBtn": "Expand"
+    "titulo": "Projects",
+    "trabajosTitulo": "Client work",
+    "proyectosPersonalesTitulo": "Personal projects",
+    "expandirBtn": "Expand",
+    "verMas": "See more",
+    "destacado": "Featured"
   },
 "habilidades": {
   "titulo": "Skills",
