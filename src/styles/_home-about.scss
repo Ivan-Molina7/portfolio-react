@@ -39,7 +39,7 @@ html[data-shown="3"] #about .home-wrap {
   margin: 0 0 26px;
 }
 .about-txt {
-  font-size: .95rem; // valor del prototipo (CLAUDE.md pide ≥16px de cuerpo: ver nota de cierre)
+  font-size: 1rem; // el prototipo usa .95rem; se sube a 16px por la regla de legibilidad de CLAUDE.md
   line-height: 1.5;
   margin: 0 0 18px;
   max-width: 1180px;
