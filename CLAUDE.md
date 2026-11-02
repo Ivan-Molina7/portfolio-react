@@ -124,7 +124,7 @@ El contenido de este sitio debe ser verificable y honesto. No inventes nada.
 ## Cómo trabajar
 
 1. **Una sección o un cambio por vez.** No rediseñes varias cosas en la misma pasada. Usar modo plan y aprobar las ediciones a mano.
-2. Trabajá siempre en la rama `rediseno-portfolio`, nunca en `main`.
+2. La rama activa es `master` (el rediseño ya se integró ahí). Antes de commitear, verificá con `git branch --show-current` en qué rama estás.
 3. Antes de cambiar algo, leé los archivos involucrados y la parte correspondiente del prototipo. Mantené las convenciones existentes.
 4. No agregues dependencias nuevas sin avisar y justificar. Preferí CSS y JS nativo.
 5. Cuidá el peso: imágenes en `.webp`, sin precargar lo que no se usa.
@@ -139,7 +139,7 @@ SVG o PNG grande del logo "im" y del ícono de GitHub; logos de Facu Trainer y M
 
 ## Estado del rediseño (cierre de la Ronda H)
 
-Rondas 0 a H completas, en la rama `rediseno-portfolio`. La Ronda H fue una auditoría y limpieza, sin cambios de diseño.
+Rondas 0 a H completas (trabajadas en `rediseno-portfolio` e integradas en `master`). La Ronda H fue una auditoría y limpieza, sin cambios de diseño.
 
 ### Resuelto en la Ronda H
 - **Locales:** `es.json` y `en.json` con las mismas claves. Se borraron 3 claves huérfanas y se tradujo la descripción de Havanna.
