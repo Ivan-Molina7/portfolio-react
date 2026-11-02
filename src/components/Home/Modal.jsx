@@ -75,12 +75,16 @@ export default function Modal({ isOpen, closeModal, content }) {
           </svg>
         </button>
         <div className="modal__body">
+          <p className="modal__year">{content.year}</p>
           <h2 className="modal__title" id="modal-title">{content.titulo}</h2>
           <p className="modal__grade">
             <span>{m.aprobacionTexto}</span> <b>{content.nota}</b>
           </p>
+          <div className="modal__rule" aria-hidden="true" />
           {content.imagen ? (
-            <img className="modal__img" src={content.imagen} alt={content.alt} />
+            <div className="modal__frame">
+              <img className="modal__img" src={content.imagen} alt={content.alt} />
+            </div>
           ) : (
             <p className="modal__text">{content.alt}</p>
           )}

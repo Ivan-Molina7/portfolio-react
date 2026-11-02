@@ -1,6 +1,8 @@
 // Modal de títulos de Sobre mí (Modal.jsx). Mismo lenguaje que el resto del rediseño: panel oscuro plano con
-// borde de 1px, esquinas de 4px, sin sombras ni degradados; Lora en el título y Lato en el cuerpo; oro solo como
-// detalle (tramo del borde superior y borde del botón de cerrar en hover/foco).
+// borde de 1px, esquinas de 4px, sin sombras ni degradados; Lora en el título y Lato en el cuerpo; el oro queda
+// como detalle (tramo del borde superior, luz que recorre el marco del diploma y borde del botón de cerrar).
+// El marco del diploma reutiliza el recurso de .det-main (_detalle.scss): usa @property --gs y @keyframes formTrace
+// de _home-contacto.scss.
 
 $fg: #f2f5f3;
 $gold: #d6a73c;
@@ -23,11 +25,14 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
   animation: modalBg .3s $ease both;
 }
 
+// El panel se ajusta al contenido (el diploma de ORT mide 586px de ancho y no se estira): sin hueco a los costados.
 .modal {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: min(880px, 100%);
+  width: fit-content;
+  min-width: min(600px, 100%);
+  max-width: min(880px, 100%);
   max-height: calc(100vh - 32px);
   max-height: calc(100svh - 32px);
   border: 1px solid rgba(255, 255, 255, .12);
@@ -53,18 +58,20 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
   &__body {
     overflow-y: auto;
     overscroll-behavior: contain;
-    padding: 40px 44px 36px;
+    padding: 34px 40px 36px;
   }
 
+  // mismo recurso que los íconos sociales del HUD (.hud-socials a): cuadrado de 34px, borde 1px al 32 %,
+  // ícono de 16px al 80 %; hover y foco: borde dorado y fondo verde
   &__close {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 18px;
+    right: 18px;
     z-index: 1;
     display: grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     padding: 0;
     color: $fg;
     background: transparent;
@@ -75,11 +82,11 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
 
     svg {
       display: block;
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       fill: none;
       stroke: currentColor;
-      stroke-width: 1;
+      stroke-width: 1.4;
       opacity: .8;
       transition: opacity .5s $ease3;
     }
@@ -95,12 +102,21 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
     &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
   }
 
+  // cabecera: año (de la línea de tiempo), título y nota, cerrada por una línea con tramo dorado
+  &__year {
+    margin: 0 0 10px;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    color: rgba($fg, .55);
+  }
+
   &__title {
-    margin: 0 0 18px;
+    margin: 0 0 14px;
     padding-right: 52px; // deja libre el botón de cerrar
     font-family: 'Lora', serif;
     font-weight: 500;
-    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
     line-height: 1.2;
   }
 
@@ -109,7 +125,7 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
     flex-wrap: wrap;
     align-items: baseline;
     gap: 4px 10px;
-    margin: 0 0 26px;
+    margin: 0;
 
     span {
       font-size: .74rem;
@@ -119,15 +135,58 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
       color: rgba($fg, .55);
     }
 
-    b { font-weight: 700; font-size: 1rem; color: $fg; }
+    b { font-family: 'Lora', serif; font-weight: 500; font-size: 1.2rem; color: $fg; }
+  }
+
+  &__rule {
+    position: relative;
+    height: 1px;
+    margin: 22px 0 24px;
+    background: rgba(255, 255, 255, .14);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 1px;
+      background: $gold;
+    }
   }
 
   &__text {
     margin: 0;
     max-width: 62ch;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgba($fg, .84);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba($fg, .86);
+  }
+
+  // marco del diploma: igual que .det-main (doble borde + luz dorada que lo recorre). El padding evita que el
+  // blanco del diploma quede pegado al panel oscuro.
+  &__frame {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, .26);
+    background: rgba(3, 8, 6, .5);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      padding: 1px;
+      pointer-events: none;
+      background: conic-gradient(from var(--gs), rgba($gold, 0) 0deg, rgba($gold, .95) 38deg, rgba($gold, 0) 42deg, rgba($gold, 0) 360deg);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0;
+      animation: formTrace 14s cubic-bezier(.45, .05, .35, 1) 1.2s infinite;
+    }
   }
 
   &__img {
@@ -135,8 +194,8 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
     width: auto;
     height: auto;
     max-width: 100%;
-    max-height: min(60vh, 520px);
-    max-height: min(60svh, 520px);
+    max-height: min(52vh, 460px);
+    max-height: min(52svh, 460px);
     object-fit: contain;
     border: 1px solid rgba(255, 255, 255, .18);
   }
@@ -149,12 +208,14 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
     max-height: calc(100svh - 24px);
 
     &__body { padding: 28px 22px 26px; }
-    &__close { top: 12px; right: 12px; }
-    &__title { padding-right: 48px; }
+    &__close { top: 14px; right: 14px; }
+    &__title { padding-right: 46px; }
+    &__rule { margin: 18px 0 20px; }
+    &__frame { padding: 12px; }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .modal-bg, .modal { animation: none; }
+  .modal-bg, .modal, .modal__frame::before { animation: none; }
   .modal__close, .modal__close svg { transition: none; }
 }

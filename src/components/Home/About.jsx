@@ -26,7 +26,7 @@ function About() {
     { titulo: m.titulo2, nota: "95%", imagen: BiosDiploma, alt: m.alt2 },
     { titulo: m.titulo3, nota: "91%", imagen: OrtDiploma, alt: m.alt3 },
     { titulo: m.titulo4, nota: m.nota, imagen: "", alt: m.alt4 },
-  ];
+  ].map((c, i) => ({ ...c, year: timeline[i].year }));
 
   return (
     <div className="home-screen" id="about" data-s="3">
