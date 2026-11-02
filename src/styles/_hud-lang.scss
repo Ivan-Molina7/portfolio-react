@@ -61,3 +61,8 @@
     background: rgba(255, 255, 255, .3);
   }
 }
+
+// Ver _hud-socials.scss: a <=300px se achican las separaciones (102px -> 90px) para dejar ~20px libres a 280px.
+@media (max-width: 300px) {
+  .hud-lang { gap: 10px; }
+}

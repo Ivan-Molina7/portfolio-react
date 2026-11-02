@@ -36,3 +36,8 @@
     opacity: 1;
   }
 }
+
+// Pantallas muy angostas: íconos (3x34px + 2 gaps) + ESP | ENG + márgenes laterales (56px) suman 280px; a 280px no quedaba aire entre los dos grupos.
+@media (max-width: 300px) {
+  .hud-socials { gap: 6px; }
+}
