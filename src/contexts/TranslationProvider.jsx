@@ -16,6 +16,7 @@ const TranslationProvider = ({ children }) => {
   useEffect(
     () => {
       setTexts(translations[language]);
+      document.documentElement.lang = language; // lectores de pantalla: la voz sigue al idioma activo
 
       localStorage.setItem("language", [language]);
       
