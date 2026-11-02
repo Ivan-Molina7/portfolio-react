@@ -1,14 +1,9 @@
-@use "_animaciones.scss";
-@use "_colores.scss";
-@use "_fuentes.scss";
 @use "_hud.scss";
 @use "_hud-header.scss";
 @use "_hud-dots.scss";
 @use "_hud-socials.scss";
 @use "_hud-lang.scss";
 @use "_modal.scss";
-@use "_spacing.scss";
-@use "_utils.scss";
 @use "_home-inicio-proyectos.scss";
 @use "_home-habilidades.scss";
 @use "_home-about.scss";
@@ -22,7 +17,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    @include utils.no-decoration;
+    list-style: none;
+    text-decoration: none;
     scroll-padding-top: 0px;
 }
 

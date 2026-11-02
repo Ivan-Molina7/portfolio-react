@@ -148,13 +148,13 @@ Rondas 0 a H completas, en la rama `rediseno-portfolio`. La Ronda H fue una audi
 - **URL:** el hash de Home sigue a la sección activa con `history.replaceState`, así "atrás" desde el detalle o la galería vuelve a la sección sin la transición espuria hacia Inicio.
 - **Fondo:** los suavizados y la transición de 2.2s usan tiempo real (`DT_MAX` 0.25, a ~10 fps también dura ~2.2s); el reloj de las líneas conserva el tope de 0.05 para evitar saltos tras un cuelgue.
 - **Peso:** se quitó la precarga de fondos viejos (~1.2 MB por visita), las fuentes se cargan una sola vez (Lato 400/700, Lora 400/500), y se borró código, estilos, imágenes y dependencias sin uso (`aos`, `react-router-hash-link`). Build: JS 448 KB (186 KB comprimido) y CSS 48 KB (9 KB comprimido), contra 487 KB y 112 KB al empezar.
+- **Modal de títulos (Sobre mí):** rediseñado con el lenguaje del resto del sitio (panel plano con borde de 1px, Lora/Lato, tramo dorado, botón de cerrar real visible en mobile). Diálogo accesible: `role="dialog"` con `aria-modal`, `aria-labelledby` válido, foco atrapado, Escape, foco devuelto a quien lo abrió y scroll de la página bloqueado. Se eliminó la base de Sass antigua (`_animaciones`, `_colores`, `_fuentes`, `_spacing`, `_utils`).
 - **Assets:** los originales viven en `assets-src/` (fuera de `src/`); `scripts/normalize_assets.py` los lee de ahí y regenera `src/assets/img/_norm/` idéntico.
 
 ### Limitación de medición conocida (rendimiento)
 Lighthouse no se pudo aislar del efecto de las extensiones del navegador: no se puede usar incógnito ni otro perfil en la máquina de desarrollo. En escritorio, donde sí se comparó, las extensiones bajaron el puntaje de Performance de 94 a 67. El 55 de mobile se considera subestimado por el mismo motivo; no se trata como un problema sin resolver. Si hace falta una cifra confiable, medir en un perfil limpio o en un celular real con el sitio publicado.
 
 ### Pendiente en el código
-- **Modal de títulos (Sobre mí):** sigue con el diseño anterior. Rediseñarlo junto con su accesibilidad (botón de cierre real y visible también en móvil, `aria-modal`, `aria-labelledby` válido, foco atrapado). Al hacerlo, eliminar `_modal.scss`, la base de Sass antigua (`_animaciones`, `_colores`, `_fuentes`, `_spacing`, `_utils`) y el error de ESLint de `Modal.jsx` (código inalcanzable).
 - **Textos pequeños:** etiquetas de ~9–10px (mosaicos de Habilidades, tags de cards). Cumplen el contraste; decidir si se suben.
 - **Responsive de baja prioridad (sin confirmar):** botón "Expandir" a 901–1000px, secciones más altas que la ventana en laptops de ~700px de alto, breadcrumb del detalle cerca de 901px y logo del "siguiente proyecto" entre 601 y 900px.
 - **Rendimiento (opcional):** JS en un solo chunk; separar por ruta si hace falta.
