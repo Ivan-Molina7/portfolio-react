@@ -1,64 +1,5 @@
-import NBCLogo from '../assets/img/LogosProyectos/NBC2.png';
-import CAPLogo from '../assets/img/LogosProyectos/CAP.png';
-import CulPadelLogo from '../assets/img/LogosProyectos/CulPadel.png';
-import HavannaLogo from '../assets/img/LogosProyectos/Havanna.png';
-import WorldGymLogo from '../assets/img/LogosProyectos/WorldGym.png';
-import SandboxLogo from '../assets/img/LogosProyectos/Sandbox.png';
-import transportesLogo from '../assets/img/LogosProyectos/transportes-G.png';
-import WakeUpLogo from '../assets/img/LogosProyectos/WakeUp-G.png';
-
-
-//*ICONOS TECNOLOGIAS
-import htmlGris from '../assets/img/habilidades/html.png';
-import cssGris from '../assets/img/habilidades/css.png';
-import jsGris from '../assets/img/habilidades/js.png';
-import sassGris from '../assets/img/habilidades/sass.png';
-import bootstrapGris from '../assets/img/habilidades/bootstrap.png';
-import nodeGris from '../assets/img/habilidades/node.png';
-import mongoGris from '../assets/img/habilidades/mongo.png';
-import wordpressGris from '../assets/img/habilidades/wordpress.webp';
-import githubGris from '../assets/img/habilidades/github.png';
-import aiGris from '../assets/img/habilidades/ai.png';
-import psGris from '../assets/img/habilidades/ps.png';
-import figmaGris from '../assets/img/habilidades/figma.png';
-import reactGris from '../assets/img/habilidades/react.webp';
-import tailwindGris from '../assets/img/habilidades/Tailwind-G.png';
-import zustand from '../assets/img/habilidades/Zustand-G.png';
-import tanStack from '../assets/img/habilidades/tanstack-G.png';
-import supabaseGris from '../assets/img/habilidades/supabase.png';
-import wooGris from '../assets/img/habilidades/woo.png';
-import claudeGris from '../assets/img/habilidades/Claude-G.png';
-
-
-
-//*Modal
-import CAPMain from '../assets/img/proyectos/Progreso/Home.webp';
-import CAP2 from '../assets/img/proyectos/Progreso/directiva.webp';
-import CAP3 from '../assets/img/proyectos/Progreso/noticias.webp';
-
-//*Modal
-import NBCMain from '../assets/img/proyectos/Nbc/Home.webp';
-import NBC2 from '../assets/img/proyectos/Nbc/2.webp';
-import NBC3 from '../assets/img/proyectos/Nbc/3.webp';
-
-//*Modal
-import HavannaMain from '../assets/img/proyectos/Havanna/Home.webp';
-import Havanna2 from '../assets/img/proyectos/Havanna/2.webp';
-import Havanna3 from '../assets/img/proyectos/Havanna/3.webp';
-
-//*Modal
-import CulPadelMain from '../assets/img/proyectos/culPadel/Home.webp';
-import CulPadel2 from '../assets/img/proyectos/culPadel/2.webp';
-import CulPadel3 from '../assets/img/proyectos/culPadel/3.webp';
-
-//*Modal
-import WorldGymMain from '../assets/img/proyectos/worldGym/Home.png';
-import WorldGym2 from '../assets/img/proyectos/worldGym/2.png';
-
-//*Modal
-// import TransportesMain from '../assets/img/proyectos/transportes/home.webp';
-// import Transportes2 from '../assets/img/proyectos/transportes/servicios.webp';
-// import Transportes3 from '../assets/img/proyectos/transportes/contacto.webp';
+// Datos de los proyectos (Proyectos, Galería y detalle). Las imágenes (logos, capturas, íconos de tecnologías) NO viven
+// acá: salen de utils/assets.js y utils/projectAssets.js (normalizadas por scripts/normalize_assets.py).
 
 
 export const projectsData = [{
@@ -73,9 +14,7 @@ export const projectsData = [{
     sitioLink: "https://caprogreso.netlify.app/",
     titulo: "Club Atlético Progreso",
     descripcionKey: "proyecto.cap_descripcion",
-    Logo: CAPLogo,
 
-    imagenAlt: "Mockup de Club Atlético Progreso página",
     objetivo1Key: "objetivos.cap_item1Texto",
     objetivo2Key: "objetivos.cap_item2Texto",
     objetivo3Key: "objetivos.cap_item3Texto",
@@ -87,50 +26,29 @@ export const projectsData = [{
     respuesta3Key: "proyecto_about.cap_respuesta3",
 
     tecnologias: [{
-        icono: htmlGris,
         alt: 'HTML'
       },
       {
-        icono: cssGris,
         alt: 'CSS'
       },
       {
-        icono: jsGris,
         alt: 'JavaScript'
       },
       {
-        icono: sassGris,
         alt: 'Sass'
       },
       {
-        icono: mongoGris,
         alt: 'MongoDB'
       },
       {
-        icono: nodeGris,
         alt: 'Node.js'
       },
       {
-        icono: figmaGris,
         alt: 'Figma'
       },
     ],
 
-    imagenesModal: [{
-        src: CAPMain,
-        alt: 'Pantalla 1 del proyecto'
-      },
-      {
-        src: CAP2,
-        alt: 'Pantalla 2 del proyecto'
-      },
-      {
-        src: CAP3,
-        alt: 'Pantalla 3 del proyecto'
-      },
-    ]
-
-  },
+},
   {
     id: 2,
     tipo: "trabajo",
@@ -142,8 +60,6 @@ export const projectsData = [{
     sitioLink: "https://nbccargo.netlify.app/",
     titulo: "NBC Cargo",
     descripcionKey: "proyecto.nbc_descripcion",
-    Logo: NBCLogo,
-    imagenAlt: "Mockup de NBC Cargo página",
     objetivo1Key: "objetivos.nbc_item1Texto",
     objetivo2Key: "objetivos.nbc_item2Texto",
     objetivo3Key: "objetivos.nbc_item3Texto",
@@ -154,40 +70,22 @@ export const projectsData = [{
     pregunta3Key: "proyecto_about.nbc_pregunta3",
     respuesta3Key: "proyecto_about.nbc_respuesta3",
     tecnologias: [{
-        icono: htmlGris,
         alt: 'HTML'
       },
       {
-        icono: cssGris,
         alt: 'CSS'
       },
       {
-        icono: jsGris,
         alt: 'JavaScript'
       },
       {
-        icono: sassGris,
         alt: 'Sass'
       },
       {
-        icono: bootstrapGris,
         alt: 'bootstrap'
       },
     ],
-    imagenesModal: [{
-        src: NBCMain,
-        alt: 'Pantalla 1 del proyecto NBC Cargo'
-      },
-      {
-        src: NBC2,
-        alt: 'Pantalla 2 del proyecto NBC Cargo'
-      },
-      {
-        src: NBC3,
-        alt: 'Pantalla 3 del proyecto NBC Cargo'
-      },
-    ]
-  },
+},
   {
     id: 3,
     tipo: "proyecto",
@@ -200,8 +98,6 @@ export const projectsData = [{
     sitioLink: "",
     titulo: "Havanna",
     descripcionKey: "proyecto.havanna_descripcion",
-    Logo: HavannaLogo,
-    imagenAlt: "Mockup de Havanna",
     objetivo1Key: "objetivos.havanna_item1Texto",
     objetivo2Key: "objetivos.havanna_item2Texto",
     objetivo3Key: "objetivos.havanna_item3Texto",
@@ -212,32 +108,16 @@ export const projectsData = [{
     pregunta3Key: "proyecto_about.havanna_pregunta3",
     respuesta3Key: "proyecto_about.havanna_respuesta3",
     tecnologias: [{
-        icono: figmaGris,
         alt: 'Figma'
       },
       {
-        icono: psGris,
         alt: 'Photoshop'
       },
       {
-        icono: aiGris,
         alt: 'Illustrator'
       },
     ],
-    imagenesModal: [{
-        src: HavannaMain,
-        alt: 'Pantalla 1 del proyecto Havanna'
-      },
-      {
-        src: Havanna2,
-        alt: 'Pantalla 2 del proyecto Havanna'
-      },
-      {
-        src: Havanna3,
-        alt: 'Pantalla 3 del proyecto Havanna'
-      },
-    ]
-  },
+},
   {
     id: 4,
     tipo: "proyecto",
@@ -250,8 +130,6 @@ export const projectsData = [{
     sitioLink: "",
     titulo: "CulPadel",
     descripcionKey: "proyecto.culPadel_descripcion",
-    Logo: CulPadelLogo,
-    imagenAlt: "Mockup de culpadel",
     objetivo1Key: "objetivos.culPadel_item1Texto",
     objetivo2Key: "objetivos.culPadel_item2Texto",
     objetivo3Key: "objetivos.culPadel_item3Texto",
@@ -262,32 +140,16 @@ export const projectsData = [{
     pregunta3Key: "proyecto_about.culPadel_pregunta3",
     respuesta3Key: "proyecto_about.culPadel_respuesta3",
     tecnologias: [{
-        icono: figmaGris,
         alt: 'Figma'
       },
       {
-        icono: psGris,
         alt: 'Photoshop'
       },
       {
-        icono: aiGris,
         alt: 'Illustrator'
       },
     ],
-    imagenesModal: [{
-        src: CulPadelMain,
-        alt: 'Pantalla 1 del proyecto CulPadel'
-      },
-      {
-        src: CulPadel2,
-        alt: 'Pantalla 2 del proyecto CulPadel'
-      },
-      {
-        src: CulPadel3,
-        alt: 'Pantalla 3 del proyecto CulPadel'
-      },
-    ]
-  },
+},
   {
     id: 5,
     tipo: "proyecto",
@@ -300,8 +162,6 @@ export const projectsData = [{
     sitioLink: "https://worldgym.netlify.app/",
     titulo: "WorldGym",
     descripcionKey: "proyecto.worldGym_descripcion",
-    Logo: WorldGymLogo,
-    imagenAlt: "Mockup de wordlGym",
     objetivo1Key: "objetivos.worldGym_item1Texto",
     objetivo2Key: "objetivos.worldGym_item2Texto",
     objetivo3Key: "objetivos.worldGym_item3Texto",
@@ -312,29 +172,16 @@ export const projectsData = [{
     pregunta3Key: "proyecto_about.worldGym_pregunta3",
     respuesta3Key: "proyecto_about.worldGym_respuesta3",
     tecnologias: [{
-        icono: htmlGris,
         alt: 'HTML'
       },
       {
-        icono: cssGris,
         alt: 'CSS'
       },
       {
-        icono: jsGris,
         alt: 'JavaScript'
       },
     ],
-    imagenesModal: [{
-        src: WorldGymMain,
-        alt: 'Pantalla 1 del proyecto World GYm'
-      },
-      {
-        src: WorldGym2,
-        alt: 'Pantalla 2 del proyecto World GYm'
-      },
-
-    ]
-  },
+},
 {
   id: 6,
   tipo: "proyecto",
@@ -347,8 +194,6 @@ export const projectsData = [{
   sitioLink: "https://sandboxuy.netlify.app/",
   titulo: "Sandbox",
   descripcionKey: "proyecto.sandbox_descripcion",
-  Logo: SandboxLogo,
-  imagenAlt: "Mockup de Sandbox",
   objetivo1Key: "objetivos.sandbox_item1Texto",
   objetivo2Key: "objetivos.sandbox_item2Texto",
   objetivo3Key: "objetivos.sandbox_item3Texto",
@@ -360,40 +205,21 @@ export const projectsData = [{
   respuesta3Key: "proyecto_about.sandbox_respuesta3",
   tecnologias: [
     {
-      icono: htmlGris,
       alt: 'HTML'
     },
     {
-      icono: cssGris,
       alt: 'CSS'
     },
     {
-      icono: sassGris,
       alt: 'SCSS'
     },
     {
-      icono: jsGris,
       alt: 'JavaScript'
     },
     {
-      icono: reactGris,
       alt: 'React'
     },
   ],
-  imagenesModal: [
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902200/home_kibms1.png",
-      alt: 'Pantalla 1 del Sandbox'
-    },
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/2_jt4gkm.png",
-      alt: 'Pantalla 2 del Sandbox'
-    },
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1759902201/e_kiviil.png",
-      alt: 'Pantalla 3 del Sandbox'
-    },
-  ]
 },
 {
   id: 7,
@@ -407,8 +233,6 @@ export const projectsData = [{
   sitioLink: "https://transportesuy.com.uy/",
   titulo: "Transportes UY",
   descripcionKey: "proyecto.transportes_descripcion",
-  Logo: transportesLogo,
-  imagenAlt: "Mockup de Transportes UY",
 
   objetivo1Key: "objetivos.transportes_item1Texto",
   objetivo2Key: "objetivos.transportes_item2Texto",
@@ -422,48 +246,27 @@ export const projectsData = [{
   respuesta3Key: "proyecto_about.transportes_respuesta3",
   tecnologias: [
     {
-      icono: htmlGris,
       alt: 'HTML'
     },
     {
-      icono: cssGris,
       alt: 'CSS'
     },
     {
-      icono: tailwindGris,
       alt: 'Tailwind'
     },
     {
-      icono: reactGris,
       alt: 'React'
     },
     {
-      icono: figmaGris,
       alt: 'Figma'
     },
     {
-      icono: psGris,
       alt: 'Photoshop'
     },
     {
-      icono: githubGris,
       alt: 'GitHub'
     },
   ],
-  imagenesModal: [
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777255229/home_qek9vv.webp",
-      alt: 'Pantalla 1 de Transportes UY'
-    },
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777255229/servicios_bak0dh.webp",
-      alt: 'Pantalla 2 de Transportes UY'
-    },
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777255229/contacto_pawlnb.webp",
-      alt: 'Pantalla 3 de Transportes UY'
-    },
-  ]
 },
 {
   id: 8,
@@ -478,8 +281,6 @@ export const projectsData = [{
   sitioLink: "https://wakeuptracker.com/",
   titulo: "Wake Up Tracker",
   descripcionKey: "proyecto.wakeup_descripcion",
-  Logo: WakeUpLogo,
-  imagenAlt: "Mockup de Wake Up Tracker",
   objetivo1Key: "objetivos.wakeup_item1Texto",
   objetivo2Key: "objetivos.wakeup_item2Texto",
   objetivo3Key: "objetivos.wakeup_item3Texto",
@@ -491,57 +292,34 @@ export const projectsData = [{
   respuesta3Key: "proyecto_about.wakeup_respuesta3",
   tecnologias: [
     {
-      icono: tailwindGris,
       alt: 'Tailwind'
     },
     {
-      icono: reactGris,
       alt: 'React'
     },
     {
-      icono: githubGris,
       alt: 'GitHub'
     },
     {
-      icono: supabaseGris,
       alt: 'Supabase'
     },
     {
-      icono: zustand,
       alt: 'Zustand'
     },
     {
-      icono: tanStack,
       alt: 'TanStack Query'
     },
     {
-      icono: claudeGris,
       alt: 'Claude AI'
     },
     // TODO: sin íconos para Mercado Pago y Groq, se listan como texto
     {
-      icono: null,
       alt: 'Mercado Pago'
     },
     {
-      icono: null,
       alt: 'Groq'
     },
   ],
-  imagenesModal: [
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777256814/Screenshot_559_mkcgth.png",
-      alt: 'Pantalla 1 de Wake Up Tracker'
-    },
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777256810/Screenshot_505_rmhpji.png",
-      alt: 'Pantalla 2 de Wake Up Tracker'
-    },
-    {
-      src: "https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777256810/Screenshot_512_oddjcr.png",
-      alt: 'Pantalla 3 de Wake Up Tracker'
-    },
-  ]
 },
 {
   id: 9,
@@ -557,8 +335,6 @@ export const projectsData = [{
   titulo: "Facu Trainer",
   descripcionKey: "proyecto.facutrainer_descripcion",
   // TODO: falta el logo de Facu Trainer (la card muestra el título hasta que exista)
-  Logo: null,
-  imagenAlt: "Mockup de Facu Trainer",
   objetivo1Key: "objetivos.facutrainer_item1Texto",
   objetivo2Key: "objetivos.facutrainer_item2Texto",
   objetivo3Key: "objetivos.facutrainer_item3Texto",
@@ -570,37 +346,29 @@ export const projectsData = [{
   respuesta3Key: "proyecto_about.facutrainer_respuesta3",
   tecnologias: [
     {
-      icono: reactGris,
       alt: 'React'
     },
     {
-      icono: supabaseGris,
       alt: 'Supabase'
     },
     {
-      icono: zustand,
       alt: 'Zustand'
     },
     {
-      icono: tanStack,
       alt: 'TanStack Query'
     },
     {
-      icono: tailwindGris,
       alt: 'Tailwind'
     },
     // TODO: sin íconos para Vite y Netlify, se listan como texto
     {
-      icono: null,
       alt: 'Vite'
     },
     {
-      icono: null,
       alt: 'Netlify'
     },
   ],
   // TODO: agregar capturas de Facu Trainer (sin datos reales de clientes)
-  imagenesModal: []
 },
 {
   id: 10,
@@ -616,8 +384,6 @@ export const projectsData = [{
   titulo: "MegaStrong",
   descripcionKey: "proyecto.megastrong_descripcion",
   // TODO: falta el logo de MegaStrong (la card muestra el título hasta que exista)
-  Logo: null,
-  imagenAlt: "Mockup de MegaStrong",
   objetivo1Key: "objetivos.megastrong_item1Texto",
   objetivo2Key: "objetivos.megastrong_item2Texto",
   objetivo3Key: "objetivos.megastrong_item3Texto",
@@ -629,20 +395,16 @@ export const projectsData = [{
   respuesta3Key: "proyecto_about.megastrong_respuesta3",
   tecnologias: [
     {
-      icono: supabaseGris,
       alt: 'Supabase'
     },
     // TODO: sin íconos para Next.js y TypeScript, se listan como texto
     {
-      icono: null,
       alt: 'Next.js'
     },
     {
-      icono: null,
       alt: 'TypeScript'
     },
   ],
   // TODO: agregar capturas de MegaStrong (solo con datos ficticios)
-  imagenesModal: []
 },
 ];
