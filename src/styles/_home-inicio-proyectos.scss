@@ -21,6 +21,7 @@ $ease3: cubic-bezier(.22, 1, .36, 1);
 
 .home-screen {
   min-height: 100vh;
+  min-height: 100svh; // alto visible en móvil (la barra del navegador no cuenta); 100vh queda de respaldo
   display: flex;
   flex-direction: column; // el ancho lo fija .home-wrap; flex:1 solo reparte el alto
   font-family: 'Lato', sans-serif;
