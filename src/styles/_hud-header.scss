@@ -82,9 +82,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    // centrado seguro: si el contenido (~390px) no entra en el alto (celulares bajos o apaisados) el panel scrollea
+    // en vez de cortarse arriba y abajo; los márgenes auto centran cuando sobra espacio
+    justify-content: flex-start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     gap: 40px;
-    padding: 110px var(--hud-x) 110px;
+    padding: 100px var(--hud-x) 90px; // arriba: header (86px); abajo: redes e idioma (~56px)
     background: rgba(1, 4, 3, .96);
     pointer-events: auto;
 
@@ -96,6 +100,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+      margin-top: auto;
     }
 
     &__link {
@@ -105,6 +110,7 @@
 
     .hud-cta {
       padding: 12px 28px;
+      margin-bottom: auto;
     }
   }
 }
