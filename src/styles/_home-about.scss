@@ -34,7 +34,7 @@ html[data-shown="3"] #about .home-wrap {
   font-family: 'Lora', serif;
   font-weight: 500;
   text-transform: uppercase;
-  font-size: clamp(2.6rem, 7vw, 6rem);
+  font-size: min(clamp(2.6rem, 7vw, 6rem), max(1.6rem, calc((100vw - 64px) / 7.1))); // se achica con el ancho útil en <=420px (HABILIDADES ~6.7em)
   line-height: 1;
   margin: 0 0 26px;
 }
