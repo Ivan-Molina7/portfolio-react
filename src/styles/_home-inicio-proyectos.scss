@@ -253,7 +253,7 @@ html[data-shown="0"] #hero {
 
     img {
       display: block;
-      max-width: 150px;
+      max-width: min(150px, 100%);
       max-height: 78px;
       width: auto;
       height: auto;
@@ -311,14 +311,21 @@ html[data-shown="1"] #proyectos {
 @media (max-width: 900px) {
   .proj-groups { grid-template-columns: 1fr; row-gap: 24px; }
 }
-// Mobile: una columna, cards más grandes (casi 1:1). La sección crece más que la pantalla y se
-// scrollea; el padding inferior deja el final libre del HUD fijo (íconos y idioma, ~56px).
+// Mobile: dos cards por fila, con las mismas columnas, gap y proporción (276px de alto) que la galería
+// (_galeria-proyectos.scss). La sección sigue siendo más alta que la pantalla y se scrollea; el padding
+// inferior deja el final libre del HUD fijo (íconos y idioma, ~56px).
 @media (max-width: 560px) {
   #proyectos .home-wrap { padding-top: 88px; padding-bottom: 120px; }
   .proj-groups { row-gap: 40px; }
-  .proj-row--3, .proj-row--2 { grid-template-columns: 1fr; }
-  .pcard { aspect-ratio: 1 / 1; }
+  .proj-row--3, .proj-row--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .pcard { aspect-ratio: auto; height: 276px; min-width: 0; }
   .proj-more { margin-top: 28px; }
+}
+// Pantallas muy angostas: la card se achica con su columna (a 320px cada una mide ~122px)
+@media (max-width: 400px) {
+  .proj-row--3, .proj-row--2 { gap: 12px; }
+  .pcard { padding: 14px 10px 18px; }
+  .pcard__btn { padding: 8px 12px; letter-spacing: .1em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
