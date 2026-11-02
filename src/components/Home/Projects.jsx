@@ -37,9 +37,9 @@ function Projects() {
 
   return (
     <div className="home-screen" id="proyectos" data-s="1">
-      <main className="home-wrap">
+      <section className="home-wrap" aria-labelledby="proj-titulo">
         <div className="proj-head">
-          <h2 className="proj-title">{texts.proyectos.titulo}</h2>
+          <h2 className="proj-title" id="proj-titulo">{texts.proyectos.titulo}</h2>
           {/* mobile (<=560px): "Ver más" sube junto al título; en escritorio queda abajo a la derecha (prototipo) */}
           <Link className="proj-more proj-more--top" to="/galeriaProyectos">{texts.proyectos.verMas}</Link>
         </div>
@@ -58,7 +58,7 @@ function Projects() {
           </section>
         </div>
         <Link className="proj-more proj-more--bottom" to="/galeriaProyectos">{texts.proyectos.verMas}</Link>
-      </main>
+      </section>
     </div>
   );
 }

@@ -30,8 +30,8 @@ function About() {
 
   return (
     <div className="home-screen" id="about" data-s="3">
-      <main className="home-wrap">
-        <h2 className="about-title">{t.titulo}</h2>
+      <section className="home-wrap" aria-labelledby="about-titulo">
+        <h2 className="about-title" id="about-titulo">{t.titulo}</h2>
         <p className="about-txt">{t.parrafo1}</p>
         <h3 className="about-sub">{t.extraTitulo}</h3>
         <p className="about-txt">{t.parrafo2}</p>
@@ -54,7 +54,7 @@ function About() {
             </div>
           ))}
         </div>
-      </main>
+      </section>
 
       {/* fuera de .home-wrap: el modal es fixed y no debe heredar su transform ni su visibilidad */}
       <Modal

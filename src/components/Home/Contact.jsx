@@ -102,10 +102,10 @@ function Contact() {
 
   return (
     <div className="home-screen" id="contacto" data-s="4">
-      <main className="home-wrap">
+      <section className="home-wrap" aria-labelledby="contact-titulo">
         <div className="contact-grid">
           <div>
-            <h2 className="contact-title">{t.titulo}</h2>
+            <h2 className="contact-title" id="contact-titulo">{t.titulo}</h2>
             <p className="contact-intro">{t.intro}</p>
             <a className="contact-mail" href={`mailto:${t.email}`}>{t.email}</a>
             <i className="contact-rule" aria-hidden="true" />
@@ -164,7 +164,7 @@ function Contact() {
             </div>
           </form>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

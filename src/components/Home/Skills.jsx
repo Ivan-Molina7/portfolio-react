@@ -14,8 +14,8 @@ function Skills() {
 
   return (
     <div className="home-screen" id="habilidades" data-s="2">
-      <main className="home-wrap">
-        <h2 className="skill-title">{t.titulo}</h2>
+      <section className="home-wrap" aria-labelledby="skill-titulo">
+        <h2 className="skill-title" id="skill-titulo">{t.titulo}</h2>
         <p className="skill-lead">{t.lead}</p>
         {GROUPS.map((g) => (
           <section key={g.key} className={`skill-group skill-group--${g.key}`}>
@@ -36,7 +36,7 @@ function Skills() {
             </div>
           </section>
         ))}
-      </main>
+      </section>
     </div>
   );
 }

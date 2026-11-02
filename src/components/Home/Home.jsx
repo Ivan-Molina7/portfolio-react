@@ -8,14 +8,14 @@ import Modal from "./Modal";
 
 function Home() {
   return (
-    <>
+    <main>
       <Hero />
       <Projects />
       <Skills />
       <Modal />
       <About />
       <Contact />
-    </>
+    </main>
   );
 }
 
