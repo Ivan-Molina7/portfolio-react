@@ -320,7 +320,7 @@ html[data-shown="1"] #proyectos {
   // Inicio: el estado va en columna (punto + "Abierto a ofertas", y la ubicación debajo, sin "·") y el contenido
   // arranca bajo el header en vez de centrarse en los 100vh
   #hero .home-wrap { justify-content: flex-start; padding-top: 128px; }
-  .hero-open { display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 10px; row-gap: 8px; }
+  .hero-open { display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 10px; row-gap: 4px; }
   .hero-open__loc { grid-column: 2; }
   .hero-open__loc::before { display: none; }
   #proyectos .home-wrap { padding-top: 88px; padding-bottom: 120px; }
