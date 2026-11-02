@@ -208,6 +208,17 @@ html[data-shown="3"] #about {
   }
 }
 
+// Pantallas muy angostas (<=340px): la columna de año y botón mide ~122px a 320px y ~82px a 280px, y el botón
+// "Expandir" mide ~113px. Logo de 64px, menos separación y botón más compacto (~93px) para que entre hasta 280px.
+@media (max-width: 340px) {
+  .ti {
+    grid-template-columns: 64px 1fr;
+    column-gap: 14px;
+    &__logo { width: 64px; height: 64px; }
+    .home-btn { padding: 10px 14px; }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ti__logo img { transition: none !important; }
 }
