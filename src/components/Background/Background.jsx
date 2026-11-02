@@ -17,6 +17,8 @@ import {
   PAL,
   SECTIONS,
   pack,
+  MOBILE_MAX,
+  FAN_MOBILE_GAIN,
 } from "./scenes.js";
 import { useBackground } from "./BackgroundContext.jsx";
 import { SECTION_IDS, observeActiveSection } from "../../utils/sectionTracker.js";
@@ -266,7 +268,7 @@ function createEngine(canvas, bg) {
     const floorT = gal ? 0 : 1;
     floorV = rm || instant ? floorT : floorV + (floorT - floorV) * ease(dt, 3);
     const p = clamp01(window.scrollY / GALLERY.scrollRef);
-    const gainT = gal ? GALLERY.intensity * (1 - GALLERY.scrollDrop * p) : 1;
+    const gainT = gal ? GALLERY.intensity * (1 - GALLERY.scrollDrop * p) : B === 3 && window.innerWidth <= MOBILE_MAX ? FAN_MOBILE_GAIN : 1;
     gainV = rm || instant ? gainT : gainV + (gainT - gainV) * ease(dt, 6);
 
     // luz lejana del portal: se enciende gradualmente al final de la entrada

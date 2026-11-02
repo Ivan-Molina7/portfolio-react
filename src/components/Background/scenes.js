@@ -8,6 +8,11 @@ const deepFreeze = (o) => {
   return Object.freeze(o);
 };
 
+// Abanico de Sobre mí (modo 6) en mobile: algo más grande (midFade queda en el valor por defecto: subirlo apaga el abanico casi por completo). Escritorio no cambia.
+export const MOBILE_MAX = 560;
+export const FAN_MOBILE_RADIUS = 2.25;
+export const FAN_MOBILE_GAIN = 1.5; // brillo general mientras se muestra Sobre mí (escena 3) en mobile
+
 export const DEFAULTS = deepFreeze({
   scale: 0.76,
   density: 0.72,
@@ -100,7 +105,7 @@ export function pack(idx, out0, out1, canvasW, canvasH, cssW) {
     p1[0] = (p1[0] * d) / 0.72 * (pitch / 381);
   }
   if (S.modo === 6) {
-    p0 = [p0[0], p0[1], p0[2] * s, p0[3]];
+    p0 = [p0[0], p0[1], p0[2] * s * (cssW <= MOBILE_MAX ? FAN_MOBILE_RADIUS : 1), p0[3]];
     p1[0] = p1[0] * d;
   }
   p1[3] = p1[3] + DEFAULTS.fill;
