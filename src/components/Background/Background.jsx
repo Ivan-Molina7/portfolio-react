@@ -422,6 +422,15 @@ function createEngine(canvas, bg) {
   };
 }
 
+// Mantiene el hash de la URL igual a la sección activa de Home. replaceState (no pushState): no suma entradas
+// al historial ni dispara hashchange/popstate ni scrollea. Así, al volver con "atrás" desde el detalle o la
+// galería, la URL ya trae #seccion y el fondo entra directo en esa escena (onAttach), sin pasar por Inicio.
+function syncHash(idx) {
+  if (idx < 0 || window.location.pathname !== "/") return;
+  const hash = `#${SECTION_IDS[idx]}`;
+  if (window.location.hash !== hash) window.history.replaceState(window.history.state, "", `/${hash}`);
+}
+
 // Rutas -> escena. En Home, la sección visible (la que cruza el 50% del alto) elige la escena 0..4.
 function useRouteSync(bg) {
   const { pathname } = useLocation();
@@ -452,7 +461,7 @@ function useRouteSync(bg) {
     // así la transición es siempre directa de la escena actual a la elegida.
     const commit = () => {
       settle = 0;
-      if (candidate >= 0) bg.setScene(candidate);
+      if (candidate >= 0) { bg.setScene(candidate); syncHash(candidate); }
     };
     const onScroll = () => {
       window.clearTimeout(settle);
@@ -469,7 +478,7 @@ function useRouteSync(bg) {
     const stop = observeActiveSection((idx) => {
       if (idx < 0) return;
       candidate = idx;
-      if (first) { first = false; bg.setScene(idx, snap); } // primera lectura: de golpe, sin pasar por Inicio
+      if (first) { first = false; bg.setScene(idx, snap); syncHash(idx); } // primera lectura: de golpe, sin pasar por Inicio
       else onScroll();
     }, onAttach);
     window.addEventListener("scroll", onScroll, { passive: true });
