@@ -199,7 +199,8 @@ html[data-shown="3"] #about {
     &__logo { grid-area: logo; }
     &__year { grid-area: year; margin: 0; align-self: end; }
     .home-btn { grid-area: btn; align-self: start; }
-    &__node { position: absolute; left: -31px; top: calc(50% - 7px); margin: 0; }
+    // el rombo mide 10x10 en total (box-sizing: border-box global): centrado en la línea (x = 12.5px) y en el ítem
+    &__node { position: absolute; left: -28px; top: calc(50% - 5px); margin: 0; }
   }
 
   html[data-shown="3"] #about {
