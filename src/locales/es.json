@@ -90,6 +90,15 @@
     "error": "No se pudo enviar el mensaje. Probá de nuevo o escribime por email."
   },
 
+  "galeria": {
+    "titulo": "Galería",
+    "subtitulo": "Trabajos para clientes y proyectos propios.",
+    "todos": "Todos",
+    "filtrar": "Filtrar proyectos",
+    "proyecto": "proyecto",
+    "proyectos": "proyectos"
+  },
+
   "error": {
     "proyectoNoEncontrado": "No encontré ese proyecto.",
     "volver": "Volver a los proyectos"

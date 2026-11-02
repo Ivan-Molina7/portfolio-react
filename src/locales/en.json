@@ -92,6 +92,15 @@
     "error": "The message could not be sent. Please try again or email me."
   },
 
+  "galeria": {
+    "titulo": "Gallery",
+    "subtitulo": "Client work and personal projects.",
+    "todos": "All",
+    "filtrar": "Filter projects",
+    "proyecto": "project",
+    "proyectos": "projects"
+  },
+
   "error": {
     "proyectoNoEncontrado": "I couldn't find that project.",
     "volver": "Back to projects"

@@ -1,0 +1,302 @@
+// Galería (/galeriaProyectos), portada de reference/galeria-proyectos.html. El fondo NO se define acá:
+// lo dibuja la variante 'galeria' del motor (Background.jsx), que scrollea con window.scrollY.
+// Reutiliza las claves revealX, riseIn y lineIn de _home-inicio-proyectos.scss. cardIn de la galería
+// (26px + escala) difiere del del Home (14px), por eso lleva nombre propio.
+
+$fg: #f2f5f3;
+$gold: #d6a73c;
+$green: #0a6b36;
+$ease: cubic-bezier(.4, 0, .2, 1);
+$ease2: cubic-bezier(.45, 0, .25, 1);
+$ease3: cubic-bezier(.22, 1, .36, 1);
+
+@keyframes galCardIn {
+  from { opacity: 0; transform: translateY(26px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+// Al volver del detalle por una vía que la página no controla (atrás), el contenido espera a que el
+// resorte del fondo se retraiga (mismo mecanismo que en el Home, ver Proyecto.jsx).
+html[data-hold] .gal { display: none; }
+
+.gal {
+  position: relative;
+  width: min(1200px, calc(100% - 64px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 150px 0 190px;
+  font-family: 'Lato', sans-serif;
+  color: $fg;
+}
+
+.gal__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba($fg, .72);
+  transition: color .5s;
+  animation: riseIn .8s $ease .1s both;
+
+  &::before { content: ""; width: 18px; height: 1px; background: $gold; transition: width .6s $ease3; }
+  &:hover, &:focus-visible { color: #fff; }
+  &:hover::before, &:focus-visible::before { width: 40px; }
+  &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+}
+
+.gal__title {
+  margin: 26px 0 0;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: clamp(3.2rem, 7.2vw, 6.4rem);
+  line-height: 1;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  animation: revealX 1.68s $ease2 .2s both;
+}
+.gal__sub {
+  margin: 22px 0 0;
+  max-width: 46ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba($fg, .78);
+  animation: riseIn .8s $ease .7s both;
+}
+
+// ---------- pestañas y contador ----------
+.gal__bar {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 64px;
+  padding-bottom: 16px;
+  animation: riseIn .8s $ease .9s both;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, $gold, rgba($gold, 0) 85%);
+    transform-origin: left;
+    animation: lineIn 1.1s $ease2 1s both;
+  }
+}
+.gal__tabs { display: flex; flex-wrap: wrap; gap: 36px; }
+.gal__tab {
+  position: relative;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: 400 .95rem/1 'Lora', serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba($fg, .55);
+  transition: color .5s;
+
+  sup {
+    margin-left: 4px;
+    font: 700 .6rem/1 'Lato', sans-serif;
+    letter-spacing: .08em;
+    vertical-align: top;
+    color: rgba($fg, .45);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .6s $ease3;
+  }
+  &:hover { color: rgba($fg, .9); }
+  &.is-on { color: #fff; }
+  &.is-on::after { transform: scaleX(1); }
+  &:focus-visible { outline: 2px solid $gold; outline-offset: 4px; }
+}
+.gal__cnt {
+  padding-bottom: 8px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba($fg, .5);
+  white-space: nowrap;
+}
+
+// ---------- grilla ----------
+.gal__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+
+  // velo radial oscuro detrás de la grilla
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -70px -90px;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(closest-side, rgba(1, 4, 3, .3), rgba(1, 4, 3, 0));
+  }
+}
+
+.gcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 276px;
+  padding: 16px 14px 22px;
+  border-radius: 4px;
+  // base oscura .68 + velo claro 2.8% + blur 10px
+  background: linear-gradient(rgba(255, 255, 255, .028), rgba(255, 255, 255, .028)), rgba(1, 4, 3, .68);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  outline: none;
+  transition: background-color .6s $ease3;
+  animation: galCardIn .92s $ease calc(1.1s + var(--i) * .07s) both;
+
+  // barra dorada de 3px: crece desde arriba en hover y foco
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: $gold;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .7s $ease3;
+  }
+  &:hover, &:focus-visible {
+    background: linear-gradient(rgba(255, 255, 255, .06), rgba(255, 255, 255, .06)), rgba(1, 4, 3, .68);
+  }
+  &:hover::before, &:focus-visible::before { transform: scaleY(1); }
+  &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+
+  &__tag {
+    align-self: flex-start;
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba($fg, .55);
+
+    // "Destacado": mismo CSS que .pcard__tag--dest de las cards de Proyectos (Home, Ronda C)
+    &--dest {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: $gold;
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: $gold;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__logo {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+    img {
+      display: block;
+      max-width: 150px;
+      max-height: 76px;
+      width: auto;
+      height: auto;
+      opacity: .88;
+      transition: opacity .6s;
+    }
+  }
+  &:hover &__logo img { opacity: 1; }
+  &__mono { font-family: 'Lora', serif; font-size: 2.2rem; letter-spacing: .08em; color: rgba($fg, .9); }
+
+  &__nm {
+    margin-bottom: 14px;
+    font-size: .64rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba($fg, .5);
+    transition: color .6s;
+  }
+  &:hover &__nm { color: rgba($fg, .9); }
+
+  &__btn {
+    padding: 9px 16px;
+    border: 1px solid rgba(255, 255, 255, .75);
+    font-size: .64rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #fff;
+    transition: background-color .5s;
+  }
+  &:hover &__btn, &:focus-visible &__btn { background: rgba(255, 255, 255, .12); }
+
+  // Destacado: tinte verde, sin borde ni línea superior
+  &--dest {
+    background: linear-gradient(180deg, rgba($green, .34), rgba($green, .10) 75%), rgba(1, 4, 3, .68);
+
+    &:hover, &:focus-visible {
+      background: linear-gradient(180deg, rgba($green, .44), rgba($green, .16) 75%), rgba(1, 4, 3, .68);
+    }
+    .gcard__logo img { opacity: 1; }
+    .gcard__nm { color: rgba($fg, .8); }
+  }
+}
+
+// Al filtrar: tras la salida las cards entran escalonadas de a .06s, sin la espera inicial
+.gal__grid.again .gcard { animation-delay: calc(var(--i) * .06s); }
+.gal__grid.out .gcard {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .22s ease, transform .22s ease;
+  animation: none;
+}
+
+@media (max-width: 1100px) {
+  .gal__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .gal__grid { grid-template-columns: repeat(2, 1fr); }
+}
+// Mobile (propuesta, el prototipo no lo define): pestañas y contador en columna, y menos aire arriba
+@media (max-width: 560px) {
+  .gal { padding-top: 120px; }
+  .gal__bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .gal__tabs { gap: 14px 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gal, .gal *, .gal *::before, .gal *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

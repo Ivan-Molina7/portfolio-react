@@ -1,129 +1,100 @@
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import useTranslation from "../hooks/useTranslation";
-import { getTextFromKey } from "../utils/getTextFromKey";
 import { projectsData } from "../utils/projectsData";
-import { Routes, Route, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { INITIALS, PROJECT_ORDER, logoOf } from "../utils/projectAssets";
+import { prefersReducedMotion } from "../utils/motion";
+
+const OUT_MS = 230; // salida de las cards al filtrar (la transición CSS dura 220ms)
+
+// Los 10 proyectos en el orden de la galería. Los 3 primeros son tipo "trabajo"; "Destacado" sale de `featured`.
+const PROJECTS = PROJECT_ORDER.map((id) => projectsData.find((p) => p.id === id));
+const FILTERS = ["all", "trabajo", "proyecto"];
+const matches = (p, f) => f === "all" || p.tipo === f;
+const COUNTS = Object.fromEntries(FILTERS.map((f) => [f, PROJECTS.filter((p) => matches(p, f)).length]));
 
 export const ProjectsGallery = () => {
-    const { texts } = useTranslation();
+  const { texts } = useTranslation();
+  const g = texts.galeria;
+  const [filter, setFilter] = useState("all"); // pestaña elegida (cambia al instante)
+  const [shown, setShown] = useState("all"); // filtro de la lista dibujada (cambia tras la salida)
+  const [out, setOut] = useState(false);
+  const [again, setAgain] = useState(false); // tras filtrar, la entrada escalona de a 0.06s sin la espera inicial
+  const [cycle, setCycle] = useState(0); // reinicia las cards para repetir su entrada
+  const timer = useRef(0);
 
-    const [typeProject, setTypeProject] = useState(
-      "proyectos"
-    );
+  // al llegar desde Proyectos (scroll ~900) la galería debe abrir arriba, sin animar
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
+  useEffect(() => () => clearTimeout(timer.current), []);
 
-      useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, []);
-    
-
-    const handleTypeProject = (type) => {
-        setTypeProject(type);
+  const select = (f) => {
+    if (f === filter) return;
+    setFilter(f);
+    clearTimeout(timer.current); // clics rápidos: solo cuenta el último
+    const apply = () => {
+      setShown(f);
+      setAgain(true);
+      setCycle((c) => c + 1);
+      setOut(false);
     };
+    if (prefersReducedMotion()) { apply(); return; }
+    setOut(true);
+    timer.current = setTimeout(apply, OUT_MS);
+  };
 
-    const trabajos = projectsData.filter((p) => p.tipo === "trabajo");
-    const proyectos = projectsData.filter((p) => p.tipo === "proyecto");
+  const label = (f) => (f === "all" ? g.todos : f === "trabajo" ? texts.proyectos.trabajosTitulo : texts.proyectos.proyectosPersonalesTitulo);
+  const list = PROJECTS.filter((p) => matches(p, shown));
 
+  return (
+    <main className="gal">
+      <Link className="gal__back" to="/#proyectos">{texts.header.proyectos}</Link>
+      <h1 className="gal__title">{g.titulo}</h1>
+      <p className="gal__sub">{g.subtitulo}</p>
 
-
-    return (
-       
-     <>
-     
-       
-        <div className=" min-vh-section body--galeria-proyectos">
-
-            
-            <div className="galeria-proyectos max-width-section">
-                <div className="wrapper">
-                    <div className="galeria-proyectos__filtros">
-                       
-                        <p 
-                        className="galeria-proyectos__filtro" 
-                        onClick={() => handleTypeProject("trabajos")}
-                        style={{
-                            opacity: typeProject === "trabajos" ? 1 : 0.4
-                        }}
-                        data-aos="fade-right"
-                        data-aos-delay="100"
-                        >
-                        Trabajos</p>
-
-                        <p 
-                        className="galeria-proyectos__filtro"  
-                        data-aos="fade-right"
-                        data-aos-delay="100"
-                        onClick={() => handleTypeProject("proyectos")}
-                        style={{
-                            opacity: typeProject === "proyectos" ? 1 : 0.4
-                        }}
-           
-                        >Proyectos</p>
-                    </div>
-
-                    <div
-                        className="galeria-proyectos__line"
-                        data-aos="fade-right"
-                        data-aos-delay="300"
-                    ></div>
-                </div>
-
-                <div className={`proyectos__cards proyectos__cards--center proyectos__cards--display ${typeProject === "trabajos" ? `active` : ``}`}>
-                      {trabajos.map((proyecto, i) => (
-                        <div
-                            key={proyecto.id}
-                            className="proyectos__card"
-                            data-aos="fade-right"
-                            data-aos-delay={400 + i * 100}
-                        >
-                            {proyecto.Logo ? (
-                                <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
-                            ) : (
-                                <span className="proyectos__card-titulo">{proyecto.titulo}</span>
-                            )}
-                            {proyecto.enDesarrollo && (
-                                <span className="proyectos__card-estado">{texts.proyecto.enDesarrollo}</span>
-                            )}
-                            {/* Si queres navegación SPA (React Router): */}
-                            <Link to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
-                                {texts.proyectos.expandirBtn}
-                            </Link>
-                            {/* Si necesitas href tradicional (menos recomendable): */}
-                            {/* <a href={`/proyectos/${proyecto.id}.html`} className="btn btn--proyectos">{texts.proyectos.expandirBtn}</a> */}
-                        </div>
-                    ))}
-
-                </div>
-
-                <div className={`proyectos__cards proyectos__cards--center proyectos__cards--display ${typeProject === "proyectos" ? `active` : ``}`}>
-                      {proyectos.map((proyecto, i) => (
-                        <div
-                            key={proyecto.id}
-                            className="proyectos__card"
-                            data-aos="fade-right"
-                            data-aos-delay={400 + i * 100}
-                        >
-                            {proyecto.Logo ? (
-                                <img src={proyecto.Logo} alt={getTextFromKey(texts, proyecto.titulo)} />
-                            ) : (
-                                <span className="proyectos__card-titulo">{proyecto.titulo}</span>
-                            )}
-                            {proyecto.enDesarrollo && (
-                                <span className="proyectos__card-estado">{texts.proyecto.enDesarrollo}</span>
-                            )}
-                            {/* Si queres navegación SPA (React Router): */}
-                            <Link to={`/proyecto/${proyecto.id}`} className="btn btn--proyectos">
-                                {texts.proyectos.expandirBtn}
-                            </Link>
-                            {/* Si necesitas href tradicional (menos recomendable): */}
-                            {/* <a href={`/proyectos/${proyecto.id}.html`} className="btn btn--proyectos">{texts.proyectos.expandirBtn}</a> */}
-                        </div>
-                    ))}
-
-                </div>
-            </div>
-
-            <div className="template"></div>
+      <div className="gal__bar">
+        <div className="gal__tabs" role="tablist" aria-label={g.filtrar}>
+          {FILTERS.map((f) => (
+            <button
+              key={f}
+              type="button"
+              role="tab"
+              aria-selected={f === filter}
+              aria-controls="gal-grid"
+              className={`gal__tab${f === filter ? " is-on" : ""}`}
+              onClick={() => select(f)}
+            >
+              {label(f)}<sup>{COUNTS[f]}</sup>
+            </button>
+          ))}
         </div>
-     </>
-    )
-}
+        <span className="gal__cnt" aria-live="polite">{list.length} {list.length === 1 ? g.proyecto : g.proyectos}</span>
+      </div>
+
+      <div id="gal-grid" role="tabpanel" className={`gal__grid${again ? " again" : ""}${out ? " out" : ""}`}>
+        {list.map((p, i) => {
+          const logo = logoOf(p.id);
+          // TODO: Facu Trainer y MegaStrong no tienen logo todavía: se muestran las iniciales.
+          const tag = p.featured ? texts.proyecto.destacado : p.enDesarrollo ? texts.proyecto.enDesarrollo : null;
+          return (
+            <Link
+              key={`${cycle}-${p.id}`}
+              className={`gcard${p.featured ? " gcard--dest" : ""}`}
+              to={`/proyecto/${p.id}`}
+              style={{ "--i": i }}
+              aria-label={[p.titulo, tag].filter(Boolean).join(" · ")}
+            >
+              <span className={`gcard__tag${p.featured ? " gcard__tag--dest" : ""}`}>{tag || " "}</span>
+              <div className="gcard__logo">
+                {logo ? <img src={logo} alt="" /> : <span className="gcard__mono">{INITIALS[p.id] || p.titulo}</span>}
+              </div>
+              <div className="gcard__nm">{p.titulo}</div>
+              <span className="gcard__btn" aria-hidden="true">{texts.proyectos.expandirBtn}</span>
+            </Link>
+          );
+        })}
+      </div>
+    </main>
+  );
+};
