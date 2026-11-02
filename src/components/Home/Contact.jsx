@@ -9,16 +9,36 @@ const CV_PATH = '/cv-ivan-molina.pdf';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+// Web3Forms: la access key sale de la variable de entorno VITE_WEB3FORMS_KEY (archivo .env en la raíz, ignorado por git;
+// en Netlify, Site configuration > Environment variables). Nunca va escrita en el código.
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+const EMAIL_SUBJECT = 'Nuevo mensaje desde el portfolio'; // asunto fijo del correo que recibe Ivan
+const MISSING_KEY_MSG =
+  '[Contacto] Falta VITE_WEB3FORMS_KEY: el formulario no puede enviar mensajes. Creá un archivo .env en la raíz con ' +
+  'VITE_WEB3FORMS_KEY=<tu access key de Web3Forms> y reiniciá el servidor de desarrollo (en Netlify: Site configuration > ' +
+  'Environment variables, y volvé a desplegar).';
+// aviso una sola vez al cargar la página, sin romperla: el formulario se ve igual y al enviar muestra el estado de error
+if (!WEB3FORMS_KEY) console.error(MISSING_KEY_MSG);
+
 // Hora de Montevideo en HH:mm (24h), independiente de la zona del visitante.
 const clockFormat = new Intl.DateTimeFormat('es-UY', {
   hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Montevideo',
 });
 const montevideoTime = () => clockFormat.format(new Date());
 
-// TODO(servicio de envío): todavía no hay servicio elegido. Conectar acá (fetch al endpoint con
-// su key nueva) y resolver si salió bien. Mientras tanto rechaza, y el formulario muestra el estado de error.
-async function sendMessage(/* { name, email, message } */) {
-  throw new Error('sendMessage: servicio de envío no configurado');
+// Envía el mensaje a Web3Forms (POST JSON). Resuelve si { success: true }; rechaza si falta la key, falla la red
+// o el servicio responde con error.
+async function sendMessage({ name, email, message }) {
+  if (!WEB3FORMS_KEY) throw new Error(MISSING_KEY_MSG);
+  const res = await fetch(WEB3FORMS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: EMAIL_SUBJECT, name, email, message }),
+  });
+  let data = null;
+  try { data = await res.json(); } catch { /* respuesta sin JSON */ }
+  if (!res.ok || !data?.success) throw new Error(`Web3Forms: ${data?.message || `HTTP ${res.status}`}`);
 }
 
 // Devuelve la CLAVE del locale de cada error (no el texto): el texto se resuelve al renderizar,
@@ -78,7 +98,8 @@ function Contact() {
       await sendMessage({ name: values.name.trim(), email: values.email.trim(), message: values.message.trim() });
       setValues({ name: '', email: '', message: '' });
       setStatus('success');
-    } catch {
+    } catch (err) {
+      console.error('[Contacto] No se pudo enviar el mensaje:', err);
       setStatus('error');
     }
   };
