@@ -53,7 +53,7 @@ export default function Header({ active }) {
 
   // si la ventana crece por encima del breakpoint mobile, el panel se cierra
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 901px)");
+    const mq = window.matchMedia("(min-width: 961px)");
     const close = () => mq.matches && setOpen(false);
     mq.addEventListener("change", close);
     return () => mq.removeEventListener("change", close);

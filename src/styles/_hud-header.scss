@@ -37,8 +37,8 @@
   display: none;
 }
 
-// ---- Mobile: menú desplegable ----
-@media (max-width: 900px) {
+// ---- Mobile: menú desplegable (<=960px: entre 901 y ~930px el nav + CTA no entraban en la grilla) ----
+@media (max-width: 960px) {
   .hud-header {
     grid-template-columns: 1fr auto;
 
