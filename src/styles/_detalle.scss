@@ -156,6 +156,24 @@ html[data-hold] .home-wrap { display: none; }
 .det-cta { animation: riseIn .8s $ease .76s both; }
 .det-frame { animation: curtain 1.1s $ease2 .4s both; }
 
+// Escritorio: el breadcrumb se ancla a 30px por encima del bloque de texto (.det-txt), no a una altura fija.
+// La cápsula del fondo mide ese bloque y su borde superior queda 100px más arriba (capPad), así que el
+// breadcrumb cae siempre ~43px dentro del vacío oscuro, sea cual sea el alto del texto de cada proyecto.
+// Es hijo absoluto: no cambia la caja de .det-txt (la cápsula no se mueve). Al salir de la fila, el hero
+// compensa su altura (27px) para quedar donde estaba. En ≤900px el breadcrumb sigue en su fila.
+@media (min-width: 901px) {
+  .det-hero { margin-top: 87px; }
+  .det-txt { position: relative; }
+  .det-txt > .det-top {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    margin-bottom: 30px;
+    width: max-content;
+    max-width: 100%;
+  }
+}
+
 // ---------- secciones ----------
 .det-sec {
   position: relative;

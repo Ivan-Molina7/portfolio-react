@@ -26,6 +26,21 @@ function holdHome() {
   holdTimer = setTimeout(() => root.removeAttribute('data-hold'), EXIT_MS);
 }
 
+// Escritorio (>900px): el breadcrumb se ancla al bloque de texto del hero (ver _detalle.scss); en ≤900px
+// queda en su fila superior. Se renderiza en un solo lugar a la vez.
+function useDesktop() {
+  const q = '(min-width: 901px)';
+  const [on, setOn] = useState(() => window.matchMedia(q).matches);
+  useEffect(() => {
+    const m = window.matchMedia(q);
+    const f = () => setOn(m.matches);
+    m.addEventListener('change', f);
+    f();
+    return () => m.removeEventListener('change', f);
+  }, []);
+  return on;
+}
+
 const modified = (e) => e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0;
 const byId = (id) => projectsData.find((p) => p.id === id);
 
@@ -35,6 +50,7 @@ function Proyecto() {
   const bg = useBackground();
   const { texts } = useTranslation();
   const t = texts.proyecto;
+  const desktop = useDesktop();
 
   const proyecto = projectsData.find((p) => String(p.id) === id);
   const pid = proyecto?.id;
@@ -158,6 +174,13 @@ function Proyecto() {
   const kind = proyecto.tipo === 'trabajo' ? t.tipoTrabajo : t.tipoPersonal;
   const tag = [kind, proyecto.featured && t.destacado, proyecto.enDesarrollo && t.enDesarrollo].filter(Boolean).join(' · ');
 
+  const crumb = (
+    <div className="det-top">
+      <Link className="det-back" to="/#proyectos" onClick={leave}>{texts.header.proyectos}</Link>
+      <span className="det-tag">{tag}</span>
+    </div>
+  );
+
   const objetivos = [1, 2, 3].map((n) => getTextFromKey(texts, proyecto[`objetivo${n}Key`]));
   const preguntas = [1, 2, 3].map((n) => ({
     q: getTextFromKey(texts, proyecto[`pregunta${n}Key`]),
@@ -167,12 +190,10 @@ function Proyecto() {
   return (
     <div className={`det-scroll${phase === 'idle' ? '' : ` is-${phase}`}`} ref={scrollRef}>
       <div className="det-wrap" key={pid}>
-        <div className="det-top">
-          <Link className="det-back" to="/#proyectos" onClick={leave}>{texts.header.proyectos}</Link>
-          <span className="det-tag">{tag}</span>
-        </div>
+        {!desktop && crumb}
 
         <HeroExpand
+          top={desktop ? crumb : null}
           titulo={proyecto.titulo}
           descripcion={getTextFromKey(texts, proyecto.descripcionKey)}
           sitio={proyecto.sitio}

@@ -5,7 +5,7 @@ import { prefersReducedMotion } from '../../utils/motion';
 const pad = (n) => String(n).padStart(2, '0');
 
 // Hero del detalle: bloque de texto (.det-txt, el que sigue la cápsula del fondo) y marco de la obra.
-function HeroExpand({ titulo, descripcion, sitio, sitioLink, behance, behanceLink, shots, logo, initials, txtRef }) {
+function HeroExpand({ top, titulo, descripcion, sitio, sitioLink, behance, behanceLink, shots, logo, initials, txtRef }) {
   const { texts } = useTranslation();
   const t = texts.proyecto;
   const [shot, setShot] = useState(0);
@@ -26,6 +26,7 @@ function HeroExpand({ titulo, descripcion, sitio, sitioLink, behance, behanceLin
   return (
     <section className="det-hero">
       <div className="det-txt" ref={txtRef}>
+        {top}
         <h1 className="det-name">{titulo}</h1>
         <p className="det-desc">{descripcion}</p>
         <div className="det-cta">
