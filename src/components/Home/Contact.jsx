@@ -83,6 +83,7 @@ function Contact() {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars -- falso positivo: Tag se usa como componente JSX (<Tag>)
   const field = (name, label, placeholder, Tag = 'input', extra = {}) => (
     <label className="cform__field" htmlFor={`c-${name}`}>
       {label}
