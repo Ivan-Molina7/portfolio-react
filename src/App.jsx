@@ -1,8 +1,6 @@
-import { useEffect, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Proyecto from "./components/ProjectsExpand/Proyecto";
 import TranslationProvider from "./contexts/TranslationProvider";
 import Hud from "./components/Hud/Hud";
@@ -14,10 +12,6 @@ import { BackgroundProvider } from "./components/Background/BackgroundContext";
 const BackgroundDebug = import.meta.env.DEV ? lazy(() => import("./components/Background/BackgroundDebug")) : null;
 
 function App() {
-  useEffect(() => {
-    AOS.init({});
-  }, []);
-
   return (
     <TranslationProvider>
       <BackgroundProvider>
