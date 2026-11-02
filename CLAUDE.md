@@ -87,7 +87,7 @@ Fragment shader WebGL propio, sin Three.js ni dependencias. **La referencia exac
 
 **Evitar:** lo steampunk, el Art Deco literal, los bordes metálicos, el texto centrado con mucho espaciado, y cualquier cosa que quite protagonismo al contenido.
 
-**Legibilidad:** texto de cuerpo ≥ 16px, peso 400–500, blanco al 90 % como mínimo (el texto secundario no baja de 55 %). El contenido siempre queda por encima del fondo y alineado a la izquierda.
+**Legibilidad:** texto de cuerpo ≥ 16px, peso 400–500, blanco al 90 % como mínimo. El texto secundario de lectura (descripciones, párrafos, respuestas) no baja de 55 %. Ese mínimo **no aplica** a elementos decorativos o secundarios de interfaz (selector de idioma inactivo, contadores, numerales, placeholders, ubicación del hero y tags de cards), donde prevalece el criterio estético de Ivan. El contenido siempre queda por encima del fondo y alineado a la izquierda.
 
 ## Páginas (resumen; el detalle exacto está en el prototipo)
 
