@@ -151,6 +151,12 @@ html[data-shown="3"] #about {
   .ti:nth-child(4) { animation-delay: 1.68s; }
 }
 
+// Tablet (701-900px): 4 ítems de 138px + 3 separaciones de 62px suman ~738px y el ancho útil va de 637 a 836px.
+// La separación pasa a ser el 4 % del ancho (25-33px) para que los cuatro entren sin comprimirse.
+@media (min-width: 701px) and (max-width: 900px) {
+  .tl { gap: 4%; }
+}
+
 // ---------- mobile: línea de tiempo vertical (propuesta, a revisar) ----------
 // Línea y luz dorada corren en vertical por la izquierda; logo, año y botón a la derecha de cada rombo.
 @media (max-width: 700px) {
