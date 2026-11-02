@@ -1,3 +1,5 @@
+import { prefersReducedMotion } from "../../utils/motion";
+
 // Ir a una sección de Home. En Home: scroll suave (el fondo transiciona directo a la escena elegida).
 // En otras rutas: navegar a /#id (Home hace el salto al montar).
 export function goToSection(e, id, pathname, navigate) {
@@ -7,7 +9,7 @@ export function goToSection(e, id, pathname, navigate) {
   }
   if (pathname === "/") {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
   } else {
     navigate(`/#${id}`);
   }

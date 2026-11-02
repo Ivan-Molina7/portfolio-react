@@ -32,8 +32,14 @@
     padding: 0;
     box-sizing: border-box;
     @include utils.no-decoration;
-    scroll-behavior: smooth;
     scroll-padding-top: 0px;
+}
+
+// scroll suave solo si la persona no pidió reducir el movimiento
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
 }
 
 html{
