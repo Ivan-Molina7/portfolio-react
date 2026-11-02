@@ -7,7 +7,6 @@ import Proyecto from "./components/ProjectsExpand/Proyecto";
 import TranslationProvider from "./contexts/TranslationProvider";
 import Hud from "./components/Hud/Hud";
 import { ProjectsGallery } from "./components/ProjectsGallery";
-import PreloadBackgrounds from "./utils/PreLoadImages";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import Background from "./components/Background/Background";
 import { BackgroundProvider } from "./components/Background/BackgroundContext";
@@ -23,7 +22,6 @@ function App() {
     <TranslationProvider>
       <BackgroundProvider>
       <Background />
-      <PreloadBackgrounds/>
             <GoogleAnalytics />
       <Hud />
       <Routes>
