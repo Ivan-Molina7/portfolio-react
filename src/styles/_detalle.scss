@@ -26,6 +26,7 @@ html[data-hold] .home-wrap { display: none; }
   inset: 86px 0 0 0;
   z-index: 5;
   overflow-y: auto;
+  overflow-x: hidden; // el velo de .det-sec::before sale 70px de cada lado; sin esto aparece scroll horizontal
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, .2) transparent;
