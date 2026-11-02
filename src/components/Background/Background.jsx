@@ -490,7 +490,9 @@ export default function Background() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      style={{ position: "fixed", inset: 0, width: "100vw", height: "100vh", zIndex: -1, background: "#010403", pointerEvents: "none" }}
+      // 100%, no 100vw/100vh: vw/vh son las del dispositivo y en mobile, si la página desborda, el viewport de
+      // layout es más grande y el canvas dejaba un área sin cubrir (ver html{background} en styles.scss)
+      style={{ position: "fixed", inset: 0, width: "100%", height: "100%", zIndex: -1, background: "#010403", pointerEvents: "none" }}
     />
   );
 }

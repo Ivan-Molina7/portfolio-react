@@ -38,6 +38,8 @@
 
 html{
     overflow-x: hidden;
+    // red de seguridad: si algo deja un área sin cubrir por el canvas del fondo, que sea del color del sitio y no blanca
+    background-color: #010403;
 }
 
 
