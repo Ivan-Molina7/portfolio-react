@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 node_modules
+# Variables de entorno (nunca se suben)
+.env
+.env.local
+.env.*.local
