@@ -341,6 +341,13 @@ html[data-shown="1"] #proyectos {
   .pcard__btn { padding: 8px 12px; letter-spacing: .1em; }
 }
 
+// Títulos de Habilidades, Sobre mí y Contacto: el mínimo del clamp (2.6rem) no baja y "HABILIDADES" (~6.7em de ancho)
+// desborda a <=340px; el clip-path final de revealX recorta lo que sobresale. Se achican con el ancho útil
+// (100vw - 64px), con 5 % de margen; llegan al tamaño normal (41.6px) cerca de 360px.
+@media (max-width: 420px) {
+  .skill-title, .about-title, .contact-title { font-size: min(2.6rem, calc((100vw - 64px) / 7.1)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-wrap, .home-wrap * , .home-wrap *::before, .home-wrap *::after {
     animation: none !important;
