@@ -105,7 +105,7 @@ Curvas suaves `cubic-bezier(.4,0,.2,1)` y `(.45,0,.25,1)` (nada tipo ease-out-ex
 
 ## Assets
 
-- Script único `scripts/normalize_assets.py` (Pillow): normaliza íconos de herramientas (gris y color, 128×128), logos de proyectos, imágenes de la línea de tiempo (ITI sin fondo blanco), capturas (1000px) e íconos de redes a `src/assets/img/_norm/` en `.webp`. Los originales pesan ~1.8 MB y varios son enormes (4096×4096); los normalizados ~370 KB. Usar los normalizados y borrar los originales que dejen de usarse (confirmar antes).
+- Script único `scripts/normalize_assets.py` (Pillow): normaliza íconos de herramientas (gris y color, 128×128), logos de proyectos, imágenes de la línea de tiempo (ITI sin fondo blanco), capturas (1000px) e íconos de redes a `src/assets/img/_norm/` en `.webp`. Los originales pesan ~1.8 MB y varios son enormes (4096×4096); los normalizados ~370 KB. Usar los normalizados. Los originales viven en `assets-src/` (fuera de `src/`, el build no los carga); el script los lee de ahí por defecto (`--src assets-src`).
 - Logos de proyecto disponibles: Transportes UY, NBC Cargo, Wake Up, Club Atlético Progreso, Sandbox, Havanna, CulPadel, WorldGym. **Faltan: Facu Trainer y MegaStrong** (se muestran como iniciales "FT" / "MS"; dejar `TODO`).
 - Capturas disponibles solo para NBC Cargo y Progreso (3 cada una). Facu Trainer, Transportes UY, Wake Up y el resto muestran el logo con "Captura pendiente". No inventar imágenes.
 - El ícono de GitHub de `Icons/White` mide solo 34px; pedir una versión mayor o SVG.

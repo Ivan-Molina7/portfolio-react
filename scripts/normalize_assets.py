@@ -3,7 +3,7 @@
 Normaliza los assets del portfolio para el rediseño (un solo uso, no es parte del build del sitio).
 
   pip install pillow
-  python scripts/normalize_assets.py --src src/assets/img --out src/assets/img/_norm
+  python scripts/normalize_assets.py --src assets-src --out src/assets/img/_norm
 
 Genera (todo .webp, con transparencia donde corresponde):
   _norm/icons/<clave>-g.webp   iconos de herramientas en gris   (128x128, contenidos en 112)
@@ -88,7 +88,7 @@ def remove_white_bg(im, thresh=38):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--src', default='src/assets/img')
+    ap.add_argument('--src', default='assets-src')  # originales fuera de src/ para que el build no los cargue
     ap.add_argument('--out', default='src/assets/img/_norm')
     a = ap.parse_args()
     total, missing = 0, []
