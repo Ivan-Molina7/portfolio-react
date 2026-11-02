@@ -1,294 +1,160 @@
-@use '_animaciones';
-@use '_colores';
-@use '_fuentes';
-@use '_spacing';
-@use '_utils';
+// Modal de títulos de Sobre mí (Modal.jsx). Mismo lenguaje que el resto del rediseño: panel oscuro plano con
+// borde de 1px, esquinas de 4px, sin sombras ni degradados; Lora en el título y Lato en el cuerpo; oro solo como
+// detalle (tramo del borde superior y borde del botón de cerrar en hover/foco).
 
-.modal-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #00000080;
-    z-index: 500;
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 0 32px;
+$fg: #f2f5f3;
+$gold: #d6a73c;
+$green: #0a6b36;
+$ease: cubic-bezier(.4, 0, .2, 1);
+$ease3: cubic-bezier(.22, 1, .36, 1);
 
+@keyframes modalBg { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
-    &[aria-hidden="false"] {
-        display: flex;
-    }
-}
-
-
-.modal-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(20, 20, 20, 0.541);
-    backdrop-filter: blur(8px);
-    cursor: pointer;
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 700; // por encima del HUD (600)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(1, 4, 3, .78);
+  animation: modalBg .3s $ease both;
 }
 
 .modal {
-    border: 2px solid;
-    /* Define el ancho y estilo del borde */
-    border-image: linear-gradient(to right, #FFF, #00C457) 1;
-    position: relative;
-    background-color: #000000bb;
-    max-width: 920px;
-    width: 100%;
-    padding: map-get($map: spacing.$spacing, $key: 64px);
-    text-align: center;
-    @include utils.flex-layout(flex-center, flex-center, column);
-    gap: map-get($map: spacing.$spacing, $key: 32px);
-    backdrop-filter: blur(2px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(880px, 100%);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100svh - 32px);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 4px;
+  background: rgba(3, 8, 6, .96);
+  font-family: 'Lato', sans-serif;
+  color: $fg;
+  text-align: left;
+  animation: modalIn .5s $ease both;
 
-    .close {
-        opacity: .7;
-        position: absolute;
-        height: 34px;
-        width: 34px;
-        object-fit: contain;
-        top: 24px;
-        right: 24px;
-        cursor: pointer;
-        transition: opacity 0.2s;;
+  // tramo dorado del borde superior
+  &::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 40px;
+    height: 1px;
+    background: $gold;
+  }
 
-        &:hover{
-            opacity: 1;
-        }
-    
+  // el contenido scrollea dentro del panel (pantallas bajas o apaisadas); el botón de cerrar queda fijo
+  &__body {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 40px 44px 36px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    color: $fg;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .32);
+    border-radius: 0;
+    cursor: pointer;
+    transition: border-color .6s $ease3, background-color .6s $ease3;
+
+    svg {
+      display: block;
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1;
+      opacity: .8;
+      transition: opacity .5s $ease3;
     }
 
-    
-       .modal__texto{
-            @include fuentes.font-responsive(text);
-        }
+    &:hover,
+    &:focus-visible {
+      border-color: $gold;
+      background: rgba($green, .35);
 
-
-    &__titulos {
-        @include utils.flex-layout(flex-center, flex-center, column);
-        gap: map-get($map: spacing.$spacing, $key: 12px);
-        color: colores.$font-primary;
-
-        .modal__titulo {
-            @include fuentes.font-responsive(subtitle-merri);
-
-        }
-
-        .modal__subtitulos{
-            @include utils.flex-layout(center, center, row);
-            gap: map-get($map: spacing.$spacing, $key: 4px);
-            font-family: Lora, serif;
-
-            .modal__subtitulo {
-             
-            }
-    
-            span {
-                color: colores.$Green-Light;
-                font-weight: bold;
-            }
-
-        }
-
-     
+      svg { opacity: 1; }
     }
 
+    &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
+  }
 
-    &__img {
-        max-height: 400px;
+  &__title {
+    margin: 0 0 18px;
+    padding-right: 52px; // deja libre el botón de cerrar
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.2;
+  }
+
+  &__grade {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 10px;
+    margin: 0 0 26px;
+
+    span {
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba($fg, .55);
     }
+
+    b { font-weight: 700; font-size: 1rem; color: $fg; }
+  }
+
+  &__text {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba($fg, .84);
+  }
+
+  &__img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: min(60vh, 520px);
+    max-height: min(60svh, 520px);
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, .18);
+  }
 }
 
+@media (max-width: 560px) {
+  .modal-bg { padding: 12px; }
+  .modal {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100svh - 24px);
 
-.modal-carousel {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-    font-family: inherit;
-
-    &[aria-hidden="false"] {
-        display: flex;
-    }
-
-    &__overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(20, 20, 20, 0.541);
-        backdrop-filter: blur(8px);
-        cursor: pointer;
-    }
-
-    &__content {
-        position: relative;
-        margin: auto;
-        z-index: 1;
-        width: 90vw;
-        max-width: 1200px;
-        max-height: 90vh;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        background: transparent;
-    }
-
-    &__body {
-        @include utils.flex-layout(center, center, row);
-        padding: 16px;
-
-    }
-
-    &__arrow {
-        background: none;
-        border: none;
-        color: #fff;
-
-        cursor: pointer;
-        padding: 0 1rem;
-        opacity: 0.7;
-        transition: opacity 0.2s;
-        user-select: none;
-        z-index: 2;
-
-
-        &:hover {
-            opacity: 1;
-        }
-
-        &--left {
-            // estilos específicos si querés
-        }
-
-        &--right {
-            // estilos específicos si querés
-        }
-
-        img {
-            width: 48px; // tamaño del ícono
-            height: 48px;
-            pointer-events: none; // para que el click lo reciba el botón, no la imagen
-            user-select: none;
-            display: block;
-        }
-    }
-
-    &__img-frame {
-        max-width: 1200px;
-        width: 80vw;
-        max-height: 600px;
-        overflow: hidden;
-        @include utils.flex-layout(center, center, row)
-    }
-
-    &__img {
-        display: none;
-        max-width: 100%;
-        max-height: 600px !important;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        border-radius: 2px;
-        user-select: none;
-
-        &.active {
-            display: block;
-        }
-    }
+    &__body { padding: 28px 22px 26px; }
+    &__close { top: 12px; right: 12px; }
+    &__title { padding-right: 48px; }
+  }
 }
 
-
-/*Rango Solo mobile*/
-@media screen and (max-width: 767px) {
-
-
-        .modal-background {
-        padding: 0 16px;
-    }
-
-    .modal{
-        padding: 30px ;
-    
-    
-    
-        .close {
-           display: none;
-       
-        }
-    
-        
-    }
-
-    
-
-    .modal-carousel {
-
-
-        &__content {
-            margin: auto;
-            z-index: 1;
-            width: 100vw;
-            height: auto;
-
-        }
-
-        &__arrow {
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-            user-select: none;
-            z-index: 2;
-            padding: 0;
-
-
-            &:hover {
-                opacity: 1;
-            }
-
-            &--left {
-                // estilos específicos si querés
-            }
-
-            &--right {
-                // estilos específicos si querés
-            }
-
-            img {
-                width: 42px; // tamaño del ícono
-                height: 42px;
-            }
-        }
-
-    }
-
+@media (prefers-reduced-motion: reduce) {
+  .modal-bg, .modal { animation: none; }
+  .modal__close, .modal__close svg { transition: none; }
 }
-
-
-/*Rango Solo tablet*/
-@media screen and (min-width: 768px) and (max-width:1023px) {}
-
-/*Rango Tablet >*/
-
-@media screen and (min-width: 768px) {}
-
-
-
-/*Rango Desktop >*/
-@media screen and (min-width: 1024px) {}
-
-
-/*Rango Desktop gap*/
-@media screen and (min-width: 1024px) and (max-width:1247px) {}
-
-
-/*Rango desktop xl*/
-@media screen and (min-width: 1248px) {}

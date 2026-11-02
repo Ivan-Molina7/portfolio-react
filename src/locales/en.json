@@ -56,6 +56,7 @@
 
   "modalTimeline": {
     "aprobacionTexto": "Passing Grade:",
+    "cerrar": "Close dialog",
     "titulo1": "I.T.I (Technological Institute of Informatics)",
     "alt1": "I.T.I Diploma awarded by the Technological Institute of Informatics, certifying the completion of the high school in Informatics.",
     "titulo2": "Front-end Developer (BIOS)",
