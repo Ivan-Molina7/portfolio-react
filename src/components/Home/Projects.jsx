@@ -38,7 +38,11 @@ function Projects() {
   return (
     <div className="home-screen" id="proyectos" data-s="1">
       <main className="home-wrap">
-        <h2 className="proj-title">{texts.proyectos.titulo}</h2>
+        <div className="proj-head">
+          <h2 className="proj-title">{texts.proyectos.titulo}</h2>
+          {/* mobile (<=560px): "Ver más" sube junto al título; en escritorio queda abajo a la derecha (prototipo) */}
+          <Link className="proj-more proj-more--top" to="/galeriaProyectos">{texts.proyectos.verMas}</Link>
+        </div>
         <div className="proj-groups">
           <section>
             <h3 className="proj-label">{texts.proyectos.trabajosTitulo}</h3>
@@ -53,7 +57,7 @@ function Projects() {
             </div>
           </section>
         </div>
-        <Link className="proj-more" to="/galeriaProyectos">{texts.proyectos.verMas}</Link>
+        <Link className="proj-more proj-more--bottom" to="/galeriaProyectos">{texts.proyectos.verMas}</Link>
       </main>
     </div>
   );

@@ -160,8 +160,9 @@ html[data-shown="0"] #hero {
   text-transform: uppercase;
   font-size: clamp(2.6rem, 7vw, 6rem);
   line-height: 1;
-  margin: 0 0 24px;
+  margin: 0;
 }
+.proj-head { margin: 0 0 24px; }
 .proj-groups {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -295,6 +296,7 @@ html[data-shown="0"] #hero {
 
   &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }
 }
+.proj-more--top { display: none; } // solo mobile, ver el bloque de <=560px
 
 html[data-shown="1"] #proyectos {
   .proj-title { animation: revealX 1.68s $ease2 both; }
@@ -319,10 +321,15 @@ html[data-shown="1"] #proyectos {
   .proj-groups { row-gap: 40px; }
   .proj-row--3, .proj-row--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .pcard { aspect-ratio: auto; height: 276px; min-width: 0; }
-  .proj-more { margin-top: 28px; }
+  // "Ver más" junto al título (no hay uno por grupo): en la misma línea, sobre su línea base y a la derecha
+  .proj-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; }
+  .proj-more--top { display: inline; align-self: auto; margin: 0 0 0 auto; white-space: nowrap; }
+  .proj-more--bottom { display: none; }
 }
 // Pantallas muy angostas: la card se achica con su columna (a 320px cada una mide ~122px)
 @media (max-width: 400px) {
+  // el título se achica para que "Ver más" entre en su misma línea (a 375px: 41px -> 31px)
+  .proj-title { font-size: clamp(1.8rem, 8.4vw, 2.6rem); }
   .proj-row--3, .proj-row--2 { gap: 12px; }
   .pcard { padding: 14px 10px 18px; }
   .pcard__btn { padding: 8px 12px; letter-spacing: .1em; }
