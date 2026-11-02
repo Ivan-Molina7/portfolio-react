@@ -67,6 +67,12 @@ export const HIT_OMEGA_OUT = 5;
 // duración no depende de los fps. HIT_MAX_CATCHUP acota lo que se recupera en un solo cuadro (pestaña oculta).
 export const HIT_STEP = 1 / 120;
 export const HIT_MAX_CATCHUP = 0.5;
+
+// Tiempo de cuadro acotado. Los suavizados (1 - exp(-dt·tasa)) y el avance lineal de la transición son exactos con
+// cualquier dt real, así que usan DT_MAX (solo protege de un cuelgue enorme): la transición de 2.2s dura 2.2s también
+// a ~10 fps. El reloj de las líneas (time, phase, osc) usa CLOCK_DT_MAX para que no haya saltos visibles tras un cuelgue.
+export const DT_MAX = 0.25;
+export const CLOCK_DT_MAX = 0.05;
 export const CAP_NOSE_OFFSET = 80; // px a la derecha del bloque de texto
 export const CALM_DETAIL_SCROLL = 0.28; // calm = 1 - 0.28·p
 

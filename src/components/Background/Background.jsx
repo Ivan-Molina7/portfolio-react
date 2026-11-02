@@ -13,6 +13,8 @@ import {
   HIT_OMEGA_OUT,
   HIT_STEP,
   HIT_MAX_CATCHUP,
+  DT_MAX,
+  CLOCK_DT_MAX,
   HOME_MOUSE_RATE,
   PAL,
   SECTIONS,
@@ -189,7 +191,7 @@ function createEngine(canvas, bg) {
     pending = null;
   }
 
-  // dt: tiempo acotado a 0.05 (suavizados y transiciones); realDt: tiempo real del cuadro (solo el resorte)
+  // dt: tiempo del cuadro acotado a DT_MAX (suavizados y transiciones); realDt: tiempo real (resorte, subpasos fijos)
   function step(dt, instant, realDt = dt) {
     if (s.snap) { s.snap = false; instant = true; }
     const rm = reduce.matches;
@@ -228,10 +230,11 @@ function createEngine(canvas, bg) {
     // señal para el contenido del Home: sección mostrada y salida (< 42%)
     publishShown(shownS, animating && prog_ < 0.42);
 
-    time += dt * (rm ? 0 : DEFAULTS.speed * 0.4 + boost);
+    const cdt = Math.min(dt, CLOCK_DT_MAX); // reloj de las líneas: acotado aparte (ver scenes.js)
+    time += cdt * (rm ? 0 : DEFAULTS.speed * 0.4 + boost);
     const br = rm ? 0 : DEFAULTS.breath;
-    phase += dt * br * 0.25;
-    if (!rm) osc += dt * 0.7;
+    phase += cdt * br * 0.25;
+    if (!rm) osc += cdt * 0.7;
 
     // ---- mouse ----
     const gal = s.variant === "galeria";
@@ -334,10 +337,7 @@ function createEngine(canvas, bg) {
     }
     lastDraw = now;
     const realDt = (now - last) / 1000;
-    // TODO(Ronda H): este tope hace que calm, la cápsula (capV), la paleta, el mouse y la duración de la
-    // transición entre secciones (prog_) sigan dependiendo de los fps: a ~10 fps la transición de 2.2s tarda
-    // ~4s. Hoy solo el resorte del golpe usa tiempo real (realDt).
-    const dt = Math.min(realDt, 0.05);
+    const dt = Math.min(realDt, DT_MAX);
     last = now;
     draw(step(dt, false, realDt));
     raf = requestAnimationFrame(frame);
