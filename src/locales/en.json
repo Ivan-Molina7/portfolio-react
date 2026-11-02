@@ -107,7 +107,6 @@
   },
 
   "proyecto": {
-    "overlayTexto": "<img src='../assets/img/Icons/White/touch.png' alt='tocar pantalla icono'> Click to see more screens",
     "btnVisitar": "Visit site",
     "btnBehance": "View on Behance",
     "tipoTrabajo": "Client work",
@@ -119,7 +118,6 @@
     "siguiente": "Next project",
     "anterior": "Previous",
     "verTodos": "See all projects",
-    "btnMasInfo": "More information on my Behance",
 
     "cap_descripcion": "A renewed web platform that connects fans with their club, offering news, statistics, and updated content in an accessible and easy-to-use environment. This project aims to modernize the club's digital presence and strengthen its community bond.",
 
@@ -193,7 +191,6 @@
 
 
   "proyecto_about": {
-    "sobrePaginaTitulo": "About the page",
 
 
 
