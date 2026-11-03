@@ -110,16 +110,45 @@ html[data-hold] .home-wrap { display: none; }
     opacity: 0;
     animation: formTrace 14s cubic-bezier(.45, .05, .35, 1) 2.4s infinite;
   }
-  > img {
-    display: block;
+}
+
+// Escenario de proporción FIJA (16:10): el alto del marco no cambia entre capturas, así el bloque de texto (centrado contra
+// el marco) y la cápsula del fondo, que lo sigue, no se mueven al cambiar de imagen. Cada imagen elige cómo entrar
+// (ver HeroExpand): "cover" si llena el marco recortando poco, "contain" si no, para que un celular o un panel muy ancho se
+// vean enteros, sin estirarse y con aire alrededor. Se posiciona en absoluto para que una imagen enorme no agrande el marco.
+.det-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.det-img {
+  position: absolute;
+  display: block;
+  transition: opacity .3s ease;
+
+  &.is-cover {
+    inset: 0;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    height: 100%;
     object-fit: cover;
     object-position: top;
-    transition: opacity .3s ease;
-
-    &.is-fading { opacity: 0; }
   }
+
+  // centrada y sin ampliar (no se estira): el borde de 1px abraza a la imagen, no al marco
+  &.is-contain {
+    inset: 0;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid rgba(255, 255, 255, .14);
+  }
+
+  // hasta conocer las medidas de la imagen no se muestra (evita un salto de cover a contain)
+  &.is-pending { inset: 0; max-width: 100%; max-height: 100%; opacity: 0; }
+  &.is-fading { opacity: 0; }
 }
 .det-ph {
   aspect-ratio: 16 / 10;
@@ -145,6 +174,7 @@ html[data-hold] .home-wrap { display: none; }
   transition: border-color .5s $ease3;
 
   img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: .7; transition: opacity .5s $ease3; }
+  img.is-contain { object-fit: contain; }
   &:hover img, &.is-on img { opacity: 1; }
   &.is-on { border-color: $gold; }
   &:focus-visible { outline: 2px solid $gold; outline-offset: 3px; }

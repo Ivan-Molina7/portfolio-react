@@ -4,16 +4,35 @@ import { prefersReducedMotion } from '../../utils/motion';
 
 const pad = (n) => String(n).padStart(2, '0');
 
+// Proporción fija del marco (_detalle.scss .det-stage). Cada captura se ajusta según cuánto recortaría `cover` en ese marco:
+// si es poco (<= MAX_CROP) llena el marco; si es mucho (capturas de celular, paneles muy anchos) se ve entera, centrada.
+const FRAME_RATIO = 16 / 10;
+const MAX_CROP = 0.2;
+const fitOf = (d) => {
+  if (!d) return null; // todavía sin medidas
+  const r = d.w / d.h;
+  const crop = 1 - Math.min(r, FRAME_RATIO) / Math.max(r, FRAME_RATIO);
+  return crop <= MAX_CROP ? 'cover' : 'contain';
+};
+
 // Hero del detalle: bloque de texto (.det-txt, el que sigue la cápsula del fondo) y marco de la obra.
 function HeroExpand({ top, titulo, descripcion, sitio, sitioLink, sitioDemo, behance, behanceLink, shots, logo, initials, txtRef }) {
   const { texts } = useTranslation();
   const t = texts.proyecto;
   const [shot, setShot] = useState(0);
   const [fading, setFading] = useState(false);
+  const [dims, setDims] = useState({}); // src -> { w, h } medidos al cargar (sirve también para capturas externas)
   const timer = useRef(0);
   const total = shots.length;
 
   useEffect(() => () => clearTimeout(timer.current), []);
+
+  const measure = (src, el) => {
+    const w = el.naturalWidth;
+    const h = el.naturalHeight;
+    if (!w || !h) return;
+    setDims((d) => (d[src] && d[src].w === w && d[src].h === h ? d : { ...d, [src]: { w, h } }));
+  };
 
   // fundido de la imagen principal: sale, cambia a los 220ms y vuelve
   const pick = (n) => {
@@ -46,11 +65,14 @@ function HeroExpand({ top, titulo, descripcion, sitio, sitioLink, sitioDemo, beh
       <figure className="det-frame">
         <div className="det-main">
           {total > 0 ? (
-            <img
-              className={fading ? 'is-fading' : undefined}
-              src={shots[shot]}
-              alt={`${titulo} · ${shot + 1}/${total}`}
-            />
+            <div className="det-stage">
+              <img
+                className={['det-img', `is-${fitOf(dims[shots[shot]]) || 'pending'}`, fading && 'is-fading'].filter(Boolean).join(' ')}
+                src={shots[shot]}
+                alt={`${titulo} · ${shot + 1}/${total}`}
+                onLoad={(e) => measure(shots[shot], e.currentTarget)}
+              />
+            </div>
           ) : (
             <div className="det-ph" role="img" aria-label={titulo}>
               {logo ? <img className="det-ph__logo" src={logo} alt="" /> : <span className="det-ph__ini">{initials || titulo}</span>}
@@ -70,7 +92,7 @@ function HeroExpand({ top, titulo, descripcion, sitio, sitioLink, sitioDemo, beh
                 aria-pressed={n === shot}
                 onClick={() => pick(n)}
               >
-                <img src={src} alt="" />
+                <img className={fitOf(dims[src]) === 'contain' ? 'is-contain' : undefined} src={src} alt="" onLoad={(e) => measure(src, e.currentTarget)} />
               </button>
             ))}
           </figcaption>
