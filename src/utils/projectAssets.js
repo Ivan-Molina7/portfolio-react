@@ -7,10 +7,10 @@ import { ICONS, LOGOS, SHOTS } from './assets';
 export const PROJECT_ORDER = [9, 7, 2, 8, 1, 6, 3, 4, 5, 10];
 
 // id de projectsData -> clave en SHOTS / LOGOS. Sin entrada = sin captura ni logo todavía.
-const ASSET_KEY = { 1: 'gap', 2: 'nbc', 3: 'havanna', 4: 'culpadel', 5: 'worldgym', 6: 'sandbox', 7: 'tuy', 8: 'wu' };
+const ASSET_KEY = { 1: 'gap', 2: 'nbc', 3: 'havanna', 4: 'culpadel', 5: 'worldgym', 6: 'sandbox', 7: 'tuy', 8: 'wu', 9: 'ft', 10: 'ms' };
 
-// TODO: Facu Trainer y MegaStrong no tienen logo ni capturas: se muestran las iniciales.
-export const INITIALS = { 9: 'FT', 10: 'MS' };
+// Iniciales para los proyectos sin logo. Hoy todos tienen logo; queda para cuando se sume uno sin él.
+export const INITIALS = {};
 
 export const shotsOf = (id) => (ASSET_KEY[id] && SHOTS[ASSET_KEY[id]]) || [];
 export const logoOf = (id) => (ASSET_KEY[id] && LOGOS[ASSET_KEY[id]]) || null;
@@ -21,5 +21,6 @@ const TECH_ICON = {
   Tailwind: 'tailwind', bootstrap: 'bootstrap', 'Node.js': 'node', MongoDB: 'mongo',
   Supabase: 'supabase', 'TanStack Query': 'tanstack', Zustand: 'zustand', 'Claude AI': 'claude',
   GitHub: 'github', Figma: 'figma', Photoshop: 'ps', Illustrator: 'ai',
+  'Next.js': 'next', Vite: 'vite', Netlify: 'netlify', 'shadcn/ui': 'shadcn', TypeScript: 'typescript',
 };
 export const techIcon = (name) => (TECH_ICON[name] ? ICONS[TECH_ICON[name]].gray : null);

@@ -38,6 +38,16 @@ import i_ps_g from '../assets/img/_norm/icons/ps-g.webp'
 import i_ps_c from '../assets/img/_norm/icons/ps-c.webp'
 import i_ai_g from '../assets/img/_norm/icons/ai-g.webp'
 import i_ai_c from '../assets/img/_norm/icons/ai-c.webp'
+import i_next_g from '../assets/img/_norm/icons/next-g.webp'
+import i_next_c from '../assets/img/_norm/icons/next-c.webp'
+import i_vite_g from '../assets/img/_norm/icons/vite-g.webp'
+import i_vite_c from '../assets/img/_norm/icons/vite-c.webp'
+import i_netlify_g from '../assets/img/_norm/icons/netlify-g.webp'
+import i_netlify_c from '../assets/img/_norm/icons/netlify-c.webp'
+import i_shadcn_g from '../assets/img/_norm/icons/shadcn-g.webp'
+import i_shadcn_c from '../assets/img/_norm/icons/shadcn-c.webp'
+import i_typescript_g from '../assets/img/_norm/icons/typescript-g.webp'
+import i_typescript_c from '../assets/img/_norm/icons/typescript-c.webp'
 import l_tuy from '../assets/img/_norm/logos/tuy.webp'
 import l_nbc from '../assets/img/_norm/logos/nbc.webp'
 import l_wu from '../assets/img/_norm/logos/wu.webp'
@@ -46,6 +56,8 @@ import l_sandbox from '../assets/img/_norm/logos/sandbox.webp'
 import l_havanna from '../assets/img/_norm/logos/havanna.webp'
 import l_culpadel from '../assets/img/_norm/logos/culpadel.webp'
 import l_worldgym from '../assets/img/_norm/logos/worldgym.webp'
+import l_ft from '../assets/img/_norm/logos/ft.webp'
+import l_ms from '../assets/img/_norm/logos/ms.webp'
 import a_iti from '../assets/img/_norm/about/iti.webp'
 import a_bios from '../assets/img/_norm/about/bios.webp'
 import a_ort from '../assets/img/_norm/about/ort.webp'
@@ -67,6 +79,15 @@ import s_sandbox2 from '../assets/img/_norm/shots/sandbox-2.webp'
 import s_sandbox3 from '../assets/img/_norm/shots/sandbox-3.webp'
 import s_worldgym1 from '../assets/img/_norm/shots/worldgym-1.webp'
 import s_worldgym2 from '../assets/img/_norm/shots/worldgym-2.webp'
+import s_ft1 from '../assets/img/_norm/shots/ft-1.webp'
+import s_ft2 from '../assets/img/_norm/shots/ft-2.webp'
+import s_ft3 from '../assets/img/_norm/shots/ft-3.webp'
+import s_ms1 from '../assets/img/_norm/shots/ms-1.webp'
+import s_ms2 from '../assets/img/_norm/shots/ms-2.webp'
+import s_ms3 from '../assets/img/_norm/shots/ms-3.webp'
+import s_ms4 from '../assets/img/_norm/shots/ms-4.webp'
+import s_ms5 from '../assets/img/_norm/shots/ms-5.webp'
+import s_ms6 from '../assets/img/_norm/shots/ms-6.webp'
 import so_github from '../assets/img/_norm/social/github.webp'
 import so_behance from '../assets/img/_norm/social/behance.webp'
 import so_linkedin from '../assets/img/_norm/social/linkedin.webp'
@@ -92,6 +113,13 @@ export const ICONS = {
   figma: { gray: i_figma_g, color: i_figma_c },
   ps: { gray: i_ps_g, color: i_ps_c },
   ai: { gray: i_ai_g, color: i_ai_c },
+  // next, vite y netlify: marcas monocromo blancas, gris y color son la misma imagen
+  next: { gray: i_next_g, color: i_next_c },
+  vite: { gray: i_vite_g, color: i_vite_c },
+  netlify: { gray: i_netlify_g, color: i_netlify_c },
+  // shadcn: blanco puro (gris == color). typescript: la versión gris sale por luminancia de la de color
+  shadcn: { gray: i_shadcn_g, color: i_shadcn_c },
+  typescript: { gray: i_typescript_g, color: i_typescript_c },
 }
 
 export const LOGOS = {
@@ -103,6 +131,8 @@ export const LOGOS = {
   havanna: l_havanna,
   culpadel: l_culpadel,
   worldgym: l_worldgym,
+  ft: l_ft,
+  ms: l_ms,
 }
 
 export const ABOUT = {
@@ -119,6 +149,8 @@ export const SHOTS = {
   culpadel: [s_culpadel1, s_culpadel2, s_culpadel3],
   sandbox: [s_sandbox1, s_sandbox2, s_sandbox3],
   worldgym: [s_worldgym1, s_worldgym2],
+  ft: [s_ft1, s_ft2, s_ft3],
+  ms: [s_ms1, s_ms2, s_ms3, s_ms4, s_ms5, s_ms6],
   // Externas (Cloudinary): no pasan por normalize_assets.py
   wu: [
     'https://res.cloudinary.com/dh0zbhnqq/image/upload/v1777256814/Screenshot_559_mkcgth.png',

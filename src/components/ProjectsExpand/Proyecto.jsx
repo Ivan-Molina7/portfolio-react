@@ -198,6 +198,7 @@ function Proyecto() {
           descripcion={getTextFromKey(texts, proyecto.descripcionKey)}
           sitio={proyecto.sitio}
           sitioLink={proyecto.sitioLink}
+          sitioDemo={proyecto.sitioDemo}
           behance={proyecto.behance}
           behanceLink={proyecto.behanceLink}
           shots={shotsOf(pid)}

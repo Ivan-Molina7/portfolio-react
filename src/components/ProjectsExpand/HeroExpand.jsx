@@ -5,7 +5,7 @@ import { prefersReducedMotion } from '../../utils/motion';
 const pad = (n) => String(n).padStart(2, '0');
 
 // Hero del detalle: bloque de texto (.det-txt, el que sigue la cápsula del fondo) y marco de la obra.
-function HeroExpand({ top, titulo, descripcion, sitio, sitioLink, behance, behanceLink, shots, logo, initials, txtRef }) {
+function HeroExpand({ top, titulo, descripcion, sitio, sitioLink, sitioDemo, behance, behanceLink, shots, logo, initials, txtRef }) {
   const { texts } = useTranslation();
   const t = texts.proyecto;
   const [shot, setShot] = useState(0);
@@ -32,7 +32,7 @@ function HeroExpand({ top, titulo, descripcion, sitio, sitioLink, behance, behan
         <div className="det-cta">
           {sitio && (
             <a className="home-btn home-btn--solid" href={sitioLink} target="_blank" rel="noopener noreferrer">
-              {t.btnVisitar}
+              {sitioDemo ? t.btnDemo : t.btnVisitar}
             </a>
           )}
           {behance && (

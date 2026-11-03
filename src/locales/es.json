@@ -107,6 +107,7 @@
 
   "proyecto": {
     "btnVisitar": "Visitar sitio",
+    "btnDemo": "Ver demo",
     "btnBehance": "Ver en Behance",
     "tipoTrabajo": "Trabajo para cliente",
     "tipoPersonal": "Proyecto personal",
@@ -126,8 +127,8 @@
        "sandbox_descripcion": "Sandbox es un proyecto personal creado como espacio de práctica para desarrollar y probar conceptos de front-end. Sirve como una colección de landings y experimentos donde aplico React, hooks, y patrones comunes en el desarrollo del día a día.",
           "transportes_descripcion": "Sitio web institucional desarrollado para Transportes UY, empresa de alquiler de volquetas, grúas y contenedores en Uruguay. El proyecto abarcó desde el diseño UX/UI hasta la programación completa, con foco en generar confianza, captar clientes y posicionar la marca digitalmente.",
           "wakeup_descripcion": "Wake Up es una aplicación web de seguimiento personal desarrollada de forma independiente, desde el diseño hasta el deploy. Permite registrar hábitos, emociones y calificaciones diarias para descubrir patrones reales sobre la propia vida. El proyecto nació como práctica técnica y terminó siendo una herramienta real con usuarios registrados.",
-    "facutrainer_descripcion": "Facu Trainer es una aplicación web full-stack para un entrenador personal. El administrador gestiona clientes, rutinas y métricas, y cada cliente ve su propia rutina con series, repeticiones, peso, descanso y video de cada ejercicio.",
-    "megastrong_descripcion": "MegaStrong es un sistema de gestión multi-sede para un gimnasio de 4 sedes, con roles de administrador, instructor y cliente. Está en desarrollo y es mi primer proyecto en TypeScript. Lo construyo con Next.js y Supabase.",
+    "facutrainer_descripcion": "Plataforma web para un entrenador personal que reemplaza los PDFs y las capturas de pantalla por una app donde cada cliente ve su rutina desde el celular. Facu gestiona ejercicios, rutinas, clientes y métricas personalizadas desde un panel de administración, y cada cliente entra con su cuenta de Google y ve solo lo suyo: días, ejercicios, series, repeticiones, peso y video explicativo. Incluye una landing pública con SEO y analítica.",
+    "megastrong_descripcion": "App de gestión para un gimnasio de 4 sedes, en desarrollo, pensada para reemplazar las rutinas en papel. El instructor arma rutinas y carga series, repeticiones, peso y descanso por cliente; el cliente la ve en el celular, con la ubicación exacta de cada máquina en su sede. Incluye un panel de administración con roles de admin, instructor y cliente.",
     "enDesarrollo": "En desarrollo"
 
           
@@ -170,13 +171,13 @@
 "wakeup_item2Texto": "Diseñar una experiencia simple y rápida — menos de un minuto al día — que fomente el registro constante sin fricción.",
 "wakeup_item3Texto": "Implementar un modelo de negocio real con plan gratuito, suscripción Premium y pagos recurrentes a través de Mercado Pago.",
 
-    "facutrainer_item1Texto": "Permitir al administrador gestionar clientes, rutinas y métricas desde la misma aplicación, con drag & drop para ordenar días y ejercicios.",
-    "facutrainer_item2Texto": "Mostrar a cada cliente su rutina con las series, repeticiones, peso, descanso y video de cada ejercicio.",
-    "facutrainer_item3Texto": "Controlar quién accede a cada dato mediante login con Google OAuth, roles de administrador y cliente, y políticas RLS.",
+    "facutrainer_item1Texto": "Centralizar la gestión de clientes y rutinas en un panel propio, para que Facu deje de armar y enviar rutinas a mano.",
+    "facutrainer_item2Texto": "Darle a cada cliente acceso simple y seguro a su rutina personalizada, con login de Google y datos protegidos a nivel de base de datos.",
+    "facutrainer_item3Texto": "Construir una base técnica escalable, con un modelo de datos relacional normalizado, para sumar funcionalidades sin rehacer lo existente.",
 
-    "megastrong_item1Texto": "Gestionar las 4 sedes del gimnasio desde un mismo sistema, con roles de administrador, instructor y cliente.",
-    "megastrong_item2Texto": "Mantener un ejercicio base global y asociarlo a cada sede con el número de máquina que le corresponde, para no duplicar ejercicios.",
-    "megastrong_item3Texto": "Armar rutinas a partir de ejercicios en rutina y controlar el acceso a los datos con RLS en Supabase."
+    "megastrong_item1Texto": "Reemplazar la rutina en papel por una experiencia digital pensada para usarse de pie, en el salón, con una mano.",
+    "megastrong_item2Texto": "Dar al instructor un panel para armar rutinas, cargar métricas y gestionar usuarios de las 4 sedes.",
+    "megastrong_item3Texto": "Conectar cada ejercicio con su ubicación física real (máquina y sector) para que el cliente no tenga que preguntar dónde queda algo."
 
   },
 
@@ -251,19 +252,19 @@
 "wakeup_pregunta3": "¿Qué representa Wake Up en tu crecimiento como desarrollador?",
 "wakeup_respuesta3": "Es el proyecto más completo que desarrollé — no solo en código sino en visión de producto. Aprendí a tomar decisiones de arquitectura, diseñar flujos de usuario reales, integrar servicios externos y lanzar algo que usa gente real. Pasé de hacer ejercicios a construir un producto.",
 
-"facutrainer_pregunta1": "¿Cómo fue el proceso de diseño y desarrollo?",
-"facutrainer_respuesta1": "Una de las decisiones centrales fue el modelo de datos: separé EjercicioBase, la biblioteca de ejercicios, de EjercicioEnDia, una tabla puente que une cada ejercicio con un día de la rutina. Sobre esa base armé la aplicación con React, Vite, Supabase, Zustand, TanStack Query y Tailwind, y la desplegué en Netlify.",
-"facutrainer_pregunta2": "¿Qué desafíos técnicos tuvo el proyecto?",
-"facutrainer_respuesta2": "Separar EjercicioBase de EjercicioEnDia permite tener métricas independientes por día para un mismo ejercicio. A eso se sumó la seguridad: roles de administrador y cliente resueltos con la función SQL es_admin(), RLS en 6 tablas y cascadas de borrado con restrict sobre los ejercicios base, que impiden eliminar uno mientras otros registros dependen de él.",
-"facutrainer_pregunta3": "¿Qué representa Facu Trainer en tu crecimiento como desarrollador?",
-"facutrainer_respuesta3": "Es un trabajo para un cliente real y me exigió pensar la aplicación como un sistema: un modelo de datos coherente, permisos por rol y una experiencia distinta para el administrador y para el cliente.",
+"facutrainer_pregunta1": "¿Cómo fue el proceso?",
+"facutrainer_respuesta1": "Arrancó con el relevamiento de lo que Facu necesitaba y un presupuesto cerrado con alcance definido. Después diseñé el modelo de datos, construí el panel admin, la vista de cliente y la landing, y desplegué en Netlify con dominio propio. Fui iterando por módulos y probando el flujo completo de punta a punta: registro, aprobación, asignación de rutina y vista del cliente. Trabajé con Claude como apoyo para revisar decisiones y entender cada patrón en lugar de copiar soluciones.",
+"facutrainer_pregunta2": "¿Qué desafíos técnicos tuvo?",
+"facutrainer_respuesta2": "El principal fue el modelado de datos. Las métricas apuntan a una tabla puente entre día y ejercicio, no al ejercicio base, para que el mismo ejercicio tenga números distintos en cada día y para cada cliente. Otros desafíos fueron las políticas RLS de Supabase para que cada cliente vea solo sus datos, el drag & drop con actualización optimista del orden, y el borrado en cascada controlado, con restrict para evitar eliminaciones accidentales.",
+"facutrainer_pregunta3": "¿Qué rol tuve?",
+"facutrainer_respuesta3": "Fui el único desarrollador: relevamiento, presupuesto, diseño de la base de datos, frontend, autenticación y seguridad, deploy, SEO y analítica. También cerré la implementación con el cliente y preparé el testeo en producción.",
 
-"megastrong_pregunta1": "¿Cómo es el proceso de diseño y desarrollo?",
-"megastrong_respuesta1": "El proyecto está en desarrollo. Lo construyo con Next.js, TypeScript y Supabase, y el modelo de datos y los permisos por rol son el eje del trabajo.",
-"megastrong_pregunta2": "¿Qué desafíos técnicos tiene el proyecto?",
-"megastrong_respuesta2": "Uno de los desafíos es no duplicar ejercicios entre sedes: separé ejercicio_base, que es global, de maquina_sede, que guarda el número de máquina en cada sede. A eso se suman los tres roles (administrador, instructor y cliente), las rutinas con sus ejercicios_en_rutina y las políticas RLS en Supabase.",
-"megastrong_pregunta3": "¿Qué representa MegaStrong en tu crecimiento como desarrollador?",
-"megastrong_respuesta3": "Es mi primer proyecto en TypeScript, así que lo encaro como un aprendizaje: estoy incorporando el tipado a un sistema con varios roles y relaciones entre tablas. Todavía está en desarrollo."
+"megastrong_pregunta1": "¿Qué rol tuviste vos?",
+"megastrong_respuesta1": "Desarrollo full-stack: modelo de datos, autenticación y permisos por rol, lógica de negocio del lado del servidor, y la interfaz final sobre un sistema de diseño.",
+"megastrong_pregunta2": "¿Qué desafíos técnicos tuvo?",
+"megastrong_respuesta2": "Las rutinas se comparten entre varios clientes, así que las métricas (series, peso, descanso) debían guardarse por combinación de cliente y ejercicio dentro de una rutina, no por cliente ni por ejercicio solos. También hubo que resolver seguridad a nivel de fila con Supabase (RLS) para que cada instructor solo vea su sede, y un patrón propio de manejo de errores para que los mensajes lleguen en español también en producción.",
+"megastrong_pregunta3": "¿Cómo fue el proceso?",
+"megastrong_respuesta3": "Se armó en etapas: primero toda la lógica de negocio (roles, rutinas, métricas, ubicaciones) probada a fondo, y después el diseño visual se aplicó en etapas separadas sobre esa base ya funcionando, pantalla por pantalla."
 
   }
 }

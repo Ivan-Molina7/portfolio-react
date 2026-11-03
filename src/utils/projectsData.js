@@ -334,7 +334,6 @@ export const projectsData = [{
   sitioLink: "https://facutrainer.com",
   titulo: "Facu Trainer",
   descripcionKey: "proyecto.facutrainer_descripcion",
-  // TODO: falta el logo de Facu Trainer (la card muestra el título hasta que exista)
   objetivo1Key: "objetivos.facutrainer_item1Texto",
   objetivo2Key: "objetivos.facutrainer_item2Texto",
   objetivo3Key: "objetivos.facutrainer_item3Texto",
@@ -346,21 +345,41 @@ export const projectsData = [{
   respuesta3Key: "proyecto_about.facutrainer_respuesta3",
   tecnologias: [
     {
+      alt: 'HTML'
+    },
+    {
+      alt: 'CSS'
+    },
+    {
+      alt: 'JavaScript'
+    },
+    {
       alt: 'React'
+    },
+    {
+      alt: 'Tailwind'
     },
     {
       alt: 'Supabase'
     },
     {
-      alt: 'Zustand'
-    },
-    {
       alt: 'TanStack Query'
     },
     {
-      alt: 'Tailwind'
+      alt: 'Zustand'
     },
-    // TODO: sin íconos para Vite y Netlify, se listan como texto
+    {
+      alt: 'Figma'
+    },
+    {
+      alt: 'GitHub'
+    },
+    {
+      alt: 'Claude AI'
+    },
+    {
+      alt: 'Next.js'
+    },
     {
       alt: 'Vite'
     },
@@ -368,22 +387,22 @@ export const projectsData = [{
       alt: 'Netlify'
     },
   ],
-  // TODO: agregar capturas de Facu Trainer (sin datos reales de clientes)
 },
 {
   id: 10,
-  tipo: "proyecto",
-  destacado: false,
+  tipo: "proyecto", // proyecto personal por ahora (todavía sin contacto con el gimnasio); se prevé que pase a "trabajo" más adelante. EN DESARROLLO
+  destacado: true,
+  featured: true,
   enDesarrollo: true,
   behance: false,
   behanceLink: "",
   figma: false,
   figmaLink: "",
-  sitio: false,
-  sitioLink: "",
+  sitio: true,
+  sitioDemo: true, // el link es un deploy de prueba en Vercel: el botón dice "Ver demo"
+  sitioLink: "https://megastrong-teal.vercel.app/",
   titulo: "MegaStrong",
   descripcionKey: "proyecto.megastrong_descripcion",
-  // TODO: falta el logo de MegaStrong (la card muestra el título hasta que exista)
   objetivo1Key: "objetivos.megastrong_item1Texto",
   objetivo2Key: "objetivos.megastrong_item2Texto",
   objetivo3Key: "objetivos.megastrong_item3Texto",
@@ -393,18 +412,35 @@ export const projectsData = [{
   respuesta2Key: "proyecto_about.megastrong_respuesta2",
   pregunta3Key: "proyecto_about.megastrong_pregunta3",
   respuesta3Key: "proyecto_about.megastrong_respuesta3",
+  // TypeScript, shadcn/ui y React Hook Form no tienen ícono normalizado: se listan como mosaico de texto
   tecnologias: [
-    {
-      alt: 'Supabase'
-    },
-    // TODO: sin íconos para Next.js y TypeScript, se listan como texto
     {
       alt: 'Next.js'
     },
     {
+      alt: 'React'
+    },
+    {
       alt: 'TypeScript'
     },
+    {
+      alt: 'Tailwind'
+    },
+    {
+      alt: 'shadcn/ui'
+    },
+    {
+      alt: 'Supabase'
+    },
+    {
+      alt: 'TanStack Query'
+    },
+    {
+      alt: 'Zustand'
+    },
+    {
+      alt: 'React Hook Form'
+    },
   ],
-  // TODO: agregar capturas de MegaStrong (solo con datos ficticios)
 },
 ];
