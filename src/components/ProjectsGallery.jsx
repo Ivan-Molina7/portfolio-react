@@ -7,7 +7,7 @@ import { prefersReducedMotion } from "../utils/motion";
 
 const OUT_MS = 230; // salida de las cards al filtrar (la transición CSS dura 220ms)
 
-// Los 10 proyectos en el orden de la galería. Los 3 primeros son tipo "trabajo"; "Destacado" sale de `featured`.
+// Los 10 proyectos en el orden de PROJECT_ORDER (utils/projectAssets.js). "Destacado" sale de `featured`.
 const PROJECTS = PROJECT_ORDER.map((id) => projectsData.find((p) => p.id === id));
 const FILTERS = ["all", "trabajo", "proyecto"];
 const matches = (p, f) => f === "all" || p.tipo === f;

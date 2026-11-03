@@ -164,9 +164,10 @@ html[data-shown="0"] #hero {
   margin: 0;
 }
 .proj-head { margin: 0 0 24px; }
+// Dos grupos de 3 cards: columnas iguales (antes 3fr / 2fr, cuando el segundo grupo tenía 2 cards).
 .proj-groups {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 1fr;
   column-gap: 48px;
 }
 .proj-label {
@@ -191,7 +192,6 @@ html[data-shown="0"] #hero {
 }
 .proj-row { display: grid; gap: 18px; }
 .proj-row--3 { grid-template-columns: repeat(3, 1fr); }
-.proj-row--2 { grid-template-columns: repeat(2, 1fr); }
 
 .pcard {
   position: relative;
@@ -307,11 +307,14 @@ html[data-shown="1"] #proyectos {
   .proj-row--3 .pcard:nth-child(1) { animation-delay: .32s; }
   .proj-row--3 .pcard:nth-child(2) { animation-delay: .4s; }
   .proj-row--3 .pcard:nth-child(3) { animation-delay: .48s; }
-  .proj-row--2 .pcard:nth-child(1) { animation-delay: .56s; }
-  .proj-row--2 .pcard:nth-child(2) { animation-delay: .64s; }
+  .proj-row--second .pcard:nth-child(1) { animation-delay: .56s; }
+  .proj-row--second .pcard:nth-child(2) { animation-delay: .64s; }
+  .proj-row--second .pcard:nth-child(3) { animation-delay: .72s; }
 }
 
-@media (max-width: 900px) {
+// Con columnas iguales y 3 cards por grupo, por debajo de 1100px cada card quedaría de ~120-150px y el botón no entra:
+// los grupos se apilan (3 cards por fila a ancho completo).
+@media (max-width: 1100px) {
   .proj-groups { grid-template-columns: 1fr; row-gap: 24px; }
 }
 // Mobile: dos cards por fila, con las mismas columnas, gap y proporción (276px de alto) que la galería
@@ -326,7 +329,7 @@ html[data-shown="1"] #proyectos {
   .hero-open__loc::before { display: none; }
   #proyectos .home-wrap { padding-top: 88px; padding-bottom: 120px; }
   .proj-groups { row-gap: 40px; }
-  .proj-row--3, .proj-row--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .proj-row--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .pcard { aspect-ratio: auto; height: 276px; min-width: 0; }
   // "Ver más" junto al título (no hay uno por grupo): en la misma línea, sobre su línea base y a la derecha
   .proj-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; }
@@ -337,7 +340,7 @@ html[data-shown="1"] #proyectos {
 @media (max-width: 400px) {
   // el título se achica para que "Ver más" entre en su misma línea (a 375px: 41px -> 31px)
   .proj-title { font-size: clamp(1.8rem, 8.4vw, 2.6rem); }
-  .proj-row--3, .proj-row--2 { gap: 12px; }
+  .proj-row--3 { gap: 12px; }
   .pcard { padding: 14px 10px 18px; }
   .pcard__btn { padding: 8px 12px; letter-spacing: .1em; }
 }

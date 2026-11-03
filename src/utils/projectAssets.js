@@ -2,9 +2,10 @@
 // acá se resuelven las capturas, los logos y los íconos desde assets.js (versiones normalizadas).
 import { ICONS, LOGOS, SHOTS } from './assets';
 
-// Orden de anterior/siguiente: el de la galería (los 10 proyectos).
-// Facu Trainer, Transportes UY, NBC Cargo, Wake Up, Progreso, Sandbox, Havanna, CulPadel, WorldGym, MegaStrong.
-export const PROJECT_ORDER = [9, 7, 2, 8, 1, 6, 3, 4, 5, 10];
+// Orden interno de los 10 proyectos: es el de la galería y el de anterior/siguiente en el detalle (no se muestra
+// ni se rotula en la interfaz).
+// MegaStrong, Wake Up, Progreso, Sandbox, Facu Trainer, Transportes UY, NBC Cargo, Havanna, CulPadel, WorldGym.
+export const PROJECT_ORDER = [10, 8, 1, 6, 9, 7, 2, 3, 4, 5];
 
 // id de projectsData -> clave en SHOTS / LOGOS. Sin entrada = sin captura ni logo todavía.
 const ASSET_KEY = { 1: 'gap', 2: 'nbc', 3: 'havanna', 4: 'culpadel', 5: 'worldgym', 6: 'sandbox', 7: 'tuy', 8: 'wu', 9: 'ft', 10: 'ms' };

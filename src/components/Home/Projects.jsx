@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import useTranslation from "../../hooks/useTranslation";
 import { LOGOS } from "../../utils/assets";
 
-// Orden fijo del diseño. ids de projectsData: Facu Trainer 9, Transportes UY 7,
-// NBC Cargo 2, Wake Up Tracker 8, Club Atlético Progreso 1.
-// TODO: Facu Trainer no tiene logo todavía; se muestran las iniciales "FT".
+// Orden fijo del diseño. ids de projectsData: Facu Trainer 9, Transportes UY 7, NBC Cargo 2;
+// MegaStrong 10, Wake Up Tracker 8, Club Atlético Progreso 1.
 const TRABAJOS = [
-  { id: 9, name: "Facu Trainer", initials: "FT", featured: true },
+  { id: 9, name: "Facu Trainer", logo: LOGOS.ft, featured: true },
   { id: 7, name: "Transportes UY", logo: LOGOS.tuy },
   { id: 2, name: "NBC Cargo", logo: LOGOS.nbc },
 ];
 const PERSONALES = [
+  { id: 10, name: "MegaStrong", logo: LOGOS.ms, featured: true },
   // dim: el logo normalizado es oscuro (brillo medio ~83/255) y se lee flojo sobre el fondo.
   // TODO: reemplazar el archivo por una versión más clara y sacar el filtro.
   { id: 8, name: "Wake Up Tracker", logo: LOGOS.wu, featured: true, dim: true },
@@ -52,7 +52,7 @@ function Projects() {
           </section>
           <section>
             <h3 className="proj-label">{texts.proyectos.proyectosPersonalesTitulo}</h3>
-            <div className="proj-row proj-row--2">
+            <div className="proj-row proj-row--3 proj-row--second">
               {PERSONALES.map((p) => <Card key={p.id} p={p} texts={texts} />)}
             </div>
           </section>
