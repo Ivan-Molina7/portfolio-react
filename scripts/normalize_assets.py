@@ -16,7 +16,7 @@ Genera (todo .webp, con transparencia donde corresponde):
 Si un archivo de origen no existe, lo informa y sigue (no inventa nada).
 """
 import argparse, io, os, sys
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageOps
 
 def save_webp(im, path, q=88):
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -58,19 +58,39 @@ TOOLS = {
     'tanstack': ('tanstack-G.png', 'tanstack.png'), 'zustand': ('Zustand-G.png', 'Zustand.png'),
     'claude': ('Claude-G.png', 'Claude.png'), 'github': ('github.png', None), 'wordpress': ('wordpress.webp', 'wordpress.webp'),
     'woo': ('woo.png', 'woo.png'), 'figma': ('figma.png', 'figma.png'), 'ps': ('ps.png', 'ps.png'), 'ai': ('ai.png', 'ai.png'),
+    # next, vite y netlify: solo el símbolo, en blanco, y solo existen en LogoColores/ (gris y color salen del mismo archivo)
+    'next': ('LogoColores/next.png', 'next.png'), 'vite': ('LogoColores/vite.png', 'vite.png'),
+    'netlify': ('LogoColores/netlify.png', 'netlify.png'),
+    # shadcn: blanco puro (gris == color). typescript: viene a color (azul con TS blanco); tercer valor 'gray' = la versión
+    # gris se genera por luminancia a partir del archivo de color (mismo método que los logos de Facu Trainer y MegaStrong)
+    'shadcn': ('LogoColores/shadcn.png', 'shadcn.png'),
+    'typescript': ('LogoColores/typescript.png', 'typescript.png', 'gray'),
 }
 LOGOS = {  # clave -> (archivo, caja max w, caja max h)
     'tuy': ('transportes-G.png', 300, 150), 'nbc': ('NBC.png', 300, 150), 'wu': ('WakeUp-G.png', 170, 170),
     'gap': ('CAP.png', 300, 150), 'sandbox': ('Sandbox.png', 170, 170), 'havanna': ('Havanna.png', 300, 150),
     'culpadel': ('CulPadel.png', 300, 150), 'worldgym': ('WorldGym.png', 300, 150),
+    # cuarto valor 'gray': el original viene a color y se pasa a gris (luminancia, conserva la transparencia)
+    'ft': ('facuTrainer.png', 170, 170, 'gray'),
+    'ms': ('Megastrong.png', 170, 170, 'gray'),  # MegaStrong: emblema blanco con arco rojo, a color en el original
 }
 ABOUT = {'iti': 'iti.png', 'bios': 'bios.png', 'ort': 'ort.png', 'udemy': 'Udemy.webp'}
 SHOTS = {  # clave -> (carpeta en proyectos/, nombres sin extension en orden; Home primero)
     'nbc': ('Nbc', ['Home', '2', '3']), 'gap': ('Progreso', ['Home', 'directiva', 'noticias']),
     'havanna': ('Havanna', ['Home', '2', '3']), 'culpadel': ('culPadel', ['Home', '2', '3']),
     'sandbox': ('Sandbox', ['Home', '2', 'e']), 'worldgym': ('worldGym', ['Home', '2']),
-}  # sin carpeta de capturas: tuy, wu, ft (Facu Trainer), ms (MegaStrong)
+    'ft': ('FacuTrainer', ['Home', '2', '3']),
+    # MegaStrong: primero las 3 de celular (rutina del cliente, ejercicio con video, mapa) y después las 3 del panel
+    # (ejercicios, ubicaciones, métricas de un usuario). Los archivos originales se llaman 1..6 sin ese orden.
+    'ms': ('MegaStrong', ['4', '5', '6', '1', '2', '3']),
+}  # sin carpeta de capturas: tuy, wu (usan imágenes externas)
 SOCIAL = ['github', 'behance', 'linkedin']
+
+def to_gray(im):
+    """Luminancia (ITU-R 601, la de Pillow) conservando el canal alfa."""
+    g = ImageOps.grayscale(im.convert('RGB')).convert('RGBA')
+    g.putalpha(im.split()[-1])
+    return g
 
 def remove_white_bg(im, thresh=38):
     """Quita el blanco conectado a los bordes (no toca blancos interiores del logo)."""
@@ -93,19 +113,25 @@ def main():
     a = ap.parse_args()
     total, missing = 0, []
 
-    for key, (g, c) in TOOLS.items():
+    for key, (g, c, *opts) in TOOLS.items():
         for suffix, fname in (('g', g), ('c', c or g)):
             p = find(a.src, 'habilidades', [fname]) if suffix == 'g' else (
                 find(a.src, 'habilidades/LogoColores', [fname]) if c else find(a.src, 'habilidades', [fname]))
             if not p:
                 missing.append(f'icons/{key}-{suffix} <- {fname}'); continue
-            im = on_canvas(contain(trim(open_rgba(p)), 112, 112, upscale=True), 128)
+            im = open_rgba(p)
+            if suffix == 'g' and 'gray' in opts:
+                im = to_gray(im)
+            im = on_canvas(contain(trim(im), 112, 112, upscale=True), 128)
             total += save_webp(im, os.path.join(a.out, 'icons', f'{key}-{suffix}.webp'))
 
-    for key, (fname, bw, bh) in LOGOS.items():
+    for key, (fname, bw, bh, *opts) in LOGOS.items():
         p = find(a.src, 'LogosProyectos', [fname])
         if not p: missing.append(f'logos/{key} <- {fname}'); continue
-        total += save_webp(contain(trim(open_rgba(p)), bw, bh), os.path.join(a.out, 'logos', f'{key}.webp'))
+        im = open_rgba(p)
+        if 'gray' in opts:
+            im = to_gray(im)
+        total += save_webp(contain(trim(im), bw, bh), os.path.join(a.out, 'logos', f'{key}.webp'))
 
     for key, fname in ABOUT.items():
         p = find(a.src, 'about', [fname])
