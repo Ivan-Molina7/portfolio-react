@@ -48,9 +48,9 @@
 },
   "about": {
     "titulo": "Sobre mí",
-    "parrafo1": "Hola, soy Iván Molina, diseñador UX/UI y programador front-end con base en Montevideo, Uruguay. Me interesa el diseño que se ve bien, funciona bien y, sobre todo, mejora la experiencia de quienes lo usan. Me gusta entender cada proyecto como un proceso de aprendizaje, donde puedo crecer, afinar mi mirada y acercarme, paso a paso, al nivel profesional que admiro.",
+    "parrafo1": "Hola, soy Iván Molina, desarrollador full stack con base de diseño, en Montevideo, Uruguay. Me interesa el diseño que se ve bien, funciona bien y, sobre todo, mejora la experiencia de quienes lo usan. Me gusta entender cada proyecto como un proceso de aprendizaje, donde puedo crecer, afinar mi mirada y acercarme, paso a paso, al nivel profesional que admiro.",
     "extraTitulo": "Extra",
-    "parrafo2": "Además del diseño y la programación, me interesa la forma en que nos relacionamos como equipo. Valoro la comunicación clara, el respeto por las ideas del otro y la creación de entornos donde cada persona pueda aportar lo mejor de sí. Me importa trabajar con compromiso, mantener la calma en los momentos clave y empujar hacia adelante con actitud, pero siempre construyendo desde el entendimiento y la colaboración.",
+    "parrafo2": "Además del diseño y la programación, me interesa cómo se trabaja en equipo. Valoro la comunicación clara, el respeto por las ideas del otro y la creación de entornos donde cada persona pueda aportar lo mejor de sí. Me importa trabajar con compromiso, mantener la calma en los momentos clave y empujar hacia adelante con actitud, pero siempre construyendo desde el entendimiento y la colaboración.",
     "expandir": "Expandir"
   },
 
@@ -125,7 +125,7 @@
     "culPadel_descripcion": "CulPadel fue un ejercicio final de la facultad donde creamos una imagen corporativa y un sitio web para reservar canchas y salones, elegir fecha, turno y método de pago, representando toda la información proporcionada.",
     "worldGym_descripcion": "WorldGym es un proyecto que utiliza APIs públicas para ofrecer una experiencia dinámica donde puedes crear y gestionar rutinas personalizadas para principiantes e intermedios, guardar ejercicios favoritos y adaptarlos según tus necesidades.",
        "sandbox_descripcion": "Sandbox es un proyecto personal creado como espacio de práctica para desarrollar y probar conceptos de front-end. Sirve como una colección de landings y experimentos donde aplico React, hooks, y patrones comunes en el desarrollo del día a día.",
-          "transportes_descripcion": "Sitio web institucional desarrollado para Transportes UY, empresa de alquiler de volquetas, grúas y contenedores en Uruguay. El proyecto abarcó desde el diseño UX/UI hasta la programación completa, con foco en generar confianza, captar clientes y posicionar la marca digitalmente.",
+          "transportes_descripcion": "Sitio web institucional desarrollado para Transportes UY, empresa de alquiler de volquetas, grúas y contenedores en Uruguay. El proyecto abarcó desde el diseño UX/UI hasta la programación completa, con foco en generar confianza, captar clientes y posicionar la marca digitalmente. Hoy el sitio aparece entre los primeros resultados en búsquedas relacionadas al rubro en Montevideo, junto a competidores con un posicionamiento ya establecido.",
           "wakeup_descripcion": "Wake Up es una aplicación web de seguimiento personal desarrollada de forma independiente, desde el diseño hasta el deploy. Permite registrar hábitos, emociones y calificaciones diarias para descubrir patrones reales sobre la propia vida. El proyecto nació como práctica técnica y terminó siendo una herramienta real con usuarios registrados.",
     "facutrainer_descripcion": "Plataforma web para un entrenador personal que reemplaza los PDFs y las capturas de pantalla por una app donde cada cliente ve su rutina desde el celular. Facu gestiona ejercicios, rutinas, clientes y métricas personalizadas desde un panel de administración, y cada cliente entra con su cuenta de Google y ve solo lo suyo: días, ejercicios, series, repeticiones, peso y video explicativo. Incluye una landing pública con SEO y analítica.",
     "megastrong_descripcion": "App de gestión multisede para gimnasios, en desarrollo, pensada para reemplazar las rutinas en papel y para funcionar con cualquier cantidad de sedes. El instructor arma rutinas y carga series, repeticiones, peso y descanso por cliente; el cliente la ve en el celular, con la ubicación exacta de cada máquina en su sede. Incluye un panel de administración con roles de admin, instructor y cliente.",
@@ -165,7 +165,7 @@
 
     "transportes_item1Texto": "Crear una presencia digital profesional que refleje la escala y trayectoria de la empresa en el rubro del transporte pesado.",
   "transportes_item2Texto": "Diseñar una experiencia clara y directa que facilite el contacto y la cotización de servicios por parte de empresas y particulares.",
-  "transportes_item3Texto": "Posicionar el sitio en búsquedas locales mediante SEO básico, destacando los servicios principales como alquiler de volquetas, hidrogrúas y contenedores.",
+  "transportes_item3Texto": "Posicionar el sitio entre los primeros resultados en búsquedas relacionadas al rubro en Montevideo, compitiendo con marcas que ya tenían SEO consolidado — no solo apareciendo por el nombre de la empresa.",
 
   "wakeup_item1Texto": "Construir un tracker personal completo que cruce datos de hábitos, emociones y puntajes para generar insights reales sobre el comportamiento del usuario.",
 "wakeup_item2Texto": "Diseñar una experiencia simple y rápida — menos de un minuto al día — que fomente el registro constante sin fricción.",

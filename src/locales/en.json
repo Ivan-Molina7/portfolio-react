@@ -47,9 +47,9 @@
 },
   "about": {
     "titulo": "About me",
-    "parrafo1": "Hello, I am Iván Molina, a UX/UI designer and front-end developer based in Montevideo, Uruguay. I am interested in design that not only looks good but also works well and, above all, improves the experience of those who use it. I like to understand each project as a learning process, where I can grow, refine my perspective, and gradually approach the professional level I admire.",
+    "parrafo1": "Hello, I am Iván Molina, a full stack developer with a design background, based in Montevideo, Uruguay. I am interested in design that looks good, works well and, above all, improves the experience of the people who use it. I like to see each project as a learning process where I can grow, sharpen my eye and get closer, step by step, to the professional level I admire.",
     "extraTitulo": "Extra",
-    "parrafo2": "Besides design and programming, I am interested in how we relate as a team. I value clear communication, respect for others' ideas, and creating environments where everyone can contribute their best. I care about working with commitment, staying calm in key moments, and pushing forward with attitude, always building from understanding and collaboration.",
+    "parrafo2": "Besides design and programming, I am interested in how teams work together. I value clear communication, respect for others' ideas, and creating environments where everyone can contribute their best. I care about working with commitment, staying calm in key moments, and pushing forward with attitude, always building from understanding and collaboration.",
     "expandir": "Expand"
   },
 
@@ -133,7 +133,7 @@
 
     "sandbox_descripcion": "Sandbox is a personal project created as a practice space to develop and test front-end concepts. It serves as a collection of landing pages and experiments where I apply React, hooks, and common patterns used in everyday development.",
 
-    "transportes_descripcion": "Institutional website developed for Transportes UY, a dump truck, crane and container rental company in Uruguay. The project covered everything from UX/UI design to full development, focused on building trust, attracting clients, and positioning the brand digitally.",
+    "transportes_descripcion": "Institutional website developed for Transportes UY, a dump truck, crane and container rental company in Uruguay. The project covered everything from UX/UI design to full development, focused on building trust, attracting clients and positioning the brand digitally. Today the site appears among the top results for industry-related searches in Montevideo, alongside competitors with well-established rankings.",
 
     "wakeup_descripcion": "Wake Up is a personal tracking web app developed independently, from design to deployment. It allows users to log habits, emotions, and daily scores to discover real patterns about their own lives. The project started as a technical practice and ended up becoming a real tool with registered users.",
     "facutrainer_descripcion": "A web platform for a personal trainer that replaces PDFs and screenshots with an app where each client sees their routine from their phone. Facu manages exercises, routines, clients and custom metrics from an admin panel, and each client signs in with their Google account and sees only their own data: days, exercises, sets, reps, weight and an explanatory video. It includes a public landing page with SEO and analytics.",
@@ -173,7 +173,7 @@
 
     "transportes_item1Texto": "Build a professional digital presence that reflects the company's scale and track record in the heavy transport industry.",
     "transportes_item2Texto": "Design a clear and direct experience that makes it easy for businesses and individuals to contact the company and request quotes.",
-    "transportes_item3Texto": "Position the site in local search results through basic SEO, highlighting key services such as dump truck rental, cranes, and containers.",
+    "transportes_item3Texto": "Rank among the top results for industry-related searches in Montevideo, competing with brands that already had established SEO — not just showing up for the company name.",
 
     "wakeup_item1Texto": "Build a complete personal tracker that cross-references habit, emotion, and score data to generate real insights about user behavior.",
 "wakeup_item2Texto": "Design a simple and fast experience — under one minute per day — that encourages consistent logging without friction.",
