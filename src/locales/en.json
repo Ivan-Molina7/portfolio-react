@@ -137,7 +137,7 @@
 
     "wakeup_descripcion": "Wake Up is a personal tracking web app developed independently, from design to deployment. It allows users to log habits, emotions, and daily scores to discover real patterns about their own lives. The project started as a technical practice and ended up becoming a real tool with registered users.",
     "facutrainer_descripcion": "A web platform for a personal trainer that replaces PDFs and screenshots with an app where each client sees their routine from their phone. Facu manages exercises, routines, clients and custom metrics from an admin panel, and each client signs in with their Google account and sees only their own data: days, exercises, sets, reps, weight and an explanatory video. It includes a public landing page with SEO and analytics.",
-    "megastrong_descripcion": "A management app for a four-branch gym, currently in development, designed to replace paper routines. The instructor builds routines and enters sets, reps, weight and rest for each client; the client views it on their phone, with the exact location of each machine at their branch. It includes an admin panel with admin, instructor and client roles.",
+    "megastrong_descripcion": "A multi-branch management app for gyms, currently in development, designed to replace paper routines and to work with any number of branches. The instructor builds routines and enters sets, reps, weight and rest for each client; the client views it on their phone, with the exact location of each machine at their branch. It includes an admin panel with admin, instructor and client roles.",
     "enDesarrollo": "In development"
 
 
@@ -184,7 +184,7 @@
     "facutrainer_item3Texto": "Build a scalable technical foundation with a normalized relational data model, so new features can be added without rebuilding what already exists.",
 
     "megastrong_item1Texto": "Replace the paper routine with a digital experience designed to be used standing up, on the gym floor, with one hand.",
-    "megastrong_item2Texto": "Give the instructor a panel to build routines, enter metrics and manage users across the four branches.",
+    "megastrong_item2Texto": "Give the instructor a panel to build routines, enter metrics and manage users across any number of branches.",
     "megastrong_item3Texto": "Connect each exercise to its real physical location (machine and area) so clients don't have to ask where something is."
   },
   "tecnologias": {

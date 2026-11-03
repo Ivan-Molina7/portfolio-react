@@ -128,7 +128,7 @@
           "transportes_descripcion": "Sitio web institucional desarrollado para Transportes UY, empresa de alquiler de volquetas, grúas y contenedores en Uruguay. El proyecto abarcó desde el diseño UX/UI hasta la programación completa, con foco en generar confianza, captar clientes y posicionar la marca digitalmente.",
           "wakeup_descripcion": "Wake Up es una aplicación web de seguimiento personal desarrollada de forma independiente, desde el diseño hasta el deploy. Permite registrar hábitos, emociones y calificaciones diarias para descubrir patrones reales sobre la propia vida. El proyecto nació como práctica técnica y terminó siendo una herramienta real con usuarios registrados.",
     "facutrainer_descripcion": "Plataforma web para un entrenador personal que reemplaza los PDFs y las capturas de pantalla por una app donde cada cliente ve su rutina desde el celular. Facu gestiona ejercicios, rutinas, clientes y métricas personalizadas desde un panel de administración, y cada cliente entra con su cuenta de Google y ve solo lo suyo: días, ejercicios, series, repeticiones, peso y video explicativo. Incluye una landing pública con SEO y analítica.",
-    "megastrong_descripcion": "App de gestión para un gimnasio de 4 sedes, en desarrollo, pensada para reemplazar las rutinas en papel. El instructor arma rutinas y carga series, repeticiones, peso y descanso por cliente; el cliente la ve en el celular, con la ubicación exacta de cada máquina en su sede. Incluye un panel de administración con roles de admin, instructor y cliente.",
+    "megastrong_descripcion": "App de gestión multisede para gimnasios, en desarrollo, pensada para reemplazar las rutinas en papel y para funcionar con cualquier cantidad de sedes. El instructor arma rutinas y carga series, repeticiones, peso y descanso por cliente; el cliente la ve en el celular, con la ubicación exacta de cada máquina en su sede. Incluye un panel de administración con roles de admin, instructor y cliente.",
     "enDesarrollo": "En desarrollo"
 
           
@@ -176,7 +176,7 @@
     "facutrainer_item3Texto": "Construir una base técnica escalable, con un modelo de datos relacional normalizado, para sumar funcionalidades sin rehacer lo existente.",
 
     "megastrong_item1Texto": "Reemplazar la rutina en papel por una experiencia digital pensada para usarse de pie, en el salón, con una mano.",
-    "megastrong_item2Texto": "Dar al instructor un panel para armar rutinas, cargar métricas y gestionar usuarios de las 4 sedes.",
+    "megastrong_item2Texto": "Dar al instructor un panel para armar rutinas, cargar métricas y gestionar usuarios de cualquier cantidad de sedes.",
     "megastrong_item3Texto": "Conectar cada ejercicio con su ubicación física real (máquina y sector) para que el cliente no tenga que preguntar dónde queda algo."
 
   },
